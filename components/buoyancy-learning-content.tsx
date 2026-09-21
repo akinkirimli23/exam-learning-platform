@@ -25,12 +25,14 @@ import {
   gradeBuoyancyQuestion,
   summarizeIncorrectConcepts,
 } from '@/shared/content/physics/buoyancy';
+import { getBuoyancyMedia } from '@/shared/content/physics/buoyancy/media';
+import { LearningVideo } from './learning-media';
 
 export function BuoyancyLearningPage({
   tab,
   topic,
 }: {
-  tab: 'kartlar' | 'testler';
+  tab: 'izle' | 'kartlar' | 'testler';
   topic: ContentDTO;
 }) {
   const tabs = [
@@ -59,7 +61,9 @@ export function BuoyancyLearningPage({
           </Link>
         ))}
       </nav>
-      {tab === 'kartlar' ? <BuoyancyFlashcards /> : <BuoyancyQuiz />}
+      {tab === 'izle' && <div className="media-list"><LearningVideo item={getBuoyancyMedia('video')} /></div>}
+      {tab === 'kartlar' && <BuoyancyFlashcards />}
+      {tab === 'testler' && <BuoyancyQuiz />}
     </>
   );
 }

@@ -136,3 +136,40 @@
 .all-correct{display:flex;align-items:center;gap:11px;margin-bottom:24px;padding:16px;border-radius:10px;background:#eaf7f0;color:#176948}
 .all-correct p{font-size:14px}
 @media(max-width:760px){.learning-flashcards{margin-top:15px}.learning-flashcard{min-height:400px;padding:25px 20px}.learning-flashcard h2{padding:28px 0;font-size:21px}.learning-card-heading>div{align-items:flex-start;flex-direction:column}.learning-card-heading .pill{max-width:190px}.learning-card-back>p{font-size:14px}.learning-card-actions{grid-template-columns:1fr 1fr}.learning-card-actions .flip-button{grid-column:1/-1;grid-row:1}.learning-card-actions .button{padding-inline:12px;font-size:12px}.learning-card-actions .button:last-child{justify-self:stretch}.static-quiz{margin-top:5px}.static-quiz-top h1{font-size:24px}.static-question-card{padding:22px 18px}.static-question-card h2{font-size:19px}.static-answer-option{padding:12px 11px;gap:10px}.static-answer-option>span:nth-child(2){font-size:13px}.static-question-actions .button{width:100%}.static-result-summary{padding:21px 12px}.static-result-summary strong{font-size:30px}.weak-concepts li{align-items:flex-start;flex-direction:column;gap:4px}.weak-concepts li small{text-align:left}}
+
+/* Provider-agnostic learning media */
+.learning-materials{display:grid;gap:14px;margin-top:22px}
+.learning-materials-title{padding:0 4px}
+.learning-materials-title .eyebrow{margin-bottom:4px}
+.learning-materials-title h2{font-size:17px}
+.learning-material-card{padding:19px}
+.learning-media-heading{display:flex;align-items:flex-start;gap:12px}
+.learning-media-heading>div{min-width:0;flex:1}
+.learning-media-heading .eyebrow{margin-bottom:5px;font-size:8px}
+.learning-media-heading h2{margin:0;font-size:16px;line-height:1.4;overflow-wrap:anywhere}
+.learning-media-heading p{margin-top:7px;color:var(--muted);font-size:11px;line-height:1.65}
+.learning-media-icon{display:grid;place-items:center;width:39px;height:39px;flex-shrink:0;border-radius:10px;background:#eaf1ff;color:#3267cb}
+.learning-media-empty{display:flex;align-items:flex-start;gap:11px;margin-top:17px;padding:14px;border:1px dashed #cdd8e8;border-radius:10px;background:#f7f9fc;color:#6f7d91}
+.learning-media-empty>span{display:grid;place-items:center;width:34px;height:34px;flex-shrink:0;border-radius:9px;background:#e9edf3}
+.learning-media-empty strong{display:block;color:#46556b;font-size:12px}
+.learning-media-empty p{margin-top:4px;font-size:10px;line-height:1.55}
+.learning-material-action{width:100%;margin-top:17px;padding-inline:12px;font-size:11px;white-space:normal}
+.learning-video-card{max-width:920px;margin:0 auto;padding:28px}
+.learning-video-card .learning-media-heading{margin-bottom:23px}
+.learning-video-card .learning-media-heading h2{font-size:23px}
+.learning-video-card .learning-media-heading p{max-width:700px;font-size:13px}
+.learning-video-player{display:block;width:100%;max-height:560px;aspect-ratio:16/9;border-radius:13px;background:#101827;object-fit:contain}
+.learning-media-note{margin-top:14px;text-align:center}
+.infographic-preview{position:relative;display:block;width:100%;margin-top:16px;padding:0;overflow:hidden;border:1px solid #dce4ef;border-radius:11px;background:#f3f6fa}
+.infographic-preview img{display:block;width:100%;height:auto;max-height:300px;object-fit:contain}
+.infographic-preview>span{position:absolute;right:8px;bottom:8px;display:inline-flex;align-items:center;gap:5px;padding:6px 8px;border-radius:7px;background:#152746dd;color:#fff;font-size:9px;font-weight:650}
+.infographic-modal{position:fixed;inset:0;z-index:110;display:grid;place-items:center;padding:24px;background:#0b1738cc;backdrop-filter:blur(5px)}
+.infographic-modal>section{display:grid;grid-template-rows:auto minmax(0,1fr);width:min(1100px,100%);height:min(90dvh,900px);overflow:hidden;border-radius:17px;background:#fff;box-shadow:0 24px 70px #0005}
+.infographic-modal header{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:17px 20px;border-bottom:1px solid var(--line)}
+.infographic-modal header .eyebrow{margin-bottom:3px}
+.infographic-modal header h2{font-size:19px}
+.infographic-modal header button{display:grid;place-items:center;width:40px;height:40px;flex-shrink:0;border-radius:10px;background:#eef1f6;color:#526178}
+.infographic-modal-body{display:grid;place-items:center;min-height:0;padding:20px;overflow:auto;background:#edf1f6}
+.infographic-modal-body img{display:block;max-width:100%;height:auto;max-height:calc(90dvh - 105px);object-fit:contain;box-shadow:0 6px 25px #1c2c4b24}
+@media(max-width:1000px){.lesson-layout>aside .learning-materials{grid-column:1/-1;grid-template-columns:1fr 1fr}.lesson-layout>aside .learning-materials-title{grid-column:1/-1}}
+@media(max-width:760px){.lesson-layout>aside .learning-materials{display:grid;grid-template-columns:1fr;width:100%;max-width:520px;margin:22px auto 0}.learning-video-card{padding:21px 17px}.learning-video-card .learning-media-heading h2{font-size:19px}.learning-video-card .learning-media-heading p{font-size:12px}.learning-video-player{border-radius:10px}.infographic-modal{padding:0}.infographic-modal>section{width:100%;height:100dvh;border-radius:0}.infographic-modal header{padding:14px 15px}.infographic-modal header h2{font-size:16px}.infographic-modal-body{padding:12px}.infographic-modal-body img{max-height:calc(100dvh - 90px)}}
