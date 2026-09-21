@@ -1,0 +1,50 @@
+import { randomUUID } from 'node:crypto';
+import { startSchema,type AttemptDTO,type Feedback } from '@/shared/contracts';
+import { config,type DB } from './db';
+import {addDays,dayAt,dayDiff,fail,grade,streak,userDTO} from './core';
+import { visibleTopic,published } from './content';
+
+export function attemptDTO(a:any):AttemptDTO{const feedback:Record<string,Feedback>={};for(const q of a.snapshot){if(a.status==='completed'||(['practice','review'].includes(a.mode)&&Object.hasOwn(a.answers,q.id))){feedback[q.id]={correct:q.payload.correct,steps:q.payload.steps,distractors:q.payload.distractors,isCorrect:a.answers[q.id]===q.payload.correct};}}
+  return {id:a.id,topicId:a.topic_id,mode:a.mode,status:a.status,questions:a.snapshot.map((q:any)=>({id:q.id,logicalId:q.logical_id,title:q.title,text:q.payload.text,options:q.payload.options,difficulty:q.payload.difficulty,objectiveId:q.payload.objectiveId,demo:q.demo,imageId:q.payload.imageId})),answers:a.answers,feedback,reviewed:a.reviewed,result:a.result,createdAt:a.created_at,isFresh:a.is_fresh,delayed:a.delayed,goal:a.goal};
+}
+export async function ownedAttempt(db:DB,userId:string,id:string,lock=false){const a=(await db.query(`SELECT * FROM attempts WHERE id=$1 AND user_id=$2${lock?' FOR UPDATE':''}`,[id,userId])).rows[0];if(!a)fail(404,'Test bulunamadı.');return a;}
+export async function startAttempt(db:DB,u:any,input:unknown,now=new Date()){
+  const v=startSchema.parse(input);await db.query('SELECT id FROM users WHERE id=$1 FOR UPDATE',[u.id]);const duplicate=(await db.query('SELECT * FROM attempts WHERE user_id=$1 AND request_key=$2',[u.id,v.idempotencyKey])).rows[0];if(duplicate)return attemptDTO(duplicate);
+  const {all,topic}=await visibleTopic(db,v.topicId);const cfg=await config(db);const count=v.mode==='practice'?Math.max(cfg.counts.practice,u.daily_goal):cfg.counts[v.mode];if(!Number.isInteger(count)||count<1||count>100)fail(503,'Test yapılandırması eksik.');
+  let task:any=null;if(v.reviewId){task=(await db.query("SELECT * FROM review_tasks WHERE id=$1 AND user_id=$2 AND status='pending'",[v.reviewId,u.id])).rows[0];if(!task||task.topic_id!==v.topicId)fail(404,'Tekrar görevi bulunamadı.');if(new Date(task.due_at)>now)fail(409,'Gecikmeli kontrolün zamanı henüz gelmedi.');if((task.kind==='delayed'&&v.mode!=='control')||(task.kind==='wrong'&&v.mode!=='review'))fail(400,'Tekrar türü uyuşmuyor.');}
+  if(v.mode==='review'&&!task)fail(400,'Bir yanlış tekrar görevi seçin.');
+  const active=(await db.query("SELECT * FROM attempts WHERE user_id=$1 AND topic_id=$2 AND mode=$3 AND status='active' AND review_id IS NOT DISTINCT FROM $4 ORDER BY created_at DESC LIMIT 1",[u.id,v.topicId,v.mode,v.reviewId??null])).rows[0];if(active)return attemptDTO(active);
+  const history=(await db.query('SELECT snapshot,answers FROM attempts WHERE user_id=$1',[u.id])).rows;const seen=new Set(history.flatMap(a=>a.snapshot.map((q:any)=>q.logical_id)));const weak=new Set(history.flatMap(a=>a.snapshot.filter((q:any)=>Object.hasOwn(a.answers,q.id)&&a.answers[q.id]!==q.payload.correct).map((q:any)=>q.payload.objectiveId)));
+  const pool=v.mode==='exam'?'practice':v.mode==='review'?'practice':v.mode;
+  let questions=all.filter(c=>c.parent_id===topic.logical_id&&c.kind==='question'&&(v.mode==='review'?c.logical_id===task.question_id:c.payload.pool===pool));
+  questions.sort((a,b)=>Number(seen.has(a.logical_id))-Number(seen.has(b.logical_id))||Number(weak.has(b.payload.objectiveId))-Number(weak.has(a.payload.objectiveId))||a.logical_id.localeCompare(b.logical_id));
+  if(v.mode==='control')questions=questions.filter(q=>!seen.has(q.logical_id));
+  if(questions.length<count)fail(409,v.mode==='control'?'Yeni kontrol soruları tükendi. Yönetici yeni, incelenmiş kontrol soruları eklemeli.':'Bu test için yeterli yayımlanmış soru bulunmuyor.');
+  const selected=questions.slice(0,count);const subject=all.find(c=>c.logical_id===topic.parent_id)!;const exam=all.find(c=>c.logical_id===subject.parent_id)!;
+  const id=randomUUID();await db.query('INSERT INTO attempts(id,user_id,topic_id,mode,snapshot,penalty,goal,is_fresh,delayed,review_id,request_key,created_at) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)',[id,u.id,v.topicId,v.mode,JSON.stringify(selected),exam.payload.penalty,u.daily_goal,selected.every(q=>!seen.has(q.logical_id)),!!task&&task.kind==='delayed',v.reviewId??null,v.idempotencyKey,now]);return attemptDTO(await ownedAttempt(db,u.id,id));
+}
+export async function answer(db:DB,u:any,id:string,qid:string,value:number|null){const a=await ownedAttempt(db,u.id,id,true);if(a.status!=='active')fail(409,'Bu test tamamlandı.');const q=a.snapshot.find((x:any)=>x.id===qid);if(!q)fail(400,'Soru bu teste ait değil.');if(value!==null&&(!Number.isInteger(value)||value<0||value>=q.payload.options.length))fail(400,'Geçersiz seçenek.');if(['practice','review'].includes(a.mode)&&Object.hasOwn(a.answers,qid)){if(a.answers[qid]!==value)fail(409,'Açıklaması açılan yanıt değiştirilemez.');return attemptDTO(a);}a.answers[qid]=value;await db.query('UPDATE attempts SET answers=$2 WHERE id=$1',[id,JSON.stringify(a.answers)]);return attemptDTO(a);}
+export async function complete(db:DB,u:any,id:string,now=new Date()){const a=await ownedAttempt(db,u.id,id,true);if(a.status==='completed')return attemptDTO(a);const result=grade(a.snapshot,a.answers,Number(a.penalty));a.status='completed';a.result=result;await db.query("UPDATE attempts SET status='completed',result=$2,completed_at=$3 WHERE id=$1",[id,JSON.stringify(result),now]);const cfg=await config(db);
+  for(const q of a.snapshot.filter((q:any)=>a.answers[q.id]!==q.payload.correct)){await db.query("INSERT INTO review_tasks(id,user_id,topic_id,question_id,due_at,kind,origin_id) VALUES($1,$2,$3,$4,$5,'wrong',$6) ON CONFLICT DO NOTHING",[randomUUID(),u.id,a.topic_id,q.logical_id,now,`${id}:${q.logical_id}`]);}
+  if(['practice','exam'].includes(a.mode))await db.query("INSERT INTO review_tasks(id,user_id,topic_id,due_at,kind,origin_id) VALUES($1,$2,$3,$4,'delayed',$5) ON CONFLICT DO NOTHING",[randomUUID(),u.id,a.topic_id,new Date(+now+cfg.reviewDelayDays*86400000),a.topic_id]);
+  if(a.review_id)await db.query("UPDATE review_tasks SET status='completed' WHERE id=$1 AND user_id=$2",[a.review_id,u.id]);await credit(db,u,a,now);return attemptDTO(a);
+}
+export async function reviewFeedback(db:DB,u:any,id:string,qid:string,now=new Date()){const a=await ownedAttempt(db,u.id,id,true);if(a.status!=='completed')fail(409,'Önce testi tamamlayın.');if(!a.snapshot.some((q:any)=>q.id===qid))fail(400,'Geçersiz soru.');if(!a.reviewed.includes(qid))a.reviewed.push(qid);await db.query('UPDATE attempts SET reviewed=$2 WHERE id=$1',[id,JSON.stringify(a.reviewed)]);await credit(db,u,a,now);return attemptDTO(a);}
+export async function credit(db:DB,u:any,a:any,now=new Date()){
+  if(a.status!=='completed'||!['practice','exam'].includes(a.mode))return;
+  if(a.snapshot.some((q:any)=>a.answers[q.id]!==q.payload.correct&&!a.reviewed.includes(q.id)))return;
+  if(a.snapshot.filter((q:any)=>a.answers[q.id]!=null).length<a.goal)return;
+  await db.query('SELECT id FROM users WHERE id=$1 FOR UPDATE',[u.id]);const today=dayAt(now,u.timezone);const days=(await db.query('SELECT day,kind FROM daily_activity WHERE user_id=$1 ORDER BY day DESC',[u.id])).rows;
+  if(days.some(d=>d.day===today))return;
+  // Replaying the same completed attempt on another day is never a new task.
+  if((await db.query('SELECT day FROM daily_activity WHERE attempt_id=$1',[a.id])).rows.length)return;
+  const completed=(await db.query('SELECT completed_at FROM attempts WHERE id=$1',[a.id])).rows[0]?.completed_at;
+  if(!completed||dayAt(new Date(completed),u.timezone)!==today)return;
+  const previous=days[0];const cfg=await config(db);if(previous&&dayDiff(today,previous.day)===2){const gap=addDays(today,-1);const used=days.filter(d=>d.kind==='protected'&&d.day.slice(0,7)===gap.slice(0,7)).length;if(used<cfg.freezeAllowance){await db.query("INSERT INTO daily_activity(user_id,day,kind) VALUES($1,$2,'protected') ON CONFLICT DO NOTHING",[u.id,gap]);days.unshift({day:gap,kind:'protected'});}}
+  await db.query("INSERT INTO daily_activity(user_id,day,kind,attempt_id,points,created_at) VALUES($1,$2,'study',$3,20,$4) ON CONFLICT DO NOTHING",[u.id,today,a.id,now]);days.unshift({day:today,kind:'study'});const n=streak(days,today);for(const [threshold,code] of [[1,'first-step'],[3,'three-days'],[7,'seven-days']] as const){if(n>=threshold)await db.query('INSERT INTO badges(user_id,code) VALUES($1,$2) ON CONFLICT DO NOTHING',[u.id,code]);}
+}
+export async function overview(db:DB,u:any,now=new Date()){
+  const days=(await db.query('SELECT day,kind,points FROM daily_activity WHERE user_id=$1 ORDER BY day',[u.id])).rows;const history=(await db.query("SELECT id,mode,result,completed_at,is_fresh,delayed FROM attempts WHERE user_id=$1 AND status='completed' ORDER BY completed_at DESC LIMIT 100",[u.id])).rows;const today=dayAt(now,u.timezone);const weekday=(new Date(today+'T12:00:00Z').getUTCDay()+6)%7;const monday=addDays(today,-weekday);
+  const accuracy=(rows:any[])=>{const total=rows.reduce((s,a)=>s+a.result.total,0);return total?Math.round(rows.reduce((s,a)=>s+a.result.correct,0)/total*100):null;};
+  return {user:userDTO(u),streak:streak(days,today),weekly:days.filter(d=>d.kind==='study'&&d.day>=monday&&d.day<=today).length,points:days.reduce((s,d)=>s+d.points,0),badges:(await db.query('SELECT code FROM badges WHERE user_id=$1',[u.id])).rows.map(r=>r.code),days,history,reviews:(await db.query("SELECT id,topic_id,question_id,due_at,kind,status FROM review_tasks WHERE user_id=$1 AND status='pending' ORDER BY due_at",[u.id])).rows,completedLessons:(await db.query('SELECT content_id FROM lesson_completions WHERE user_id=$1',[u.id])).rows.map(r=>r.content_id),todayCompleted:days.some(d=>d.day===today&&d.kind==='study'),accuracy:accuracy(history),freshAccuracy:accuracy(history.filter(a=>a.is_fresh)),delayedAccuracy:accuracy(history.filter(a=>a.delayed&&a.is_fresh))};
+}

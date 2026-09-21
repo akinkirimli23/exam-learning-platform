@@ -1,0 +1,74 @@
+# Dependencies
+node_modules/
+
+# Environment files and local secrets
+.env
+.env.*
+
+# Private application data
+data/
+
+# Framework and build output
+.next/
+out/
+build/
+dist/
+.expo/
+.turbo/
+.vercel/
+web-build/
+coverage/
+test-results/
+playwright-report/
+*.tsbuildinfo
+expo-env.d.ts
+
+# Generated native projects and signing material
+mobile/android/
+mobile/ios/
+.kotlin/
+*.jks
+*.p8
+*.p12
+*.pem
+*.key
+*.mobileprovision
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Logs, caches, and temporary files
+*.log
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+.metro-health-check*
+.cache/
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# IDE and operating-system files
+.idea/
+.vscode/
+*.suo
+*.user
+*.code-workspace
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Preserved nested Git metadata from the Expo scaffold
+.git-metadata-backup/

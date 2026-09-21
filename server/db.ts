@@ -1,0 +1,43 @@
+import { PGlite } from '@electric-sql/pglite';
+import { Pool } from 'pg';
+import path from 'node:path';
+import fs from 'node:fs/promises';
+
+export interface DB { query<T=any>(sql:string,params?:any[]):Promise<{rows:T[]}>; }
+type State={ db:DB; transaction:<T>(fn:(db:DB)=>Promise<T>)=>Promise<T>; close:()=>Promise<void> };
+const schema=`
+CREATE TABLE IF NOT EXISTS schema_migrations(version integer PRIMARY KEY);
+CREATE TABLE IF NOT EXISTS users(id text PRIMARY KEY, email text UNIQUE NOT NULL, name text NOT NULL, password_hash text NOT NULL, role text NOT NULL DEFAULT 'student', adult_confirmed boolean NOT NULL, daily_goal integer NOT NULL DEFAULT 5, weekly_goal integer NOT NULL DEFAULT 5, exam_id text, timezone text NOT NULL DEFAULT 'Europe/Istanbul', notifications boolean NOT NULL DEFAULT false, created_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS sessions(token_hash text PRIMARY KEY, user_id text NOT NULL REFERENCES users(id) ON DELETE CASCADE, expires_at timestamptz NOT NULL);
+CREATE TABLE IF NOT EXISTS content(id text PRIMARY KEY, logical_id text NOT NULL, kind text NOT NULL, parent_id text, title text NOT NULL, revision integer NOT NULL, status text NOT NULL DEFAULT 'draft', demo boolean NOT NULL DEFAULT true, payload jsonb NOT NULL, source jsonb NOT NULL, reviewed_by text, reviewed_at timestamptz, created_at timestamptz NOT NULL DEFAULT now(), UNIQUE(logical_id,revision));
+CREATE UNIQUE INDEX IF NOT EXISTS one_published_revision ON content(logical_id) WHERE status='published';
+CREATE INDEX IF NOT EXISTS content_parent ON content(parent_id,kind,status);
+CREATE TABLE IF NOT EXISTS config(key text PRIMARY KEY,value jsonb NOT NULL);
+CREATE TABLE IF NOT EXISTS attempts(id text PRIMARY KEY,user_id text NOT NULL REFERENCES users(id) ON DELETE CASCADE,topic_id text NOT NULL,mode text NOT NULL,status text NOT NULL DEFAULT 'active',snapshot jsonb NOT NULL,answers jsonb NOT NULL DEFAULT '{}',reviewed jsonb NOT NULL DEFAULT '[]',result jsonb,penalty numeric NOT NULL,goal integer NOT NULL,is_fresh boolean NOT NULL,delayed boolean NOT NULL DEFAULT false,review_id text,request_key text NOT NULL,created_at timestamptz NOT NULL DEFAULT now(),completed_at timestamptz,UNIQUE(user_id,request_key));
+CREATE INDEX IF NOT EXISTS attempts_user ON attempts(user_id,created_at);
+CREATE TABLE IF NOT EXISTS review_tasks(id text PRIMARY KEY,user_id text NOT NULL REFERENCES users(id) ON DELETE CASCADE,topic_id text NOT NULL,question_id text,due_at timestamptz NOT NULL,kind text NOT NULL,status text NOT NULL DEFAULT 'pending',origin_id text NOT NULL,UNIQUE(user_id,origin_id,kind));
+CREATE TABLE IF NOT EXISTS lesson_completions(user_id text NOT NULL REFERENCES users(id) ON DELETE CASCADE,content_id text NOT NULL,completed_at timestamptz NOT NULL DEFAULT now(),PRIMARY KEY(user_id,content_id));
+CREATE TABLE IF NOT EXISTS daily_activity(user_id text NOT NULL REFERENCES users(id) ON DELETE CASCADE,day text NOT NULL,kind text NOT NULL,attempt_id text,points integer NOT NULL DEFAULT 0,created_at timestamptz NOT NULL DEFAULT now(),PRIMARY KEY(user_id,day));
+CREATE TABLE IF NOT EXISTS badges(user_id text NOT NULL REFERENCES users(id) ON DELETE CASCADE,code text NOT NULL,earned_at timestamptz NOT NULL DEFAULT now(),PRIMARY KEY(user_id,code));
+CREATE TABLE IF NOT EXISTS media_files(id text PRIMARY KEY,storage_key text NOT NULL,mime text NOT NULL,size integer NOT NULL,created_by text NOT NULL,created_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS rate_limits(key text PRIMARY KEY,count integer NOT NULL,expires_at timestamptz NOT NULL);
+CREATE TABLE IF NOT EXISTS ai_usage(id text PRIMARY KEY,user_id text NOT NULL REFERENCES users(id) ON DELETE CASCADE,day text NOT NULL,status text NOT NULL,tokens integer NOT NULL DEFAULT 0,created_at timestamptz NOT NULL DEFAULT now());
+INSERT INTO schema_migrations(version) VALUES(1) ON CONFLICT DO NOTHING;
+`;
+const globalDb=globalThis as unknown as {ivmeDB?:Promise<State>};
+async function init():Promise<State>{
+  if(process.env.DATABASE_URL){
+    const pool=new Pool({connectionString:process.env.DATABASE_URL,max:8});
+    await pool.query(schema);
+    return {db:pool,close:()=>pool.end(),transaction:async fn=>{const c=await pool.connect();try{await c.query('BEGIN');const out=await fn(c);await c.query('COMMIT');return out;}catch(e){await c.query('ROLLBACK');throw e;}finally{c.release();}}};
+  }
+  const dir=process.env.DATA_DIR===':memory:'?undefined:path.resolve(process.env.DATA_DIR||'data','database');
+  if(dir)await fs.mkdir(dir,{recursive:true});
+  const pg=new PGlite(dir);await pg.exec(schema);
+  return {db:pg,close:()=>pg.close(),transaction:fn=>pg.transaction(tx=>fn(tx))};
+}
+export async function state(){return globalDb.ivmeDB??=init();}
+export async function query<T=any>(sql:string,params:any[]=[]){return (await state()).db.query<T>(sql,params);}
+export async function transaction<T>(fn:(db:DB)=>Promise<T>){return (await state()).transaction(fn);}
+export async function closeDb(){if(globalDb.ivmeDB)await(await globalDb.ivmeDB).close();delete globalDb.ivmeDB;}
+export async function config(db:DB){const {rows}=await db.query('SELECT value FROM config WHERE key=$1',['app']);return rows[0]?.value??{counts:{diagnostic:5,practice:5,exam:15,control:5,review:1},freezeAllowance:1,reviewDelayDays:2};}
