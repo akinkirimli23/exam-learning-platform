@@ -1,0 +1,202 @@
+[
+  {
+    "id": "buoyancy-card-001",
+    "conceptId": "pressure-force-difference",
+    "front": "Sıvı içerisindeki bir cisme etki eden kaldırma kuvveti fiziksel olarak nasıl ortaya çıkar?",
+    "back": "Sıvılarda derinlik arttıkça hidrostatik basınç artar. Cismin alt yüzeyindeki sıvı basıncı üst yüzeyindekinden daha büyük olduğu için alt yüzeye yukarı yönlü uygulanan basınç kuvveti, üst yüzeye aşağı yönlü uygulanan basınç kuvvetinden daha büyüktür. Bu basınç kuvveti farkı net bir yukarı kuvvet oluşturur; bu net kuvvet kaldırma kuvvetidir.",
+    "formula": "F_k = F_alt - F_ust",
+    "commonMistake": "Kaldırma kuvvetinin yerçekiminden bağımsız veya cismin kendisi tarafından üretilen ayrı bir temel kuvvet olduğunu sanmak."
+  },
+  {
+    "id": "buoyancy-card-002",
+    "conceptId": "pressure-force-difference",
+    "front": "Sıvıya tamamen batmış simetrik bir cismin yan yüzeylerine etki eden basınç kuvvetleri kaldırma kuvvetini nasıl etkiler?",
+    "back": "Etkilemez. Cismin yan yüzeyleri aynı derinlik seviyelerinde yer aldığı için bu yüzeylere etki eden basınç kuvvetleri eşit büyüklükte ve zıt yönlüdür. Dolayısıyla yanal basınç kuvvetleri birbirini dengeler ve net yanal kuvvet sıfır olur.",
+    "formula": "F_sag = F_sol",
+    "commonMistake": "Yan yüzeylerdeki basınç kuvvetlerinin de yukarı yönlü kaldırma kuvvetine katkı sağladığını düşünmek."
+  },
+  {
+    "id": "buoyancy-card-003",
+    "conceptId": "buoyancy",
+    "front": "Kaldırma kuvveti cismin tam olarak hangi noktasına etki eder?",
+    "back": "Kaldırma kuvveti, cismin geometrik kütle merkezine değil, cismin sıvıya batan kısmının hacim merkezine (batan hacmin kütle merkezine) düşey olarak yukarı yönde etki eder.",
+    "formula": "F_k = V_batan * d_sivi * g",
+    "commonMistake": "Kaldırma kuvvetinin her zaman tüm cismin ağırlık merkezinden uygulandığını zannetmek."
+  },
+  {
+    "id": "buoyancy-card-004",
+    "conceptId": "buoyancy",
+    "front": "Sıvı içerisinde tamamen batmış durumdaki bir cisim daha derine indirildiğinde ona etki eden kaldırma kuvveti nasıl değişir?",
+    "back": "Kaldırma kuvveti değişmez. Çünkü tamamen batmış cismin batan hacmi (V_batan), sıvının özkütlesi (d_sıvı) ve yerçekimi ivmesi (g) derinlikle değişmez. Üst ve alt yüzeydeki basınçlar artsa da aralarındaki basınç farkı sabit kalır.",
+    "formula": "F_k = V_batan * d_sivi * g",
+    "commonMistake": "Derinlik arttıkça sıvı basıncı arttığı için kaldırma kuvvetinin de artacağını düşünmek."
+  },
+  {
+    "id": "buoyancy-card-005",
+    "conceptId": "archimedes-principle",
+    "front": "Arşimet Prensibinin temel ifadesi nedir?",
+    "back": "Bir akışkana tamamen veya kısmen batırılan bir cisme uygulanan kaldırma kuvveti, cisim tarafından yeri değiştirilen (yerini aldığı) akışkanın ağırlığına eşittir.",
+    "formula": "F_k = G_tasen_sivi",
+    "commonMistake": "Kaldırma kuvvetinin yeri değiştirilen sıvının ağırlığına değil, doğrudan hacmine eşit olduğunu söylemek."
+  },
+  {
+    "id": "buoyancy-card-006",
+    "conceptId": "archimedes-principle",
+    "front": "Arşimet Prensibi sadece sıvılar için mi geçerlidir?",
+    "back": "Hayır. Akışkan tanımına giren hem sıvılar hem de gazlar (örneğin havadaki sıcak hava balonları veya zeplinler) içerisindeki cisimlere yeri değiştirilen akışkanın ağırlığı kadar kaldırma kuvveti uygular.",
+    "formula": "F_k = V_batan * d_akiskan * g",
+    "commonMistake": "Kaldırma kuvvetinin yalnızca sıvılara özgü bir davranış olduğunu sanmak."
+  },
+  {
+    "id": "buoyancy-card-007",
+    "conceptId": "displaced-fluid-weight",
+    "front": "Sıvıya bırakılan bir cismin yeri değiştirdiği sıvının hacmi neye eşittir?",
+    "back": "Yeri değişen sıvının hacmi, cismin toplam hacmine değil, cismin sıvı içerisinde kalan kısmının hacmine (yani batan hacmine, V_batan) eşittir.",
+    "formula": "V_tasen_sivi = V_batan",
+    "commonMistake": "Yüzen bir cismin kendi toplam hacmi kadar sıvı taşırdığını veya yerini değiştirdiğini düşünmek."
+  },
+  {
+    "id": "buoyancy-card-008",
+    "conceptId": "displaced-fluid-weight",
+    "front": "Ağzına kadar sıvı dolu bir kaba bırakılan cismin taşırdığı sıvının kütlesi ve ağırlığı neyi ifade eder?",
+    "back": "Taşan sıvının kütlesi m_taşan = V_batan * d_sıvı formülüyle bulunur. Taşan sıvının ağırlığı (G_taşan = m_taşan * g) ise cisme etki eden kaldırma kuvvetine (F_k) eşittir.",
+    "formula": "m_tasen = V_batan * d_sivi",
+    "commonMistake": "Taşan sıvının kütlesinin her zaman cismin kütlesine eşit olduğunu varsaymak (yalnızca yüzen ve askıda kalan cisimlerde eşittir, batan cisimlerde daha azdır)."
+  },
+  {
+    "id": "buoyancy-card-009",
+    "conceptId": "submerged-volume",
+    "front": "Suda yüzen bir cismin batan hacminin toplam hacmine oranı neye bağlıdır?",
+    "back": "Yüzen cisimlerde batan hacmin cismin toplam hacmine oranı, cismin özkütlesinin sıvının özkütlesine oranına eşittir: (V_batan / V_cisim = d_cisim / d_sıvı). Cismin özkütlesi sıvıya yaklaştıkça batan hacim oranı artar.",
+    "formula": "V_batan / V_cisim = d_cisim / d_sivi",
+    "commonMistake": "Batan hacim oranının cismin toplam kütlesine veya ağırlığına bağlı olduğunu düşünmek."
+  },
+  {
+    "id": "buoyancy-card-010",
+    "conceptId": "submerged-volume",
+    "front": "Aynı maddeden yapılmış içleri dolu farklı kütledeki iki tahta blok aynı suya bırakıldığında batan hacim yüzdeleri nasıldır?",
+    "back": "Batan hacim yüzdeleri (V_batan / V_cisim) birbirine eşittir. Çünkü ikisinin de özkütlesi aynıdır ve oran d_cisim / d_sıvı değerine sabittir. Büyük bloğun batan hacmi daha büyüktür ama oransal olarak aynı yüzdedir.",
+    "formula": "V_batan / V_cisim = d_cisim / d_sivi",
+    "commonMistake": "Daha ağır olan büyük bloğun sıvıya daha büyük bir yüzdeyle batacağını zannetmek."
+  },
+  {
+    "id": "buoyancy-card-011",
+    "conceptId": "fluid-density",
+    "front": "Suda yüzen bir cisme tuz eklenerek sıvının özkütlesi artırılırsa denge durumu ve batan hacim nasıl değişir?",
+    "back": "Cisim yüzmeye devam ettiği için cisme etki eden kaldırma kuvveti yine cismin ağırlığına eşit kalır (değişmez). Ancak d_sıvı arttığı için F_k = V_batan * d_sıvı * g denklemine göre batan hacim (V_batan) azalır, cisim yukarı yükselir.",
+    "formula": "F_k = G (sabit) => V_batan * d_sivi = sabit",
+    "commonMistake": "Sıvının özkütlesi artınca yüzen cisme etki eden kaldırma kuvvetinin de artacağını sanmak."
+  },
+  {
+    "id": "buoyancy-card-012",
+    "conceptId": "fluid-density",
+    "front": "Aynı cisim farklı özkütleli iki ayrı sıvıya bırakıldığında her ikisinde de yüziyorsa kaldırma kuvvetleri nasıl kıyaslanır?",
+    "back": "Kaldırma kuvvetleri eşittir. Çünkü her iki durumda da cisim yüzmektedir ve dengededir. Yüzen cisimlerde kaldırma kuvveti cismin kendi ağırlığına eşittir (F_k1 = G, F_k2 = G). Yoğun sıvı içerisinde sadece batan hacim daha az olur.",
+    "formula": "F_k1 = F_k2 = G",
+    "commonMistake": "Daha yoğun sıvı içerisinde cisme daha büyük kaldırma kuvveti etki ettiğini zannetmek."
+  },
+  {
+    "id": "buoyancy-card-013",
+    "conceptId": "gravity-acceleration",
+    "front": "Yerçekimi ivmesinin (g) daha büyük olduğu bir ortama götürülen yüzen cismin sıvıdaki batan hacim oranı değişir mi?",
+    "back": "Batan hacim oranı değişmez. Denge denkleminde V_batan * d_sıvı * g = V_cisim * d_cisim * g yazıldığında yerçekimi ivmesi (g) her iki taraftan sadeleşir. Batan oran yalnızca özkütleler oranına bağlıdır.",
+    "formula": "V_batan * d_sivi = V_cisim * d_cisim",
+    "commonMistake": "Yerçekimi artınca cismin ağırlığı arttığı için daha çok batacağını düşünmek."
+  },
+  {
+    "id": "buoyancy-card-014",
+    "conceptId": "gravity-acceleration",
+    "front": "Yerçekimsiz bir ortamda (g = 0) sıvı içerisinde kaldırma kuvveti oluşur mu?",
+    "back": "Hayır, oluşmaz. Sıvılarda derinlikle basınç değişimi (P = h * d * g) yerçekimi sayesinde gerçekleşir. g = 0 olduğunda basınç farkı oluşmaz ve kaldırma kuvveti sıfır olur.",
+    "formula": "F_k = V_batan * d_sivi * g",
+    "commonMistake": "Kaldırma kuvvetinin yerçekiminden tamamen bağımsız bir kuvvet olduğunu sanmak."
+  },
+  {
+    "id": "buoyancy-card-015",
+    "conceptId": "floating-state",
+    "front": "Bir cismin sıvı içerisinde yüzebilmesi için özkütle koşulu ve kuvvet dengesi bağıntısı nedir?",
+    "back": "Cismin özkütlesi sıvının özkütlesinden küçük olmalıdır (d_cisim < d_sıvı). Denge durumunda cisme yukarı yönlü etki eden kaldırma kuvveti, cismin aşağı yönlü ağırlığına eşittir (F_k = G).",
+    "formula": "d_cisim < d_sivi , F_k = G",
+    "commonMistake": "Yüzen cisimlerde yukarı doğru kaldırma kuvvetinin cismin ağırlığından daha büyük olduğunu düşünmek."
+  },
+  {
+    "id": "buoyancy-card-016",
+    "conceptId": "floating-state",
+    "front": "Çelikten yapılmış tonlarca ağırlıktaki bir geminin suda batmadan yüzebilmesinin nedeni nedir?",
+    "back": "Geminin içerisinde geniş boşluklar bulunur. İçindeki boşluklar sayesinde geminin toplam kütlesinin toplam hacmine oranı olan ortalama özkütlesi (d_ortalama) suyun özkütlesinden küçük hale gelir.",
+    "formula": "d_ort = m_toplam / V_toplam < d_su",
+    "commonMistake": "Gemilerin batmama nedenini ağırlıktan bağımsız sadece yüzey gerilimi ile açıklamaya çalışmak."
+  },
+  {
+    "id": "buoyancy-card-017",
+    "conceptId": "suspended-state",
+    "front": "Sıvı içerisinde askıda kalan bir cismin özkütlesi ile sıvının özkütlesi arasındaki ilişki nedir ve nerede dengede kalır?",
+    "back": "Cismin özkütlesi sıvının özkütlesine eşittir (d_cisim = d_sıvı). Cisim, kabın tabanına değmemek şartıyla sıvı içerisinde bırakıldığı her seviyede dengede kalabilir.",
+    "formula": "d_cisim = d_sivi , F_k = G",
+    "commonMistake": "Askıda kalan cismin sadece sıvının tam orta noktasında dengede kalabileceğini sanmak."
+  },
+  {
+    "id": "buoyancy-card-018",
+    "conceptId": "suspended-state",
+    "front": "Sıvı içinde farklı derinliklerde askıda duran K ve L cisimlerinden L daha derindeyse özkütleleri nasıl kıyaslanır?",
+    "back": "Özkütleleri eşittir (d_K = d_L = d_sıvı). L'nin daha derinde durması özkütlesinin büyük olduğunu göstermez; sıvının içerisine bırakılma derinliği veya serbest bırakılma şartları ile ilgilidir.",
+    "formula": "d_K = d_L = d_sivi",
+    "commonMistake": "Sıvı içinde daha derinde duran askıdaki cismin özkütlesinin daha büyük olduğunu zannetmek."
+  },
+  {
+    "id": "buoyancy-card-019",
+    "conceptId": "sinking-state",
+    "front": "Sıvı içerisinde batan ve tabana oturan bir cisim için kuvvet dengesi denklemi nasıldır?",
+    "back": "Cismin özkütlesi sıvının özkütlesinden büyüktür (d_cisim > d_sıvı). Taban yüzeyinin cisme uyguladığı tepki kuvveti N olmak üzere kuvvet dengesi: F_k + N = G şeklindedir. Kaldırma kuvveti ağırlıktan küçüktür (F_k < G).",
+    "formula": "F_k + N = G (d_cisim > d_sivi)",
+    "commonMistake": "Batan bir cisme hiç kaldırma kuvveti etki etmediğini düşünmek."
+  },
+  {
+    "id": "buoyancy-card-020",
+    "conceptId": "sinking-state",
+    "front": "Batan bir cismin ağırlığı (G) ile cisme etki eden kaldırma kuvveti (F_k) arasındaki ilişki nedir?",
+    "back": "Cismin ağırlığı kaldırma kuvvetinden büyüktür (G > F_k). Bu nedenle net kuvvet aşağı yönlü olur ve cisim ivmelenerek tabana çöker.",
+    "formula": "G > F_k",
+    "commonMistake": "Suda batan cisimlerin çok ağır olduğu için battığını sanmak (batma nedeni toplam ağırlık değil, özkütle büyüklüğüdür)."
+  },
+  {
+    "id": "buoyancy-card-021",
+    "conceptId": "overflow-and-weight",
+    "front": "Taşma seviyesine kadar sıvı dolu bir taşırma kabına yüzen veya askıda kalan bir cisim bırakıldığında kapta ağırlaşma olur mu?",
+    "back": "Ağırlaşma olmaz (ΔG = 0). Çünkü yüzen veya askıda kalan cisme etki eden kaldırma kuvveti cismin ağırlığına eşittir (F_k = G). Taşan sıvının ağırlığı da F_k'ye eşit olduğu için kaba giren kütle ile kaptan çıkan kütle birbirine eşittir.",
+    "formula": "G_giren = G_cikan = G_tasen = F_k = G",
+    "commonMistake": "Taşırma kabına cisim atıldığı için kabın her durumda ağırlaşacağını düşünmek."
+  },
+  {
+    "id": "buoyancy-card-022",
+    "conceptId": "overflow-and-weight",
+    "front": "Taşma seviyesindeki bir taşırma kabına batan bir cisim atıldığında kaptaki ağırlaşma miktarı neye eşittir?",
+    "back": "Kap ΔG = G_cisim - F_k (veya G_cisim - G_taşan) kadar ağırlaşır. Batan cisimlerde G > F_k olduğu için kaba giren ağırlık, taşan sıvının ağırlığından fazladır.",
+    "formula": "Aglarlasama = G_cisim - F_k",
+    "commonMistake": "Batan cisim atıldığında kabın cismin tüm ağırlığı kadar ağırlaşacağını sanmak (taşan sıvının ağırlığı düşülmelidir)."
+  },
+  {
+    "id": "buoyancy-card-023",
+    "conceptId": "apparent-weight-loss",
+    "front": "Havadaki ağırlığı G olan bir cisim bir dinamometreye asılıp sıvıya batırıldığında dinamometrenin gösterdiği değer (G') neye eşittir?",
+    "back": "Dinamometrenin gösterdiği değer cismin görünür ağırlığıdır ve G' = G - F_k bağıntısıyla bulunur. Sıvının uyguladığı yukarı yönlü kaldırma kuvveti kadar azalma (hafifleme) görülür.",
+    "formula": "G' = G - F_k",
+    "commonMistake": "Sıvıya batırılan cismin kütlesinin gerçekten azaldığını zannetmek (azalan büyüklük görünür ağırlıktır, kütle sabittir)."
+  },
+  {
+    "id": "buoyancy-card-024",
+    "conceptId": "apparent-weight-loss",
+    "front": "Dinamometreye asılı cismin sudaki hafifleme miktarı doğrudan hangi fiziksel büyüklüğe eşittir?",
+    "back": "Hafifleme miktarı (ΔG = G - G'), cisme sıvı tarafından uygulanan kaldırma kuvvetine (F_k) ve dolayısıyla yeri değiştirilen sıvının ağırlığına eşittir.",
+    "formula": "Hafifleme = F_k = G_tasen",
+    "commonMistake": "Hafifleme miktarının yalnızca cismin batan hacmine sayısal olarak eşit olduğunu zannetmek."
+  },
+  {
+    "id": "buoyancy-card-025",
+    "conceptId": "daily-life-applications",
+    "front": "Denizaltıların su yüzeyine çıkması veya dibe dalması kaldırma kuvveti ve özkütle ilkeleriyle nasıl açıklanır?",
+    "back": "Denizaltılar safra tanklarına su alarak toplam ağırlıklarını ve ortalama özkütlelerini sudan büyük yapıp batarlar. Tanklardaki suyu sıkıştırılmış hava ile dışarı pompalayarak ortalama özkütlelerini küçültüp su yüzeyine çıkarlar.",
+    "formula": "d_ort > d_su (dalma) , d_ort < d_su (yukari cikma)",
+    "commonMistake": "Denizaltıların batıp çıkarken kaldırma kuvveti formülündeki V_batan veya d_sıvı değerini değiştirdiğini düşünmek (değişen denizaltının kendi toplam kütlesi ve ortalama özkütlesidir)."
+  }
+]

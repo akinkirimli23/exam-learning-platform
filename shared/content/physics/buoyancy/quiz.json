@@ -1,0 +1,302 @@
+[
+  {
+    "id": "buoyancy-q-001",
+    "conceptId": "archimedes-principle",
+    "difficulty": "kolay",
+    "question": "Durgun bir sıvıya tamamen veya kısmen batırılan bir cisme etki eden kaldırma kuvvetinin büyüklüğü ile ilgili Arşimet İlkesini doğru ifade eden seçenek hangisidir?",
+    "options": [
+      "Cismin kendi toplam kütlesine her zaman eşittir.",
+      "Cisim tarafından yeri değiştirilen sıvının ağırlığına eşittir.",
+      "Cismin sıvı dışında kalan kısmının ağırlığına eşittir.",
+      "Cismin hacmi ile sıvının özkütlesinin toplamına eşittir."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Arşimet ilkesine göre akışkana batırılan bir cisme uygulanan kaldırma kuvveti, cismin yerini değiştirdiği (taşırdığı) akışkanın ağırlığına (G_yer_değiştiren = m_sıvı * g) tam olarak eşittir.",
+    "misconception": "Kaldırma kuvvetinin yeri değiştirilen sıvının ağırlığına değil, cismin kendi ağırlığına veya kütlesine her zaman eşit olduğunu düşünmek."
+  },
+  {
+    "id": "buoyancy-q-002",
+    "conceptId": "floating-state",
+    "difficulty": "kolay",
+    "question": "Özkütlesi d olan homojen bir blok, özkütlesi 2d olan durgun bir sıvıya bırakılıyor. Sistem dengeye geldiğinde cismin hareketi ve cisme etki eden kaldırma kuvveti (Fk) ile cismin ağırlığı (G) arasındaki ilişki nasıldır?",
+    "options": [
+      "Cisim tabana batar ve Fk < G olur.",
+      "Cisim sıvı içinde askıda kalır ve Fk = G olur.",
+      "Cisim hacminin yarısı batacak şekilde yüzer ve Fk = G olur.",
+      "Cisim hacminin yarısı batacak şekilde yüzer ve Fk > G olur."
+    ],
+    "correctAnswer": 2,
+    "explanation": "d_cisim < d_sıvı olduğu için cisim yüzer. Yüzen cisimlerde düşeyde net kuvvet sıfır olduğundan yukarı yönlü kaldırma kuvveti cismin aşağı yönlü ağırlığına eşittir (Fk = G). Batan hacim oranı ise d_cisim/d_sıvı = d/2d = 1/2'dir.",
+    "misconception": "Yüzen cisimlerde cismi yukarıda tutan kaldırma kuvvetinin cismin ağırlığından daha büyük olması gerektiğini sanmak."
+  },
+  {
+    "id": "buoyancy-q-003",
+    "conceptId": "suspended-state",
+    "difficulty": "kolay",
+    "question": "Aynı maddeden yapılmış, biçimleri ve hacimleri özdeş K ve L cisimleri aynı sıvı içerisinde farklı derinliklerde şekildeki gibi hareketsiz durmaktadır. Buna göre cisimlerin dK ve dL özkütleleri ile sıvının dsıvı özkütlesi arasındaki ilişki nedir?",
+    "options": [
+      "dL > dK > dsıvı",
+      "dK > dL = dsıvı",
+      "dK = dL = dsıvı",
+      "dL > dK = dsıvı"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Sıvı içerisinde tabana değmeden tamamen batmış olarak dengede kalan tüm cisimler askıdadır. Askıda kalma şartı d_cisim = d_sıvı olduğundan, farklı derinliklerde durmaları özkütlelerinin farklı olduğu anlamına gelmez. dK = dL = dsıvı olur.",
+    "misconception": "Sıvı içerisinde daha derinde duran askıdaki bir cismin özkütlesinin daha büyük olduğunu zannetmek."
+  },
+  {
+    "id": "buoyancy-q-004",
+    "conceptId": "sinking-state",
+    "difficulty": "kolay",
+    "question": "Bir sıvı içerisine bırakılan cisim kabın tabanına çökmüş ve tabana oturmuştur. Bu durumdaki cisim için aşağıdakilerden hangisi kesinlikle doğrudur? (N: Tabanın cisme uyguladığı tepki kuvveti)",
+    "options": [
+      "d_cisim < d_sıvı",
+      "F_k = G_cisim",
+      "d_cisim > d_sıvı ve F_k < G_cisim",
+      "F_k = 0"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Cisim tabana battığı için d_cisim > d_sıvı durumundadır. Denge denkleminde Fk + N = G olduğundan ve N > 0 olduğu için kaldırma kuvveti cismin ağırlığından küçüktür (Fk < G).",
+    "misconception": "Sıvı tabanına batan bir cisme hiç kaldırma kuvveti etki etmediğini (Fk = 0) varsaymak."
+  },
+  {
+    "id": "buoyancy-q-005",
+    "conceptId": "apparent-weight-loss",
+    "difficulty": "kolay",
+    "question": "Havadaki ağırlığı 50 N olan bir metal blok, bir dinamometrenin ucuna bağlanıp tamamen su içerisine batırıldığında dinamometre 35 N değerini gösteriyor. Buna göre suya batan bloğa uygulanan kaldırma kuvveti kaç N'dur?",
+    "options": [
+      "85 N",
+      "50 N",
+      "35 N",
+      "15 N"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Dinamometrenin sudaki gösterdiği değer görünür ağırlıktır (G'). Görünür ağırlık bağıntısı G' = G - Fk şeklindedir. Buradan Fk = G - G' = 50 N - 35 N = 15 N bulunur.",
+    "misconception": "Dinamometrede okunan görünür ağırlık değerinin (35 N) doğrudan kaldırma kuvvetine eşit olduğunu düşünmek."
+  },
+  {
+    "id": "buoyancy-q-006",
+    "conceptId": "submerged-volume",
+    "difficulty": "orta",
+    "question": "Homojen K cismi d özkütleli sıvıda hacminin 1/3'ü sıvı yüzeyinin dışında kalacak şekilde dengede yüzmektedir. Buna göre K cisminin özkütlesi kaç d'dir?",
+    "options": [
+      "1/3",
+      "1/2",
+      "2/3",
+      "3/2"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Cismin hacminin 1/3'ü dışarıda ise batan hacim oranı V_batan / V_cisim = 2/3 olur. Yüzme durumunda V_batan / V_cisim = d_cisim / d_sıvı olduğundan d_cisim / d = 2/3 => d_cisim = 2/3 d bulunur.",
+    "misconception": "Batan hacim oranı yerine sıvı dışında kalan hacim oranını (1/3) doğrudan cismin özkütle oranı olarak almak."
+  },
+  {
+    "id": "buoyancy-q-007",
+    "conceptId": "fluid-density",
+    "difficulty": "orta",
+    "question": "Saf suda yüzmekte olan tahta bir bloğun bulunduğu kaba bir miktar tuz eklenip tamamen çözünmesi sağlanıyor. Suyun özkütlesi arttığına göre, tahta bloğun batan hacmi (Vbatan) ve cisme etki eden kaldırma kuvveti (Fk) ilk duruma göre nasıl değişir?",
+    "options": [
+      "Vbatan azalır, Fk değişmez.",
+      "Vbatan artar, Fk artar.",
+      "Vbatan azalır, Fk artar.",
+      "İkisi de değişmez."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Cisim her iki durumda da yüzmektedir. Yüzen cisimlerde Fk = G_cisim olduğundan cisme etki eden kaldırma kuvveti değişmez. Fk = Vbatan * dsıvı * g denkleminde Fk sabit iken dsıvı arttığı için Vbatan azalır.",
+    "misconception": "Sıvının özkütlesi arttığında yüzen cisme etki eden kaldırma kuvvetinin de artacağını sanmak."
+  },
+  {
+    "id": "buoyancy-q-008",
+    "conceptId": "overflow-and-weight",
+    "difficulty": "orta",
+    "question": "Taşma seviyesine kadar d özkütleli sıvı ile dolu bir taşırma kabına, özkütlesi d olan homojen bir X cismi yavaşça bırakılıyor. Bu işlem sonucunda taşırma kabındaki kütle artışı (ağırlaşma) ne kadar olur?",
+    "options": [
+      "X cisminin kütlesi kadar ağırlaşır.",
+      "Ağırlaşma olmaz (0).",
+      "X cisminin kütlesinin yarısı kadar ağırlaşır.",
+      "Taşan sıvının hacmi kadar ağırlaşır."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Özkütlesi d olan cisim d özkütleli sıvıda askıda kalır. Askıda kalan cisimlerde kaldırma kuvveti cismin ağırlığına eşittir (Fk = G_cisim). Taşan sıvının ağırlığı da Fk'ye eşit olduğu için kaba giren ağırlık ile kaptan çıkan ağırlık eşittir. Bu nedenle kapta ağırlaşma olmaz.",
+    "misconception": "Taşırma kabına dışarıdan cisim atıldığı için kabın her durumda ağırlaşmak zorunda olduğunu düşünmek."
+  },
+  {
+    "id": "buoyancy-q-009",
+    "conceptId": "overflow-and-weight",
+    "difficulty": "orta",
+    "question": "Taşma seviyesine kadar d özkütleli sıvı dolu bir taşırma kabına, özkütlesi 2d olan K cismi bırakılıyor ve cisim kabın tabanına batıyor. Kapta meydana gelen ağırlaşma miktarı aşağıdakilerden hangisine eşittir?",
+    "options": [
+      "Cismin ağırlığı ile kaldırma kuvvetinin toplamına",
+      "Sıfıra (ağırlaşma meydana gelmez)",
+      "Cismin ağırlığı ile cisme etki eden kaldırma kuvvetinin farkına (G - Fk)",
+      "Yalnızca taşıran sıvının ağırlığına"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Kaba giren ağırlık G_cisim, kaptan çıkan taşan sıvının ağırlığı ise Fk'ye eşittir. Kapta oluşan kütle artışı (ağırlaşma) ΔG = G_giren - G_çıkan = G_cisim - Fk kadardır.",
+    "misconception": "Batan cisim atıldığında kabın cismin tüm ağırlığı kadar ağırlaşacağını sanıp taşan sıvının çıkardığı kütleyi düşmeyi unutmak."
+  },
+  {
+    "id": "buoyancy-q-010",
+    "conceptId": "pressure-force-difference",
+    "difficulty": "orta",
+    "question": "Sıvı içerisine tamamen batırılmış küp şeklindeki bir cismin üst yüzeyine etki eden sıvı basınç kuvveti F1, alt yüzeyine etki eden sıvı basınç kuvveti F2'dir. Buna göre cisme etki eden net kaldırma kuvveti ve yan yüzeylerdeki basınç kuvvetlerinin bileşkesi ile ilgili hangisi doğrudur?",
+    "options": [
+      "Fk = F2 - F1 , Yan yüzeylerdeki net kuvvet sıfırdır.",
+      "Fk = F1 + F2 , Yan yüzeylerdeki net kuvvet yukarı yönlüdür.",
+      "Fk = F1 - F2 , Yan yüzeylerdeki net kuvvet sıfırdır.",
+      "Fk = F2 - F1 , Yan yüzeylerdeki net kuvvet aşağı yönlüdür."
+    ],
+    "correctAnswer": 0,
+    "explanation": "Alt yüzey daha derinde olduğu için F2 > F1'dir ve net yukarı yönlü kuvvet (kaldırma kuvveti) Fk = F2 - F1 olur. Yan yüzeyler aynı derinlik hizasında karşılıklı yer aldığı için yan basınç kuvvetleri eşit büyüklükte ve zıt yönlüdür; bileşkeleri sıfırdır.",
+    "misconception": "Kaldırma kuvvetinin üst ve alt yüzey basınç kuvvetlerinin toplamı olduğunu veya yan yüzeylerin de yukarı yönlü kuvvete katkı verdiğini sanmak."
+  },
+  {
+    "id": "buoyancy-q-011",
+    "conceptId": "gravity-acceleration",
+    "difficulty": "orta",
+    "question": "Dünya'da bir sıvı içerisinde hacminin yarısı batacak şekilde yüzen bir cisim, yerçekimi ivmesinin Dünya'dakinden daha küçük olduğu Ay'a götürülüp aynı sıvıya bırakılıyor. Cismin Ay'daki batan hacim oranı ve cisme etki eden kaldırma kuvveti (Fk) Dünya'dakine göre nasıl değişir?",
+    "options": [
+      "Batan hacim oranı azalır, Fk değişmez.",
+      "Batan hacim oranı değişmez, Fk azalır.",
+      "Batan hacim oranı artar, Fk azalır.",
+      "İkisi de azalır."
+    ],
+    "correctAnswer": 1,
+    "explanation": "Batan hacim oranı (Vbatan/Vcisim = d_cisim/d_sıvı) yerçekimi ivmesinden (g) bağımsızdır, dolayısıyla batan hacim oranı değişmez. Ancak cismin ağırlığı G = m*g ve yüzen cisimde Fk = G olduğu için g azaldığında cismin ağırlığı ve dolayısıyla cisme uygulanan kaldırma kuvveti azalır.",
+    "misconception": "Yerçekimi ivmesi azalınca cismin hafifleyerek sıvı yüzeyinde daha az batacağını (batan hacim oranının azalacağını) düşünmek."
+  },
+  {
+    "id": "buoyancy-q-012",
+    "conceptId": "buoyancy",
+    "difficulty": "orta",
+    "question": "Eşit hacimli K, L ve M cisimleri aynı sıvı içerisinde şekildeki gibi dengededir. K yüzmekte, L askıda durmakta, M ise kabın tabanına batmış durumdadır. Cisimlere etki eden FK, FL ve FM kaldırma kuvvetleri arasındaki büyüklük ilişkisi nasıldır?",
+    "options": [
+      "FK > FL > FM",
+      "FM > FL > FK",
+      "FL = FM > FK",
+      "FK = FL = FM"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Kaldırma kuvveti Fk = Vbatan * dsıvı * g formülüyle bulunur. L ve M cisimleri tamamen sıvıya batmış olduğundan batan hacimleri cisimlerin toplam hacimlerine eşittir (V_L = V_M = V). K cismi yüzdüğü için batan hacmi toplam hacminden küçüktür (V_batanK < V). Bu durumda FL = FM > FK olur.",
+    "misconception": "Batan M cismine hiç kaldırma kuvveti etki etmediğini veya en üstte yüzen K cismine en büyük kaldırma kuvvetinin etki ettiğini varsaymak."
+  },
+  {
+    "id": "buoyancy-q-013",
+    "conceptId": "apparent-weight-loss",
+    "difficulty": "orta",
+    "question": "Eşit kütleli X ve Y cisimleri birer dinamometreye asılıp tamamen su içerisine batırılıyor. X cisminin özkütlesi dX = 2 g/cm³, Y cisminin özkütlesi dY = 5 g/cm³ olduğuna göre dinamometrelerde gerçekleşen hafifleme miktarları (ΔGX ve ΔGY) arasındaki ilişki nasıldır?",
+    "options": [
+      "ΔGX > ΔGY",
+      "ΔGY > ΔGX",
+      "ΔGX = ΔGY",
+      "ΔGX = 0, ΔGY > 0"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Hafifleme miktarı cisme etki eden kaldırma kuvvetine (Fk = V * d_su * g) eşittir. Cismlerin kütleleri eşit (m) olduğuna göre hacimleri V = m / d bağıntısından V_X = m/2 ve V_Y = m/5 bulunur. X'in hacmi daha büyük olduğu için ona etki eden kaldırma kuvveti ve dolayısıyla hafifleme miktarı daha büyüktür (ΔGX > ΔGY).",
+    "misconception": "Kütleleri eşit olan cisimlerin sıvıda eşit miktarda hafifleyeceğini veya eşit kaldırma kuvveti alacağını düşünmek."
+  },
+  {
+    "id": "buoyancy-q-014",
+    "conceptId": "floating-state",
+    "difficulty": "orta",
+    "question": "Birbirine karışmayan d ve 3d özkütleli sıvılar aynı kaba koyulduğunda d özkütleli sıvı üstte kalmaktadır. Bu kaba bırakılan 2d özkütleli homojen bir katı cismin denge konumu aşağıdakilerden hangisi gibi olur?",
+    "options": [
+      "d özkütleli sıvının üstünde tamamen yüzer.",
+      "3d özkütleli sıvının tabanına batar.",
+      "İki sıvının ara yüzeyinde, bir kısmı d bir kısmı 3d özkütleli sıvıda kalacak şekilde dengede durur.",
+      "d özkütleli sıvıda askıda kalır, 3d sıvısına hiç temas etmez."
+    ],
+    "correctAnswer": 2,
+    "explanation": "Cismin özkütlesi (2d), üstteki sıvının özkütlesinden (d) büyük, alttaki sıvının özkütlesinden (3d) küçüktür (d < 2d < 3d). Bu nedenle cisim iki sıvının ara yüzeyine yerleşir ve her iki sıvıdan da kaldırma kuvveti alarak dengelenir.",
+    "misconception": "Cismin özkütlesi iki sıvının arasında olduğunda yalnızca üstteki veya alttaki sıvılardan birinin içinde kalacağını sanmak."
+  },
+  {
+    "id": "buoyancy-q-015",
+    "conceptId": "buoyancy",
+    "difficulty": "orta",
+    "question": "Eşit bölmeli homojen K cismi d özkütleli sıvıda tek başına iken 2 bölmesi batacak şekilde dengededir. Bu cismin üzerine L cismi koyulduğunda K cisminin 3 bölmesi sıvıya batıyor. Buna göre K ve L cisimlerinin kütleleri oranı (mK / mL) kaçtır?",
+    "options": [
+      "1/2",
+      "1",
+      "2",
+      "3"
+    ],
+    "correctAnswer": 2,
+    "explanation": "K cismi tek başına 2 bölme batırdığı için K'nin kütlesi 2 bölmelik sıvı kütlesine orantılıdır (mK ~ 2V*d). Üzerine L konulunca batan hacim 3 bölmeye çıkmıştır, yani L cismi ekstra 1 bölme daha batırmıştır (mL ~ 1V*d). Buradan mK / mL = 2 / 1 = 2 bulunur.",
+    "misconception": "L cisminin kütlesini hesaplarken toplam batan hacim olan 3 bölmeyi doğrudan L'nin kütlesi sanmak."
+  },
+  {
+    "id": "buoyancy-q-016",
+    "conceptId": "overflow-and-weight",
+    "difficulty": "zor",
+    "question": "Taşma seviyesine kadar d özkütleli sıvı ile dolu olan bir taşırma kabı hassas bir terazi üzerindedir. Kaba özkütlesi 3d olan V hacimli homojen bir blok bırakılıyor. Cisim tabana battığına göre, terazi üzerinde okunan ağırlaşma miktarı kaç V*d*g olur?",
+    "options": [
+      "3 V*d*g",
+      "2 V*d*g",
+      "1 V*d*g",
+      "Sıfır"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Kaba giren cismin ağırlığı G_giren = V * 3d * g = 3Vdg'dir. Cisim tamamen battığı için taşırdığı sıvının hacmi cismin hacmine eşittir (V_taşan = V). Taşan sıvının ağırlığı G_çıkan = V * d * g = 1Vdg olur. Ağırlaşma ΔG = G_giren - G_çıkan = 3Vdg - 1Vdg = 2 Vdg bulunur.",
+    "misconception": "Taşırma kabındaki ağırlaşmayı hesaplarken taşan sıvının ağırlığını düşmeyi unutup cevap olarak doğrudan cismin ağırlığını (3 Vdg) seçmek."
+  },
+  {
+    "id": "buoyancy-q-017",
+    "conceptId": "submerged-volume",
+    "difficulty": "zor",
+    "question": "Hacimleri VK ve VL olan K ve L cisimleri birbirine yapıştırılmadan d özkütleli sıvıya bırakıldığında K üstte L altta olacak şekilde üst üste dengede kalmaktadır. K'nin özkütlesi dK = d/2 olduğuna göre, L'nin özkütlesi dL hakkında aşağıdakilerden hangisi kesinlikle doğrudur?",
+    "options": [
+      "dL kesinlikle d'den büyüktür (dL > d).",
+      "dL kesinlikle d'ye eşittir (dL = d).",
+      "dL kesinlikle d/2'ye eşittir (dL = d/2).",
+      "dL kesinlikle d'den küçüktür (dL < d)."
+    ],
+    "correctAnswer": 0,
+    "explanation": "K cisminin özkütlesi (d/2) sıvıdan küçük olduğu için tek başına yüzmek ve yukarı çıkmak ister. Cisimler yapıştırılmadığı halde K yukarı kaçmıyor ve L'nin üzerinde duruyorsa, L cismi batmak isteyen (dL > d) bir cisim olmalıdır ki K'yi aşağı çekebilsin veya K'nin yukarı gitmesini engellesin. Dolayısıyla dL > d olmak zorundadır.",
+    "misconception": "Sıvı içinde K ve L birlikte dengede kaldığı için L'nin sadece askıda kalan bir cisim (dL = d) olabileceğini düşünmek."
+  },
+  {
+    "id": "buoyancy-q-018",
+    "conceptId": "apparent-weight-loss",
+    "difficulty": "zor",
+    "question": "Bir kabın tabanına bir esnemesiz iple bağlanan X cismi d özkütleli sıvı içerisinde şekildeki gibi dengededir. İpteki gerilme kuvveti T sıfırdan farklı olduğuna göre;\nI. Cismin özkütlesi sıvının özkütlesinden küçüktür (dX < d).\nII. Cisme etki eden kaldırma kuvveti Fk = GX + T şeklindedir.\nIII. İp kesilirse cisim yukarı doğru ivmelenerek yüzme durumuna geçer.\nyargılarından hangileri doğrudur?",
+    "options": [
+      "Yalnız I",
+      "I ve II",
+      "II ve III",
+      "I, II ve III"
+    ],
+    "correctAnswer": 3,
+    "explanation": "İp tabana bağlıyken ipte gerilme kuvveti T > 0 oluşuyorsa cisim yukarı gitmek istemektedir. Bu durum dX < d olduğunu gösterir (I doğru). Düşey kuvvet dengesinden yukarı yönlü Fk = aşağı yönlü (GX + T) olur (II doğru). İp kesildiğinde net kuvvet yukarı yönlü olacağından cisim ivmelenerek sıvı yüzeyine çıkar ve yüzer (III doğru).",
+    "misconception": "Tabana iple bağlı cisimlerde ip gerilmesinin varlığından dolayı cismin batmak istediğini sanıp dX > d hatasına düşmek."
+  },
+  {
+    "id": "buoyancy-q-019",
+    "conceptId": "fluid-density",
+    "difficulty": "zor",
+    "question": "Özkütlesi dX olan K cismi, birbirine karışmayan d1 ve d2 özkütleli (d2 > d1) sıvıların ara yüzeyinde VK1 ve VK2 hacimleri batmış olarak dengededir. Kaba aynı d1 özkütleli sıvıdan bir miktar daha eklendiğinde K cisminin d2 özkütleli sıvıdaki batan hacmi VK2 nasıl değişir?",
+    "options": [
+      "Artar",
+      "Azalır",
+      "Değişmez",
+      "Önce artar sonra azalır"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Üste aynı d1 sıvısından eklenmesi, d1 sıvısı içinde zaten tamamen batmış olan üst kısmın kaldırma kuvveti katkısını değiştirmez. Toplam ağırlık dengesinde VK1*d1*g + VK2*d2*g = VK*dX*g bağıntısı geçerlidir. Sıvı eklenmesi cismin üzerindeki toplam sıvı yüksekliğini değiştirse de basınç farkı dengesini değiştirmez ve VK2 hacmi kesinlikle değişmez.",
+    "misconception": "Üste sıvı eklendiğinde toplam sıvı yüksekliği arttığı için cismin aşağı itilerek alttaki yoğun sıvıya daha çok batacağını zannetmek."
+  },
+  {
+    "id": "buoyancy-q-020",
+    "conceptId": "archimedes-principle",
+    "difficulty": "zor",
+    "question": "İçi boş homojen bir demir küre (d_demir = 7.8 g/cm³) su içerisine (d_su = 1 g/cm³) bırakıldığında tamamen batarak askıda kalmaktadır. Kürenin dış toplam hacmi V_toplam olduğuna göre, içindeki boşluğun hacmi V_boşluk kaç V_toplam'dır?",
+    "options": [
+      "1 / 7.8",
+      "6.8 / 7.8",
+      "1 / 6.8",
+      "7.8 / 8.8"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Kürenin askıda kalması için ortalama özkütlesi d_ort = d_su = 1 g/cm³ olmalıdır. d_ort = m_toplam / V_toplam => m_demir = V_toplam * 1. Demir hacmi V_demir = m_demir / d_demir = V_toplam / 7.8 olur. Buradan boşluğun hacmi V_boşluk = V_toplam - V_demir = V_toplam - (V_toplam / 7.8) = (6.8 / 7.8) * V_toplam bulunur.",
+    "misconception": "Boşluk hacmini hesaplarken doğrudan özkütlelerin oranını alıp 1/7.8 sonucuna ulaşarak demir hacmi ile boşluk hacmini karıştırmak."
+  }
+]
