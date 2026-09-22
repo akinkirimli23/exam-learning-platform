@@ -24,11 +24,7 @@ import {
   type WheelEvent,
 } from 'react';
 import { createPortal } from 'react-dom';
-import {
-  buoyancyConceptMap,
-  flattenConceptNodes,
-  type ConceptNode,
-} from '@/shared/buoyancy-concepts';
+import { flattenConceptNodes, type ConceptNode } from '@/shared/topic-engine';
 
 const NODE_WIDTH = 218;
 const NODE_HEIGHT = 72;
@@ -134,14 +130,14 @@ function getNodePath(nodeId: string, nodeById: Map<string, ConceptNode>, parentB
   return path;
 }
 
-export function BuoyancyConceptExplorer() {
+export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
   const [expandedIds, setExpandedIds] = useState<Set<string>>(
-    () => new Set([buoyancyConceptMap.id]),
+    () => new Set([conceptMap.id]),
   );
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [activeId, setActiveId] = useState(buoyancyConceptMap.id);
+  const [activeId, setActiveId] = useState(conceptMap.id);
   const [scale, setScale] = useState(0.75);
   const [pan, setPan] = useState({ x: 36, y: 36 });
   const [fitRequest, setFitRequest] = useState(0);
@@ -153,16 +149,22 @@ export function BuoyancyConceptExplorer() {
   const nodeRefs = useRef(new Map<string, HTMLButtonElement>());
   const dragRef = useRef({ pointerId: -1, startX: 0, startY: 0, panX: 0, panY: 0 });
 
-  const allNodes = useMemo(() => flattenConceptNodes(buoyancyConceptMap), []);
+  const allNodes = useMemo(() => flattenConceptNodes(conceptMap), [conceptMap]);
   const nodeById = useMemo(() => new Map(allNodes.map((item) => [item.id, item])), [allNodes]);
-  const parentById = useMemo(() => buildParentMap(buoyancyConceptMap), []);
-  const layout = useMemo(() => createLayout(buoyancyConceptMap, expandedIds), [expandedIds]);
+  const parentById = useMemo(() => buildParentMap(conceptMap), [conceptMap]);
+  const layout = useMemo(() => createLayout(conceptMap, expandedIds), [conceptMap, expandedIds]);
   const selectedNode = selectedId ? nodeById.get(selectedId) ?? null : null;
   const selectedPath = selectedNode
     ? getNodePath(selectedNode.id, nodeById, parentById)
     : [];
 
   useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    setExpandedIds(new Set([conceptMap.id]));
+    setSelectedId(null);
+    setActiveId(conceptMap.id);
+  }, [conceptMap]);
 
   const closeExplorer = useCallback(() => {
     setOpen(false);
@@ -333,8 +335,8 @@ export function BuoyancyConceptExplorer() {
   };
 
   const showMainBranches = () => {
-    setExpandedIds(new Set([buoyancyConceptMap.id]));
-    setActiveId(buoyancyConceptMap.id);
+    setExpandedIds(new Set([conceptMap.id]));
+    setActiveId(conceptMap.id);
     requestFit();
   };
 
@@ -351,7 +353,7 @@ export function BuoyancyConceptExplorer() {
           <div className="concept-heading-mark" aria-hidden="true"><Network size={22} /></div>
           <div>
             <span>INTERACTIVE CONCEPT EXPLORER</span>
-            <h2 id="concept-map-title">Kaldırma Kuvveti Kavram Haritası</h2>
+            <h2 id="concept-map-title">{conceptMap.title} Kavram Haritası</h2>
             <p>Bir düğüm seçerek açıklamasını incele; dalları açarak ilişkileri keşfet.</p>
           </div>
           <button ref={closeRef} className="concept-close" onClick={closeExplorer} aria-label="Kavram haritasını kapat">
@@ -408,7 +410,7 @@ export function BuoyancyConceptExplorer() {
                 })}
               </svg>
 
-              <div role="tree" aria-label="Kaldırma kuvveti kavramları">
+              <div role="tree" aria-label={`${conceptMap.title} kavramları`}>
                 {layout.nodes.map((item) => {
                   const hasChildren = item.node.children.length > 0;
                   const isExpanded = expandedIds.has(item.node.id);
@@ -521,7 +523,7 @@ export function BuoyancyConceptExplorer() {
     <>
       <button ref={launcherRef} className="concept-launcher" onClick={openExplorer}>
         <span className="concept-launcher-icon"><Network size={20} /></span>
-        <span><strong>Tam kavram haritası</strong><small>6 ana dalda bağlantıları keşfet</small></span>
+        <span><strong>Tam kavram haritası</strong><small>{conceptMap.children.length} ana dalda bağlantıları keşfet</small></span>
         <ChevronRight size={18} />
       </button>
       {mounted && modal ? createPortal(modal, document.body) : null}

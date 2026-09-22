@@ -1,14 +1,7 @@
-export type ConceptNode = {
-  id: string;
-  title: string;
-  shortDescription: string;
-  detailedDescription: string;
-  formula?: string;
-  example?: string;
-  commonMistake?: string;
-  relatedConceptIds: string[];
-  children: ConceptNode[];
-};
+import type { ConceptNode } from '@/shared/topic-engine';
+
+export type { ConceptNode } from '@/shared/topic-engine';
+export { flattenConceptNodes } from '@/shared/topic-engine';
 
 const node = (
   value: Omit<ConceptNode, 'relatedConceptIds' | 'children'> &
@@ -408,7 +401,3 @@ export const buoyancyConceptMap: ConceptNode = node({
     }),
   ],
 });
-
-export function flattenConceptNodes(root: ConceptNode): ConceptNode[] {
-  return [root, ...root.children.flatMap(flattenConceptNodes)];
-}

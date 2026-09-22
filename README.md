@@ -1,6 +1,6 @@
 # İvme
 
-Türkçe, 18+ sınav hazırlık pilotu. İlk konu: Kaldırma Kuvveti. Web ve mobil aynı REST API ve hesapları kullanır. Mevcut durum ve sonraki iş: [DEVAM.md](DEVAM.md).
+Türkçe, 18+ sınav hazırlık pilotu. İlk konu: Kaldırma Kuvveti. Web ve mobil aynı REST API ve hesapları kullanır. Mevcut durum ve sonraki iş: [DEVAM.md](DEVAM.md). Vercel ilk test sürümü için değişkenler ve dağıtım sınırları: [docs/VERCEL.md](docs/VERCEL.md).
 
 ## Web
 
@@ -16,7 +16,9 @@ npm run dev
 
 Adres: http://localhost:3000. Mevcut pilot verileri hazırsa seed veya yönetici oluşturma gerekmiyor. Ekrandaki “Hesap oluştur” ile öğrenci hesabı açılabilir. Yönetici komutu rastgele şifre üretip yalnız yerel, git dışında bırakılan erişim dosyasına yazar; mevcut hesabı değiştirmez. Bu dosyayı paylaşmayın.
 
-`.env.example` gerekli değişkenlerin şablonudur. `.env.local` yerel geliştirme için `APP_ORIGIN`, `DATA_DIR`, `DEMO_CONTENT` içerir. `tsx` kurulum komutları `.env.local` dosyasını kendiliğinden yüklemez; özel veri dizini veya PostgreSQL seçilecekse değişkenleri PowerShell oturumunda da tanımlayın.
+`.env.example` gerekli değişkenlerin şablonudur. `.env.local` yerel geliştirme için `APP_ORIGIN`, `DATA_DIR`, `DEMO_CONTENT` ve private ders medyası kullanılacaksa server-only `SUPABASE_URL` ile `SUPABASE_SERVICE_ROLE_KEY` değerlerini içerir. Service role key'e hiçbir zaman `NEXT_PUBLIC_` öneki vermeyin. `tsx` kurulum komutları `.env.local` dosyasını kendiliğinden yüklemez; özel veri dizini veya PostgreSQL seçilecekse değişkenleri PowerShell oturumunda da tanımlayın.
+
+Konuya özel statik öğrenme içeriği `TopicDefinition` üzerinden çalışır. Ortak model ve canonical `conceptId` doğrulaması `shared/topic-engine.ts`, üretimde açılan konular `shared/topic-registry.ts`, ortak Öğren/İzle/Kartlar/Testler arayüzü `components/topic-learning-content.tsx` içindedir. Yeni bir konu eklemek için kavram haritası, kart, quiz ve medya metadata'sını konu klasöründe tanımlayın; `defineTopic` ile doğrulanan tanımı registry'ye ekleyin. Konunun katalog/anlatım kaydı da mevcut içerik sistemi üzerinden yayımlanmalıdır. Bu işlem yeni bir veritabanı tablosu gerektirmez.
 
 Veri `data/database` içinde diske kalıcı PGlite olarak tutulur. Aynı veri dizinini iki süreçle açmayın. Üretimde `DATABASE_URL` ile PostgreSQL kullanın. Mevcut gömülü veriyi PostgreSQL'e otomatik taşıma henüz yok; aynı şema/adaptör desteği veri göçü yapıldığı anlamına gelmez. Şema şu an ilk kurulum içindir; sonraki şema değişikliklerinden önce sürümlü migration sistemi eklenmeli.
 
@@ -52,8 +54,9 @@ npx expo export --platform android --platform ios --output-dir dist
 
 - 4 anlatım, 10 kart, 25 ayrı özgün demo sorusu. Alan uzmanı incelemesi tamamlanmadı.
 - [Kaynak/kapsam notları](docs/SOURCES.md): 2026 YKS belgesi; 2027 kapsamı ve kesin TYT/AYT dağılımı doğrulanmış sayılmaz.
-- Ses/video henüz sağlanmadı. Yönetici gerçek dosyayı yükleyip transkript, video için WebVTT ve lisans notuyla yayımlar. Dosya sınırı 32 MB.
-- Dosyalar yerelde `data/media`, isteğe bağlı S3 uyumlu depolama. Sağlayıcı bağlantısı doğrulanmadı.
+- Kaldırma Kuvveti video, PDF slayt ve infografik metadata'sı private `learning-media` Supabase Storage bucket'ına bağlıdır. Uygulama yalnız topic registry üzerinden toplanan güvenilir `mediaId` değerleri için 3600 saniyelik signed URL üretir; binary dosyalar repository'de tutulmaz.
+- Signed URL endpoint'i mevcut öğrenci oturumu doğrulamasının arkasındadır. Üretim erişim modeli netleştiğinde konu/kullanıcı bazlı yetkilendirme kontrolü eklenmelidir.
+- Yönetici medya yükleme akışı ayrı olarak yerelde `data/media`, isteğe bağlı S3 uyumlu depolama kullanır. Bu akışın dosya sınırı 32 MB'dır.
 - [AI sözleşmesi](docs/AI.md): gerçek sağlayıcı erişimi yoksa özellik dürüstçe kullanılamaz görünür. Temel test akışı bağımsızdır.
 - E-posta doğrulama/şifre sıfırlama, bildirim gönderimleri, ödeme, canlı barındırma ve mağaza yayını bağlı değil.
 

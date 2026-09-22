@@ -153,6 +153,8 @@
 .learning-media-empty>span{display:grid;place-items:center;width:34px;height:34px;flex-shrink:0;border-radius:9px;background:#e9edf3}
 .learning-media-empty strong{display:block;color:#46556b;font-size:12px}
 .learning-media-empty p{margin-top:4px;font-size:10px;line-height:1.55}
+.learning-media-loading svg{animation:learning-media-spin .9s linear infinite}
+@keyframes learning-media-spin{to{transform:rotate(360deg)}}
 .learning-material-action{width:100%;margin-top:17px;padding-inline:12px;font-size:11px;white-space:normal}
 .learning-video-card{max-width:920px;margin:0 auto;padding:28px}
 .learning-video-card .learning-media-heading{margin-bottom:23px}

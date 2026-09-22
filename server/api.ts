@@ -6,6 +6,7 @@ import {AppError,auth,fail,passwordHash,verifyPassword,session,userDTO,hash,limi
 import {published,saveContent,transition} from './content';
 import {startAttempt,ownedAttempt,attemptDTO,answer,complete,reviewFeedback,overview} from './learning';
 import {limitedBody,upload,mediaResponse} from './media';
+import {getSignedLearningMediaUrl} from './learning-media';
 import {aiAvailable,help} from './ai';
 const json=(data:unknown,status=200,headers:Record<string,string>={})=>Response.json(data,{status,headers:{'Cache-Control':'no-store',...headers}});
 const cookie=(token:string,request:Request,clear=false)=>`ivme_session=${token}; HttpOnly; SameSite=Lax; Path=/; Max-Age=${clear?0:14*86400}${new URL(request.url).protocol==='https:'?'; Secure':''}`;
@@ -29,6 +30,10 @@ export async function handle(request:Request){try{
   if(route[0]==='settings'&&method==='PUT'){const v=settingsSchema.parse(await body(request));return await transaction(async tx=>{if(!(await published(tx)).some(c=>c.kind==='exam'&&c.logical_id===v.examId))fail(400,'Yayımlanmış bir sınav seçin.');if(v.timezone!==u.timezone&&(await tx.query('SELECT day FROM daily_activity WHERE user_id=$1 LIMIT 1',[u.id])).rows.length)fail(409,'Seri başladıktan sonra pilotun gün sınırı sabit kalır.');const out=await tx.query('UPDATE users SET name=$2,daily_goal=$3,weekly_goal=$4,notifications=$5,exam_id=$6,timezone=$7 WHERE id=$1 RETURNING *',[u.id,v.name,v.dailyGoal,v.weeklyGoal,v.notifications,v.examId,v.timezone]);return json({user:userDTO(out.rows[0])});});}
   if(route[0]==='catalog'&&method==='GET'){const all=await published(db);return json({content:all.filter(c=>c.kind!=='question'),config:await config(db)});}
   if(route[0]==='overview'&&method==='GET')return json(await overview(db,u));
+  if(route[0]==='learning-media'&&route.length===2&&method==='GET'){
+    // Add topic entitlement checks here when per-student authorization is introduced.
+    return json(await getSignedLearningMediaUrl(route[1]));
+  }
   if(route[0]==='lessons'&&route[2]==='complete'&&method==='POST'){const c=(await published(db)).find(c=>c.id===route[1]&&c.kind==='lesson');if(!c)fail(404,'Konu bölümü bulunamadı.');await db.query('INSERT INTO lesson_completions(user_id,content_id) VALUES($1,$2) ON CONFLICT DO NOTHING',[u.id,c!.id]);return json({ok:true});}
   if(route[0]==='attempts'){
     if(route.length===1&&method==='POST'){const input=await body(request);return json(await transaction(tx=>startAttempt(tx,u,input)));}

@@ -5,13 +5,53 @@ import {
   ExternalLink,
   FileText,
   Image as ImageIcon,
+  LoaderCircle,
   Maximize2,
   Video,
   X,
 } from 'lucide-react';
 import { createPortal } from 'react-dom';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import type { LearningMedia } from '@/shared/contracts';
+import type { LearningMedia, SignedLearningMedia } from '@/shared/contracts';
+import { api } from './client';
+
+export type LearningMediaLoadState =
+  | { status: 'loading'; url?: undefined }
+  | { status: 'ready'; url: string }
+  | { status: 'error'; url?: undefined };
+
+function useLearningMediaUrl(mediaId: string): LearningMediaLoadState {
+  const [state, setState] = useState<LearningMediaLoadState>({ status: 'loading' });
+
+  useEffect(() => {
+    let active = true;
+    setState({ status: 'loading' });
+    api<SignedLearningMedia>(`learning-media/${encodeURIComponent(mediaId)}`)
+      .then((result) => {
+        if (active) setState({ status: 'ready', url: result.url });
+      })
+      .catch(() => {
+        if (active) setState({ status: 'error' });
+      });
+    return () => {
+      active = false;
+    };
+  }, [mediaId]);
+
+  return state;
+}
+
+function MediaLoading({ item }: { item: LearningMedia }) {
+  return (
+    <div className="learning-media-empty learning-media-loading" role="status">
+      <span><LoaderCircle size={25} /></span>
+      <div>
+        <strong>İçerik hazırlanıyor</strong>
+        <p>{item.title} için güvenli bağlantı oluşturuluyor.</p>
+      </div>
+    </div>
+  );
+}
 
 function MediaUnavailable({ item }: { item: LearningMedia }) {
   return (
@@ -19,7 +59,7 @@ function MediaUnavailable({ item }: { item: LearningMedia }) {
       <span><CloudOff size={25} /></span>
       <div>
         <strong>İçerik henüz yüklenmedi</strong>
-        <p>{item.title}, storage URL’si tanımlandığında burada kullanılabilir olacak.</p>
+        <p>{item.title} materyaline şu anda ulaşılamıyor. Lütfen biraz sonra yeniden dene.</p>
       </div>
     </div>
   );
@@ -38,27 +78,50 @@ function MediaHeading({ item, icon }: { item: LearningMedia; icon: React.ReactNo
   );
 }
 
-export function LearningVideo({ item }: { item: LearningMedia }) {
+export function LearningVideoView({ item, state }: { item: LearningMedia; state: LearningMediaLoadState }) {
   return (
     <article className="card learning-video-card">
       <MediaHeading item={item} icon={<Video size={22} />} />
-      {item.url ? (
+      {state.status === 'ready' ? (
         <>
           <video
             className="learning-video-player"
             controls
             playsInline
             preload="metadata"
-            poster={item.thumbnailUrl || undefined}
             aria-label={item.title}
           >
-            <source src={item.url} type={item.mimeType || 'video/mp4'} />
+            <source src={state.url} type={item.mimeType || 'video/mp4'} />
             Tarayıcın HTML5 video oynatmayı desteklemiyor.
           </video>
           <p className="small-note learning-media-note">
             Oynatıcı; oynatma, duraklatma, ileri-geri sarma, ses, süre ve tam ekran kontrollerini tarayıcından alır.
           </p>
         </>
+      ) : state.status === 'loading' ? (
+        <MediaLoading item={item} />
+      ) : (
+        <MediaUnavailable item={item} />
+      )}
+    </article>
+  );
+}
+
+export function LearningVideo({ item }: { item: LearningMedia }) {
+  const state = useLearningMediaUrl(item.id);
+  return <LearningVideoView item={item} state={state} />;
+}
+
+export function LearningSlidesView({ item, state }: { item: LearningMedia; state: LearningMediaLoadState }) {
+  return (
+    <article className="card learning-material-card">
+      <MediaHeading item={item} icon={<FileText size={21} />} />
+      {state.status === 'ready' ? (
+        <a className="button secondary learning-material-action" href={state.url} target="_blank" rel="noreferrer">
+          PDF slaytı yeni sekmede aç<ExternalLink size={17} />
+        </a>
+      ) : state.status === 'loading' ? (
+        <MediaLoading item={item} />
       ) : (
         <MediaUnavailable item={item} />
       )}
@@ -67,21 +130,11 @@ export function LearningVideo({ item }: { item: LearningMedia }) {
 }
 
 export function LearningSlides({ item }: { item: LearningMedia }) {
-  return (
-    <article className="card learning-material-card">
-      <MediaHeading item={item} icon={<FileText size={21} />} />
-      {item.url ? (
-        <a className="button secondary learning-material-action" href={item.url} target="_blank" rel="noreferrer">
-          PDF slaytı yeni sekmede aç<ExternalLink size={17} />
-        </a>
-      ) : (
-        <MediaUnavailable item={item} />
-      )}
-    </article>
-  );
+  const state = useLearningMediaUrl(item.id);
+  return <LearningSlidesView item={item} state={state} />;
 }
 
-export function LearningInfographic({ item }: { item: LearningMedia }) {
+export function LearningInfographicView({ item, state }: { item: LearningMedia; state: LearningMediaLoadState }) {
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -119,7 +172,7 @@ export function LearningInfographic({ item }: { item: LearningMedia }) {
           <button ref={closeRef} onClick={close} aria-label="İnfografiği kapat"><X size={21} /></button>
         </header>
         <div className="infographic-modal-body">
-          <img src={item.url} alt={item.title} />
+          <img src={state.status === 'ready' ? state.url : ''} alt={item.title} />
         </div>
       </section>
     </div>
@@ -129,16 +182,18 @@ export function LearningInfographic({ item }: { item: LearningMedia }) {
     <>
       <article className="card learning-material-card infographic-card">
         <MediaHeading item={item} icon={<ImageIcon size={21} />} />
-        {item.url ? (
+        {state.status === 'ready' ? (
           <button
             ref={triggerRef}
             className="infographic-preview"
             onClick={() => setOpen(true)}
             aria-label={`${item.title} infografiğini büyüt`}
           >
-            <img src={item.url} alt={item.title} loading="lazy" />
+            <img src={state.url} alt={item.title} loading="lazy" />
             <span><Maximize2 size={16} />Büyüt</span>
           </button>
+        ) : state.status === 'loading' ? (
+          <MediaLoading item={item} />
         ) : (
           <MediaUnavailable item={item} />
         )}
@@ -148,7 +203,12 @@ export function LearningInfographic({ item }: { item: LearningMedia }) {
   );
 }
 
-export function LearningMaterials({ items }: { items: LearningMedia[] }) {
+export function LearningInfographic({ item }: { item: LearningMedia }) {
+  const state = useLearningMediaUrl(item.id);
+  return <LearningInfographicView item={item} state={state} />;
+}
+
+export function LearningMaterials({ items }: { items: readonly LearningMedia[] }) {
   const slides = items.find((item) => item.type === 'slides');
   const infographic = items.find((item) => item.type === 'infographic');
   return (

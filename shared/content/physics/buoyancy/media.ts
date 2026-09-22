@@ -1,20 +1,8 @@
 import { learningMediaSchema, type LearningMedia, type LearningMediaType } from '@/shared/contracts';
-import { buoyancyConceptMap, flattenConceptNodes } from '@/shared/buoyancy-concepts';
 
-export type BuoyancyMediaUrlConfig = {
-  videoUrl?: string;
-  videoThumbnailUrl?: string;
-  slidesUrl?: string;
-  infographicUrl?: string;
-};
+const bucket = 'learning-media';
 
-const canonicalConceptIds = new Set(
-  flattenConceptNodes(buoyancyConceptMap).map((concept) => concept.id),
-);
-
-const cleanUrl = (value?: string) => value?.trim() ?? '';
-
-export function createBuoyancyMedia(config: BuoyancyMediaUrlConfig = {}): LearningMedia[] {
+export function createBuoyancyMedia(): LearningMedia[] {
   const media = learningMediaSchema.array().parse([
     {
       id: 'buoyancy-video-physics',
@@ -23,8 +11,8 @@ export function createBuoyancyMedia(config: BuoyancyMediaUrlConfig = {}): Learni
       title: 'Kaldırma Kuvvetinin Fiziği',
       description:
         'Basınç farkından denge durumlarına kadar kaldırma kuvvetinin temel fiziksel modelini görsel anlatımla ele alır.',
-      url: cleanUrl(config.videoUrl),
-      thumbnailUrl: cleanUrl(config.videoThumbnailUrl),
+      bucket,
+      objectPath: 'physics/buoyancy/video/Kaldirma_Kuvvetinin_Fizigi.mp4',
       mimeType: 'video/mp4',
       conceptIds: [
         'buoyancy',
@@ -44,7 +32,8 @@ export function createBuoyancyMedia(config: BuoyancyMediaUrlConfig = {}): Learni
       title: 'Arşimet ve Kaldırma Kuvveti',
       description:
         'Arşimet ilkesini, matematiksel modeli ve sıvı içindeki denge durumlarını birlikte inceleyen PDF slayt materyali.',
-      url: cleanUrl(config.slidesUrl),
+      bucket,
+      objectPath: 'physics/buoyancy/slides/Arsimet_ve_Kaldirma_Kuvveti.pdf',
       mimeType: 'application/pdf',
       conceptIds: [
         'archimedes-principle',
@@ -61,7 +50,8 @@ export function createBuoyancyMedia(config: BuoyancyMediaUrlConfig = {}): Learni
       title: 'Arşimet Prensibi ve Kaldırma Kuvveti',
       description:
         'Kaldırma kuvvetinin kaynağını, formülünü ve yüzme durumlarını tek görselde özetleyen infografik.',
-      url: cleanUrl(config.infographicUrl),
+      bucket,
+      objectPath: 'physics/buoyancy/infographic/Arsimet_Prensibi_ve_Kaldirma_Kuvveti.png',
       mimeType: 'image/png',
       conceptIds: [
         'archimedes-principle',
@@ -75,23 +65,10 @@ export function createBuoyancyMedia(config: BuoyancyMediaUrlConfig = {}): Learni
     },
   ]);
 
-  for (const item of media) {
-    for (const conceptId of item.conceptIds) {
-      if (!canonicalConceptIds.has(conceptId)) {
-        throw new Error(`${item.id} için canonical olmayan conceptId: ${conceptId}`);
-      }
-    }
-  }
-
   return media.sort((first, second) => first.order - second.order);
 }
 
-export const buoyancyMedia = createBuoyancyMedia({
-  videoUrl: process.env.NEXT_PUBLIC_BUOYANCY_VIDEO_URL,
-  videoThumbnailUrl: process.env.NEXT_PUBLIC_BUOYANCY_VIDEO_THUMBNAIL_URL,
-  slidesUrl: process.env.NEXT_PUBLIC_BUOYANCY_SLIDES_URL,
-  infographicUrl: process.env.NEXT_PUBLIC_BUOYANCY_INFOGRAPHIC_URL,
-});
+export const buoyancyMedia = createBuoyancyMedia();
 
 export function getBuoyancyMedia(type: LearningMediaType): LearningMedia {
   const item = buoyancyMedia.find((candidate) => candidate.type === type);
