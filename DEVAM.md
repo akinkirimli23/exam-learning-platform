@@ -120,7 +120,7 @@ Android emülatörü API adresi `http://10.0.2.2:3000`; fiziksel cihazda aynı a
 - AI sağlayıcı, gerçek PostgreSQL/S3 bağlantıları ve canlı barındırma doğrulanmadı. AI gateway genel sözleşmedir; belirli sağlayıcı SDK entegrasyonu veya parasal bütçe takibi değildir.
 - Sorular/anlatımlar uzman incelemesi ve gerçek pilot kullanıcı kabulü bekliyor.
 - E-posta doğrulama/şifre sıfırlama ve bildirim gönderimi bağlı değil. Mobil hesap silme/şifre değiştirme akışı yok; web ayarlarında var.
-- Şema ilk kurulum CREATE IF NOT EXISTS yapısında; sonraki şema değişikliğinden önce sürümlü migration sistemi eklenmeli.
+- Yerel PGlite şemayı ilk açılışta kurar; uzak PostgreSQL için v1 şeması `db:migrate` ile direct/session 5432 üzerinden bir kez uygulanır ve runtime yalnız sürüm kontrolü yapar. v1 sonrası şema değişikliğinden önce sürümlü migration sistemi eklenmeli.
 - Mağaza/üretim yayını yapılmadı. Mobil başlangıç ikonları son marka tasarımı değil.
 
 ## Sonraki somut adım

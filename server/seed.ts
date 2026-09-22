@@ -2,7 +2,8 @@ import {type DB,transaction} from './db';
 import {questions} from './questions';
 const source={url:'',license:'İvme için özgün hazırlanmış demo. Alan uzmanı incelemesi bekliyor.',attribution:'İvme demo içerik paketi v1'};
 export async function seedDatabase(){return transaction(async db=>{
-  if((await db.query("SELECT id FROM content WHERE logical_id='buoyancy' LIMIT 1")).rows.length)return;
+  if((await db.query("SELECT id FROM content WHERE logical_id='buoyancy' LIMIT 1")).rows.length)return false;
+  if((await db.query('SELECT id FROM content LIMIT 1')).rows.length)throw new Error('Mevcut içerik var; demo seed otomatik uygulanmadı.');
   async function put(logical:string,kind:string,parent:string|null,title:string,payload:any,demo=true){await db.query("INSERT INTO content(id,logical_id,kind,parent_id,title,revision,status,demo,payload,source,reviewed_by,reviewed_at) VALUES($1,$2,$3,$4,$5,1,'published',$6,$7,$8,$9,now())",[`${logical}-v1`,logical,kind,parent,title,demo,JSON.stringify(payload),JSON.stringify(source),demo?'demo-structural-check':'initial-setup']);}
   await db.query("INSERT INTO config(key,value) VALUES('app',$1) ON CONFLICT DO NOTHING",[JSON.stringify({counts:{diagnostic:5,practice:5,exam:15,control:5,review:1},freezeAllowance:1,reviewDelayDays:2})]);
   await put('yks-2026','exam',null,'YKS 2026 · TYT',{year:2026,penalty:0.25,scopeNote:'2026 resmî kapsamını referans alan eğitim pilotu. 2027 kapsamı doğrulanmadı; gerçek sınav puanı veya sıralaması hesaplanmaz.'});
@@ -19,4 +20,5 @@ export async function seedDatabase(){return transaction(async db=>{
   const cards=[['Kaldırma kuvveti neye eşittir?','Yer değiştirilen sıvının ağırlığına. Fₖ = ρsıvı · g · Vbatan.'],['Formüldeki özkütle kimin?','Sıvının özkütlesi. Cismin özkütlesi doğrudan formülde yer almaz.'],['Hangi hacmi kullanmalıyım?','Cismin sıvı içinde kalan hacmini; her zaman toplam hacmi değil.'],['Yüzen cisimde kuvvetler nasıl?','Dış kuvvet yok ve cisim dengedeyse Fₖ = G.'],['Askıda kalan homojen cisim?','Tamamen batmış ve dengedeyse ρcisim = ρsıvı.'],['Tam batmış cismi derine indirirsem?','Sıvı özkütlesi ve batan hacim sabitse Fₖ değişmez.'],['İki sıvıda da yüzen aynı cisim?','Her iki durumda Fₖ = G. Yoğun sıvıda daha az hacim batar.'],['1 litre kaç metreküp?','1 L = 10⁻³ m³. Ayrıca 1 cm³ = 10⁻⁶ m³.'],['Dinamometre neden daha az gösterir?','Sıvı yukarı iter. Dengedeyken T = G − Fₖ. Kütle değişmez.'],['Tabanda duran cisimde Fₖ = G mi?','Genellikle hayır. Tabanın tepki kuvveti de vardır: N + Fₖ = G.']];
   for(let i=0;i<cards.length;i++)await put(`card-${i+1}`,'card','buoyancy',cards[i][0],{front:cards[i][0],back:cards[i][1],order:i});
   for(const item of questions){const {id,...payload}=item;await put(id,'question','buoyancy',id.toUpperCase(),payload);}
+  return true;
 });}

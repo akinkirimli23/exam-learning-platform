@@ -1,13 +1,13 @@
 # Vercel ilk test sürümü hazırlığı
 
-Bu belge dağıtım komutu değildir. GitHub `main` dalı Vercel'e bağlanmadan önce aşağıdaki ayarlar tamamlanmalıdır. Hiçbir secret değeri repoya veya bu belgeye yazılmamalıdır.
+Bu belge dağıtım komutu değildir. İlk deployment yapılmadan önce aşağıdaki ayarlar tamamlanmalıdır. Hiçbir secret değeri repoya veya bu belgeye yazılmamalıdır.
 
 ## Uygulama yapısı
 
 - Web ve API aynı Next.js uygulamasındadır. `/api/[...path]` Route Handler, Node.js runtime'da istek anında çalışır; ayrı bir backend adresi gerekmez.
 - Kullanıcılar, parolaların özetleri, oturum tokenlarının özetleri ve ilerleme PostgreSQL tablolarındadır. Oturumlar süreç belleğine bağlı değildir. HTTPS isteklerinde oturum çerezi `HttpOnly`, `Secure` ve `SameSite=Lax` olarak üretilir.
-- `DATABASE_URL` boşsa PGlite `data/database` altında yerel disk kullanır. Vercel Function dosya sistemi kalıcı veritabanı için uygun değildir. Vercel'de kalıcı, TLS kullanan PostgreSQL bağlantısı zorunludur. Sunucusuz trafik için sağlayıcının transaction pooler bağlantısını kullanın; mevcut `pg` havuzu her sıcak işlev örneğinde en fazla 8 bağlantı açabilir. İlk testte bağlantı sayısını izleyin; trafik artmadan önce havuz boyutunu ve yaşam döngüsünü sağlayıcının sınırlarına göre ayarlayın.
-- Şema ilk bağlantıda `CREATE IF NOT EXISTS` ile açılır. Bu yalnız ilk kurulum için yeterlidir; sürümlü migration sistemi henüz yoktur. Boş veritabanına içerik otomatik eklenmez. `npm run db:seed` komutunu yalnız yeni/boş uzak veritabanı için, `DATABASE_URL` güvenli bir yerel süreç ortamında tanımlanmışken bir kez çalıştırın. Var olan yerel PGlite verisi otomatik aktarılmaz.
+- `DATABASE_URL` boşsa PGlite `data/database` altında yerel disk kullanır. Vercel Function dosya sistemi kalıcı veritabanı için uygun değildir. Vercel'de kalıcı PostgreSQL zorunludur. Bu Supabase projesinin transaction pooler adresi 6543 portunu ve `sslmode=verify-full` kullanmalıdır. Uygulama uzak PostgreSQL'de TLS modu yoksa bağlantıyı reddeder; sağlanan CA sertifikasıyla sertifika zincirini ve sunucu adını doğrular. `pg` havuzu sıcak işlev örneği başına en fazla bir bağlantı açar.
+- Uzak PostgreSQL şeması çalışma anında değiştirilmez. İlk kurulumda yalnız yerel migration sürecinde tanımlanan `MIGRATION_DATABASE_URL` olarak Supabase direct veya session pooler 5432 adresiyle `npm run db:migrate` çalıştırılır; bu değişken Vercel'de gerekmez. Script yalnız boş public şemaya v1 tablolarını ekler; kısmi/farklı şemada durur. Ardından `DATABASE_URL` 6543 adresiyle `npm run db:seed` çalıştırılır. Boş veritabanına içerik otomatik eklenmez. v1 sonrası sürümlü migration sistemi henüz yoktur; yerel PGlite verisi otomatik aktarılmaz.
 
 ## Vercel environment variable listesi
 
@@ -15,7 +15,8 @@ Değerleri yalnız Vercel Environment Variables alanında tanımlayın. İlk tes
 
 | Ad | İlk testte | Amaç |
 | --- | --- | --- |
-| `DATABASE_URL` | Zorunlu | Kalıcı PostgreSQL; sunucusuz kullanıma uygun, TLS'li bağlantı. |
+| `DATABASE_URL` | Zorunlu | Supabase transaction pooler (6543) ve URL'de `sslmode=verify-full`. |
+| `DATABASE_CA_CERT_B64` | Bu ilk yayın için zorunlu | Supabase Dashboard'dan indirilen CA PEM sertifikasının base64 kodlanmış içeriği; kod sertifikayı ve sunucu adını doğrular. |
 | `APP_ORIGIN` | Zorunlu | Tarayıcı yazma istekleri için tam `https://` origin; sonuna `/` koymayın. |
 | `DEMO_CONTENT` | Mevcut demo pilotunda zorunlu: `true` | Aksi halde demo katalog ve soru içeriği üretimde gizlenir. Uzman onaylı gerçek içerik yayımlandığında yeniden değerlendirin. |
 | `SUPABASE_URL` | Private ders medyası için zorunlu | Supabase proje URL'si; yalnız sunucu tarafında kullanılır. |
@@ -37,8 +38,9 @@ Eski `NEXT_PUBLIC_BUOYANCY_VIDEO_URL`, `NEXT_PUBLIC_BUOYANCY_VIDEO_THUMBNAIL_URL
 
 ## Dağıtım öncesi kontrol
 
-1. Boş uzak PostgreSQL'i hazırlayın ve bağlantının sunucusuz kullanıma uygun, TLS'li olduğundan emin olun. İlk kurulum için seed'i yalnız bu veritabanında çalıştırın; mevcut PGlite kullanıcılarını korumak gerekiyorsa önce ayrıca veri aktarımı planlayın.
+1. Uzak veritabanı ilk kez hazırlanırken ortam değişkenleri süreçte yüklüyken `npm run db:audit` ile salt okunur biçimde incelenir. Yerel `.env.local` dosyasını kullanan eşdeğer komut `node --env-file=.env.local --import tsx scripts/db-audit.ts` şeklindedir. Bu proje için 6543/TLS bağlantısı, `sslmode=verify-full` ve Supabase CA PEM'in base64 içeriği olan `DATABASE_CA_CERT_B64` kullanılır. Boş ve doğru hedefe 5432 direct/session bağlantısıyla `npm run db:migrate`, sonra 6543 runtime bağlantısıyla `npm run db:seed` uygulanır. `npm run db:smoke` öğrenci/oturum/ilerleme akışını tek işlemde deneyip geri alır. Bu ilk hazırlık tamamlandı: v1 şeması ve 46 demo içerik kaydı mevcut; öğrenci/oturum verisi yok. Mevcut PGlite kullanıcılarını korumak gerekiyorsa ayrıca veri aktarımı planlayın.
 2. Vercel değişkenlerini yukarıdaki kapsamda tanımlayın. `SUPABASE_SERVICE_ROLE_KEY` hiçbir public değişkende, kaynak dosyada veya derleme çıktısında bulunmamalıdır.
-3. Production/Preview originini kesinleştirin. `APP_ORIGIN` ile dağıtımın gerçek tarayıcı adresi eşleşmelidir; aksi halde kayıt/giriş ve diğer yazma istekleri 403 döner.
-4. Yönetici yükleme akışını bu ilk testte kullanmayın. Gerekiyorsa önce kalıcı depolama ve doğrudan yükleme değişikliğini tamamlayın.
-5. Dağıtımdan sonra oturum açma, katalog, test tamamlama ve üç private medya türünü HTTPS üzerinde deneyin. Bu adım henüz yapılmadı.
+3. Vercel projesinin Domains ekranındaki kullanılacak sabit production adresini belirleyin. `APP_ORIGIN` değerini bu adresin tam `https://` origin'i olarak, sonunda `/` olmadan Production ortamına yazın. Preview kullanacaksanız kendi origin'i için ayrı ayar gerekir. Yanlış değer kayıt/giriş ve diğer yazma isteklerini 403 yapar; environment variable değişikliği mevcut dağıtıma uygulanmaz, yeni dağıtım gerekir.
+4. İlk özel test sürümü için Vercel Security → Deployment Protection bölümünde Vercel Authentication kapsamını **All Deployments** olarak kontrol edin. Bu kapsam production alan adını da korur; Standard Protection production alan adını açık bırakabilir. Koruma, uygulamanın kendi öğrenci oturumunun yerini almaz.
+5. Yönetici yükleme akışını bu ilk testte kullanmayın. Gerekiyorsa önce kalıcı depolama ve doğrudan yükleme değişikliğini tamamlayın.
+6. Dağıtımdan sonra oturum açma, katalog, test tamamlama ve üç private medya türünü HTTPS üzerinde deneyin. Bu adım henüz yapılmadı.

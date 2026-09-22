@@ -1,11 +1,11 @@
 import { PGlite } from '@electric-sql/pglite';
-import { Pool } from 'pg';
+import { Pool, type PoolConfig } from 'pg';
 import path from 'node:path';
 import fs from 'node:fs/promises';
 
 export interface DB { query<T=any>(sql:string,params?:any[]):Promise<{rows:T[]}>; }
 type State={ db:DB; transaction:<T>(fn:(db:DB)=>Promise<T>)=>Promise<T>; close:()=>Promise<void> };
-const schema=`
+export const initialSchema=`
 CREATE TABLE IF NOT EXISTS schema_migrations(version integer PRIMARY KEY);
 CREATE TABLE IF NOT EXISTS users(id text PRIMARY KEY, email text UNIQUE NOT NULL, name text NOT NULL, password_hash text NOT NULL, role text NOT NULL DEFAULT 'student', adult_confirmed boolean NOT NULL, daily_goal integer NOT NULL DEFAULT 5, weekly_goal integer NOT NULL DEFAULT 5, exam_id text, timezone text NOT NULL DEFAULT 'Europe/Istanbul', notifications boolean NOT NULL DEFAULT false, created_at timestamptz NOT NULL DEFAULT now());
 CREATE TABLE IF NOT EXISTS sessions(token_hash text PRIMARY KEY, user_id text NOT NULL REFERENCES users(id) ON DELETE CASCADE, expires_at timestamptz NOT NULL);
@@ -25,18 +25,35 @@ CREATE TABLE IF NOT EXISTS ai_usage(id text PRIMARY KEY,user_id text NOT NULL RE
 INSERT INTO schema_migrations(version) VALUES(1) ON CONFLICT DO NOTHING;
 `;
 const globalDb=globalThis as unknown as {ivmeDB?:Promise<State>};
+export function postgresConnectionConfig(value:string,caBase64=process.env.DATABASE_CA_CERT_B64):PoolConfig{
+  const address=new URL(value);
+  if(!['postgres:','postgresql:'].includes(address.protocol))throw new Error('PostgreSQL bağlantı URL’si geçersiz.');
+  const local=['localhost','127.0.0.1','[::1]'].includes(address.hostname);
+  if(!local&&!['require','verify-ca','verify-full'].includes(address.searchParams.get('sslmode')||'')){
+    throw new Error('Uzak PostgreSQL bağlantısı TLS gerektirir (sslmode=require veya daha güçlü).');
+  }
+  if(!caBase64)return {connectionString:value};
+  const ca=Buffer.from(caBase64,'base64').toString('utf8');
+  if(!ca.includes('-----BEGIN CERTIFICATE-----'))throw new Error('PostgreSQL CA sertifikası geçersiz.');
+  // node-postgres replaces an explicit ssl object when sslmode remains in the URL.
+  for(const key of ['sslmode','sslrootcert','sslcert','sslkey'])address.searchParams.delete(key);
+  return {connectionString:address.toString(),ssl:{ca,rejectUnauthorized:true,servername:address.hostname}};
+}
 async function init():Promise<State>{
   if(process.env.DATABASE_URL){
-    const pool=new Pool({connectionString:process.env.DATABASE_URL,max:8});
-    await pool.query(schema);
+    const pool=new Pool({...postgresConnectionConfig(process.env.DATABASE_URL),max:1,connectionTimeoutMillis:10000,idleTimeoutMillis:10000});
+    try{
+      const {rows}=await pool.query('SELECT version FROM schema_migrations WHERE version=1');
+      if(!rows.length)throw new Error('PostgreSQL v1 migration eksik.');
+    }catch(error){await pool.end();throw error;}
     return {db:pool,close:()=>pool.end(),transaction:async fn=>{const c=await pool.connect();try{await c.query('BEGIN');const out=await fn(c);await c.query('COMMIT');return out;}catch(e){await c.query('ROLLBACK');throw e;}finally{c.release();}}};
   }
   const dir=process.env.DATA_DIR===':memory:'?undefined:path.resolve(process.env.DATA_DIR||'data','database');
   if(dir)await fs.mkdir(dir,{recursive:true});
-  const pg=new PGlite(dir);await pg.exec(schema);
+  const pg=new PGlite(dir);await pg.exec(initialSchema);
   return {db:pg,close:()=>pg.close(),transaction:fn=>pg.transaction(tx=>fn(tx))};
 }
-export async function state(){return globalDb.ivmeDB??=init();}
+export async function state(){return globalDb.ivmeDB??=init().catch(error=>{delete globalDb.ivmeDB;throw error;});}
 export async function query<T=any>(sql:string,params:any[]=[]){return (await state()).db.query<T>(sql,params);}
 export async function transaction<T>(fn:(db:DB)=>Promise<T>){return (await state()).transaction(fn);}
 export async function closeDb(){if(globalDb.ivmeDB)await(await globalDb.ivmeDB).close();delete globalDb.ivmeDB;}

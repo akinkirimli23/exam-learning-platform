@@ -20,7 +20,7 @@ Adres: http://localhost:3000. Mevcut pilot verileri hazırsa seed veya yönetici
 
 Konuya özel statik öğrenme içeriği `TopicDefinition` üzerinden çalışır. Ortak model ve canonical `conceptId` doğrulaması `shared/topic-engine.ts`, üretimde açılan konular `shared/topic-registry.ts`, ortak Öğren/İzle/Kartlar/Testler arayüzü `components/topic-learning-content.tsx` içindedir. Yeni bir konu eklemek için kavram haritası, kart, quiz ve medya metadata'sını konu klasöründe tanımlayın; `defineTopic` ile doğrulanan tanımı registry'ye ekleyin. Konunun katalog/anlatım kaydı da mevcut içerik sistemi üzerinden yayımlanmalıdır. Bu işlem yeni bir veritabanı tablosu gerektirmez.
 
-Veri `data/database` içinde diske kalıcı PGlite olarak tutulur. Aynı veri dizinini iki süreçle açmayın. Üretimde `DATABASE_URL` ile PostgreSQL kullanın. Mevcut gömülü veriyi PostgreSQL'e otomatik taşıma henüz yok; aynı şema/adaptör desteği veri göçü yapıldığı anlamına gelmez. Şema şu an ilk kurulum içindir; sonraki şema değişikliklerinden önce sürümlü migration sistemi eklenmeli.
+Veri `data/database` içinde diske kalıcı PGlite olarak tutulur. Aynı veri dizinini iki süreçle açmayın. Üretimde `DATABASE_URL` ile PostgreSQL kullanın. Uzak PostgreSQL için şema otomatik açılmaz: önce boş hedefi `db:audit` ile inceleyin, sonra 5432 direct/session bağlantısıyla `db:migrate`, 6543 runtime bağlantısıyla `db:seed` ve `db:smoke` çalıştırın; ayrıntılar `docs/VERCEL.md` içinde. Mevcut gömülü veriyi PostgreSQL'e otomatik taşıma henüz yok. v1 sonrası şema değişiklikleri için sürümlü migration sistemi eklenmeli.
 
 ```powershell
 npm run typecheck
