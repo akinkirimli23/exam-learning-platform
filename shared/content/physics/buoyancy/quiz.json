@@ -27,7 +27,8 @@
     ],
     "correctAnswer": 2,
     "explanation": "d_cisim < d_sıvı olduğu için cisim yüzer. Yüzen cisimlerde düşeyde net kuvvet sıfır olduğundan yukarı yönlü kaldırma kuvveti cismin aşağı yönlü ağırlığına eşittir (Fk = G). Batan hacim oranı ise d_cisim/d_sıvı = d/2d = 1/2'dir.",
-    "misconception": "Yüzen cisimlerde cismi yukarıda tutan kaldırma kuvvetinin cismin ağırlığından daha büyük olması gerektiğini sanmak."
+    "misconception": "Yüzen cisimlerde cismi yukarıda tutan kaldırma kuvvetinin cismin ağırlığından daha büyük olması gerektiğini sanmak.",
+    "visualId": "buoyancy-float-half"
   },
   {
     "id": "buoyancy-q-003",
@@ -42,7 +43,8 @@
     ],
     "correctAnswer": 2,
     "explanation": "Sıvı içerisinde tabana değmeden tamamen batmış olarak dengede kalan tüm cisimler askıdadır. Askıda kalma şartı d_cisim = d_sıvı olduğundan, farklı derinliklerde durmaları özkütlelerinin farklı olduğu anlamına gelmez. dK = dL = dsıvı olur.",
-    "misconception": "Sıvı içerisinde daha derinde duran askıdaki bir cismin özkütlesinin daha büyük olduğunu zannetmek."
+    "misconception": "Sıvı içerisinde daha derinde duran askıdaki bir cismin özkütlesinin daha büyük olduğunu zannetmek.",
+    "visualId": "buoyancy-suspended-depths"
   },
   {
     "id": "buoyancy-q-004",
@@ -102,7 +104,8 @@
     ],
     "correctAnswer": 0,
     "explanation": "Cisim her iki durumda da yüzmektedir. Yüzen cisimlerde Fk = G_cisim olduğundan cisme etki eden kaldırma kuvveti değişmez. Fk = Vbatan * dsıvı * g denkleminde Fk sabit iken dsıvı arttığı için Vbatan azalır.",
-    "misconception": "Sıvının özkütlesi arttığında yüzen cisme etki eden kaldırma kuvvetinin de artacağını sanmak."
+    "misconception": "Sıvının özkütlesi arttığında yüzen cisme etki eden kaldırma kuvvetinin de artacağını sanmak.",
+    "visualId": "buoyancy-water-salt"
   },
   {
     "id": "buoyancy-q-008",
@@ -147,7 +150,8 @@
     ],
     "correctAnswer": 0,
     "explanation": "Alt yüzey daha derinde olduğu için F2 > F1'dir ve net yukarı yönlü kuvvet (kaldırma kuvveti) Fk = F2 - F1 olur. Yan yüzeyler aynı derinlik hizasında karşılıklı yer aldığı için yan basınç kuvvetleri eşit büyüklükte ve zıt yönlüdür; bileşkeleri sıfırdır.",
-    "misconception": "Kaldırma kuvvetinin üst ve alt yüzey basınç kuvvetlerinin toplamı olduğunu veya yan yüzeylerin de yukarı yönlü kuvvete katkı verdiğini sanmak."
+    "misconception": "Kaldırma kuvvetinin üst ve alt yüzey basınç kuvvetlerinin toplamı olduğunu veya yan yüzeylerin de yukarı yönlü kuvvete katkı verdiğini sanmak.",
+    "visualId": "buoyancy-pressure-cube"
   },
   {
     "id": "buoyancy-q-011",
@@ -207,7 +211,8 @@
     ],
     "correctAnswer": 2,
     "explanation": "Cismin özkütlesi (2d), üstteki sıvının özkütlesinden (d) büyük, alttaki sıvının özkütlesinden (3d) küçüktür (d < 2d < 3d). Bu nedenle cisim iki sıvının ara yüzeyine yerleşir ve her iki sıvıdan da kaldırma kuvveti alarak dengelenir.",
-    "misconception": "Cismin özkütlesi iki sıvının arasında olduğunda yalnızca üstteki veya alttaki sıvılardan birinin içinde kalacağını sanmak."
+    "misconception": "Cismin özkütlesi iki sıvının arasında olduğunda yalnızca üstteki veya alttaki sıvılardan birinin içinde kalacağını sanmak.",
+    "visualId": "buoyancy-two-fluids"
   },
   {
     "id": "buoyancy-q-015",
@@ -222,7 +227,8 @@
     ],
     "correctAnswer": 2,
     "explanation": "K cismi tek başına 2 bölme batırdığı için K'nin kütlesi 2 bölmelik sıvı kütlesine orantılıdır (mK ~ 2V*d). Üzerine L konulunca batan hacim 3 bölmeye çıkmıştır, yani L cismi ekstra 1 bölme daha batırmıştır (mL ~ 1V*d). Buradan mK / mL = 2 / 1 = 2 bulunur.",
-    "misconception": "L cisminin kütlesini hesaplarken toplam batan hacim olan 3 bölmeyi doğrudan L'nin kütlesi sanmak."
+    "misconception": "L cisminin kütlesini hesaplarken toplam batan hacim olan 3 bölmeyi doğrudan L'nin kütlesi sanmak.",
+    "visualId": "buoyancy-load-on-block"
   },
   {
     "id": "buoyancy-q-016",
@@ -267,7 +273,8 @@
     ],
     "correctAnswer": 3,
     "explanation": "İp tabana bağlıyken ipte gerilme kuvveti T > 0 oluşuyorsa cisim yukarı gitmek istemektedir. Bu durum dX < d olduğunu gösterir (I doğru). Düşey kuvvet dengesinden yukarı yönlü Fk = aşağı yönlü (GX + T) olur (II doğru). İp kesildiğinde net kuvvet yukarı yönlü olacağından cisim ivmelenerek sıvı yüzeyine çıkar ve yüzer (III doğru).",
-    "misconception": "Tabana iple bağlı cisimlerde ip gerilmesinin varlığından dolayı cismin batmak istediğini sanıp dX > d hatasına düşmek."
+    "misconception": "Tabana iple bağlı cisimlerde ip gerilmesinin varlığından dolayı cismin batmak istediğini sanıp dX > d hatasına düşmek.",
+    "visualId": "buoyancy-tethered-bottom"
   },
   {
     "id": "buoyancy-q-019",
