@@ -28,4 +28,19 @@ describe('uzak PostgreSQL bağlantısı', () => {
     expect(config.connectionString).not.toContain('sslmode=');
     expect(config.ssl).toMatchObject({ ca, rejectUnauthorized: true, servername: 'database.example' });
   });
+
+  it('ayrı CA ile doğrulanan TLS için URL sslmode parametresini zorunlu tutmaz', () => {
+    const ca = '-----BEGIN CERTIFICATE-----\nTEST\n-----END CERTIFICATE-----';
+    const config = postgresConnectionConfig(
+      'postgresql://test:test@database.example:6543/postgres',
+      Buffer.from(ca).toString('base64'),
+    );
+    expect(config.ssl).toMatchObject({ ca, rejectUnauthorized: true, servername: 'database.example' });
+  });
+
+  it('ayrı CA bulunsa da açıkça kapatılmış TLS modunu reddeder', () => {
+    const ca = Buffer.from('-----BEGIN CERTIFICATE-----\nTEST\n-----END CERTIFICATE-----').toString('base64');
+    expect(() => postgresConnectionConfig('postgresql://test:test@database.example:6543/postgres?sslmode=disable', ca))
+      .toThrow(/TLS/);
+  });
 });

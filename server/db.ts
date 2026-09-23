@@ -29,8 +29,9 @@ export function postgresConnectionConfig(value:string,caBase64=process.env.DATAB
   const address=new URL(value);
   if(!['postgres:','postgresql:'].includes(address.protocol))throw new Error('PostgreSQL bağlantı URL’si geçersiz.');
   const local=['localhost','127.0.0.1','[::1]'].includes(address.hostname);
-  if(!local&&!['require','verify-ca','verify-full'].includes(address.searchParams.get('sslmode')||'')){
-    throw Object.assign(new Error('Uzak PostgreSQL bağlantısı TLS gerektirir (sslmode=require veya daha güçlü).'),{code:'DATABASE_TLS_REQUIRED'});
+  const sslmode=address.searchParams.get('sslmode');
+  if(!local&&((sslmode!==null&&!['require','verify-ca','verify-full'].includes(sslmode))||(!sslmode&&!caBase64))){
+    throw Object.assign(new Error('Uzak PostgreSQL bağlantısı doğrulanan TLS gerektirir.'),{code:'DATABASE_TLS_REQUIRED'});
   }
   if(!caBase64)return {connectionString:value};
   const ca=Buffer.from(caBase64,'base64').toString('utf8');

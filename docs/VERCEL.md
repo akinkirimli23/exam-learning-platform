@@ -6,7 +6,7 @@ Bu belge dağıtım komutu değildir. İlk deployment yapılmadan önce aşağı
 
 - Web ve API aynı Next.js uygulamasındadır. `/api/[...path]` Route Handler, Node.js runtime'da istek anında çalışır; ayrı bir backend adresi gerekmez.
 - Kullanıcılar, parolaların özetleri, oturum tokenlarının özetleri ve ilerleme PostgreSQL tablolarındadır. Oturumlar süreç belleğine bağlı değildir. HTTPS isteklerinde oturum çerezi `HttpOnly`, `Secure` ve `SameSite=Lax` olarak üretilir.
-- `DATABASE_URL` boşsa PGlite `data/database` altında yerel disk kullanır. Vercel Function dosya sistemi kalıcı veritabanı için uygun değildir. Vercel'de kalıcı PostgreSQL zorunludur. Bu Supabase projesinin transaction pooler adresi 6543 portunu ve `sslmode=verify-full` kullanmalıdır. Uygulama uzak PostgreSQL'de TLS modu yoksa bağlantıyı reddeder; sağlanan CA sertifikasıyla sertifika zincirini ve sunucu adını doğrular. `pg` havuzu sıcak işlev örneği başına en fazla bir bağlantı açar.
+- `DATABASE_URL` boşsa PGlite `data/database` altında yerel disk kullanır. Vercel Function dosya sistemi kalıcı veritabanı için uygun değildir. Vercel'de kalıcı PostgreSQL zorunludur. Bu Supabase projesinin transaction pooler adresi 6543 portunu kullanmalıdır. Ayrı `DATABASE_CA_CERT_B64` tanımlıysa uygulama URL'de `sslmode` bulunmasa da TLS sertifika zincirini ve sunucu adını doğrular; açıkça güvensiz TLS modlarını reddeder. CA yoksa uzak bağlantı URL'sinde TLS modu zorunludur. `pg` havuzu sıcak işlev örneği başına en fazla bir bağlantı açar.
 - Uzak PostgreSQL şeması çalışma anında değiştirilmez. İlk kurulumda yalnız yerel migration sürecinde tanımlanan `MIGRATION_DATABASE_URL` olarak Supabase direct veya session pooler 5432 adresiyle `npm run db:migrate` çalıştırılır; bu değişken Vercel'de gerekmez. Script yalnız boş public şemaya v1 tablolarını ekler; kısmi/farklı şemada durur. Ardından `DATABASE_URL` 6543 adresiyle `npm run db:seed` çalıştırılır. Boş veritabanına içerik otomatik eklenmez. v1 sonrası sürümlü migration sistemi henüz yoktur; yerel PGlite verisi otomatik aktarılmaz.
 
 ## Vercel environment variable listesi
@@ -15,7 +15,7 @@ Değerleri yalnız Vercel Environment Variables alanında tanımlayın. İlk tes
 
 | Ad | İlk testte | Amaç |
 | --- | --- | --- |
-| `DATABASE_URL` | Zorunlu | Supabase transaction pooler (6543) ve URL'de `sslmode=verify-full`. |
+| `DATABASE_URL` | Zorunlu | Supabase transaction pooler (6543); ayrı CA tanımlıysa URL'de `sslmode` isteğe bağlıdır. |
 | `DATABASE_CA_CERT_B64` | Bu ilk yayın için zorunlu | Supabase Dashboard'dan indirilen CA PEM sertifikasının base64 kodlanmış içeriği; kod sertifikayı ve sunucu adını doğrular. |
 | `APP_ORIGIN` | Zorunlu | Tarayıcı yazma istekleri için tam `https://` origin; sonuna `/` koymayın. |
 | `DEMO_CONTENT` | Mevcut demo pilotunda zorunlu: `true` | Aksi halde demo katalog ve soru içeriği üretimde gizlenir. Uzman onaylı gerçek içerik yayımlandığında yeniden değerlendirin. |
