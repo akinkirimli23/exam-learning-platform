@@ -128,3 +128,11 @@ Android emülatörü API adresi `http://10.0.2.2:3000`; fiziksel cihazda aynı a
 İkinci konu için uzman onaylı içerik paketi hazırlandığında kavram haritası, kart, quiz ve medya metadata'sını kendi `shared/content/...` klasörüne koy; `defineTopic` ile bir `TopicDefinition` oluşturup `shared/topic-registry.ts` içine kaydet ve mevcut katalog/yayın akışında konu ile anlatımlarını yayımla. Sentetik test fixture'ını üretim içeriğine dönüştürme. Ardından Öğren → İzle → Kartlar → Testler → kavram haritası kabul akışını çalıştır.
 
 Proje kökü: `C:\Users\akink\OneDrive\Masaüstü\Ders_Uygulama_proje`
+
+
+## 23 Eylül 2026 production kayıt çalışması
+
+- `APP_ORIGIN` Vercel Production için `https://exam-learning-platform-two.vercel.app` olarak güncellendi; değişikliğin etkili olması yeni deployment gerektiriyor. Önceki sürümde kayıt isteği origin kontrolünde 403 dönüyordu.
+- Kayıt şifresi en az 8 karakter, en az bir rakam ve boşluk olmayan en az bir özel karakter gerektiriyor. Web/mobil arayüz, API ve testler aynı kuralı kullanıyor. Mevcut parolalarla giriş kuralı değiştirilmedi.
+- Güvenilir origin, Host ve Vercel proxy başlıkları doğrulandı; CSRF ve TLS doğrulaması açık. Kayıt, giriş, çıkış, kendi hesaba erişim ve şifre sınırı testleri dahil 77 test geçti. Typecheck ve production build geçti.
+- `fe045c2` main dalına gönderildi. Vercel bu otomatik deployment’ı commit yazarını proje katkı yetkisiyle eşleştiremediği için engelledi. Production DB ve gerçek kayıt doğrulaması yeni deployment sonrası yapılacak; henüz başarılı olduğu iddia edilmemeli.
