@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { learningQuizDifficultySchema, learningQuizQuestionSchema, type LearningQuizQuestion } from '@/shared/contracts';
+import { learningQuizDifficultySchema, learningQuizQuestionSchema } from '@/shared/contracts';
 
 export const pastExamSourceSchema = z.object({
   id: z.string().min(1),
