@@ -11,7 +11,7 @@ afterEach(() => {
 describe('uzak PostgreSQL bağlantısı', () => {
   it('TLS modu olmayan uzak veritabanına bağlanmayı reddeder', async () => {
     process.env.DATABASE_URL = 'postgresql://test:test@database.example:6543/postgres';
-    await expect(state()).rejects.toThrow(/TLS/);
+    await expect(state()).rejects.toMatchObject({ code: 'DATABASE_CA_MISSING' });
   });
 
   it('geçersiz protokolü ağ isteğinden önce reddeder', async () => {
@@ -42,5 +42,7 @@ describe('uzak PostgreSQL bağlantısı', () => {
     const ca = Buffer.from('-----BEGIN CERTIFICATE-----\nTEST\n-----END CERTIFICATE-----').toString('base64');
     expect(() => postgresConnectionConfig('postgresql://test:test@database.example:6543/postgres?sslmode=disable', ca))
       .toThrow(/TLS/);
+    expect(() => postgresConnectionConfig('postgresql://test:test@database.example:6543/postgres?sslmode=disable', ca))
+      .toThrowError(expect.objectContaining({ code: 'DATABASE_TLS_MODE_UNSAFE' }));
   });
 });

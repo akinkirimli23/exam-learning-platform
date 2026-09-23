@@ -1,6 +1,6 @@
 # İvme — devam kaydı
 
-Son doğrulama: 22 Eylül 2026. Kaldırma Kuvveti pilotu, ortak Generic Topic Engine üzerine taşındı; mevcut rotalar ile private Supabase Storage signed URL akışı korunarak tarayıcıda yeniden doğrulandı. Bu kayıt son doğrulanan durumu anlatır. Parola, oturum tokenı veya API anahtarı içermez.
+Son doğrulama: 23 Eylül 2026. Kaldırma Kuvveti pilotu, ortak Generic Topic Engine üzerinde çalışır. Production kayıt ve PostgreSQL bağlantısı için yapılan düzeltmeler ile doğrulama durumu aşağıdaki güncel bölümde kayıtlıdır. Parola, oturum tokenı veya API anahtarı içermez.
 
 ## Amaç ve kararlar
 
@@ -113,19 +113,19 @@ Android emülatörü API adresi `http://10.0.2.2:3000`; fiziksel cihazda aynı a
 
 ## Yarım kalan işler ve sınırlar
 
-- Vercel ilk test sürümü için ortam değişkenleri, PostgreSQL/PGlite ayrımı, oturumlar, dosya sistemi ve 4,5 MB Function gövde sınırı `docs/VERCEL.md` içinde değerlendirildi. Henüz Vercel deployment yapılmadı. Uzak PostgreSQL bağlantısı, ilk seed ve HTTPS üzerinde uçtan uca kabul testi hâlâ gerekli.
+- Vercel ilk test sürümü production alan adına dağıtıldı; güncel kayıt ve PostgreSQL bağlantısı için uçtan uca kabul testi aşağıdaki bölümde takip ediliyor. Ortam değişkenleri, PostgreSQL/PGlite ayrımı, oturumlar, dosya sistemi ve 4,5 MB Function gövde sınırı `docs/VERCEL.md` içinde değerlendirildi. Uzak PostgreSQL v1 şeması ve 46 demo içerik kaydı hazır.
 - Gerçek Android/iOS cihazında giriş → test → webde aynı ilerleme → uygulamayı kapat/aç akışı henüz çalıştırılmadı. Mobil aşamanın cihaz kabulü açık.
 - Kaldırma Kuvveti video/PDF/infografik dosyaları private Supabase Storage'a bağlı ve web kabulü tamamlandı. Mobil video için ayrı WebVTT bağlama tamamlanmadı; transkript gösteriliyor.
 - Yönetici arayüzünün tam manuel yükle/incele/yayın/arşiv akışı tarayıcıda tamamlanmadı; API testleri mevcut.
-- AI sağlayıcı, gerçek PostgreSQL/S3 bağlantıları ve canlı barındırma doğrulanmadı. AI gateway genel sözleşmedir; belirli sağlayıcı SDK entegrasyonu veya parasal bütçe takibi değildir.
+- AI sağlayıcı ve yönetici medya S3 bağlantısı doğrulanmadı. AI gateway genel sözleşmedir; belirli sağlayıcı SDK entegrasyonu veya parasal bütçe takibi değildir.
 - Sorular/anlatımlar uzman incelemesi ve gerçek pilot kullanıcı kabulü bekliyor.
 - E-posta doğrulama/şifre sıfırlama ve bildirim gönderimi bağlı değil. Mobil hesap silme/şifre değiştirme akışı yok; web ayarlarında var.
 - Yerel PGlite şemayı ilk açılışta kurar; uzak PostgreSQL için v1 şeması `db:migrate` ile direct/session 5432 üzerinden bir kez uygulanır ve runtime yalnız sürüm kontrolü yapar. v1 sonrası şema değişikliğinden önce sürümlü migration sistemi eklenmeli.
-- Mağaza/üretim yayını yapılmadı. Mobil başlangıç ikonları son marka tasarımı değil.
+- Mobil mağaza yayını yapılmadı. Mobil başlangıç ikonları son marka tasarımı değil.
 
 ## Sonraki somut adım
 
-İkinci konu için uzman onaylı içerik paketi hazırlandığında kavram haritası, kart, quiz ve medya metadata'sını kendi `shared/content/...` klasörüne koy; `defineTopic` ile bir `TopicDefinition` oluşturup `shared/topic-registry.ts` içine kaydet ve mevcut katalog/yayın akışında konu ile anlatımlarını yayımla. Sentetik test fixture'ını üretim içeriğine dönüştürme. Ardından Öğren → İzle → Kartlar → Testler → kavram haritası kabul akışını çalıştır.
+Önce production HTTPS üzerinde geçici öğrenci hesabıyla kayıt, giriş, oturum ve çıkış akışını doğrula; veritabanı veya origin hatası varsa Vercel Runtime Logs kodunu incele. Ardından ikinci konu için uzman onaylı içerik paketi hazırlandığında kavram haritası, kart, quiz ve medya metadata'sını kendi `shared/content/...` klasörüne koy; `defineTopic` ile bir `TopicDefinition` oluşturup `shared/topic-registry.ts` içine kaydet ve mevcut katalog/yayın akışında konu ile anlatımlarını yayımla. Sentetik test fixture'ını üretim içeriğine dönüştürme.
 
 Proje kökü: `C:\Users\akink\OneDrive\Masaüstü\Ders_Uygulama_proje`
 
@@ -136,3 +136,6 @@ Proje kökü: `C:\Users\akink\OneDrive\Masaüstü\Ders_Uygulama_proje`
 - Kayıt şifresi en az 8 karakter, en az bir rakam ve boşluk olmayan en az bir özel karakter gerektiriyor. Web/mobil arayüz, API ve testler aynı kuralı kullanıyor. Mevcut parolalarla giriş kuralı değiştirilmedi.
 - Güvenilir origin, Host ve Vercel proxy başlıkları doğrulandı; CSRF ve TLS doğrulaması açık. Kayıt, giriş, çıkış, kendi hesaba erişim ve şifre sınırı testleri dahil 77 test geçti. Typecheck ve production build geçti.
 - `fe045c2` main dalına gönderildi. Vercel bu otomatik deployment’ı commit yazarını proje katkı yetkisiyle eşleştiremediği için engelledi. Production DB ve gerçek kayıt doğrulaması yeni deployment sonrası yapılacak; henüz başarılı olduğu iddia edilmemeli.
+- GitHub proje sahibi hesabıyla kaydedilen `c12b067` Vercel'de production'a çıktı. Runtime Logs, `/api/auth/me` için `DATABASE_TLS_REQUIRED` bildirdi: Vercel bağlantı URL'sinde TLS modu bulunmuyor ve ayrı CA değeri çalışma anında kullanılamıyordu. Kod, ayrı CA ile sertifika ve sunucu adını doğrulayan TLS bağlantısına URL'de `sslmode` olmasa da izin verecek biçimde düzeltildi (`220f9ba`); `sslmode=disable` reddedilmeye devam ediyor.
+- Ayrı CA değişkeni Vercel Production ve Preview için yerel, Git dışında tutulan CA sertifikasıyla güncellendi. Vercel bu ortam değişikliği için yeni deployment gerektiğini bildirdi. CA dosyasına veritabanı URL'si veya parola eklenmedi. Sonraki deployment ve production hesap kaydı henüz doğrulama bekliyor.
+- Son kod kontrolünde 10 dosyada 79 test, `npm run typecheck` ve `npm run build` geçti. Sonraki güvenli hata kodu ayrımı ve DEVAM güncellemesinden sonra kontroller yeniden çalıştırılacak.
