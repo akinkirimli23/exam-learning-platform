@@ -1,5 +1,5 @@
 import { buoyancyConceptMap } from '@/shared/buoyancy-concepts';
-import { buoyancyFlashcards, buoyancyQuiz } from '@/shared/content/physics/buoyancy/data';
+import { buoyancyFlashcards, buoyancyPastExam, buoyancyQuiz } from '@/shared/content/physics/buoyancy/data';
 import { buoyancyMedia } from '@/shared/content/physics/buoyancy/media';
 import { defineTopic } from '@/shared/topic-engine';
 
@@ -14,4 +14,5 @@ export const buoyancyTopicDefinition = defineTopic({
   flashcards: buoyancyFlashcards,
   quiz: buoyancyQuiz,
   media: buoyancyMedia,
+  pastExam: buoyancyPastExam,
 });
