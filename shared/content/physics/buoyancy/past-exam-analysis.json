@@ -1,0 +1,58 @@
+[
+  {
+    "id": "yks-2018-tyt-fen-q3",
+    "year": 2018,
+    "exam": "TYT",
+    "section": "Fen Bilimleri / Fizik",
+    "questionNumber": 3,
+    "conceptIds": ["archimedes-principle", "displaced-fluid-weight", "submerged-volume"],
+    "skill": "Yer değiştiren sıvı hacminden kaldırma kuvveti ve cisim özellikleri hakkında çıkarım yapma.",
+    "questionType": "Kavramsal çıkarım",
+    "difficultyEstimated": "orta",
+    "officialAnswer": "A",
+    "sourceUrl": "https://dokuman.osym.gov.tr/pdfdokuman/2018/YKS/TYT_01072018.pdf",
+    "note": "Orijinal soru metni saklanmaz; yalnız beceri ve kaynak metadatası tutulur."
+  },
+  {
+    "id": "yks-2020-tyt-fen-q3",
+    "year": 2020,
+    "exam": "TYT",
+    "section": "Fen Bilimleri / Fizik",
+    "questionNumber": 3,
+    "conceptIds": ["floating-state", "fluid-density", "volume-change"],
+    "skill": "Yüzen cisimde sıvı özkütlesi değiştiğinde batan hacim ve kaldırma kuvvetini birlikte yorumlama.",
+    "questionType": "Değişken karşılaştırma",
+    "difficultyEstimated": "orta",
+    "officialAnswer": "A",
+    "sourceUrl": "https://dokuman.osym.gov.tr/pdfdokuman/2020/YKS/TSK/tyt_yks_2020.pdf",
+    "note": "Orijinal soru metni saklanmaz; yalnız beceri ve kaynak metadatası tutulur."
+  },
+  {
+    "id": "yks-2024-tyt-fen-q3",
+    "year": 2024,
+    "exam": "TYT",
+    "section": "Fen Bilimleri / Fizik",
+    "questionNumber": 3,
+    "conceptIds": ["floating-state", "suspended-state", "sinking-state", "submerged-volume"],
+    "skill": "Eşit hacimli farklı maddelerin yüzme, askıda kalma ve batma durumlarından kaldırma kuvveti ve yer değiştiren hacmi karşılaştırma.",
+    "questionType": "Çoklu durum karşılaştırması",
+    "difficultyEstimated": "orta",
+    "officialAnswer": "D",
+    "sourceUrl": "https://dokuman.osym.gov.tr/pdfdokuman/2024/YKS/TSK/yks_tyt_2024_kitapcik_T24kt.pdf",
+    "note": "Orijinal soru metni saklanmaz; yalnız beceri ve kaynak metadatası tutulur."
+  },
+  {
+    "id": "yks-2026-tyt-fen-q3",
+    "year": 2026,
+    "exam": "TYT",
+    "section": "Fen Bilimleri / Fizik",
+    "questionNumber": 3,
+    "conceptIds": ["fluid-density", "floating-state", "suspended-state", "sinking-state"],
+    "skill": "Göreli özkütle bilgilerini birleştirerek bir cismin farklı sıvılardaki yüzme, batma ve askıda kalma durumlarını öngörme.",
+    "questionType": "Deneysel çıkarım",
+    "difficultyEstimated": "orta",
+    "officialAnswer": "E",
+    "sourceUrl": "https://dokuman.osym.gov.tr/pdfdokuman/2026/YKS/TSK/yks_tyt_2026_kitapcik_d350.pdf",
+    "note": "Orijinal soru metni saklanmaz; yalnız beceri ve kaynak metadatası tutulur."
+  }
+]
