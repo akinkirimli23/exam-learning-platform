@@ -43,6 +43,15 @@ export function postgresConnectionConfig(value:string,caBase64=process.env.DATAB
   for(const key of ['sslmode','sslrootcert','sslcert','sslkey'])address.searchParams.delete(key);
   return {connectionString:address.toString(),ssl:{ca,rejectUnauthorized:true,servername:address.hostname}};
 }
+export function databaseMatchesSupabaseProject(databaseUrl=process.env.DATABASE_URL,supabaseUrl=process.env.SUPABASE_URL){
+  if(!databaseUrl||!supabaseUrl)return null;
+  try{
+    const database=new URL(databaseUrl),supabase=new URL(supabaseUrl);
+    const projectRef=supabase.hostname.split('.')[0];
+    const databaseUser=decodeURIComponent(database.username);
+    return Boolean(projectRef)&&(databaseUser===`postgres.${projectRef}`||database.hostname===`db.${projectRef}.supabase.co`);
+  }catch{return false;}
+}
 async function init():Promise<State>{
   if(process.env.DATABASE_URL){
     const pool=new Pool({...postgresConnectionConfig(process.env.DATABASE_URL),max:1,connectionTimeoutMillis:10000,idleTimeoutMillis:10000});

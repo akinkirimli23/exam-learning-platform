@@ -1,7 +1,7 @@
 import {randomUUID} from 'node:crypto';
 import {z,ZodError} from 'zod';
 import {registerSchema,loginSchema,changePasswordSchema,settingsSchema} from '@/shared/contracts';
-import {state,transaction,config} from './db';
+import {state,transaction,config,databaseMatchesSupabaseProject} from './db';
 import {AppError,auth,fail,passwordHash,verifyPassword,session,userDTO,hash,limit} from './core';
 import {published,saveContent,transition} from './content';
 import {startAttempt,ownedAttempt,attemptDTO,answer,complete,reviewFeedback,overview} from './learning';
@@ -17,7 +17,7 @@ export async function handle(request:Request){try{
   const url=new URL(request.url);const route=url.pathname.replace(/^\/api\/?/,'').split('/').filter(Boolean);const method=request.method;
   assertTrustedRequest(request);
   const {db}=await state();
-  if(route[0]==='status'&&method==='GET')return json({name:'İvme',aiAvailable:aiAvailable(),mediaMaxMB:32});
+  if(route[0]==='status'&&method==='GET')return json({name:'İvme',aiAvailable:aiAvailable(),mediaMaxMB:32,databaseReady:true,databaseProjectMatchesSupabase:databaseMatchesSupabaseProject()});
   if(route[0]==='auth'&&['register','login'].includes(route[1])&&method==='POST'){
     const raw=await body(request);const v=route[1]==='register'?registerSchema.parse(raw):loginSchema.parse(raw);
     // Rate increments persist even when authentication is rejected.

@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it } from 'vitest';
-import { postgresConnectionConfig, state } from '../server/db';
+import { databaseMatchesSupabaseProject, postgresConnectionConfig, state } from '../server/db';
 
 const originalUrl = process.env.DATABASE_URL;
 
@@ -9,6 +9,12 @@ afterEach(() => {
 });
 
 describe('uzak PostgreSQL bağlantısı', () => {
+  it('veritabanı ve Supabase proje kimliğini değerleri açığa çıkarmadan karşılaştırır', () => {
+    expect(databaseMatchesSupabaseProject('postgresql://postgres.stage-ref:secret@pooler.supabase.com:6543/postgres','https://stage-ref.supabase.co')).toBe(true);
+    expect(databaseMatchesSupabaseProject('postgresql://postgres.production-ref:secret@pooler.supabase.com:6543/postgres','https://stage-ref.supabase.co')).toBe(false);
+    expect(databaseMatchesSupabaseProject(undefined,'https://stage-ref.supabase.co')).toBeNull();
+  });
+
   it('TLS modu olmayan uzak veritabanına bağlanmayı reddeder', async () => {
     process.env.DATABASE_URL = 'postgresql://test:test@database.example:6543/postgres';
     await expect(state()).rejects.toMatchObject({ code: 'DATABASE_CA_MISSING' });
