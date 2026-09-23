@@ -13,6 +13,7 @@ export const pastExamSourceSchema = z.object({
   difficultyEstimated: learningQuizDifficultySchema,
   officialAnswer: z.string().min(1).max(3),
   sourceUrl: z.string().url(),
+  sourcePdfPage: z.number().int().positive(),
   note: z.string().min(3).max(1000),
 });
 
