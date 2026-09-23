@@ -30,11 +30,11 @@ export function postgresConnectionConfig(value:string,caBase64=process.env.DATAB
   if(!['postgres:','postgresql:'].includes(address.protocol))throw new Error('PostgreSQL bağlantı URL’si geçersiz.');
   const local=['localhost','127.0.0.1','[::1]'].includes(address.hostname);
   if(!local&&!['require','verify-ca','verify-full'].includes(address.searchParams.get('sslmode')||'')){
-    throw new Error('Uzak PostgreSQL bağlantısı TLS gerektirir (sslmode=require veya daha güçlü).');
+    throw Object.assign(new Error('Uzak PostgreSQL bağlantısı TLS gerektirir (sslmode=require veya daha güçlü).'),{code:'DATABASE_TLS_REQUIRED'});
   }
   if(!caBase64)return {connectionString:value};
   const ca=Buffer.from(caBase64,'base64').toString('utf8');
-  if(!ca.includes('-----BEGIN CERTIFICATE-----'))throw new Error('PostgreSQL CA sertifikası geçersiz.');
+  if(!ca.includes('-----BEGIN CERTIFICATE-----'))throw Object.assign(new Error('PostgreSQL CA sertifikası geçersiz.'),{code:'DATABASE_CA_INVALID'});
   // node-postgres replaces an explicit ssl object when sslmode remains in the URL.
   for(const key of ['sslmode','sslrootcert','sslcert','sslkey'])address.searchParams.delete(key);
   return {connectionString:address.toString(),ssl:{ca,rejectUnauthorized:true,servername:address.hostname}};
@@ -44,10 +44,11 @@ async function init():Promise<State>{
     const pool=new Pool({...postgresConnectionConfig(process.env.DATABASE_URL),max:1,connectionTimeoutMillis:10000,idleTimeoutMillis:10000});
     try{
       const {rows}=await pool.query('SELECT version FROM schema_migrations WHERE version=1');
-      if(!rows.length)throw new Error('PostgreSQL v1 migration eksik.');
+      if(!rows.length)throw Object.assign(new Error('PostgreSQL v1 migration eksik.'),{code:'DATABASE_SCHEMA_MISSING'});
     }catch(error){await pool.end();throw error;}
     return {db:pool,close:()=>pool.end(),transaction:async fn=>{const c=await pool.connect();try{await c.query('BEGIN');const out=await fn(c);await c.query('COMMIT');return out;}catch(e){await c.query('ROLLBACK');throw e;}finally{c.release();}}};
   }
+  if(process.env.VERCEL==='1')throw Object.assign(new Error('Vercel PostgreSQL bağlantısı gerekli.'),{code:'DATABASE_URL_MISSING'});
   const dir=process.env.DATA_DIR===':memory:'?undefined:path.resolve(process.env.DATA_DIR||'data','database');
   if(dir)await fs.mkdir(dir,{recursive:true});
   const pg=new PGlite(dir);await pg.exec(initialSchema);

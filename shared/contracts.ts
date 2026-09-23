@@ -1,7 +1,11 @@
 import { z } from 'zod';
+import { newPasswordSchema } from './password-policy';
 
-export const registerSchema = z.object({ name: z.string().trim().min(2).max(60), email: z.string().email().max(200).transform(s=>s.toLowerCase()), password: z.string().min(10).max(128), adult: z.literal(true) });
-export const loginSchema = z.object({ email: z.string().email().max(200).transform(s=>s.toLowerCase()), password: z.string().min(1).max(128), mobile: z.boolean().optional() });
+const emailSchema = z.string().trim().email('Geçerli bir e-posta adresi gir.').max(200, 'E-posta adresin en fazla 200 karakter olabilir.').transform(s=>s.toLowerCase());
+const currentPasswordSchema = z.string().min(1, 'Şifreni gir.').max(128, 'Şifren en fazla 128 karakter olabilir.');
+export const registerSchema = z.object({ name: z.string().trim().min(2, 'Adın en az 2 karakter olmalı.').max(60, 'Adın en fazla 60 karakter olabilir.'), email: emailSchema, password: newPasswordSchema, adult: z.literal(true, {error: 'Hesap oluşturmak için 18 yaş ve üzeri olduğunu onaylamalısın.'}) });
+export const loginSchema = z.object({ email: emailSchema, password: currentPasswordSchema, mobile: z.boolean().optional() });
+export const changePasswordSchema = z.object({ current: currentPasswordSchema, next: newPasswordSchema });
 export const settingsSchema = z.object({ name:z.string().trim().min(2).max(60), dailyGoal:z.number().int().min(5).max(15), weeklyGoal:z.number().int().min(1).max(7), notifications:z.boolean(), examId:z.string().min(1), timezone:z.string().max(80).refine(v=>{try{new Intl.DateTimeFormat('en',{timeZone:v});return true;}catch{return false;}},'Geçerli bir saat dilimi seçin.') });
 export const kindSchema=z.enum(['exam','subject','topic','objective','lesson','card','question','media']);
 export type Kind=z.infer<typeof kindSchema>;
