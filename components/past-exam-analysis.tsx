@@ -45,8 +45,8 @@ export function PastExamAnalysis({ definition }: { definition: TopicDefinition }
             <div className="muted small">
               {source.conceptIds.map((conceptId) => getConceptTitle(definition, conceptId)).join(' · ')}
             </div>
-            <a className="subtle-link" href={source.sourceUrl} target="_blank" rel="noreferrer">
-              Resmî ÖSYM PDF <ExternalLink size={16} />
+            <a className="subtle-link" href={`${source.sourceUrl}#page=${source.sourcePdfPage}`} target="_blank" rel="noreferrer">
+              Sorunun olduğu sayfayı aç <ExternalLink size={16} />
             </a>
           </article>
         ))}
