@@ -54,7 +54,7 @@ describe('sınav ve konu navigasyonu', () => {
   it('aynı canonical konuyu TYT ve AYT yollarında veri kopyalamadan referanslayabilir', () => {
     const topics = createTopicRegistry([buoyancyTopicDefinition]);
     const exam: ExamPath = {
-      id: 'yks', title: 'YKS', description: '',
+      id: 'yks', title: 'YKS', description: '', availability: 'active',
       sessions: [
         { id: 'tyt', title: 'TYT', description: '', subjects: [{ id: 'fizik', title: 'Fizik', description: '', topicIds: ['buoyancy'] }] },
         { id: 'ayt', title: 'AYT', description: '', subjects: [{ id: 'fizik', title: 'Fizik', description: '', topicIds: ['buoyancy'] }] },
@@ -71,7 +71,7 @@ describe('sınav ve konu navigasyonu', () => {
   it('registry bilinmeyen konuyu ve yanlış ders yerleşimini reddeder', () => {
     const topics = createTopicRegistry([buoyancyTopicDefinition]);
     const base: ExamPath = {
-      id: 'yks', title: 'YKS', description: '',
+      id: 'yks', title: 'YKS', description: '', availability: 'active',
       sessions: [{ id: 'tyt', title: 'TYT', description: '', subjects: [{ id: 'fizik', title: 'Fizik', description: '', topicIds: ['unknown'] }] }],
     };
 

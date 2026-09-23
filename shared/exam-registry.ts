@@ -17,8 +17,10 @@ export type SessionPath = {
 
 export type ExamPath = {
   id: string;
+  contentExamId?: string;
   title: string;
   description: string;
+  availability: 'active' | 'coming-soon';
   sessions: readonly SessionPath[];
 };
 
@@ -64,8 +66,10 @@ export function createExamRegistry(
 export const examRegistry = createExamRegistry([
   {
     id: 'yks',
+    contentExamId: 'yks-2026',
     title: 'YKS',
     description: 'Üniversite sınavına kendi sıranla hazırlan.',
+    availability: 'active',
     sessions: [
       {
         id: 'tyt',
@@ -101,8 +105,27 @@ export const examRegistry = createExamRegistry([
       },
     ],
   },
+  {
+    id: 'lgs',
+    title: 'LGS',
+    description: 'Ortaöğretime geçiş hazırlığı',
+    availability: 'coming-soon',
+    sessions: [],
+  },
+  {
+    id: 'kpss',
+    title: 'KPSS',
+    description: 'Kamu personeli sınavı hazırlığı',
+    availability: 'coming-soon',
+    sessions: [],
+  },
 ], topicRegistry);
 
 export function getExamPath(examId: string) {
   return examRegistry.get(examId);
+}
+
+export function getExamPathByContentId(contentExamId: string | null | undefined) {
+  if (!contentExamId) return undefined;
+  return [...examRegistry.values()].find((exam) => exam.contentExamId === contentExamId);
 }

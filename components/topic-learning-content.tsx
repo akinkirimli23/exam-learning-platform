@@ -35,10 +35,12 @@ export function TopicLearningPage({
   tab,
   topic,
   definition,
+  backHref = '/konular',
 }: {
   tab: 'izle' | 'kartlar' | 'testler' | 'soru-bankasi' | 'cikmis-analizi';
   topic: ContentDTO;
   definition: TopicDefinition;
+  backHref?: string;
 }) {
   const videos = definition.media.filter((item) => item.type === 'video');
   const tabs = [
@@ -53,7 +55,7 @@ export function TopicLearningPage({
 
   return (
     <>
-      <Link className="back-link" href="/konular"><ChevronLeft size={16} />Konulara dön</Link>
+      <Link className="back-link" href={backHref}><ChevronLeft size={16} />Ders konularına dön</Link>
       <div className="page-title">
         <div>
           <span className="eyebrow">{definition.headerEyebrow}</span>
