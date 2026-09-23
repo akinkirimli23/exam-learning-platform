@@ -11,6 +11,7 @@ import {
   Layers,
   RotateCcw,
   Target,
+  FileText,
   TriangleAlert,
   Video,
   X,
@@ -26,13 +27,14 @@ import {
 } from '@/shared/topic-engine';
 import { ConceptExplorer } from './concept-explorer';
 import { LearningMaterials, LearningVideo } from './learning-media';
+import { PastExamAnalysis } from './past-exam-analysis';
 
 export function TopicLearningPage({
   tab,
   topic,
   definition,
 }: {
-  tab: 'izle' | 'kartlar' | 'testler';
+  tab: 'izle' | 'kartlar' | 'testler' | 'cikmis-analizi';
   topic: ContentDTO;
   definition: TopicDefinition;
 }) {
@@ -43,6 +45,7 @@ export function TopicLearningPage({
     ['izle', 'İzle', Video],
     ['kartlar', 'Kartlar', Layers],
     ['testler', 'Kendini dene', Target],
+    ['cikmis-analizi', 'Çıkmış analizi', FileText],
   ] as const;
 
   return (
@@ -78,6 +81,7 @@ export function TopicLearningPage({
       )}
       {tab === 'kartlar' && <TopicFlashcards definition={definition} />}
       {tab === 'testler' && <TopicQuiz definition={definition} />}
+      {tab === 'cikmis-analizi' && <PastExamAnalysis definition={definition} />}
     </>
   );
 }
