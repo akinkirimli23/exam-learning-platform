@@ -1,5 +1,6 @@
 import { Client } from 'pg';
 import { postgresConnectionConfig } from '../server/db';
+import { assertMistakeNotesSchema } from './migration-v2';
 
 // Read-only inventory for the Supabase database used by the Vercel pilot.
 // Run with DATABASE_URL in the process environment; never print its value.
@@ -54,6 +55,10 @@ async function main() {
       const versions = await client.query<{ version: number }>('SELECT version FROM public.schema_migrations ORDER BY version');
       console.log(`Şema sürümleri: ${versions.rows.map((row) => row.version).join(', ') || 'yok'}`);
     }
+    if (tables.has('mistake_notes')) {
+      await assertMistakeNotesSchema(client);
+      console.log('mistake_notes v2 kolonları, kısıtları, indeksleri, RLS ve izinleri: doğrulandı.');
+    }
     if (tables.has('content')) {
       const content = await client.query<{ status: string; demo: boolean; count: string }>(
         'SELECT status, demo, count(*)::text AS count FROM public.content GROUP BY status, demo ORDER BY status, demo',
@@ -74,6 +79,7 @@ main().catch((error: unknown) => {
   const category = /certificate|verify|self.signed|hostname/i.test(message) ? 'TLS sertifikası' :
     /password|authentication/i.test(message) ? 'kimlik doğrulama' :
       /timeout|connect|network|ENET|ECONN|EHOST|ENOTFOUND/i.test(message) ? 'ağ/erişim' : 'diğer';
-  console.error(`DB audit başarısız: ${stage}; ${category}; ${error instanceof Error ? error.name : 'UnknownError'}${code}`);
+  const schemaDetail = message.startsWith('mistake_notes ') ? `; ${message}` : '';
+  console.error(`DB audit başarısız: ${stage}; ${category}; ${error instanceof Error ? error.name : 'UnknownError'}${code}${schemaDetail}`);
   process.exitCode = 1;
 });
