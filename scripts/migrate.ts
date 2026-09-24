@@ -3,7 +3,7 @@ import { initialSchema, postgresConnectionConfig } from '../server/db';
 
 const appTables = [
   'schema_migrations', 'users', 'sessions', 'content', 'config', 'attempts',
-  'review_tasks', 'lesson_completions', 'daily_activity', 'badges',
+  'review_tasks', 'mistake_notes', 'lesson_completions', 'daily_activity', 'badges',
   'media_files', 'rate_limits', 'ai_usage',
 ] as const;
 
@@ -33,17 +33,43 @@ async function main() {
       await client.query(initialSchema);
       created = true;
     } else {
-      const missing = appTables.filter((table) => !names.has(table));
-      if (missing.length) throw new Error('Mevcut şema kısmi veya farklı; otomatik migration durduruldu.');
-      const version = await client.query<{ version: number }>(
+      const v1Tables = appTables.filter((table) => table !== 'mistake_notes');
+      const missingV1 = v1Tables.filter((table) => !names.has(table));
+      if (missingV1.length) throw new Error('Mevcut şema kısmi veya farklı; otomatik migration durduruldu.');
+      const version1 = await client.query<{ version: number }>(
         'SELECT version FROM schema_migrations WHERE version=1',
       );
-      if (!version.rows.length) throw new Error('Mevcut şema sürümü tanınmıyor.');
+      if (!version1.rows.length) throw new Error('Mevcut şema sürümü tanınmıyor.');
+      if (!names.has('mistake_notes')) {
+        await client.query(`
+          CREATE TABLE mistake_notes(
+            id text PRIMARY KEY,
+            user_id text NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+            topic_id text NOT NULL,
+            question_id text NOT NULL,
+            attempt_id text,
+            source text NOT NULL,
+            question_snapshot jsonb NOT NULL,
+            suggested_reason text NOT NULL,
+            reason text NOT NULL,
+            custom_tags jsonb NOT NULL DEFAULT '[]',
+            note text NOT NULL DEFAULT '',
+            wrong_count integer NOT NULL DEFAULT 1,
+            resolved boolean NOT NULL DEFAULT false,
+            created_at timestamptz NOT NULL DEFAULT now(),
+            last_wrong_at timestamptz NOT NULL DEFAULT now(),
+            updated_at timestamptz NOT NULL DEFAULT now(),
+            UNIQUE(user_id,source,question_id)
+          );
+          CREATE INDEX mistake_notes_user ON mistake_notes(user_id,resolved,last_wrong_at DESC);
+          INSERT INTO schema_migrations(version) VALUES(2) ON CONFLICT DO NOTHING;
+        `);
+        created = true;
+      }
     }
     await client.query('COMMIT');
     transactionOpen = false;
-    console.log(created ? 'PostgreSQL v1 şeması boş veritabanına uygulandı.' :
-      'PostgreSQL v1 şeması zaten mevcut; değişiklik yapılmadı.');
+    console.log(created ? 'PostgreSQL şeması güncellendi.' : 'PostgreSQL şeması zaten güncel; değişiklik yapılmadı.');
   } catch (error) {
     if (transactionOpen) await client.query('ROLLBACK').catch(() => {});
     throw error;
