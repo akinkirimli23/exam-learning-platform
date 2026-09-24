@@ -3,6 +3,8 @@ import { Client } from 'pg';
 import { auth, passwordHash, session } from '../server/core';
 import { postgresConnectionConfig } from '../server/db';
 import { answer, complete, overview, ownedAttempt, startAttempt } from '../server/learning';
+import { captureStaticMistake, listMistakes } from '../server/mistakes';
+import { getTopicDefinition } from '../shared/topic-registry';
 
 // Exercises real PostgreSQL tables and application logic, then rolls back all test records.
 async function main() {
@@ -56,7 +58,18 @@ async function main() {
         progress.points !== 20 || !progress.completedLessons.includes('lesson-force-v1')) {
       throw new Error('İlerleme doğrulaması başarısız.');
     }
-    console.log('Öğrenci hesabı, DB oturumu, ders ve test ilerlemesi: geçti.');
+    const question = getTopicDefinition('buoyancy')?.quiz[0];
+    if (!question) throw new Error('Yanlış defteri smoke sorusu bulunamadı.');
+    const selectedAnswer = (question.correctAnswer + 1) % question.options.length;
+    await captureStaticMistake(client, user, {
+      topicId: 'buoyancy', questionId: question.id, source: 'question-bank', selectedAnswer,
+    });
+    const notebook = await listMistakes(client, testUserId);
+    if (notebook.items.length !== 1 || notebook.summary.totalOpen !== 1 ||
+        notebook.items[0].questionId !== question.id) {
+      throw new Error('Yanlış defteri doğrulaması başarısız.');
+    }
+    console.log('Öğrenci hesabı, DB oturumu, ders, test ilerlemesi ve yanlış defteri: geçti.');
   } finally {
     try {
       if (transactionOpen) await client.query('ROLLBACK');

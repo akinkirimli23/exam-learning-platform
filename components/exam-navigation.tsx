@@ -79,7 +79,7 @@ function SessionSwitcher({ exam, current }: { exam: ExamPath; current?: SessionP
   );
 }
 
-function ExamLanding() {
+function ExamLanding({ onExamSelect }: { onExamSelect?: (exam: ExamPath) => void }) {
   return (
     <div className="journey-landing">
       <header className="journey-hero">
@@ -89,7 +89,15 @@ function ExamLanding() {
       </header>
       <div className="exam-choice-grid exam-entry-grid">
         {[...examRegistry.values()].map((exam) => exam.availability === 'active' ? (
-          <Link className="card exam-choice exam-choice-active" key={exam.id} href={examHref(exam)}>
+          <Link
+            className="card exam-choice exam-choice-active"
+            key={exam.id}
+            href={examHref(exam)}
+            onClick={onExamSelect ? (event) => {
+              event.preventDefault();
+              onExamSelect(exam);
+            } : undefined}
+          >
             <span className="exam-choice-icon"><GraduationCap size={27}/></span>
             <div>
               <span className="exam-availability">KULLANIMA AÇIK</span>
@@ -123,17 +131,19 @@ export function ExamNavigationPage({
   segments,
   content,
   rootHref = '/konular',
+  onExamSelect,
 }: {
   segments: readonly string[];
   content?: readonly ContentDTO[];
   rootHref?: string;
+  onExamSelect?: (exam: ExamPath) => void;
 }) {
   const [examId, sessionId, subjectId, extra] = segments;
   const exam = examId ? getExamPath(examId) : undefined;
   const session = exam?.sessions.find((item) => item.id === sessionId);
   const subject = session?.subjects.find((item) => item.id === subjectId);
 
-  if (!examId) return <ExamLanding/>;
+  if (!examId) return <ExamLanding onExamSelect={onExamSelect}/>;
 
   if (
     extra ||
