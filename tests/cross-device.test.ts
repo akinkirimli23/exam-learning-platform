@@ -22,7 +22,7 @@ it('web cevabı mobilde görünür; mobil tamamlanan test, günlük ödül ve ot
  const mobile=await call(`attempts/${id}`,'GET',undefined,'mobile');expect(mobile.data.answers[first.id]).toBe(first.payload.correct);
  for(const q of raw.slice(1))await call(`attempts/${id}/answer`,'PUT',{questionId:q.id,value:q.payload.correct},'mobile');
  const completed=await call(`attempts/${id}/complete`,'POST',{},'mobile');expect(completed.data.result.correct).toBe(raw.length);
- const web=await call('overview');expect(web.data.streak).toBe(1);expect(web.data.points).toBe(20);expect(web.data.history[0].id).toBe(id);
+ const web=await call('overview');expect(web.data.streak).toBe(1);expect(web.data.points).toBe(20);expect(web.data.history[0].id).toBe(id);expect(web.data.history[0].topicId).toBe('buoyancy');
  await closeDb();const reopened=await call('overview','GET',undefined,'mobile');expect(reopened.response.status).toBe(200);expect(reopened.data.history[0].id).toBe(id);expect(reopened.data.points).toBe(20);
  await call(`attempts/${id}/complete`,'POST',{});expect((await call('overview')).data.points).toBe(20);
 });

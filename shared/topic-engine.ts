@@ -4,6 +4,7 @@ import type {
   LearningQuizQuestion,
   QuizAnswerRecord,
 } from '@/shared/contracts';
+import type { PastExamSet } from '@/shared/past-exam';
 
 export type ConceptNode = {
   id: string;
@@ -28,6 +29,7 @@ export type TopicDefinition = {
   flashcards: readonly LearningFlashcard[];
   quiz: readonly LearningQuizQuestion[];
   media: readonly LearningMedia[];
+  pastExam?: PastExamSet;
 };
 
 export function flattenConceptNodes(root: ConceptNode): ConceptNode[] {
@@ -93,6 +95,31 @@ export function defineTopic(definition: TopicDefinition): TopicDefinition {
     }
   }
 
+  if (definition.pastExam) {
+    const pastExamQuestionPattern = new RegExp(`^${escapeRegExp(definition.id)}-yks-q-\\d{3}$`);
+    assertUnique(definition.pastExam.sources.map((item) => item.id), 'past exam source id', definition.id);
+    assertUnique(definition.pastExam.questions.map((item) => item.id), 'past exam question id', definition.id);
+    for (const source of definition.pastExam.sources) {
+      for (const conceptId of source.conceptIds) {
+        if (!canonicalConceptIds.has(conceptId)) {
+          throw new Error(
+            `${definition.id}: past exam source '${source.id}' references unknown concept '${conceptId}'`,
+          );
+        }
+      }
+    }
+    for (const question of definition.pastExam.questions) {
+      if (!pastExamQuestionPattern.test(question.id)) {
+        throw new Error(`${definition.id}: invalid past exam question id '${question.id}'`);
+      }
+      if (!canonicalConceptIds.has(question.conceptId)) {
+        throw new Error(
+          `${definition.id}: past exam question '${question.id}' references unknown concept '${question.conceptId}'`,
+        );
+      }
+    }
+  }
+
   assertUnique(definition.media.map((item) => item.id), 'media id', definition.id);
   for (const item of definition.media) {
     if (item.topicId !== definition.id) {
@@ -112,6 +139,7 @@ export function defineTopic(definition: TopicDefinition): TopicDefinition {
     flashcards: Object.freeze([...definition.flashcards]),
     quiz: Object.freeze([...definition.quiz]),
     media: Object.freeze([...definition.media]),
+    pastExam: definition.pastExam,
   });
 }
 

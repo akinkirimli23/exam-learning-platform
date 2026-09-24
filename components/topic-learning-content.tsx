@@ -11,6 +11,8 @@ import {
   Layers,
   RotateCcw,
   Target,
+  FileText,
+  LibraryBig,
   TriangleAlert,
   Video,
   X,
@@ -26,15 +28,19 @@ import {
 } from '@/shared/topic-engine';
 import { ConceptExplorer } from './concept-explorer';
 import { LearningMaterials, LearningVideo } from './learning-media';
+import { PastExamAnalysis } from './past-exam-analysis';
+import { QuestionBank } from './question-bank';
 
 export function TopicLearningPage({
   tab,
   topic,
   definition,
+  backHref = '/konular',
 }: {
-  tab: 'izle' | 'kartlar' | 'testler';
+  tab: 'izle' | 'kartlar' | 'testler' | 'soru-bankasi' | 'cikmis-analizi';
   topic: ContentDTO;
   definition: TopicDefinition;
+  backHref?: string;
 }) {
   const videos = definition.media.filter((item) => item.type === 'video');
   const tabs = [
@@ -43,11 +49,13 @@ export function TopicLearningPage({
     ['izle', 'İzle', Video],
     ['kartlar', 'Kartlar', Layers],
     ['testler', 'Kendini dene', Target],
+    ['soru-bankasi', 'Soru bankası', LibraryBig],
+    ['cikmis-analizi', 'Çıkmış analizi', FileText],
   ] as const;
 
   return (
     <>
-      <Link className="back-link" href="/konular"><ChevronLeft size={16} />Konulara dön</Link>
+      <Link className="back-link" href={backHref}><ChevronLeft size={16} />Ders konularına dön</Link>
       <div className="page-title">
         <div>
           <span className="eyebrow">{definition.headerEyebrow}</span>
@@ -78,6 +86,8 @@ export function TopicLearningPage({
       )}
       {tab === 'kartlar' && <TopicFlashcards definition={definition} />}
       {tab === 'testler' && <TopicQuiz definition={definition} />}
+      {tab === 'soru-bankasi' && <QuestionBank definition={definition} />}
+      {tab === 'cikmis-analizi' && <PastExamAnalysis definition={definition} />}
     </>
   );
 }
