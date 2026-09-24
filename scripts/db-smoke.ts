@@ -12,8 +12,9 @@ async function main() {
   if (!connectionString) throw new Error('DATABASE_URL eksik.');
   const address = new URL(connectionString);
   if (address.port !== '6543') throw new Error('Transaction pooler portu 6543 olmalı.');
-  if (!['require', 'verify-ca', 'verify-full'].includes(address.searchParams.get('sslmode') ?? '')) {
-    throw new Error('TLS modu eksik.');
+  const sslmode = address.searchParams.get('sslmode');
+  if (sslmode && !['require', 'verify-ca', 'verify-full'].includes(sslmode)) {
+    throw new Error('Güvensiz TLS modu reddedildi.');
   }
 
   const client = new Client({ ...postgresConnectionConfig(connectionString), connectionTimeoutMillis: 10_000 });
@@ -23,8 +24,8 @@ async function main() {
   try {
     await client.connect();
     connected = true;
-    const stream = client.connection.stream as { encrypted?: boolean };
-    if (!stream.encrypted) throw new Error('TLS bağlantısı kurulmadı.');
+    const stream = client.connection.stream as { encrypted?: boolean; authorized?: boolean };
+    if (!stream.encrypted || stream.authorized !== true) throw new Error('TLS sertifikası doğrulanmadı.');
     await client.query('BEGIN');
     transactionOpen = true;
 
