@@ -1,7 +1,7 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it, vi } from 'vitest';
-import { AuthScreen, ExamOnboardingShell, postAuthDestination } from '../components/learning-app';
+import { AuthScreen, ExamOnboardingShell, postAuthDestination, postExamDestination } from '../components/learning-app';
 import { ExamNavigationPage } from '../components/exam-navigation';
 import {
   findTopicPlacement,
@@ -38,7 +38,7 @@ describe('giriş öncelikli başlangıç akışı', () => {
     expect(html).toContain('Çıkış yap');
   });
 
-  it('misafir YKS, TYT, Fizik ve canonical konu yolunu girişten önce gezebilir', () => {
+  it('YKS, TYT, Fizik ve canonical konu yolu veri modelinde korunur', () => {
     const sessions = renderToStaticMarkup(<ExamNavigationPage segments={['yks']} rootHref="/"/>);
     const subjects = renderToStaticMarkup(<ExamNavigationPage segments={['yks', 'tyt']} rootHref="/"/>);
     const topic = renderToStaticMarkup(<ExamNavigationPage segments={['yks', 'tyt', 'fizik']} rootHref="/"/>);
@@ -75,7 +75,11 @@ describe('giriş öncelikli başlangıç akışı', () => {
     expect(findTopicPlacement('buoyancy')?.session?.id).toBe('tyt');
     const selection = learningPathFromPathname('/konu/buoyancy/testler');
     expect(postAuthDestination('yks-2026', '/konu/buoyancy/testler', selection)).toBe('/konu/buoyancy/testler');
-    expect(postAuthDestination(null, '/konu/buoyancy/testler', selection)).toBe('/konular');
+    expect(postAuthDestination(null, '/konu/buoyancy/testler', selection)).toBe('/konu/buoyancy/testler');
+    expect(postExamDestination('yks', '/konu/buoyancy/testler', false)).toBe('/konu/buoyancy/testler');
+    expect(postExamDestination('yks', '/konular', false)).toBe('/sinav/yks');
+    expect(postExamDestination('yks', '/konu/buoyancy/testler', true)).toBe('/sinav/yks');
+    expect(postExamDestination('lgs', '/konu/buoyancy/testler', false)).toBe('/sinav/lgs');
     expect(postAuthDestination('yks-2026', '/giris')).toBe('/');
   });
 });
