@@ -2,6 +2,7 @@
 
 import { ArrowLeft, ArrowRight, Check, CheckCircle2, Gauge, RotateCcw, Target, X } from 'lucide-react';
 import { useState } from 'react';
+import { api } from './client';
 import type { LearningQuizDifficulty, QuizAnswerRecord } from '@/shared/contracts';
 import {
   getConceptTitle,
@@ -80,7 +81,11 @@ function DifficultyQuiz({
 
   const submitAnswer = () => {
     if (selectedAnswer === null || answer) return;
-    setAnswers((current) => [...current, gradeLearningQuestion(question, selectedAnswer)]);
+    const graded=gradeLearningQuestion(question, selectedAnswer);
+    setAnswers((current) => [...current, graded]);
+    if(!graded.isCorrect) void api('mistakes/capture','POST',{
+      topicId:definition.id,questionId:question.id,source:'question-bank',selectedAnswer,
+    }).catch(()=>{});
   };
 
   const continueQuiz = () => {
