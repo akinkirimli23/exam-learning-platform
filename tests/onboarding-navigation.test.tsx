@@ -1,7 +1,7 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it, vi } from 'vitest';
-import { AuthScreen, ExamOnboardingShell, postAuthDestination, postExamDestination } from '../components/learning-app';
+import { AuthScreen, ExamOnboardingShell, lastTopicPath, postAuthDestination, postExamDestination } from '../components/learning-app';
 import { ExamNavigationPage } from '../components/exam-navigation';
 import {
   findTopicPlacement,
@@ -81,5 +81,12 @@ describe('giriş öncelikli başlangıç akışı', () => {
     expect(postExamDestination('yks', '/konu/buoyancy/testler', true)).toBe('/sinav/yks');
     expect(postExamDestination('lgs', '/konu/buoyancy/testler', false)).toBe('/sinav/lgs');
     expect(postAuthDestination('yks-2026', '/giris')).toBe('/');
+  });
+
+  it('son çalışılan konuyu oturum ve ders gezintisinde korur', () => {
+    expect(lastTopicPath('/konu/buoyancy/kartlar', '')).toBe('/konu/buoyancy/kartlar');
+    expect(lastTopicPath('/sinav/yks/ayt/fizik', '/konu/buoyancy/kartlar')).toBe('/konu/buoyancy/kartlar');
+    expect(lastTopicPath('/', '/konu/buoyancy/kartlar')).toBe('/konu/buoyancy/kartlar');
+    expect(lastTopicPath('/', '/sinav/yks/tyt/fizik')).toBe('');
   });
 });

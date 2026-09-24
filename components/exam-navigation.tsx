@@ -219,7 +219,7 @@ export function ExamNavigationPage({
       <header className="exam-page-heading">
         <span className="eyebrow">{exam.title} / {session.title} / {subject.title.toLocaleUpperCase('tr')}</span>
         <h1>{subject.title} konuları</h1>
-        <p>Bir konuya başladığında hesabına giriş yapabilir; kartlarını, testlerini ve ilerlemeni aynı yerde tutabilirsin.</p>
+        <p>Bir konuya başladığında kartların, testlerin ve ilerlemen hesabında kalır.</p>
       </header>
       {topics.length ? (
         <div className="exam-topic-grid">
