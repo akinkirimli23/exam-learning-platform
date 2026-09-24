@@ -40,6 +40,9 @@ async function main() {
         'SELECT version FROM schema_migrations WHERE version=1',
       );
       if (!version1.rows.length) throw new Error('Mevcut şema sürümü tanınmıyor.');
+      const version2 = await client.query<{ version: number }>(
+        'SELECT version FROM schema_migrations WHERE version=2',
+      );
       if (!names.has('mistake_notes')) {
         await client.query(`
           CREATE TABLE mistake_notes(
@@ -64,6 +67,9 @@ async function main() {
           CREATE INDEX mistake_notes_user ON mistake_notes(user_id,resolved,last_wrong_at DESC);
           INSERT INTO schema_migrations(version) VALUES(2) ON CONFLICT DO NOTHING;
         `);
+        created = true;
+      } else if (!version2.rows.length) {
+        await client.query('INSERT INTO schema_migrations(version) VALUES(2) ON CONFLICT DO NOTHING');
         created = true;
       }
     }
