@@ -2,6 +2,7 @@
 
 import { ArrowRight, Check, CheckCircle2, ExternalLink, RotateCcw, Target, TriangleAlert, X } from 'lucide-react';
 import { useState } from 'react';
+import { api } from './client';
 import type { QuizAnswerRecord } from '@/shared/contracts';
 import {
   getConceptTitle,
@@ -71,7 +72,11 @@ function PastExamPractice({ definition }: { definition: TopicDefinition }) {
 
   const submitAnswer = () => {
     if (selectedAnswer === null || answer) return;
-    setAnswers((current) => [...current, gradeLearningQuestion(question, selectedAnswer)]);
+    const graded=gradeLearningQuestion(question, selectedAnswer);
+    setAnswers((current) => [...current, graded]);
+    if(!graded.isCorrect) void api('mistakes/capture','POST',{
+      topicId:definition.id,questionId:question.id,source:'past-exam',selectedAnswer,
+    }).catch(()=>{});
   };
 
   const continueQuiz = () => {
