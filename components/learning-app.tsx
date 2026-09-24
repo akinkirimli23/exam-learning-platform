@@ -2,7 +2,7 @@
 import {useEffect,useState,type ReactNode} from 'react';
 import Link from 'next/link';
 import {usePathname,useRouter} from 'next/navigation';
-import {Activity,ArrowRight,ArrowUpRight,BookOpen,Check,ChevronLeft,ChevronRight,Clock,Flame,Headphones,Layers,LayoutDashboard,LogOut,Play,Settings,ShieldCheck,Sparkles,Target,TrendingUp,Trophy,Waves,X,CheckCircle2,RotateCcw,Volume2,Video,Menu,FileText,LibraryBig,Info} from 'lucide-react';
+import {Activity,ArrowRight,ArrowUpRight,BookOpen,Check,ChevronLeft,ChevronRight,Clock,Flame,Headphones,Layers,LayoutDashboard,LogOut,Play,Settings,ShieldCheck,Sparkles,Target,TrendingUp,Trophy,Waves,X,CheckCircle2,RotateCcw,Volume2,Video,Menu,FileText,LibraryBig,Info,NotebookPen} from 'lucide-react';
 import {registerSchema,loginSchema,changePasswordSchema,type UserDTO,type ContentDTO,type OverviewDTO,type Mode,type AttemptDTO} from '@/shared/contracts';
 import {PasswordField} from './password-field';
 import {api,ApiError,modeLabel,fmtDate} from './client';
@@ -10,10 +10,11 @@ import {AdminPanel} from './admin-panel';
 import {TopicLearningPage,TopicLearnResources} from './topic-learning-content';
 import {getTopicDefinition} from '@/shared/topic-registry';
 import {ExamNavigationPage} from './exam-navigation';
+import {MistakeNotebook} from './mistake-notebook';
 import {findTopicPlacement,journeyLabel,learningPathForUser,learningPathFromPathname,subjectHref,type LearningPathSelection} from '@/shared/learning-path';
 
 type Catalog={content:ContentDTO[];config:{counts:Record<Mode,number>;freezeAllowance:number;reviewDelayDays:number}};
-const nav=[['/','Bugün',LayoutDashboard],['/konular','Konular',BookOpen],['/tekrarlar','Tekrarlar',RotateCcw],['/ilerleme','İlerlemem',TrendingUp],['/yardim','Konu yardımı',Sparkles]] as const;
+const nav=[['/','Bugün',LayoutDashboard],['/konular','Konular',BookOpen],['/yanlislar','Yanlış Defterim',NotebookPen],['/tekrarlar','Tekrarlar',RotateCcw],['/ilerleme','İlerlemem',TrendingUp],['/yardim','Konu yardımı',Sparkles]] as const;
 function Brand(){return <Link href="/" className="brand" aria-label="İvme ana sayfa"><span className="brand-mark"><Activity size={25}/></span>ivme<span className="brand-dot">.</span></Link>;}
 function Button({children,onClick,secondary=false,disabled=false,type='button',className=''}:{children:ReactNode;onClick?:()=>void;secondary?:boolean;disabled?:boolean;type?:'button'|'submit';className?:string}){return <button type={type} className={`${secondary?'button secondary':'button'} ${className}`} onClick={onClick} disabled={disabled}>{children}</button>;}
 function ErrorBox({error}:{error:string}){return error?<div role="alert" className="error"><Info size={18}/>{error}</div>:null;}
@@ -39,6 +40,7 @@ export function LearningApp(){const pathname=usePathname(),router=useRouter();co
     if(page==='konu'&&(segments[2]==='izle'||segments[2]==='kartlar'||segments[2]==='testler'||segments[2]==='soru-bankasi'||segments[2]==='cikmis-analizi')){const definition=getTopicDefinition(segments[1]);const topic=catalog.content.find(item=>item.kind==='topic'&&item.logical_id===segments[1]);const placement=findTopicPlacement(segments[1]);if(topic&&definition)return <TopicLearningPage tab={segments[2]} topic={topic} definition={definition} backHref={placement?subjectHref(placement):'/konular'}/>;}
     if(page==='konu')return <><TopicContextTrail topicId={segments[1]}/><TopicPage id={segments[1]} tab={segments[2]||'ogren'} catalog={catalog} overview={overview} refresh={async()=>{await refresh();}}/></>;
     if(page==='test')return <TestPage id={segments[1]} refresh={async()=>{await refresh();}}/>;
+    if(page==='yanlislar')return <MistakeNotebook/>;
     if(page==='tekrarlar')return <Reviews overview={overview} catalog={catalog}/>;
     if(page==='ilerleme')return <Progress overview={overview} catalog={catalog}/>;
     if(page==='yardim')return <HelpPage catalog={catalog}/>;
