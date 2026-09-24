@@ -5,7 +5,7 @@ import { postgresConnectionConfig } from '../server/db';
 // Run with DATABASE_URL in the process environment; never print its value.
 const expectedTables = [
   'schema_migrations', 'users', 'sessions', 'content', 'config', 'attempts',
-  'review_tasks', 'lesson_completions', 'daily_activity', 'badges',
+  'review_tasks', 'mistake_notes', 'lesson_completions', 'daily_activity', 'badges',
   'media_files', 'rate_limits', 'ai_usage',
 ] as const;
 let stage = 'configuration';
