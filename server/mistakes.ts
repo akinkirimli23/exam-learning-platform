@@ -129,12 +129,11 @@ export async function captureAttemptMistake(
 
 export async function captureStaticMistake(db:DB,user:any,input:unknown,now=new Date()){
   const parsed=mistakeCaptureSchema.parse(input);
-  const definition=getTopicDefinition(parsed.topicId);
-  if(!definition)fail(404,'Konu bulunamadı.');
-  const question=parsed.source==='question-bank'
+  const definition=getTopicDefinition(parsed.topicId) ?? fail(404,'Konu bulunamadı.');
+  const question=(parsed.source==='question-bank'
     ? definition.quiz.find(item=>item.id===parsed.questionId)
-    : definition.pastExam?.questions.find(item=>item.id===parsed.questionId);
-  if(!question)fail(404,'Soru bulunamadı.');
+    : definition.pastExam?.questions.find(item=>item.id===parsed.questionId))
+    ?? fail(404,'Soru bulunamadı.');
   if(parsed.selectedAnswer===question.correctAnswer)fail(400,'Doğru yanıt yanlış defterine eklenmez.');
   return upsertMistake(db,user.id,{
     topicId:parsed.topicId,
