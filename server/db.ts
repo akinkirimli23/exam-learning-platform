@@ -59,8 +59,8 @@ async function init():Promise<State>{
   if(process.env.DATABASE_URL){
     const pool=new Pool({...postgresConnectionConfig(process.env.DATABASE_URL),max:1,connectionTimeoutMillis:10000,idleTimeoutMillis:10000});
     try{
-      const {rows}=await pool.query('SELECT version FROM schema_migrations WHERE version=1');
-      if(!rows.length)throw Object.assign(new Error('PostgreSQL v1 migration eksik.'),{code:'DATABASE_SCHEMA_MISSING'});
+      const {rows}=await pool.query('SELECT version FROM schema_migrations WHERE version=2');
+      if(!rows.length)throw Object.assign(new Error('PostgreSQL v2 migration eksik.'),{code:'DATABASE_SCHEMA_MISSING'});
     }catch(error){await pool.end();throw error;}
     return {db:pool,close:()=>pool.end(),transaction:async fn=>{const c=await pool.connect();try{await c.query('BEGIN');const out=await fn(c);await c.query('COMMIT');return out;}catch(e){await c.query('ROLLBACK');throw e;}finally{c.release();}}};
   }
