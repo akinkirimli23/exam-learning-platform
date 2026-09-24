@@ -16,6 +16,8 @@ CREATE TABLE IF NOT EXISTS config(key text PRIMARY KEY,value jsonb NOT NULL);
 CREATE TABLE IF NOT EXISTS attempts(id text PRIMARY KEY,user_id text NOT NULL REFERENCES users(id) ON DELETE CASCADE,topic_id text NOT NULL,mode text NOT NULL,status text NOT NULL DEFAULT 'active',snapshot jsonb NOT NULL,answers jsonb NOT NULL DEFAULT '{}',reviewed jsonb NOT NULL DEFAULT '[]',result jsonb,penalty numeric NOT NULL,goal integer NOT NULL,is_fresh boolean NOT NULL,delayed boolean NOT NULL DEFAULT false,review_id text,request_key text NOT NULL,created_at timestamptz NOT NULL DEFAULT now(),completed_at timestamptz,UNIQUE(user_id,request_key));
 CREATE INDEX IF NOT EXISTS attempts_user ON attempts(user_id,created_at);
 CREATE TABLE IF NOT EXISTS review_tasks(id text PRIMARY KEY,user_id text NOT NULL REFERENCES users(id) ON DELETE CASCADE,topic_id text NOT NULL,question_id text,due_at timestamptz NOT NULL,kind text NOT NULL,status text NOT NULL DEFAULT 'pending',origin_id text NOT NULL,UNIQUE(user_id,origin_id,kind));
+CREATE TABLE IF NOT EXISTS mistake_notes(id text PRIMARY KEY,user_id text NOT NULL REFERENCES users(id) ON DELETE CASCADE,topic_id text NOT NULL,question_id text NOT NULL,attempt_id text,source text NOT NULL,question_snapshot jsonb NOT NULL,suggested_reason text NOT NULL,reason text NOT NULL,custom_tags jsonb NOT NULL DEFAULT '[]',note text NOT NULL DEFAULT '',wrong_count integer NOT NULL DEFAULT 1,resolved boolean NOT NULL DEFAULT false,created_at timestamptz NOT NULL DEFAULT now(),last_wrong_at timestamptz NOT NULL DEFAULT now(),updated_at timestamptz NOT NULL DEFAULT now(),UNIQUE(user_id,source,question_id));
+CREATE INDEX IF NOT EXISTS mistake_notes_user ON mistake_notes(user_id,resolved,last_wrong_at DESC);
 CREATE TABLE IF NOT EXISTS lesson_completions(user_id text NOT NULL REFERENCES users(id) ON DELETE CASCADE,content_id text NOT NULL,completed_at timestamptz NOT NULL DEFAULT now(),PRIMARY KEY(user_id,content_id));
 CREATE TABLE IF NOT EXISTS daily_activity(user_id text NOT NULL REFERENCES users(id) ON DELETE CASCADE,day text NOT NULL,kind text NOT NULL,attempt_id text,points integer NOT NULL DEFAULT 0,created_at timestamptz NOT NULL DEFAULT now(),PRIMARY KEY(user_id,day));
 CREATE TABLE IF NOT EXISTS badges(user_id text NOT NULL REFERENCES users(id) ON DELETE CASCADE,code text NOT NULL,earned_at timestamptz NOT NULL DEFAULT now(),PRIMARY KEY(user_id,code));
@@ -23,6 +25,7 @@ CREATE TABLE IF NOT EXISTS media_files(id text PRIMARY KEY,storage_key text NOT 
 CREATE TABLE IF NOT EXISTS rate_limits(key text PRIMARY KEY,count integer NOT NULL,expires_at timestamptz NOT NULL);
 CREATE TABLE IF NOT EXISTS ai_usage(id text PRIMARY KEY,user_id text NOT NULL REFERENCES users(id) ON DELETE CASCADE,day text NOT NULL,status text NOT NULL,tokens integer NOT NULL DEFAULT 0,created_at timestamptz NOT NULL DEFAULT now());
 INSERT INTO schema_migrations(version) VALUES(1) ON CONFLICT DO NOTHING;
+INSERT INTO schema_migrations(version) VALUES(2) ON CONFLICT DO NOTHING;
 `;
 const globalDb=globalThis as unknown as {ivmeDB?:Promise<State>};
 export function postgresConnectionConfig(value:string,caBase64=process.env.DATABASE_CA_CERT_B64):PoolConfig{
