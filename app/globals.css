@@ -77,6 +77,48 @@
 @media(max-width:760px){.concept-header{padding:13px 15px;gap:10px}.concept-heading-mark{width:38px;height:38px}.concept-header h2{font-size:16px}.concept-header p{display:none}.concept-header span{font-size:8px}.concept-close{width:38px;height:38px}.concept-toolbar{padding:8px 10px;gap:8px;overflow-x:auto}.concept-toolbar button{min-height:38px;padding:7px 10px;white-space:nowrap}.concept-map-instructions{display:none}.concept-zoom-controls{margin-left:auto}.concept-detail{width:100%;max-width:none}.concept-detail-body{padding:22px 20px 35px}.concept-detail-body h3{font-size:22px}.concept-launcher{min-height:64px}.concept-node{box-shadow:0 5px 15px #26364c18}}
 @media(max-width:420px){.concept-toolbar-group:first-child button{font-size:0;gap:0;width:38px;padding:0}.concept-toolbar-group:first-child button svg{width:17px}.concept-zoom-controls output{width:38px}.concept-toolbar{justify-content:space-between}.concept-detail-top{padding:12px 14px}}
 
+/* Pressure mind map follows the supplied left-to-right dark reference.
+   All overrides are scoped so the Buoyancy explorer stays unchanged. */
+.concept-shell[data-topic="pressure"]{background:#080c10;color:#e8eff1}
+.concept-shell[data-topic="pressure"] .concept-header{background:#11181e;border-bottom-color:#29343b}
+.concept-shell[data-topic="pressure"] .concept-heading-mark{background:#303f49;color:#c2d7e1}
+.concept-shell[data-topic="pressure"] .concept-header span{color:#a6bbc8}
+.concept-shell[data-topic="pressure"] .concept-header p{color:#9dabb4}
+.concept-shell[data-topic="pressure"] .concept-close{background:#29343d;color:#e0edf2}
+.concept-shell[data-topic="pressure"] .concept-toolbar{background:#10171b;border-bottom-color:#29343b}
+.concept-shell[data-topic="pressure"] .concept-toolbar button{background:#29353b;border-color:#43535b;color:#e5eef0}
+.concept-shell[data-topic="pressure"] .concept-toolbar button:hover{background:#3b4e54}
+.concept-shell[data-topic="pressure"] .concept-map-instructions,.concept-shell[data-topic="pressure"] .concept-zoom-controls output{color:#b1c2ca}
+.concept-shell[data-topic="pressure"] .concept-viewport{background:#080b0d;background-image:radial-gradient(#263238 1px,transparent 1px);background-size:28px 28px}
+.concept-shell[data-topic="pressure"] .concept-edges path,.concept-shell[data-topic="pressure"] .concept-edges path[data-branch]{stroke:#9eb7ca;stroke-width:2.2}
+.concept-shell[data-topic="pressure"] .concept-edges path[data-depth="1"]{stroke:#777ea5;stroke-width:2.8}
+.concept-shell[data-topic="pressure"] .concept-node{border:1px solid #41535b;border-left:4px solid #8099a8;border-radius:8px;background:#2b403f;color:#f0f5f4;box-shadow:none;padding:9px 30px 9px 13px}
+.concept-shell[data-topic="pressure"] .concept-node:hover{border-color:#b8d0d4;background:#395251;box-shadow:0 0 0 2px #aac8c82c}
+.concept-shell[data-topic="pressure"] .concept-node.is-selected{border-color:#c5e7e2;background:#3e5c58;box-shadow:0 0 0 3px #a5d8d34a}
+.concept-shell[data-topic="pressure"] .concept-node span{font-family:Georgia,'Times New Roman',serif;font-size:13px;font-weight:650;line-height:1.25;-webkit-line-clamp:3}
+.concept-shell[data-topic="pressure"] .concept-node small{display:none}
+.concept-shell[data-topic="pressure"] .concept-node-wrap[data-depth="0"] .concept-node{border-left:4px solid #a8a9c9;background:#50566d;color:#fff}
+.concept-shell[data-topic="pressure"] .concept-node-wrap[data-depth="1"] .concept-node{border-left:4px solid #949bb2;background:#4a5261;color:#fff}
+.concept-shell[data-topic="pressure"] .concept-toggle{background:#3a494f;border-color:#080b0d;color:#e5eff0;right:-14px}
+.concept-shell[data-topic="pressure"] .concept-toggle:hover{background:#546c72}
+.concept-shell[data-topic="pressure"] .concept-detail{background:#151f24;border-left-color:#3a4d55;box-shadow:-16px 0 35px #0009}
+.concept-shell[data-topic="pressure"] .concept-detail-top{border-bottom-color:#35434b}
+.concept-shell[data-topic="pressure"] .concept-detail-top>button{background:#2a3941;color:#e0edf0}
+.concept-shell[data-topic="pressure"] .concept-breadcrumb{color:#a4b7c0}
+.concept-shell[data-topic="pressure"] .concept-breadcrumb span:last-child{color:#b5e0d8}
+.concept-shell[data-topic="pressure"] .concept-detail-label{color:#a4d3ca}
+.concept-shell[data-topic="pressure"] .concept-detail-body>p{color:#cad7dc}
+.concept-shell[data-topic="pressure"] .concept-detail-body .concept-detail-lead{color:#e8f4f2}
+.concept-shell[data-topic="pressure"] .concept-info-card{background:#26383d;border-color:#40565d;color:#bedbd5}
+.concept-shell[data-topic="pressure"] .concept-info-card span,.concept-shell[data-topic="pressure"] .concept-related>span{color:#b9d5d4}
+.concept-shell[data-topic="pressure"] .concept-info-card p{color:#e0e9e9}
+.concept-shell[data-topic="pressure"] .concept-info-card.formula-card{background:#233a3e;border-color:#4e7274}
+.concept-shell[data-topic="pressure"] .concept-info-card.formula-card strong{color:#e9f6ee}
+.concept-shell[data-topic="pressure"] .concept-info-card.mistake-card{background:#382d2a;border-color:#765848;color:#f2c49f}
+.concept-shell[data-topic="pressure"] .concept-related{border-top-color:#405057}
+.concept-shell[data-topic="pressure"] .concept-related button{background:#31464c;color:#e5f1f0}
+@media(max-width:760px){.concept-shell[data-topic="pressure"] .concept-node span{font-size:12px}.concept-shell[data-topic="pressure"] .concept-viewport{background-size:22px 22px}}
+
 /* Static learning content: flashcards and concept-linked quiz */
 .learning-content-title{display:block;margin-top:4px;font-size:16px}
 .learning-flashcards{max-width:780px}

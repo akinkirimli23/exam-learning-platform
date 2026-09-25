@@ -48,9 +48,16 @@ type Layout = {
   edges: Array<{ from: PositionedNode; to: PositionedNode }>;
   width: number;
   height: number;
+  nodeWidth: number;
+  nodeHeight: number;
 };
 
 function createLayout(root: ConceptNode, expandedIds: Set<string>): Layout {
+  const pressureMap = root.id === 'pressure';
+  const nodeWidth = pressureMap ? 238 : NODE_WIDTH;
+  const nodeHeight = pressureMap ? 64 : NODE_HEIGHT;
+  const columnGap = pressureMap ? 96 : COLUMN_GAP;
+  const rowGap = pressureMap ? 21 : ROW_GAP;
   let row = 0;
   let deepest = 0;
 
@@ -70,11 +77,11 @@ function createLayout(root: ConceptNode, expandedIds: Set<string>): Layout {
       : [];
     const y = visibleChildren.length
       ? (visibleChildren[0].y + visibleChildren[visibleChildren.length - 1].y) / 2
-      : CANVAS_MARGIN + row++ * (NODE_HEIGHT + ROW_GAP);
+      : CANVAS_MARGIN + row++ * (nodeHeight + rowGap);
 
     return {
       node: concept,
-      x: CANVAS_MARGIN + depth * (NODE_WIDTH + COLUMN_GAP),
+      x: CANVAS_MARGIN + depth * (nodeWidth + columnGap),
       y,
       depth,
       branch,
@@ -102,8 +109,10 @@ function createLayout(root: ConceptNode, expandedIds: Set<string>): Layout {
   return {
     nodes,
     edges,
-    width: CANVAS_MARGIN * 2 + (deepest + 1) * NODE_WIDTH + deepest * COLUMN_GAP,
-    height: Math.max(520, CANVAS_MARGIN * 2 + row * NODE_HEIGHT + Math.max(0, row - 1) * ROW_GAP),
+    width: CANVAS_MARGIN * 2 + (deepest + 1) * nodeWidth + deepest * columnGap,
+    height: Math.max(520, CANVAS_MARGIN * 2 + row * nodeHeight + Math.max(0, row - 1) * rowGap),
+    nodeWidth,
+    nodeHeight,
   };
 }
 
@@ -214,13 +223,18 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
     const availableWidth = Math.max(280, viewport.clientWidth - 72);
     const availableHeight = Math.max(280, viewport.clientHeight - 72);
     const nextScale = Math.min(1, availableWidth / layout.width, availableHeight / layout.height);
-    const boundedScale = Math.max(MIN_SCALE, nextScale);
+    const boundedScale = Math.max(
+      conceptMap.id === 'pressure' ? (viewport.clientWidth < 760 ? 0.72 : 0.16) : MIN_SCALE,
+      nextScale,
+    );
     setScale(boundedScale);
     setPan({
-      x: Math.max(28, (viewport.clientWidth - layout.width * boundedScale) / 2),
-      y: Math.max(28, (viewport.clientHeight - layout.height * boundedScale) / 2),
+      x: conceptMap.id === 'pressure' && viewport.clientWidth < 760
+        ? 12 : Math.max(28, (viewport.clientWidth - layout.width * boundedScale) / 2),
+      y: conceptMap.id === 'pressure' && viewport.clientWidth < 760
+        ? 12 : Math.max(28, (viewport.clientHeight - layout.height * boundedScale) / 2),
     });
-  }, [layout.height, layout.width]);
+  }, [conceptMap.id, layout.height, layout.width]);
 
   useEffect(() => {
     if (!open) return;
@@ -345,6 +359,7 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
       <section
         ref={dialogRef}
         className="concept-shell"
+        data-topic={conceptMap.id}
         role="dialog"
         aria-modal="true"
         aria-labelledby="concept-map-title"
@@ -395,15 +410,16 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
             >
               <svg className="concept-edges" width={layout.width} height={layout.height} aria-hidden="true">
                 {layout.edges.map(({ from, to }) => {
-                  const startX = from.x + NODE_WIDTH;
-                  const startY = from.y + NODE_HEIGHT / 2;
+                  const startX = from.x + layout.nodeWidth;
+                  const startY = from.y + layout.nodeHeight / 2;
                   const endX = to.x;
-                  const endY = to.y + NODE_HEIGHT / 2;
+                  const endY = to.y + layout.nodeHeight / 2;
                   const control = (endX - startX) * 0.48;
                   return (
                     <path
                       key={`${from.node.id}-${to.node.id}`}
                       data-branch={to.branch}
+                      data-depth={to.depth}
                       d={`M ${startX} ${startY} C ${startX + control} ${startY}, ${endX - control} ${endY}, ${endX} ${endY}`}
                     />
                   );
@@ -420,7 +436,8 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
                       key={item.node.id}
                       className="concept-node-wrap"
                       data-branch={item.branch}
-                      style={{ left: item.x, top: item.y, width: NODE_WIDTH, height: NODE_HEIGHT }}
+                      data-depth={item.depth}
+                      style={{ left: item.x, top: item.y, width: layout.nodeWidth, height: layout.nodeHeight }}
                     >
                       <button
                         ref={(element) => {
@@ -434,7 +451,10 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
                         aria-selected={isSelected}
                         tabIndex={activeId === item.node.id ? 0 : -1}
                         onFocus={() => setActiveId(item.node.id)}
-                        onClick={() => setSelectedId(item.node.id)}
+                        onClick={() => {
+                          setSelectedId(item.node.id);
+                          if (conceptMap.id === 'pressure' && item.node.children.length) toggleNode(item.node.id);
+                        }}
                         onKeyDown={(event) => handleNodeKeyDown(event, item)}
                       >
                         <span>{item.node.title}</span>

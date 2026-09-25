@@ -55,7 +55,7 @@ describe('TYT Fizik Basınç', () => {
   });
 
   it('kavram haritası, ana test, kartlar, soru bankası ve 6 özgün SVG görseli ortak bileşenlerde açar', () => {
-    expect(renderToStaticMarkup(<ConceptExplorer conceptMap={pressureTopicDefinition.conceptMap} />)).toContain('5 ana dalda bağlantıları keşfet');
+    expect(renderToStaticMarkup(<ConceptExplorer conceptMap={pressureTopicDefinition.conceptMap} />)).toContain('8 ana dalda bağlantıları keşfet');
     expect(renderToStaticMarkup(<TopicFlashcards definition={pressureTopicDefinition} />)).toContain('Basınç Kartları');
     expect(renderToStaticMarkup(<TopicQuiz definition={pressureTopicDefinition} />)).toContain('120 N');
     expect(renderToStaticMarkup(<QuestionBank definition={pressureTopicDefinition} />)).toContain('SORU BANKASI');
@@ -74,13 +74,32 @@ describe('TYT Fizik Basınç', () => {
     expect(pressureTopicDefinition.media.every(item => item.type === 'video' && item.bucket === 'learning-media')).toBe(true);
   });
 
+  it('referanstaki sekiz dalı ve 37 alt kavramı canonical ağ içinde eksiksiz tutar', () => {
+    const map = pressureTopicDefinition.conceptMap;
+    expect(map.children.map(node => node.title)).toEqual([
+      'Temel Kavramlar', 'Katı Basıncı', 'Sıvı Basıncı', 'Sıvı Basınç Kuvveti',
+      'Basınç Uygulamaları', 'Akışkanların Basıncı', 'Gaz Basıncı', 'Ölçüm Araçları ve Deneyler',
+    ]);
+    expect(map.children.map(node => node.children.length)).toEqual([5, 5, 5, 3, 3, 5, 6, 5]);
+    expect(flattenConceptNodes(map)).toHaveLength(46);
+    const byId = new Map(flattenConceptNodes(map).map(node => [node.id, node]));
+    for (const id of ['solid-pressure', 'liquid-pressure', 'pascal-principle', 'gas-pressure', 'daily-applications']) {
+      expect(byId.has(id)).toBe(true);
+    }
+    expect(byId.get('solid-force-transfer')?.detailedDescription).toContain('statik dengeli');
+    expect(byId.get('pascal-principle')?.detailedDescription).toContain('basınç değişimi');
+    expect(byId.get('bernoulli')?.detailedDescription).toContain('aynı akım çizgisinde');
+    expect(byId.get('ideal-gas')?.formula).toBe('PV = nRT');
+    expect(byId.get('torricelli')?.detailedDescription).toContain('1643');
+  });
+
   it('yanlış yanıtı doğru canonical kavrama bağlar', () => {
     const question = pressureQuestionBank[0];
     const wrong = (question.correctAnswer + 1) % question.options.length;
     const record = gradeLearningQuestion(question, wrong);
     expect(record.isCorrect).toBe(false);
     expect(summarizeIncorrectConcepts(pressureTopicDefinition, [record])).toEqual([
-      { conceptId: question.conceptId, title: 'Katı basıncı', count: 1 },
+      { conceptId: question.conceptId, title: 'Katı Basıncı', count: 1 },
     ]);
   });
 
