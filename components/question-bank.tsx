@@ -32,7 +32,7 @@ export function QuestionBank({ definition }: { definition: TopicDefinition }) {
         </section>
         <div className="test-choice-grid">
           {levels.map((difficulty) => {
-            const questions = definition.quiz.filter((question) => question.difficulty === difficulty);
+            const questions = (definition.questionBank ?? definition.quiz).filter((question) => question.difficulty === difficulty);
             const visualCount = questions.filter((question) => question.visualId).length;
             return (
               <article className="card test-choice" key={difficulty}>
@@ -71,7 +71,7 @@ function DifficultyQuiz({
   level: LearningQuizDifficulty;
   onBack: () => void;
 }) {
-  const questions = definition.quiz.filter((question) => question.difficulty === level);
+  const questions = (definition.questionBank ?? definition.quiz).filter((question) => question.difficulty === level);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [answers, setAnswers] = useState<QuizAnswerRecord[]>([]);

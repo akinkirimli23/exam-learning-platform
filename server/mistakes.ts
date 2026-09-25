@@ -131,7 +131,7 @@ export async function captureStaticMistake(db:DB,user:any,input:unknown,now=new 
   const parsed=mistakeCaptureSchema.parse(input);
   const definition=getTopicDefinition(parsed.topicId) ?? fail(404,'Konu bulunamadı.');
   const question=(parsed.source==='question-bank'
-    ? definition.quiz.find(item=>item.id===parsed.questionId)
+    ? (definition.questionBank?.find(item=>item.id===parsed.questionId) ?? definition.quiz.find(item=>item.id===parsed.questionId))
     : definition.pastExam?.questions.find(item=>item.id===parsed.questionId))
     ?? fail(404,'Soru bulunamadı.');
   if(parsed.selectedAnswer===question.correctAnswer)fail(400,'Doğru yanıt yanlış defterine eklenmez.');
