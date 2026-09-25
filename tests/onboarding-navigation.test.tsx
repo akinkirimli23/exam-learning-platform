@@ -1,7 +1,7 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it, vi } from 'vitest';
-import { AuthScreen, GuestShell } from '../components/learning-app';
+import { AuthScreen, ExamOnboardingShell, lastTopicPath, postAuthDestination, postExamDestination } from '../components/learning-app';
 import { ExamNavigationPage } from '../components/exam-navigation';
 import {
   findTopicPlacement,
@@ -11,19 +11,34 @@ import {
   subjectHref,
 } from '../shared/learning-path';
 
-describe('sınav öncelikli başlangıç akışı', () => {
-  it('ilk ziyaretçiye giriş formu yerine sınav seçimini gösterir', () => {
-    const html = renderToStaticMarkup(<GuestShell segments={[]} onLogin={vi.fn()}/>);
+describe('giriş öncelikli başlangıç akışı', () => {
+  it('ilk ziyaretçiye doğrudan güvenli giriş ve kayıt ekranını gösterir', () => {
+    const html = renderToStaticMarkup(<AuthScreen initialError="" onSuccess={vi.fn()}/>);
+
+    expect(html).toContain('Kaldığın yerden devam et.');
+    expect(html).toContain('Giriş yap');
+    expect(html).toContain('Hesap oluştur');
+    expect(html).not.toContain('Hangi sınava hazırlanıyorsun?');
+  });
+
+  it('sınavı olmayan öğrenciye girişten sonra tam sayfa sınav seçimini gösterir', () => {
+    const html = renderToStaticMarkup(<ExamOnboardingShell
+      user={{id:'new-student',email:'student@example.test',name:'Yeni Öğrenci',role:'student',dailyGoal:5,weeklyGoal:5,examId:null,timezone:'Europe/Istanbul',notifications:false}}
+      content={[]}
+      error=""
+      onExamSelect={vi.fn()}
+      onLogout={vi.fn()}
+    />);
 
     expect(html).toContain('Hangi sınava hazırlanıyorsun?');
     expect(html).toContain('href="/sinav/yks"');
     expect(html).toContain('LGS');
     expect(html).toContain('KPSS');
     expect(html).toContain('YAKINDA');
-    expect(html).toContain('Giriş yap');
+    expect(html).toContain('Çıkış yap');
   });
 
-  it('misafir YKS, TYT, Fizik ve canonical konu yolunu girişten önce gezebilir', () => {
+  it('YKS, TYT, Fizik ve canonical konu yolu veri modelinde korunur', () => {
     const sessions = renderToStaticMarkup(<ExamNavigationPage segments={['yks']} rootHref="/"/>);
     const subjects = renderToStaticMarkup(<ExamNavigationPage segments={['yks', 'tyt']} rootHref="/"/>);
     const topic = renderToStaticMarkup(<ExamNavigationPage segments={['yks', 'tyt', 'fizik']} rootHref="/"/>);
@@ -42,14 +57,13 @@ describe('sınav öncelikli başlangıç akışı', () => {
       <AuthScreen
         initialError=""
         selection={selection}
-        onBack={vi.fn()}
         onSuccess={vi.fn()}
       />,
     );
 
     expect(journeyLabel(selection)).toBe('YKS · TYT · Fizik');
     expect(html).toContain('YKS · TYT · Fizik · Kaldırma Kuvveti');
-    expect(html).toContain('Seçimin hazır');
+    expect(html).toContain('Bağlantıdaki konu hazır');
     expect(html).toContain('Hesap oluştur');
     expect(subjectHref(selection!)).toBe('/sinav/yks/tyt/fizik');
   });
@@ -59,5 +73,20 @@ describe('sınav öncelikli başlangıç akışı', () => {
     expect(learningPathFromPathname('/sinav/yks/ayt')?.session?.id).toBe('ayt');
     expect(findTopicPlacement('buoyancy')?.path).toBe('/konu/buoyancy');
     expect(findTopicPlacement('buoyancy')?.session?.id).toBe('tyt');
+    const selection = learningPathFromPathname('/konu/buoyancy/testler');
+    expect(postAuthDestination('yks-2026', '/konu/buoyancy/testler', selection)).toBe('/konu/buoyancy/testler');
+    expect(postAuthDestination(null, '/konu/buoyancy/testler', selection)).toBe('/konu/buoyancy/testler');
+    expect(postExamDestination('yks', '/konu/buoyancy/testler', false)).toBe('/konu/buoyancy/testler');
+    expect(postExamDestination('yks', '/konular', false)).toBe('/sinav/yks');
+    expect(postExamDestination('yks', '/konu/buoyancy/testler', true)).toBe('/sinav/yks');
+    expect(postExamDestination('lgs', '/konu/buoyancy/testler', false)).toBe('/sinav/lgs');
+    expect(postAuthDestination('yks-2026', '/giris')).toBe('/');
+  });
+
+  it('son çalışılan konuyu oturum ve ders gezintisinde korur', () => {
+    expect(lastTopicPath('/konu/buoyancy/kartlar', '')).toBe('/konu/buoyancy/kartlar');
+    expect(lastTopicPath('/sinav/yks/ayt/fizik', '/konu/buoyancy/kartlar')).toBe('/konu/buoyancy/kartlar');
+    expect(lastTopicPath('/', '/konu/buoyancy/kartlar')).toBe('/konu/buoyancy/kartlar');
+    expect(lastTopicPath('/', '/sinav/yks/tyt/fizik')).toBe('');
   });
 });

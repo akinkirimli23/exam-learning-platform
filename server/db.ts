@@ -5,7 +5,7 @@ import fs from 'node:fs/promises';
 
 export interface DB { query<T=any>(sql:string,params?:any[]):Promise<{rows:T[]}>; }
 type State={ db:DB; transaction:<T>(fn:(db:DB)=>Promise<T>)=>Promise<T>; close:()=>Promise<void> };
-export const initialSchema=`
+export const initialSchemaV1=`
 CREATE TABLE IF NOT EXISTS schema_migrations(version integer PRIMARY KEY);
 CREATE TABLE IF NOT EXISTS users(id text PRIMARY KEY, email text UNIQUE NOT NULL, name text NOT NULL, password_hash text NOT NULL, role text NOT NULL DEFAULT 'student', adult_confirmed boolean NOT NULL, daily_goal integer NOT NULL DEFAULT 5, weekly_goal integer NOT NULL DEFAULT 5, exam_id text, timezone text NOT NULL DEFAULT 'Europe/Istanbul', notifications boolean NOT NULL DEFAULT false, created_at timestamptz NOT NULL DEFAULT now());
 CREATE TABLE IF NOT EXISTS sessions(token_hash text PRIMARY KEY, user_id text NOT NULL REFERENCES users(id) ON DELETE CASCADE, expires_at timestamptz NOT NULL);
@@ -23,6 +23,14 @@ CREATE TABLE IF NOT EXISTS media_files(id text PRIMARY KEY,storage_key text NOT 
 CREATE TABLE IF NOT EXISTS rate_limits(key text PRIMARY KEY,count integer NOT NULL,expires_at timestamptz NOT NULL);
 CREATE TABLE IF NOT EXISTS ai_usage(id text PRIMARY KEY,user_id text NOT NULL REFERENCES users(id) ON DELETE CASCADE,day text NOT NULL,status text NOT NULL,tokens integer NOT NULL DEFAULT 0,created_at timestamptz NOT NULL DEFAULT now());
 INSERT INTO schema_migrations(version) VALUES(1) ON CONFLICT DO NOTHING;
+`;
+export const mistakeNotesSchema=`
+CREATE TABLE IF NOT EXISTS mistake_notes(id text PRIMARY KEY,user_id text NOT NULL REFERENCES users(id) ON DELETE CASCADE,topic_id text NOT NULL,question_id text NOT NULL,attempt_id text,source text NOT NULL,question_snapshot jsonb NOT NULL,suggested_reason text NOT NULL,reason text NOT NULL,custom_tags jsonb NOT NULL DEFAULT '[]',note text NOT NULL DEFAULT '',wrong_count integer NOT NULL DEFAULT 1,resolved boolean NOT NULL DEFAULT false,created_at timestamptz NOT NULL DEFAULT now(),last_wrong_at timestamptz NOT NULL DEFAULT now(),updated_at timestamptz NOT NULL DEFAULT now(),UNIQUE(user_id,source,question_id));
+CREATE INDEX IF NOT EXISTS mistake_notes_user ON mistake_notes(user_id,resolved,last_wrong_at DESC);
+`;
+export const initialSchema=`${initialSchemaV1}
+${mistakeNotesSchema}
+INSERT INTO schema_migrations(version) VALUES(2) ON CONFLICT DO NOTHING;
 `;
 const globalDb=globalThis as unknown as {ivmeDB?:Promise<State>};
 export function postgresConnectionConfig(value:string,caBase64=process.env.DATABASE_CA_CERT_B64):PoolConfig{
@@ -56,8 +64,8 @@ async function init():Promise<State>{
   if(process.env.DATABASE_URL){
     const pool=new Pool({...postgresConnectionConfig(process.env.DATABASE_URL),max:1,connectionTimeoutMillis:10000,idleTimeoutMillis:10000});
     try{
-      const {rows}=await pool.query('SELECT version FROM schema_migrations WHERE version=1');
-      if(!rows.length)throw Object.assign(new Error('PostgreSQL v1 migration eksik.'),{code:'DATABASE_SCHEMA_MISSING'});
+      const {rows}=await pool.query('SELECT version FROM schema_migrations WHERE version=2');
+      if(!rows.length)throw Object.assign(new Error('PostgreSQL v2 migration eksik.'),{code:'DATABASE_SCHEMA_MISSING'});
     }catch(error){await pool.end();throw error;}
     return {db:pool,close:()=>pool.end(),transaction:async fn=>{const c=await pool.connect();try{await c.query('BEGIN');const out=await fn(c);await c.query('COMMIT');return out;}catch(e){await c.query('ROLLBACK');throw e;}finally{c.release();}}};
   }
