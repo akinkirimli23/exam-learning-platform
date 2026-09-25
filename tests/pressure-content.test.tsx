@@ -66,7 +66,12 @@ describe('TYT Fizik Basınç', () => {
       expect(svg, id).toContain('<svg');
       expect(svg, id).toContain('aria-label=');
     }
-    expect(pressureTopicDefinition.media).toHaveLength(0);
+    expect(pressureTopicDefinition.media.map(item => item.objectPath)).toEqual([
+      'physics/pressure/video/Kati_basinci.mp4',
+      'physics/pressure/video/Sivi_Basinci.mp4',
+      'physics/pressure/video/Gaz_basinci.mp4',
+    ]);
+    expect(pressureTopicDefinition.media.every(item => item.type === 'video' && item.bucket === 'learning-media')).toBe(true);
   });
 
   it('yanlış yanıtı doğru canonical kavrama bağlar', () => {

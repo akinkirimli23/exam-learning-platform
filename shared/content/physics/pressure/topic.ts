@@ -1,6 +1,7 @@
 import { defineTopic } from '@/shared/topic-engine';
 import { pressureConceptMap } from './concepts';
 import { pressureFlashcards, pressureMainQuiz, pressureQuestionBank } from './data';
+import { pressureMedia } from './media';
 
 export const pressureTopicDefinition = defineTopic({
   id: 'pressure',
@@ -13,5 +14,5 @@ export const pressureTopicDefinition = defineTopic({
   flashcards: pressureFlashcards,
   quiz: pressureMainQuiz,
   questionBank: pressureQuestionBank,
-  media: [],
+  media: pressureMedia,
 });
