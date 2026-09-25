@@ -460,8 +460,12 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
                         tabIndex={activeId === item.node.id ? 0 : -1}
                         onFocus={() => setActiveId(item.node.id)}
                         onClick={() => {
-                          setSelectedId(item.node.id);
-                          if (conceptMap.id === 'pressure' && item.node.children.length) toggleNode(item.node.id);
+                          if (conceptMap.id === 'pressure' && hasChildren) {
+                            setSelectedId(null);
+                            toggleNode(item.node.id);
+                          } else {
+                            setSelectedId(item.node.id);
+                          }
                         }}
                         onKeyDown={(event) => handleNodeKeyDown(event, item)}
                       >
