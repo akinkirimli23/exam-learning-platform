@@ -2,6 +2,7 @@ import { PGlite } from '@electric-sql/pglite';
 import { Pool, type PoolConfig } from 'pg';
 import path from 'node:path';
 import fs from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 
 export interface DB { query<T=any>(sql:string,params?:any[]):Promise<{rows:T[]}>; }
 type State={ db:DB; transaction:<T>(fn:(db:DB)=>Promise<T>)=>Promise<T>; close:()=>Promise<void> };
@@ -59,6 +60,15 @@ export function databaseMatchesSupabaseProject(databaseUrl=process.env.DATABASE_
     const databaseUser=decodeURIComponent(database.username);
     return Boolean(projectRef)&&(databaseUser===`postgres.${projectRef}`||database.hostname===`db.${projectRef}.supabase.co`);
   }catch{return false;}
+}
+export function databaseProjectFingerprint(databaseUrl=process.env.DATABASE_URL){
+  if(!databaseUrl)return null;
+  try{
+    const database=new URL(databaseUrl);
+    const ref=decodeURIComponent(database.username).match(/^postgres\.([a-z0-9]+)$/)?.[1]
+      ?? database.hostname.match(/^db\.([a-z0-9]+)\.supabase\.co$/)?.[1];
+    return ref?createHash('sha256').update(ref).digest('hex'):null;
+  }catch{return null;}
 }
 async function init():Promise<State>{
   if(process.env.DATABASE_URL){
