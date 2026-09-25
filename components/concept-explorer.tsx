@@ -54,10 +54,11 @@ type Layout = {
 
 function createLayout(root: ConceptNode, expandedIds: Set<string>): Layout {
   const pressureMap = root.id === 'pressure';
-  const nodeWidth = pressureMap ? 238 : NODE_WIDTH;
-  const nodeHeight = pressureMap ? 64 : NODE_HEIGHT;
-  const columnGap = pressureMap ? 96 : COLUMN_GAP;
-  const rowGap = pressureMap ? 21 : ROW_GAP;
+  const nodeWidth = pressureMap ? 228 : NODE_WIDTH;
+  const nodeHeight = pressureMap ? 52 : NODE_HEIGHT;
+  const columnGap = pressureMap ? 76 : COLUMN_GAP;
+  const rowGap = pressureMap ? 8 : ROW_GAP;
+  const margin = pressureMap ? 26 : CANVAS_MARGIN;
   let row = 0;
   let deepest = 0;
 
@@ -77,11 +78,11 @@ function createLayout(root: ConceptNode, expandedIds: Set<string>): Layout {
       : [];
     const y = visibleChildren.length
       ? (visibleChildren[0].y + visibleChildren[visibleChildren.length - 1].y) / 2
-      : CANVAS_MARGIN + row++ * (nodeHeight + rowGap);
+      : margin + row++ * (nodeHeight + rowGap);
 
     return {
       node: concept,
-      x: CANVAS_MARGIN + depth * (nodeWidth + columnGap),
+      x: margin + depth * (nodeWidth + columnGap),
       y,
       depth,
       branch,
@@ -109,8 +110,8 @@ function createLayout(root: ConceptNode, expandedIds: Set<string>): Layout {
   return {
     nodes,
     edges,
-    width: CANVAS_MARGIN * 2 + (deepest + 1) * nodeWidth + deepest * columnGap,
-    height: Math.max(520, CANVAS_MARGIN * 2 + row * nodeHeight + Math.max(0, row - 1) * rowGap),
+    width: margin * 2 + (deepest + 1) * nodeWidth + deepest * columnGap,
+    height: Math.max(pressureMap ? 0 : 520, margin * 2 + row * nodeHeight + Math.max(0, row - 1) * rowGap),
     nodeWidth,
     nodeHeight,
   };
@@ -162,12 +163,17 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
   const nodeById = useMemo(() => new Map(allNodes.map((item) => [item.id, item])), [allNodes]);
   const parentById = useMemo(() => buildParentMap(conceptMap), [conceptMap]);
   const layout = useMemo(() => createLayout(conceptMap, expandedIds), [conceptMap, expandedIds]);
+  const layoutRef = useRef(layout);
   const selectedNode = selectedId ? nodeById.get(selectedId) ?? null : null;
   const selectedPath = selectedNode
     ? getNodePath(selectedNode.id, nodeById, parentById)
     : [];
 
   useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    layoutRef.current = layout;
+  }, [layout]);
 
   useEffect(() => {
     setExpandedIds(new Set([conceptMap.id]));
@@ -220,9 +226,10 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
   const fitMap = useCallback(() => {
     const viewport = viewportRef.current;
     if (!viewport) return;
+    const currentLayout = layoutRef.current;
     const availableWidth = Math.max(280, viewport.clientWidth - 72);
     const availableHeight = Math.max(280, viewport.clientHeight - 72);
-    const nextScale = Math.min(1, availableWidth / layout.width, availableHeight / layout.height);
+    const nextScale = Math.min(1, availableWidth / currentLayout.width, availableHeight / currentLayout.height);
     const boundedScale = Math.max(
       conceptMap.id === 'pressure' ? (viewport.clientWidth < 760 ? 0.72 : 0.16) : MIN_SCALE,
       nextScale,
@@ -230,11 +237,11 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
     setScale(boundedScale);
     setPan({
       x: conceptMap.id === 'pressure' && viewport.clientWidth < 760
-        ? 12 : Math.max(28, (viewport.clientWidth - layout.width * boundedScale) / 2),
+        ? 12 : Math.max(28, (viewport.clientWidth - currentLayout.width * boundedScale) / 2),
       y: conceptMap.id === 'pressure' && viewport.clientWidth < 760
-        ? 12 : Math.max(28, (viewport.clientHeight - layout.height * boundedScale) / 2),
+        ? 12 : Math.max(28, (viewport.clientHeight - currentLayout.height * boundedScale) / 2),
     });
-  }, [conceptMap.id, layout.height, layout.width]);
+  }, [conceptMap.id]);
 
   useEffect(() => {
     if (!open) return;
@@ -299,7 +306,8 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
   };
 
   const changeScale = (amount: number) => {
-    setScale((current) => Math.min(MAX_SCALE, Math.max(MIN_SCALE, current + amount)));
+    const minimum = conceptMap.id === 'pressure' ? 0.16 : MIN_SCALE;
+    setScale((current) => Math.min(MAX_SCALE, Math.max(minimum, current + amount)));
   };
 
   const handleWheel = (event: WheelEvent<HTMLDivElement>) => {
@@ -345,7 +353,7 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
 
   const expandAll = () => {
     setExpandedIds(new Set(allNodes.filter((item) => item.children.length).map((item) => item.id)));
-    requestFit();
+    if (conceptMap.id !== 'pressure') requestFit();
   };
 
   const showMainBranches = () => {
