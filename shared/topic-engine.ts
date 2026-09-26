@@ -28,6 +28,7 @@ export type TopicDefinition = {
   conceptMap: ConceptNode;
   flashcards: readonly LearningFlashcard[];
   quiz: readonly LearningQuizQuestion[];
+  questionBank?: readonly LearningQuizQuestion[];
   media: readonly LearningMedia[];
   pastExam?: PastExamSet;
 };
@@ -95,6 +96,19 @@ export function defineTopic(definition: TopicDefinition): TopicDefinition {
     }
   }
 
+  if (definition.questionBank) {
+    assertUnique(definition.questionBank.map((item) => item.id), 'question bank id', definition.id);
+    const mainIds = new Set(definition.quiz.map((item) => item.id));
+    for (const question of definition.questionBank) {
+      if (!quizPattern.test(question.id) || mainIds.has(question.id)) {
+        throw new Error(`${definition.id}: invalid or reused question bank id '${question.id}'`);
+      }
+      if (!canonicalConceptIds.has(question.conceptId)) {
+        throw new Error(`${definition.id}: question bank '${question.id}' references unknown concept '${question.conceptId}'`);
+      }
+    }
+  }
+
   if (definition.pastExam) {
     const pastExamQuestionPattern = new RegExp(`^${escapeRegExp(definition.id)}-yks-q-\\d{3}$`);
     assertUnique(definition.pastExam.sources.map((item) => item.id), 'past exam source id', definition.id);
@@ -138,6 +152,7 @@ export function defineTopic(definition: TopicDefinition): TopicDefinition {
     ...definition,
     flashcards: Object.freeze([...definition.flashcards]),
     quiz: Object.freeze([...definition.quiz]),
+    questionBank: definition.questionBank ? Object.freeze([...definition.questionBank]) : undefined,
     media: Object.freeze([...definition.media]),
     pastExam: definition.pastExam,
   });

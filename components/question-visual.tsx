@@ -1,7 +1,10 @@
 'use client';
 
+import { PressureVisual } from './pressure-visual';
+
 export function QuestionVisual({ visualId }: { visualId?: string }) {
   if (!visualId) return null;
+  if (visualId.startsWith('pressure-')) return <PressureVisual visualId={visualId} />;
   const common = { width: '100%', maxWidth: 520, height: 'auto', display: 'block', margin: '18px auto' } as const;
 
   if (visualId === 'buoyancy-float-half') {

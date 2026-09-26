@@ -6,6 +6,7 @@ import {
   LearningInfographicView,
   LearningSlidesView,
   LearningVideoView,
+  LearningMaterials,
 } from '../components/learning-media';
 import { buoyancyConceptMap, flattenConceptNodes } from '../shared/buoyancy-concepts';
 import { createBuoyancyMedia } from '../shared/content/physics/buoyancy/media';
@@ -58,5 +59,24 @@ describe('Kaldırma Kuvveti medya altyapısı', () => {
     expect(infographicMarkup).toContain('class="infographic-preview"');
     expect(infographicMarkup).toContain(`src="${signedUrl.replaceAll('&', '&amp;')}"`);
     expect(css).toMatch(/\.infographic-preview img\{[^}]*width:100%[^}]*height:auto/);
+  });
+
+  it('birden fazla infografiği ayrı materyal kartları olarak gösterir', () => {
+    const infographic = configuredMedia.find((item) => item.type === 'infographic')!;
+    const markup = renderToStaticMarkup(<LearningMaterials items={[
+      infographic,
+      { ...infographic, id: 'second-infographic', title: 'İkinci görsel', order: 4 },
+    ]} />);
+    expect(markup).toContain(infographic.title);
+    expect(markup).toContain('İkinci görsel');
+    expect(renderToStaticMarkup(<LearningMaterials items={[]} />)).toBe('');
+  });
+
+  it('video süresini her oynatıcı kartında ayrı gösterir', () => {
+    const video = configuredMedia.find((item) => item.type === 'video')!;
+    const markup = renderToStaticMarkup(<LearningVideoView item={{ ...video, durationSeconds: 185 }} state={ready} />);
+    expect(markup).toContain('Süre: 3:05');
+    expect(markup).toContain('playsInline');
+    expect(markup).toContain('controls=""');
   });
 });

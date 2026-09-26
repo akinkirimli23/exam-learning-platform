@@ -79,9 +79,17 @@ function MediaHeading({ item, icon }: { item: LearningMedia; icon: React.ReactNo
 }
 
 export function LearningVideoView({ item, state }: { item: LearningMedia; state: LearningMediaLoadState }) {
+  const [measuredDuration, setMeasuredDuration] = useState<number | null>(null);
+  const duration = measuredDuration ?? item.durationSeconds;
+  const durationLabel = duration && Number.isFinite(duration)
+    ? `${Math.floor(duration / 60)}:${String(Math.floor(duration % 60)).padStart(2, '0')}`
+    : null;
   return (
     <article className="card learning-video-card">
       <MediaHeading item={item} icon={<Video size={22} />} />
+      <p className="small-note learning-video-duration" aria-live="polite">
+        {durationLabel ? `Süre: ${durationLabel}` : 'Süre video yüklendiğinde gösterilecek.'}
+      </p>
       {state.status === 'ready' ? (
         <>
           <video
@@ -90,6 +98,10 @@ export function LearningVideoView({ item, state }: { item: LearningMedia; state:
             playsInline
             preload="metadata"
             aria-label={item.title}
+            onLoadedMetadata={(event) => {
+              const seconds = event.currentTarget.duration;
+              if (Number.isFinite(seconds) && seconds > 0) setMeasuredDuration(seconds);
+            }}
           >
             <source src={state.url} type={item.mimeType || 'video/mp4'} />
             Tarayıcın HTML5 video oynatmayı desteklemiyor.
@@ -209,16 +221,17 @@ export function LearningInfographic({ item }: { item: LearningMedia }) {
 }
 
 export function LearningMaterials({ items }: { items: readonly LearningMedia[] }) {
-  const slides = items.find((item) => item.type === 'slides');
-  const infographic = items.find((item) => item.type === 'infographic');
+  const materials = items.filter((item) => item.type === 'slides' || item.type === 'infographic');
+  if (!materials.length) return null;
   return (
     <section className="learning-materials" aria-labelledby="learning-materials-title">
       <div className="learning-materials-title">
         <span className="eyebrow">GÖRSEL MATERYALLER</span>
         <h2 id="learning-materials-title">Konuyu farklı biçimlerde incele</h2>
       </div>
-      {slides && <LearningSlides item={slides} />}
-      {infographic && <LearningInfographic item={infographic} />}
+      {materials.map((item) => item.type === 'slides'
+        ? <LearningSlides key={item.id} item={item} />
+        : <LearningInfographic key={item.id} item={item} />)}
     </section>
   );
 }
