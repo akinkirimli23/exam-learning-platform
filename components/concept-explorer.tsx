@@ -161,6 +161,7 @@ export function ConceptExplorer({
   const closeRef = useRef<HTMLButtonElement>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef(new Map<string, HTMLButtonElement>());
+  const branchFocusRef = useRef(conceptMap.id);
   const dragRef = useRef({ pointerId: -1, startX: 0, startY: 0, panX: 0, panY: 0 });
 
   const allNodes = useMemo(() => flattenConceptNodes(conceptMap), [conceptMap]);
@@ -169,6 +170,7 @@ export function ConceptExplorer({
   const layout = useMemo(() => createLayout(conceptMap, expandedIds), [conceptMap, expandedIds]);
   const layoutRef = useRef(layout);
   const selectedNode = selectedId ? nodeById.get(selectedId) ?? null : null;
+  const showDetailSpace = progressive && selectedId !== null;
   const selectedPath = selectedNode
     ? getNodePath(selectedNode.id, nodeById, parentById)
     : [];
@@ -183,6 +185,7 @@ export function ConceptExplorer({
     setExpandedIds(new Set(progressive ? [] : [conceptMap.id]));
     setSelectedId(null);
     setActiveId(conceptMap.id);
+    branchFocusRef.current = conceptMap.id;
   }, [conceptMap, progressive]);
 
   const closeExplorer = useCallback(() => {
@@ -231,7 +234,9 @@ export function ConceptExplorer({
     const viewport = viewportRef.current;
     if (!viewport) return;
     const currentLayout = layoutRef.current;
-    const availableWidth = Math.max(280, viewport.clientWidth - 72);
+    const mobile = viewport.clientWidth <= 760;
+    const visibleWidth = viewport.clientWidth - (showDetailSpace && !mobile ? Math.min(400, viewport.clientWidth * 0.42) : 0);
+    const availableWidth = Math.max(280, visibleWidth - 72);
     const availableHeight = Math.max(280, viewport.clientHeight - 72);
     const nextScale = Math.min(1, availableWidth / currentLayout.width, availableHeight / currentLayout.height);
     const boundedScale = Math.max(
@@ -239,13 +244,24 @@ export function ConceptExplorer({
       nextScale,
     );
     setScale(boundedScale);
+    if (progressive && mobile) {
+      const anchor = currentLayout.nodes.find(item => item.node.id === branchFocusRef.current) ?? currentLayout.nodes[0];
+      const group = currentLayout.nodes.filter(item => item.node.id === anchor.node.id || item.parentId === anchor.node.id);
+      const top = Math.min(...group.map(item => item.y));
+      const bottom = Math.max(...group.map(item => item.y + currentLayout.nodeHeight));
+      setPan({
+        x: 12 - anchor.x * boundedScale,
+        y: Math.max(12, (viewport.clientHeight - (bottom - top) * boundedScale) / 2) - top * boundedScale,
+      });
+      return;
+    }
     setPan({
       x: conceptMap.id === 'pressure' && viewport.clientWidth < 760
-        ? 12 : Math.max(28, (viewport.clientWidth - currentLayout.width * boundedScale) / 2),
+        ? 12 : Math.max(28, (visibleWidth - currentLayout.width * boundedScale) / 2),
       y: conceptMap.id === 'pressure' && viewport.clientWidth < 760
         ? 12 : Math.max(28, (viewport.clientHeight - currentLayout.height * boundedScale) / 2),
     });
-  }, [conceptMap.id]);
+  }, [conceptMap.id, progressive, showDetailSpace]);
 
   useEffect(() => {
     if (!open) return;
@@ -276,6 +292,7 @@ export function ConceptExplorer({
       return next;
     });
     if (progressive) {
+      branchFocusRef.current = expandedIds.has(nodeId) ? parentById.get(nodeId) ?? conceptMap.id : nodeId;
       setSelectedId(null);
       setActiveId(nodeId);
       requestFit();
@@ -363,6 +380,7 @@ export function ConceptExplorer({
 
   const openExplorer = () => {
     if (progressive) {
+      branchFocusRef.current = conceptMap.id;
       setExpandedIds(new Set());
       setSelectedId(null);
       setActiveId(conceptMap.id);
@@ -377,6 +395,7 @@ export function ConceptExplorer({
   };
 
   const showMainBranches = () => {
+    branchFocusRef.current = conceptMap.id;
     setExpandedIds(new Set([conceptMap.id]));
     setSelectedId(null);
     setActiveId(conceptMap.id);
@@ -410,6 +429,7 @@ export function ConceptExplorer({
         <div className="concept-toolbar" aria-label="Kavram haritası araçları">
           <div className="concept-toolbar-group">
             {progressive && <button onClick={() => {
+              branchFocusRef.current = conceptMap.id;
               setExpandedIds(new Set());
               setSelectedId(null);
               setActiveId(conceptMap.id);
