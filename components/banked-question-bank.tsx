@@ -6,6 +6,7 @@ import type { BankAttempt, BankCatalog, BankCatalogItem, BankTestDefinition } fr
 import { getConceptTitle, type TopicDefinition } from '@/shared/topic-engine';
 import { api } from './client';
 import { BankQuestionFigure } from './bank-question-figure';
+import { QuestionBookletSession } from './question-booklet/question-booklet-session';
 
 const levels = ['kolay', 'orta', 'zor'] as const;
 const levelTitle = { kolay: 'Kolay', orta: 'Orta', zor: 'Zor' };
@@ -30,7 +31,13 @@ export function BankedQuestionBank({ definition, onArchive }: { definition: Topi
     } catch (error) { setError((error as Error).message); }
     finally { setBusy(false); }
   };
-  if (attempt) return <BankTestSession key={attempt.id} initial={attempt} definition={definition} onBack={() => { setAttempt(null); void load(); }} onRestart={() => { const test = definition.questionBank!.find(test => test.id === attempt.testId)!; void open(test); }} />;
+  if (attempt) {
+    const booklet = definition.questionBooklets?.find(item => item.testId === attempt.testId);
+    const onBack = () => { setAttempt(null); void load(); };
+    const onRestart = () => { const test = definition.questionBank!.find(test => test.id === attempt.testId)!; void open(test); };
+    return booklet ? <QuestionBookletSession key={attempt.id} initial={attempt} definition={booklet} onBack={onBack} onRestart={onRestart} />
+      : <BankTestSession key={attempt.id} initial={attempt} definition={definition} onBack={onBack} onRestart={onRestart} />;
+  }
   const tests = catalog?.tests ?? definition.questionBank ?? [];
   return <div className="media-list">
     <section className="card">

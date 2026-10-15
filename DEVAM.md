@@ -251,3 +251,34 @@ Proje kökü: `D:\dido_ile_okul_projesi`
 - Yalnız kabul için sentetik bir staging öğrencisi oluşturuldu. Kolay 1, Orta 1 ve Zor 1 tarayıcıda tamamlandı: 45 soru, 45 çözüm, 22 şema; beş seçenek ve sıra; sayfa yenilemesinde devam; kalıcı sonuçlar; yanlış/boş defteri; mobil yatay taşma ve %150 şema büyütme/Escape kontrolleri geçti. Sonuçlar PostgreSQL'de ayrıca doğrulandı (13 doğru/1 yanlış/1 boş, 15 doğru, 15 doğru); iki defter kaydı oluştu. Browser hata/uyarı logu boştu.
 - Test sonunda yalnız bu sentetik öğrencinin UUID/e-posta/ad/rol eşleşmesi doğrulanarak hesabı ve bağlı kayıtları temizlendi. Sayılar başlangıca döndü: 4 kullanıcı, 5 oturum, 103 içerik, 0 deneme, 0 yanlış; günlük aktivite/kart/tekrar alanları aynı, rate_limits=7. Test parolası yerel geçici kayıttan çıkarıldı. Gerçek öğrenciler ve production verileri değiştirilmedi.
 - Kabul ekranları ve çıktılar Git dışında `.cache/buoyancy-question-bank/staging-*` altında. Preview sekmesi kullanıcıya giriş ekranıyla bırakıldı. Yerel 213/213 test, typecheck ve build sonucu aynı uygulama koduna aittir; bu yayın aşamasında uygulama kodu değiştirilmedi. Uzman yayın incelemesi ve ayrıca istenecek production/main geçişi açıktır; Draft PR merge edilmedi.
+
+## 15 Ekim 2026 · Kolay Test 1 kitapçık arayüzü
+
+- `feature/tyt-buoyancy-bank-135` üzerinde yalnız Kolay Test 1 için tekrar kullanılabilir HTML/CSS/SVG kitapçık eklendi. 15 soru dört sayfa; geniş masaüstünde çift/tek sayfa, mobilde tek sütun; mavi başlık/yönerge/numaralar, işlem alanları, sayfa altlıkları ve yanıt şeridi. Entegrasyon ayrıntıları `docs/QUESTION_BOOKLET.md`.
+- Altı özgün sunum SVG'si ayrı `booklet/` klasöründe. Kaynak sorular, cevaplar, mevcut 64 SVG, eski snapshot'lar, auth, route ve diğer sekiz test korunur. Yeni migration/seed yok; öğrenci ilerlemesi için mevcut API kullanılır.
+- İzole yerel QA verisiyle masaüstü 1440 px ve mobil 390 px: yanıt kaydı/yenilemede devam, 15 çözüm, 13 doğru/1 yanlış/1 boş, Yanlış Defteri, %150 büyütme/Escape ve görünüm geçişleri geçti. Yatay taşma yok; fiziksel telefon testi yapılmadı. Kanıtlar Git dışındaki `.cache/question-booklet/` altında.
+- Son kapı: 19 dosyada 221/221 test, typecheck, Next.js production build başarılı. ZIP'in 80 dosyası ve iki `.env` dosyası hash karşılaştırmasıyla değişmemiş durumda.
+- Bu arayüz değişikliği henüz commit/push veya Vercel deployment almadı. Production ve main aynı. Sonraki yayın adımı mevcut feature dalı / Draft PR #6 üzerinden yalnız staging Preview güncellemesidir.
+
+## 15 Ekim 2026 · dokuz testin kitapçık görünümüne geçirilmesi
+
+- Kullanıcının isteğiyle Kolay 2–3, Orta 1–3 ve Zor 1–3 aynı etkileşimli kitapçık düzenine bağlandı. Artık 9 test / 135 soru / 36 sayfa; teste göre doğru başlık ve 01–09 fasikül numarası. Kamuya açık kayıtlar `shared/content/physics/buoyancy/question-booklets.ts` üzerinden oluşturulur.
+- Soru kimlikleri, metinler, cevap/çözümler, 64 kaynak SVG, önceki girişimler ve kayıt API'leri değişmedi. Kolay 1'in altı sunum SVG'si korunur; diğer testler kendi mevcut şemalarını kullanır. Eski banka arşivi aynı akışta kalır. Migration/seed yok.
+- 19 dosyada 230/230 test, typecheck ve build geçti. Sandbox'taki junction kısıtından sonra build normal kullanıcı izinleriyle başarılı oldu. 1440 px yerel tarayıcıda dokuz testin tüm 135 sorusu ve dört sayfalık akışı; 390 px Zor Test 3'te dört sayfa, yanıt kaydı/yenilemede devam doğrulandı. Yatay taşma yok. Kanıtlar `.cache/question-booklet/all-tests-qa.json`, `mobile-all-pages-qa.json`, `hard-03-desktop.jpg`, `hard-03-mobile.jpg` içinde.
+- Yalnız izole yerel QA verisi kullanıldı; 80 kaynak ZIP dosyası ve iki `.env` dosyası hash karşılaştırmasında aynı. Değişiklikler yerelde; commit/push, staging deployment, production veya main değişikliği yapılmadı.
+
+## 15 Ekim 2026 · hacimli çizimler ve işlem alanlarının kaldırılması
+
+- Kullanıcının tasarım geri bildirimiyle dokuz testin 64 şekli ayrı sunum SVG'leri olarak yenilendi: yansımaları olan cam kaplar, eliptik su yüzeyleri, ahşap/metal/buz dokuları, parlak küreler, gölgeler, dinamometre/tekne/katman düzenekleri. Kaynak 135 soru, cevaplar, çözümler ve özgün 64 SVG değişmedi. Eşleştirmeler soru kimliği, kaynak yolu ve metin imzasıyla korunur.
+- Boş işlem/çözüm alanları ve son sayfa dolgu bölmesi kaldırıldı. Yapay sayfa yüksekliği kaldırıldı; seçenekler metin veya çizimden sonra gelir. Test sonundaki açıklamalı çözümler ve mevcut kayıt akışı korunur.
+- 64/64 sunum SVG'si geçerli XML ve tarayıcıda yüklendi. 1440 px'de dokuz testin 36 sayfası / 135 sorusu / 675 seçeneği / 64 yeni görseli doğrulandı. 390 px'de Kolay 1'in 4+4+4+3 soruluk sayfaları, %150 büyütme/Escape kontrol edildi; yatay taşma ve işlem alanı yok. Fiziksel telefon testi değildir; viewport geri alındı. Kanıtlar `.cache/question-booklet/volumetric-*` altında.
+- `npm test` 19 dosyada 230/230, typecheck ve build geçti. Build sandbox junction kısıtından sonra normal kullanıcı izinleriyle tamamlandı. 80 ZIP dosyası ve iki env dosyası hash denetiminde aynı. Yeni migration/seed yok; uzak veritabanına yazılmadı.
+- Yerel önizleme `http://127.0.0.1:3100/konu/buoyancy/soru-bankasi` adresinde izole QA verisiyle açık. Arayüz değişiklikleri hâlâ commit/push/deployment almadı; main ve production aynı.
+
+## 15 Ekim 2026 yayın hazırlığı ve tablet işaretleme
+
+- Kullanıcı yeni tasarımın ana site açıldığında görünmesini istedi; önceki production'a dokunmama sınırını bu yayın için kaldırdı. Mevcut PR #6 ile feature branch üzerinden yayın hazırlanıyor.
+- A–E harfleri belirgin daireler içinde, tüm seçenek satırı tıklanabilir. Tek yanıt vurgulanıyor; cevap değişikliği ve yenilemede saklanması izole yerel QA hesabında doğrulandı.
+- 760 px üzerindeki tablet ve bilgisayarlarda Tek sayfa / Çift sayfa düğmeleri var. 1360 px üzerinde çift sayfa varsayılan; tabletlerde tek sayfa varsayılan, isteğe bağlı çift sayfa destekleniyor. 768, 1024, 1440 ve 390 px tarayıcı kontrollerinde yatay taşma yok.
+- 19 dosyada 231/231 test, typecheck ve production build geçti. Staging ve Production veritabanları yalnız salt okunur audit ile kontrol edildi: iki ortam ayrı, TLS doğrulanıyor, şema v2 ve yanlış defteri uyumlu. Migration/seed gerekmez; mevcut öğrenci/ilerleme kayıtlarına dokunulmadı.
+- Kalan yayın işlemleri: feature commit/push, yeni Preview kabulü, Production soru bankası bayrağı, main entegrasyonu ve canlı bağlantı doğrulaması.

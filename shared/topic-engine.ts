@@ -6,6 +6,7 @@ import type {
 } from '@/shared/contracts';
 import type { PastExamSet } from '@/shared/past-exam';
 import type { BankTestDefinition } from '@/shared/question-bank';
+import type { QuestionBookletDefinition } from '@/shared/question-booklet';
 
 export type ConceptNode = {
   id: string;
@@ -32,6 +33,7 @@ export type TopicDefinition = {
   media: readonly LearningMedia[];
   pastExam?: PastExamSet;
   questionBank?: readonly BankTestDefinition[];
+  questionBooklets?: readonly QuestionBookletDefinition[];
 };
 
 export function flattenConceptNodes(root: ConceptNode): ConceptNode[] {
@@ -66,6 +68,17 @@ export function defineTopic(definition: TopicDefinition): TopicDefinition {
     for (const test of definition.questionBank) {
       if (!test.id.startsWith(`${definition.id}-`) || !Number.isInteger(test.questionCount) || test.questionCount < 1) {
         throw new Error(`${definition.id}: invalid bank test '${test.id}'`);
+      }
+    }
+  }
+
+  if (definition.questionBooklets) {
+    assertUnique(definition.questionBooklets.map(booklet => booklet.testId), 'booklet test id', definition.id);
+    for (const booklet of definition.questionBooklets) {
+      if (!definition.questionBank?.some(test => test.id === booklet.testId) ||
+          !Number.isInteger(booklet.questionsPerPage) || booklet.questionsPerPage < 1 || booklet.questionsPerPage > 6 ||
+          (booklet.bookletNumber !== undefined && (!Number.isInteger(booklet.bookletNumber) || booklet.bookletNumber < 1))) {
+        throw new Error(`${definition.id}: invalid booklet '${booklet.testId}'`);
       }
     }
   }
@@ -152,6 +165,7 @@ export function defineTopic(definition: TopicDefinition): TopicDefinition {
     media: Object.freeze([...definition.media]),
     pastExam: definition.pastExam,
     questionBank: definition.questionBank && Object.freeze([...definition.questionBank]),
+    questionBooklets: definition.questionBooklets && Object.freeze([...definition.questionBooklets]),
   });
 }
 
