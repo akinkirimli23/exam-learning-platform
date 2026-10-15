@@ -43,3 +43,9 @@ Yeni testler mevcut `attempts` tablosunda ayrı `question-bank` modu, testId/que
 Staging bağlantısı farklı proje kimliği ve doğrulanan TLS ile salt okunur kontrol edildi: v1+v2, 14 tablo, 103 içerik; veri yazılmadı. Production, main ve gerçek öğrenci verileri değiştirilmedi. Yerel tarayıcı kabulü ayrı `.cache/buoyancy-question-bank/qa-data` PGlite alanında yapıldı.
 
 Staging için kalan sıra: düzeltmelerin editoryal incelemesi → feature branch commit/push ve Draft PR → Vercel'de yalnız bu Preview dalına staging DB/Supabase/origin ayarları → güvenli proje eşleşmesi/TLS kontrolü → yalnız bu dalda `BUOYANCY_BANK_135_ENABLED=true` → staging kabul testi. Main merge veya production yayını bu çalışmanın kapsamında değildir.
+
+## Staging kabulü · 15 Ekim 2026
+
+Kullanıcının devam onayıyla commit/push, [Draft PR #6](https://github.com/akinkirimli23/exam-learning-platform/pull/6), dal kapsamlı Vercel ayarları ve staging kabulü tamamlandı. [Staging soru bankası](https://exam-learning-platform-git-feature-tyt-buoyanc-9bad77-akin-dido.vercel.app/konu/buoyancy/soru-bankasi) giriş sonrası 135 soruyu ve 9 testi açar. Uygulama kodu `9860b89`; ilk kabul deployment'ı `2KN2nQ4KASWF3cvVqQbBcxNGFqzs`, Preview/Ready.
+
+Üç farklı seviyedeki testte 45 soru/çözüm, SVG, yenilemede devam, kalıcı sonuç, yanlış/boş defteri ve mobil büyütme doğrulandı. Test öncesi staging DB/Supabase proje eşleşmesi ve TLS kontrol edildi; yeni migration/seed yok. Geçici test öğrencisi ve bağlı kayıtlar temizlendi; başlangıçtaki 4 kullanıcı/5 oturum/103 içerik korundu. Production ve main aynı kaldı. Düzeltmelerin uzman yayın incelemesi ve production geçişi bu staging kabulünden ayrı açık adımlardır.
