@@ -1,0 +1,812 @@
+{
+  "schemaVersion": 1,
+  "edition": "Corrected silent-reading-card preview edition",
+  "limitations": [
+    "Automatic transcription may contain spelling errors.",
+    "Silent reading intervals replace the original narration; these are not newly voiced lesson videos.",
+    "This is an educational content review, not a claim that every real-world approximation is exact."
+  ],
+  "auditMethod": "Complete Turkish small-Whisper transcripts and all slide contact sheets reviewed; deterministic replacement cards cover incorrect slides and mute their narration.",
+  "sources": {
+    "pressure": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+    "pascal": "https://openstax.org/books/university-physics-volume-1/pages/14-3-pascals-principle-and-hydraulics",
+    "bernoulli": "https://openstax.org/books/university-physics-volume-1/pages/14-6-bernoullis-equation",
+    "gas": "https://openstax.org/books/college-physics-2e/pages/13-3-the-ideal-gas-law",
+    "balloon": "https://openstax.org/books/college-physics-2e/pages/11-8-cohesion-and-adhesion-in-liquids-surface-tension-and-capillary-action",
+    "magdeburg": "https://www.americanhistory.si.edu/de/collections/object/nmah_1184614",
+    "magdeburg-history": "https://digital.deutsches-museum.de/projekte/gruendungssammlung/detail/175/"
+  },
+  "videos": [
+    {
+      "key": "solid",
+      "source": "Katı_Basıncını_Hesaplamak.mp4",
+      "sourceSha256": "7a701b36bef4ade40d611080dcd7e2ef9366dfbd8acdfb99b183d133ff186735",
+      "outputPath": "imports/pressure-learning-media/prepared/video/Kati_Basincini_Hesaplamak_Incelenmis.mp4",
+      "outputSha256": "3014b5fcba1cb3153ab7e694ee4586606a64c8fd839c2ffde2db6f6a1a9422e9",
+      "outputBytes": 5486286,
+      "duration": 393.740771,
+      "cards": [
+        {
+          "start": 38.8,
+          "end": 67.05,
+          "title": "Basıncın tanımı ve gösterimi",
+          "formula": "P = F_dik / A",
+          "lines": [
+            "Basınç, birim alana etki eden dik kuvvettir.",
+            "P veya p ile gösterilir; SI birimi pascaldır.",
+            "P harfinin 'piezo'dan geldiği iddiası kullanılmamıştır."
+          ],
+          "diagram": "solid",
+          "issue": "Unverified etymology removed; define the physical quantity instead.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/solid-cards/01.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 97.9,
+          "end": 125.1,
+          "title": "Pascal: basıncın SI birimi",
+          "formula": "1 Pa = 1 N/m²",
+          "lines": [
+            "Kuvvet N, alan m² alınırsa sonuç Pa olur.",
+            "atm ve mmHg gibi başka basınç birimleri de vardır.",
+            "Birim seçimi maddenin katı, sıvı veya gaz oluşuna bağlı değildir."
+          ],
+          "diagram": "units",
+          "issue": "Pascal was incorrectly described as the only valid unit for solids.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/solid-cards/02.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 156.9,
+          "end": 184,
+          "title": "Katılarda kuvvet aktarımı",
+          "formula": "Dengede: F_net = 0",
+          "lines": [
+            "İdeal TYT modelinde katı cisim dengededir.",
+            "Ağırlık ve diğer kuvvetler ihmal ediliyorsa, iki yüzeydeki kuvvetlerin büyüklükleri eşittir.",
+            "Gerçek darbelerde ivme ve şekil değişimi bu basit modeli sınırlar."
+          ],
+          "diagram": "transmission",
+          "issue": "Absolute force-transmission claim lacks static, ideal-model assumptions.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/solid-cards/03.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 184,
+          "end": 224.1,
+          "title": "Çivi neden daha kolay batar?",
+          "formula": "P_uç = F / A_uç",
+          "lines": [
+            "Aynı dik kuvvet, küçük temas alanında daha büyük basınç oluşturur.",
+            "Bu karşılaştırma kuvvet eşit tutulduğunda geçerlidir.",
+            "Çekiç darbesindeki tüm kuvvetin kayıpsız ve değişmeden iletildiği söylenemez."
+          ],
+          "diagram": "nail",
+          "issue": "Dynamic hammer impact was incorrectly treated as universally lossless static transfer.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/solid-cards/04.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 280.9,
+          "end": 316.1,
+          "title": "Eşit kuvvet, farklı temas alanı",
+          "formula": "P₁ : P₂ : P₃ = 2 : 3 : 6",
+          "lines": [
+            "Her cisim yüzeye G büyüklüğünde dik kuvvet uygulasın.",
+            "Alanlar 3A, 2A ve A ise basınçlar G/(3A), G/(2A) ve G/A olur.",
+            "Kuvvet sabitken temas alanı küçüldükçe basınç artar."
+          ],
+          "diagram": "ratio",
+          "issue": "Clarifies areas versus widths and the equal-force condition.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/solid-cards/05.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 316.1,
+          "end": 352.1,
+          "title": "Ağırlık tek başına yeterli değildir",
+          "formula": "P₀ = G/A;  P_K = P₀/2;  P_L = P₀",
+          "lines": [
+            "K cisminin ağırlığı 2G, temas alanı 4A olsun.",
+            "L cisminin ağırlığı G, temas alanı A olsun.",
+            "P_K/P_L = 1/2. L'nin basıncı K'nin iki katıdır."
+          ],
+          "diagram": "compare",
+          "issue": "Adds the missing pressure reference and correct area dimensions.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/solid-cards/06.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        }
+      ],
+      "qa": {
+        "key": "solid",
+        "outputSha256": "3014b5fcba1cb3153ab7e694ee4586606a64c8fd839c2ffde2db6f6a1a9422e9",
+        "sourceUnchanged": true,
+        "bytes": 5486286,
+        "fullDecodePassed": true,
+        "faststart": true,
+        "cards": [
+          {
+            "index": 1,
+            "start": 38.8,
+            "end": 67.05,
+            "frameMatchesCardMeanAbsoluteError": 2.52505,
+            "audioRms": 0
+          },
+          {
+            "index": 2,
+            "start": 97.9,
+            "end": 125.1,
+            "frameMatchesCardMeanAbsoluteError": 2.38851,
+            "audioRms": 0
+          },
+          {
+            "index": 3,
+            "start": 156.9,
+            "end": 184,
+            "frameMatchesCardMeanAbsoluteError": 2.61311,
+            "audioRms": 0
+          },
+          {
+            "index": 4,
+            "start": 184,
+            "end": 224.1,
+            "frameMatchesCardMeanAbsoluteError": 2.52601,
+            "audioRms": 0
+          },
+          {
+            "index": 5,
+            "start": 280.9,
+            "end": 316.1,
+            "frameMatchesCardMeanAbsoluteError": 2.60976,
+            "audioRms": 0
+          },
+          {
+            "index": 6,
+            "start": 316.1,
+            "end": 352.1,
+            "frameMatchesCardMeanAbsoluteError": 2.53135,
+            "audioRms": 0
+          }
+        ],
+        "preservedNarrationAudioRmsAt10s": 0.09183772349562809
+      }
+    },
+    {
+      "key": "liquid",
+      "source": "Sıvı_Basıncında_Ustalaşmak.mp4",
+      "sourceSha256": "9d0daec7703db3ef3868d98523bc27874ce79125390afa39b97c8d35b912428d",
+      "outputPath": "imports/pressure-learning-media/prepared/video/Sivi_Basincinda_Ustalasmak_Incelenmis.mp4",
+      "outputSha256": "982e67215ff0b6728e9bdfcf15d2b38e72befef4597df5296ca225a4a30e48ab",
+      "outputBytes": 5136871,
+      "duration": 593.223401,
+      "cards": [
+        {
+          "start": 27.1,
+          "end": 58.1,
+          "title": "Sıvının oluşturduğu basınç",
+          "formula": "P_sıvı = ρgh",
+          "lines": [
+            "h: yüzeyden dikey derinlik; ρ: sıvının özkütlesi.",
+            "Durgun ve sabit özkütleli sıvı modeli kullanılır.",
+            "Mutlak basınç: P_mutlak = P_yüzey + ρgh. Açık kapta P_yüzey = P_atm."
+          ],
+          "diagram": "hydrostatic",
+          "issue": "Distinguishes gauge contribution from absolute pressure and defines assumptions.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/liquid-cards/01.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 81.1,
+          "end": 117.45,
+          "title": "ρgh bağıntısı nereden gelir?",
+          "formula": "ΔP = ρgh",
+          "lines": [
+            "Alanı A, yüksekliği h olan hayali düşey sıvı sütununu düşünün.",
+            "Dengede: ΔP × A = ρ × A × h × g.",
+            "A sadeleşir. Bu türetme, her biçimde kapta taban kuvvetinin ağırlığa eşit olduğu anlamına gelmez."
+          ],
+          "diagram": "column",
+          "issue": "Prevents the derivation from implying bottom force equals weight for arbitrary vessels.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/liquid-cards/02.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 117.45,
+          "end": 149.25,
+          "title": "Üst üste karışmayan sıvılar",
+          "formula": "P_alt = P_yüzey + ρ₁gh₁ + ρ₂gh₂",
+          "lines": [
+            "Her katmanın düşey kalınlığı ayrı kullanılır.",
+            "Katmanların basınç katkıları toplanır.",
+            "Açık hava basıncı, yalnız sıvıların katkısı soruluyorsa dışarıda bırakılır."
+          ],
+          "diagram": "layers",
+          "issue": "Clarifies the missing surface-pressure term in the total-pressure claim.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/liquid-cards/03.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 149.25,
+          "end": 181.1,
+          "title": "Kabı sabit debiyle doldurmak",
+          "formula": "P_sıvı(t) = ρg h(t)",
+          "lines": [
+            "Sıvı sabit hacimsel debiyle eklenir; özkütle değişmez.",
+            "Sabit kesitte P–zaman grafiği doğrusaldır.",
+            "Yukarı genişleyen kapta eğim azalır; daralan kapta artar. P–h grafiği her zaman doğrusaldır."
+          ],
+          "diagram": "graphs",
+          "issue": "Makes the graph axes and constant-inflow assumptions explicit.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/liquid-cards/04.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 181.1,
+          "end": 215.1,
+          "title": "Basınç kuvveti: doğru yüzeyi seçin",
+          "formula": "F = P_ortalama × A",
+          "lines": [
+            "Yatay ve aynı derinlikteki yüzeyde: F = ρghA.",
+            "Düzlemsel yan yüzeyde h, alan merkezinin derinliğidir.",
+            "Keyfî bir yüzey için tek bir noktanın basıncı tüm alana uygulanamaz."
+          ],
+          "diagram": "force",
+          "issue": "Source applied a single point pressure to arbitrary surfaces.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/liquid-cards/05.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 256.9,
+          "end": 311.1,
+          "title": "U borusunda basınç dengesi",
+          "formula": "Aynı yatay düzeyde: P_sol = P_sağ",
+          "lines": [
+            "Karşılaştırılan noktalar aynı bağlı ve durgun sıvının içinde olmalıdır.",
+            "Aynı yükseklik tek başına yeterli değildir; ayrı sıvı cepleri eşitlenemez.",
+            "Her kolda yüzey basıncı ve sıvı katmanları birlikte hesaba katılır."
+          ],
+          "diagram": "utube",
+          "issue": "The mnemonic omitted connected-fluid and equilibrium conditions.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/liquid-cards/06.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 311.1,
+          "end": 356.1,
+          "title": "Pascal ilkesi ve hidrolik sistem",
+          "formula": "ΔP = F₁/A₁ = F₂/A₂",
+          "lines": [
+            "Kapalı sıvıya uygulanan basınç DEĞİŞİMİ her noktaya aynen iletilir.",
+            "Yazılan piston oranı aynı seviyede, ağırlıksız ve sürtünmesiz pistonlar içindir.",
+            "Seviyeler farklıysa hidrostatik ρgΔh terimi eklenir; basınç her noktada aynı değildir."
+          ],
+          "diagram": "hydraulic",
+          "issue": "Distinguishes uniform pressure change from unequal absolute pressures at different depths.",
+          "source": "pascal",
+          "cardPath": ".cache/pressure-import/audit-video/liquid-cards/07.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-3-pascals-principle-and-hydraulics",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 356.1,
+          "end": 393,
+          "title": "Aktarılan hacim yüksekliği belirler",
+          "formula": "V = A h  (sabit kesit)",
+          "lines": [
+            "Hacmin yarısı aktarılınca yükseklik her kapta 2h olmaz.",
+            "Başlangıç yüksekliği 3h ve kesiti A olan bir silindirin hacmi 3Ah'dir.",
+            "Yarı hacim 1,5Ah'dir. Yeni kabın kesiti verilmeden yeni yükseklik bulunamaz."
+          ],
+          "diagram": "transfer",
+          "issue": "Six-section source example gave an unsupported 3h to 2h result.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/liquid-cards/08.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 393,
+          "end": 422.1,
+          "title": "Doğru örnek: eşit kesitli iki kap",
+          "formula": "h_yeni = 1,5h;  P_yeni = P_ilk / 2",
+          "lines": [
+            "Her iki kap da sabit ve aynı A kesit alanına sahip olsun.",
+            "3h yüksekliğindeki sıvının yarısı yeni kaba aktarılır.",
+            "Yeni derinlik 1,5h olur. Sıvı basıncı da başlangıç değerinin yarısıdır."
+          ],
+          "diagram": "transfer",
+          "issue": "Replaces the invalid geometry with a fully specified and correct example.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/liquid-cards/09.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 426.9,
+          "end": 454,
+          "title": "Dikdörtgen yan duvarda basınç",
+          "formula": "P_ort = (P_üst + P_alt) / 2",
+          "lines": [
+            "Durgun, sabit özkütleli sıvıda dikdörtgen düzlem için geçerlidir.",
+            "Sıvı basıncı derinlikle doğrusal değişir.",
+            "Serbest yüzeyde sıvının basınç katkısı sıfırdır; mutlak basınç sıfır değildir."
+          ],
+          "diagram": "wall",
+          "issue": "Source omitted the rectangular-area condition and called surface absolute pressure zero.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/liquid-cards/10.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 454,
+          "end": 474.05,
+          "title": "Yan yüzeyde kuvvet",
+          "formula": "F = ρg h_merkez A",
+          "lines": [
+            "Genel düzlemsel yüzeyde alan merkezinin derinliğini kullanın.",
+            "Üçgen veya farklı biçimli yüzeyde üst–alt basınçların basit ortalaması yetmez.",
+            "Karşı tarafın basıncı varsa net kuvvet basınç farkıyla hesaplanır."
+          ],
+          "diagram": "wall",
+          "issue": "Prevents applying the endpoint arithmetic mean to arbitrary shapes.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/liquid-cards/11.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 474.05,
+          "end": 504,
+          "title": "Yağ–su U borusu: doğru düzenek",
+          "formula": "A_sol = A_sağ;  h_yağ = 10 cm",
+          "lines": [
+            "İki kol da aynı atmosfer basıncına açıktır ve kesit alanları eşittir.",
+            "Yağ sol kola eklenir; sol su seviyesi 4 cm iner.",
+            "Sağ su seviyesi 4 cm yükselir. İki su seviyesi farkı 8 cm olur."
+          ],
+          "diagram": "oil",
+          "issue": "Original oil/water colors, interfaces, 10 cm dimension and left/right labels conflicted.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/liquid-cards/12.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 504,
+          "end": 534.1,
+          "title": "Yağın özkütlesini bulalım",
+          "formula": "ρ_yağ × 10 = ρ_su × 8",
+          "lines": [
+            "Yağ–su ara yüzeyinden geçen yatay düzeyde basınçları eşitleyin.",
+            "ρ_su = 1,0 g/cm³ ise ρ_yağ = 0,8 g/cm³ bulunur.",
+            "Kesitler eşit değilse su iki kolda eşit miktarda yer değiştirmez."
+          ],
+          "diagram": "oil",
+          "issue": "Makes the equal-section condition and density unit explicit, with corrected diagram.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/liquid-cards/13.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 534.1,
+          "end": 561.2,
+          "title": "Modelin geçerlilik koşulları",
+          "formula": "dP/dh = ρg",
+          "lines": [
+            "ρgh, özkütle ve yer çekimi yaklaşık sabitken kullanılır.",
+            "Büyük derinliklerde basınca bağlı özkütle değişimi dikkate alınabilir.",
+            "Fizik yasası geneldir; basit sabit-özkütle yaklaşımı her ölçekte tam sonuç vermez."
+          ],
+          "diagram": "hydrostatic",
+          "issue": "Source claimed the unchanged simple rho-g-h approximation was exact at all depths.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/liquid-cards/14.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 561.2,
+          "end": 589.5,
+          "title": "Kulaktaki etki: basınç farkı",
+          "formula": "F_net ≈ ΔP × A",
+          "lines": [
+            "ρgh bir basınçtır; ağırlık veya kuvvet birimi değildir.",
+            "Kulak zarına etki, iki tarafın basınç farkıyla ilişkilidir.",
+            "Dış basınç artarken iç basınç dengelenmezse rahatsızlık hissedilebilir."
+          ],
+          "diagram": "ear",
+          "issue": "The closing narration treated rho-g-h as an unspecified load rather than pressure.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/liquid-cards/15.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        }
+      ],
+      "qa": {
+        "key": "liquid",
+        "outputSha256": "982e67215ff0b6728e9bdfcf15d2b38e72befef4597df5296ca225a4a30e48ab",
+        "sourceUnchanged": true,
+        "bytes": 5136871,
+        "fullDecodePassed": true,
+        "faststart": true,
+        "cards": [
+          {
+            "index": 1,
+            "start": 27.1,
+            "end": 58.1,
+            "frameMatchesCardMeanAbsoluteError": 2.52579,
+            "audioRms": 0
+          },
+          {
+            "index": 2,
+            "start": 81.1,
+            "end": 117.45,
+            "frameMatchesCardMeanAbsoluteError": 2.56218,
+            "audioRms": 0
+          },
+          {
+            "index": 3,
+            "start": 117.45,
+            "end": 149.25,
+            "frameMatchesCardMeanAbsoluteError": 2.57842,
+            "audioRms": 0
+          },
+          {
+            "index": 4,
+            "start": 149.25,
+            "end": 181.1,
+            "frameMatchesCardMeanAbsoluteError": 2.58509,
+            "audioRms": 0
+          },
+          {
+            "index": 5,
+            "start": 181.1,
+            "end": 215.1,
+            "frameMatchesCardMeanAbsoluteError": 2.56955,
+            "audioRms": 0
+          },
+          {
+            "index": 6,
+            "start": 256.9,
+            "end": 311.1,
+            "frameMatchesCardMeanAbsoluteError": 2.59878,
+            "audioRms": 0
+          },
+          {
+            "index": 7,
+            "start": 311.1,
+            "end": 356.1,
+            "frameMatchesCardMeanAbsoluteError": 2.65527,
+            "audioRms": 0
+          },
+          {
+            "index": 8,
+            "start": 356.1,
+            "end": 393,
+            "frameMatchesCardMeanAbsoluteError": 2.61156,
+            "audioRms": 0
+          },
+          {
+            "index": 9,
+            "start": 393,
+            "end": 422.1,
+            "frameMatchesCardMeanAbsoluteError": 2.58888,
+            "audioRms": 0
+          },
+          {
+            "index": 10,
+            "start": 426.9,
+            "end": 454,
+            "frameMatchesCardMeanAbsoluteError": 2.62544,
+            "audioRms": 0
+          },
+          {
+            "index": 11,
+            "start": 454,
+            "end": 474.05,
+            "frameMatchesCardMeanAbsoluteError": 2.60403,
+            "audioRms": 0
+          },
+          {
+            "index": 12,
+            "start": 474.05,
+            "end": 504,
+            "frameMatchesCardMeanAbsoluteError": 2.61809,
+            "audioRms": 0
+          },
+          {
+            "index": 13,
+            "start": 504,
+            "end": 534.1,
+            "frameMatchesCardMeanAbsoluteError": 2.60481,
+            "audioRms": 0
+          },
+          {
+            "index": 14,
+            "start": 534.1,
+            "end": 561.2,
+            "frameMatchesCardMeanAbsoluteError": 2.58764,
+            "audioRms": 0
+          },
+          {
+            "index": 15,
+            "start": 561.2,
+            "end": 589.5,
+            "frameMatchesCardMeanAbsoluteError": 2.54873,
+            "audioRms": 0
+          }
+        ],
+        "preservedNarrationAudioRmsAt10s": 0.12311181656567782
+      }
+    },
+    {
+      "key": "gas",
+      "source": "Gaz_Basıncını_Anlamak.mp4",
+      "sourceSha256": "514c74f17caaae682fa5b94219dc6c5765b468b6786c9721c1cd0c7239fb18fc",
+      "outputPath": "imports/pressure-learning-media/prepared/video/Gaz_Basincini_Anlamak_Incelenmis.mp4",
+      "outputSha256": "8b1c42fdc2ba272b1a66c756b48c8181673fc0a2da1bf0dd507a998d8576710c",
+      "outputBytes": 5196231,
+      "duration": 430.17288,
+      "cards": [
+        {
+          "start": 49,
+          "end": 90,
+          "title": "Pipette sıvıyı ne yükseltir?",
+          "formula": "P_atm − P_ağız > ρgh  (akış başlarken)",
+          "lines": [
+            "Emme, pipetin üstündeki basıncı düşürür.",
+            "Sıvıyı yukarı iten etki bardak yüzeyindeki atmosfer basıncıdır.",
+            "Gerçek akışta sürtünme kayıpları da vardır. Bu olay yalnız 'Bernoulli' sözüyle açıklanmaz."
+          ],
+          "diagram": "straw",
+          "issue": "Source attributed the straw mechanism directly to Bernoulli and claimed universally high-to-low flow.",
+          "source": "bernoulli",
+          "cardPath": ".cache/pressure-import/audit-video/gas-cards/01.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-6-bernoullis-equation",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 90,
+          "end": 117.6,
+          "title": "Bernoulli: koşullarıyla kullanın",
+          "formula": "P + ½ρv² + ρgz = sabit",
+          "lines": [
+            "Kararlı, sıkıştırılamaz, sürtünmesi ihmal edilen akışta aynı akım çizgisi boyunca.",
+            "Aynı yükseklikte dar kesitte hız artarken statik basınç azalır.",
+            "Yer çekimi, pompa veya atalet varken akış her zaman yüksek statik basınçtan düşüğe olmaz."
+          ],
+          "diagram": "bernoulli",
+          "issue": "Adds steady/inviscid/incompressible/same-streamline/equal-height conditions.",
+          "source": "bernoulli",
+          "cardPath": ".cache/pressure-import/audit-video/gas-cards/02.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-6-bernoullis-equation",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 160.5,
+          "end": 190.8,
+          "title": "İdeal gaz: sabit tutulanları belirtin",
+          "formula": "PV = nRT",
+          "lines": [
+            "P mutlak basınç, T kelvin cinsinden sıcaklıktır.",
+            "Sabit gaz miktarında: T sabitse PV; V sabitse P/T; P sabitse V/T sabittir.",
+            "Isıtma örneğinde esnek balonun hacmi, iç basınç yaklaşık sabitse sıcaklıkla orantılıdır."
+          ],
+          "diagram": "gaslaws",
+          "issue": "Source omitted fixed gas amount, absolute quantities and constant-pressure assumptions.",
+          "source": "gas",
+          "cardPath": ".cache/pressure-import/audit-video/gas-cards/03.png",
+          "sourceUrl": "https://openstax.org/books/college-physics-2e/pages/13-3-the-ideal-gas-law",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 198.5,
+          "end": 230,
+          "title": "Gerçek balon ve ideal balon",
+          "formula": "P_iç = P_dış + ΔP_zar",
+          "lines": [
+            "Gerçek esnek balonda zar gerilimi nedeniyle iç ve dış basınç genellikle eşit değildir.",
+            "Zar etkisi ihmal edilirse P_iç ≈ P_dış kabul edilir.",
+            "Bu yaklaşık eşitlik tüm esnek balonlar için tam bir yasa değildir."
+          ],
+          "diagram": "balloon",
+          "issue": "Source claimed a real elastic balloon must always exactly equalize internal/external pressure.",
+          "source": "balloon",
+          "cardPath": ".cache/pressure-import/audit-video/gas-cards/04.png",
+          "sourceUrl": "https://openstax.org/books/college-physics-2e/pages/11-8-cohesion-and-adhesion-in-liquids-surface-tension-and-capillary-action",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 230,
+          "end": 262.7,
+          "title": "Yükselen balon: koşullu sonuç",
+          "formula": "T ve n sabitse: P_iç V = sabit",
+          "lines": [
+            "Dış basınç azalırken zar etkisi ihmal edilen kapalı balon genişler.",
+            "Gaz kütlesi korunursa hacim artarken özkütle azalır: ρ = m/V.",
+            "Gerçekte sıcaklık ve zar gerilimi de etkilidir; her balonun mutlaka patlayacağı söylenemez."
+          ],
+          "diagram": "balloon",
+          "issue": "Adds thermal/mass/membrane assumptions and removes the guaranteed-burst claim.",
+          "source": "gas",
+          "cardPath": ".cache/pressure-import/audit-video/gas-cards/05.png",
+          "sourceUrl": "https://openstax.org/books/college-physics-2e/pages/13-3-the-ideal-gas-law",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 319.9,
+          "end": 355,
+          "title": "Magdeburg yarım küreleri",
+          "formula": "P_dış > P_iç",
+          "lines": [
+            "Otto von Guericke'nin 17. yüzyıldaki deneyleri atmosfer basıncının etkisini gösterir.",
+            "İçerideki hava pompalanarak basınç düşürülür; mükemmel boşluk gerekmez.",
+            "Yarım küreleri bir arada tutan, dış ve iç basınç arasındaki farktır."
+          ],
+          "diagram": "hemispheres",
+          "issue": "Removes unsupported 1650 dating and the perfect-vacuum requirement.",
+          "source": "magdeburg",
+          "cardPath": ".cache/pressure-import/audit-video/gas-cards/06.png",
+          "sourceUrl": "https://www.americanhistory.si.edu/de/collections/object/nmah_1184614",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 355,
+          "end": 390.5,
+          "title": "Ayırmak için gereken kuvvet",
+          "formula": "F ≈ (P_dış − P_iç) × πr²",
+          "lines": [
+            "Yaklaşım, dairesel birleşim alanına ve basınç farkına dayanır.",
+            "Dışarıdaki hava her yönden iter; kilit veya yapıştırıcı gerekmez.",
+            "İçeri hava alınıp basınçlar eşitlenince ayırmak kolaylaşır."
+          ],
+          "diagram": "hemispheres",
+          "issue": "Replaces imprecise force narration with the differential-pressure mechanism.",
+          "source": "magdeburg",
+          "cardPath": ".cache/pressure-import/audit-video/gas-cards/07.png",
+          "sourceUrl": "https://www.americanhistory.si.edu/de/collections/object/nmah_1184614",
+          "audioMuted": true,
+          "visualReplaced": true
+        },
+        {
+          "start": 390.5,
+          "end": 421.7,
+          "title": "Atmosfer basıncı neden ezmez?",
+          "formula": "Basınç her yönde etki eder",
+          "lines": [
+            "Vücut sıvıları ve dokular dış basınca karşı denge sağlar.",
+            "Bu etki omuzlarda taşınan tek yönlü bir 'tonlarca yük' gibi düşünülmemelidir.",
+            "Gaz dolu boşluklarda ani basınç farkları yine de etki yaratabilir."
+          ],
+          "diagram": "body",
+          "issue": "Removes misleading literal weight-on-shoulders explanation.",
+          "source": "pressure",
+          "cardPath": ".cache/pressure-import/audit-video/gas-cards/08.png",
+          "sourceUrl": "https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure",
+          "audioMuted": true,
+          "visualReplaced": true
+        }
+      ],
+      "qa": {
+        "key": "gas",
+        "outputSha256": "8b1c42fdc2ba272b1a66c756b48c8181673fc0a2da1bf0dd507a998d8576710c",
+        "sourceUnchanged": true,
+        "bytes": 5196231,
+        "fullDecodePassed": true,
+        "faststart": true,
+        "cards": [
+          {
+            "index": 1,
+            "start": 49,
+            "end": 90,
+            "frameMatchesCardMeanAbsoluteError": 2.6203,
+            "audioRms": 0
+          },
+          {
+            "index": 2,
+            "start": 90,
+            "end": 117.6,
+            "frameMatchesCardMeanAbsoluteError": 2.60934,
+            "audioRms": 0
+          },
+          {
+            "index": 3,
+            "start": 160.5,
+            "end": 190.8,
+            "frameMatchesCardMeanAbsoluteError": 2.44813,
+            "audioRms": 0
+          },
+          {
+            "index": 4,
+            "start": 198.5,
+            "end": 230,
+            "frameMatchesCardMeanAbsoluteError": 2.55507,
+            "audioRms": 0
+          },
+          {
+            "index": 5,
+            "start": 230,
+            "end": 262.7,
+            "frameMatchesCardMeanAbsoluteError": 2.58245,
+            "audioRms": 0
+          },
+          {
+            "index": 6,
+            "start": 319.9,
+            "end": 355,
+            "frameMatchesCardMeanAbsoluteError": 2.61037,
+            "audioRms": 0
+          },
+          {
+            "index": 7,
+            "start": 355,
+            "end": 390.5,
+            "frameMatchesCardMeanAbsoluteError": 2.57488,
+            "audioRms": 0
+          },
+          {
+            "index": 8,
+            "start": 390.5,
+            "end": 421.7,
+            "frameMatchesCardMeanAbsoluteError": 2.59086,
+            "audioRms": 0
+          }
+        ],
+        "preservedNarrationAudioRmsAt10s": 0.09954433083117784
+      }
+    }
+  ]
+}

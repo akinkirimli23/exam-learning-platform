@@ -30,6 +30,7 @@ import { ConceptExplorer } from './concept-explorer';
 import { LearningMaterials, LearningVideo } from './learning-media';
 import { PastExamAnalysis } from './past-exam-analysis';
 import { QuestionBank } from './question-bank';
+import { api } from './client';
 
 export function TopicLearningPage({
   tab,
@@ -98,13 +99,14 @@ export function TopicLearnResources({
   definition: TopicDefinition;
   interactiveContent?: ReactNode;
 }) {
+  const hasMapMaterial = definition.media.some(item => item.presentation === 'concept-map');
   return (
     <>
-      <section className="card explorer">
+      {(interactiveContent || !hasMapMaterial) && <section className="card explorer">
         {interactiveContent}
-        <ConceptExplorer conceptMap={definition.conceptMap} />
-      </section>
-      <LearningMaterials items={definition.media} />
+        {!hasMapMaterial && <ConceptExplorer conceptMap={definition.conceptMap} />}
+      </section>}
+      <LearningMaterials items={definition.media} conceptMap={definition.conceptMap} />
     </>
   );
 }
@@ -191,7 +193,11 @@ export function TopicQuiz({ definition }: { definition: TopicDefinition }) {
 
   const submitAnswer = () => {
     if (selectedAnswer === null || answer) return;
-    setAnswers((current) => [...current, gradeLearningQuestion(question, selectedAnswer)]);
+    const graded = gradeLearningQuestion(question, selectedAnswer);
+    setAnswers((current) => [...current, graded]);
+    if (!graded.isCorrect) void api('mistakes/capture', 'POST', {
+      topicId: definition.id, questionId: question.id, source: 'question-bank', selectedAnswer,
+    }).catch(() => {});
   };
 
   const continueQuiz = () => {

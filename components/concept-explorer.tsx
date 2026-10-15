@@ -48,9 +48,17 @@ type Layout = {
   edges: Array<{ from: PositionedNode; to: PositionedNode }>;
   width: number;
   height: number;
+  nodeWidth: number;
+  nodeHeight: number;
 };
 
 function createLayout(root: ConceptNode, expandedIds: Set<string>): Layout {
+  const pressureMap = root.id === 'pressure';
+  const nodeWidth = pressureMap ? 228 : NODE_WIDTH;
+  const nodeHeight = pressureMap ? 52 : NODE_HEIGHT;
+  const columnGap = pressureMap ? 76 : COLUMN_GAP;
+  const rowGap = pressureMap ? 8 : ROW_GAP;
+  const margin = pressureMap ? 26 : CANVAS_MARGIN;
   let row = 0;
   let deepest = 0;
 
@@ -70,11 +78,11 @@ function createLayout(root: ConceptNode, expandedIds: Set<string>): Layout {
       : [];
     const y = visibleChildren.length
       ? (visibleChildren[0].y + visibleChildren[visibleChildren.length - 1].y) / 2
-      : CANVAS_MARGIN + row++ * (NODE_HEIGHT + ROW_GAP);
+      : margin + row++ * (nodeHeight + rowGap);
 
     return {
       node: concept,
-      x: CANVAS_MARGIN + depth * (NODE_WIDTH + COLUMN_GAP),
+      x: margin + depth * (nodeWidth + columnGap),
       y,
       depth,
       branch,
@@ -102,8 +110,10 @@ function createLayout(root: ConceptNode, expandedIds: Set<string>): Layout {
   return {
     nodes,
     edges,
-    width: CANVAS_MARGIN * 2 + (deepest + 1) * NODE_WIDTH + deepest * COLUMN_GAP,
-    height: Math.max(520, CANVAS_MARGIN * 2 + row * NODE_HEIGHT + Math.max(0, row - 1) * ROW_GAP),
+    width: margin * 2 + (deepest + 1) * nodeWidth + deepest * columnGap,
+    height: Math.max(pressureMap ? 0 : 520, margin * 2 + row * nodeHeight + Math.max(0, row - 1) * rowGap),
+    nodeWidth,
+    nodeHeight,
   };
 }
 
@@ -130,11 +140,15 @@ function getNodePath(nodeId: string, nodeById: Map<string, ConceptNode>, parentB
   return path;
 }
 
-export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
+export function ConceptExplorer({
+  conceptMap,
+  progressive = false,
+  launcherTitle = 'Tam kavram haritası',
+}: { conceptMap: ConceptNode; progressive?: boolean; launcherTitle?: string }) {
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
   const [expandedIds, setExpandedIds] = useState<Set<string>>(
-    () => new Set([conceptMap.id]),
+    () => new Set(progressive ? [] : [conceptMap.id]),
   );
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [activeId, setActiveId] = useState(conceptMap.id);
@@ -147,13 +161,16 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
   const closeRef = useRef<HTMLButtonElement>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef(new Map<string, HTMLButtonElement>());
+  const branchFocusRef = useRef(conceptMap.id);
   const dragRef = useRef({ pointerId: -1, startX: 0, startY: 0, panX: 0, panY: 0 });
 
   const allNodes = useMemo(() => flattenConceptNodes(conceptMap), [conceptMap]);
   const nodeById = useMemo(() => new Map(allNodes.map((item) => [item.id, item])), [allNodes]);
   const parentById = useMemo(() => buildParentMap(conceptMap), [conceptMap]);
   const layout = useMemo(() => createLayout(conceptMap, expandedIds), [conceptMap, expandedIds]);
+  const layoutRef = useRef(layout);
   const selectedNode = selectedId ? nodeById.get(selectedId) ?? null : null;
+  const showDetailSpace = progressive && selectedId !== null;
   const selectedPath = selectedNode
     ? getNodePath(selectedNode.id, nodeById, parentById)
     : [];
@@ -161,10 +178,15 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
   useEffect(() => setMounted(true), []);
 
   useEffect(() => {
-    setExpandedIds(new Set([conceptMap.id]));
+    layoutRef.current = layout;
+  }, [layout]);
+
+  useEffect(() => {
+    setExpandedIds(new Set(progressive ? [] : [conceptMap.id]));
     setSelectedId(null);
     setActiveId(conceptMap.id);
-  }, [conceptMap]);
+    branchFocusRef.current = conceptMap.id;
+  }, [conceptMap, progressive]);
 
   const closeExplorer = useCallback(() => {
     setOpen(false);
@@ -211,16 +233,35 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
   const fitMap = useCallback(() => {
     const viewport = viewportRef.current;
     if (!viewport) return;
-    const availableWidth = Math.max(280, viewport.clientWidth - 72);
+    const currentLayout = layoutRef.current;
+    const mobile = viewport.clientWidth <= 760;
+    const visibleWidth = viewport.clientWidth - (showDetailSpace && !mobile ? Math.min(400, viewport.clientWidth * 0.42) : 0);
+    const availableWidth = Math.max(280, visibleWidth - 72);
     const availableHeight = Math.max(280, viewport.clientHeight - 72);
-    const nextScale = Math.min(1, availableWidth / layout.width, availableHeight / layout.height);
-    const boundedScale = Math.max(MIN_SCALE, nextScale);
+    const nextScale = Math.min(1, availableWidth / currentLayout.width, availableHeight / currentLayout.height);
+    const boundedScale = Math.max(
+      conceptMap.id === 'pressure' ? (viewport.clientWidth < 760 ? 0.72 : 0.16) : MIN_SCALE,
+      nextScale,
+    );
     setScale(boundedScale);
+    if (progressive && mobile) {
+      const anchor = currentLayout.nodes.find(item => item.node.id === branchFocusRef.current) ?? currentLayout.nodes[0];
+      const group = currentLayout.nodes.filter(item => item.node.id === anchor.node.id || item.parentId === anchor.node.id);
+      const top = Math.min(...group.map(item => item.y));
+      const bottom = Math.max(...group.map(item => item.y + currentLayout.nodeHeight));
+      setPan({
+        x: 12 - anchor.x * boundedScale,
+        y: Math.max(12, (viewport.clientHeight - (bottom - top) * boundedScale) / 2) - top * boundedScale,
+      });
+      return;
+    }
     setPan({
-      x: Math.max(28, (viewport.clientWidth - layout.width * boundedScale) / 2),
-      y: Math.max(28, (viewport.clientHeight - layout.height * boundedScale) / 2),
+      x: conceptMap.id === 'pressure' && viewport.clientWidth < 760
+        ? 12 : Math.max(28, (visibleWidth - currentLayout.width * boundedScale) / 2),
+      y: conceptMap.id === 'pressure' && viewport.clientWidth < 760
+        ? 12 : Math.max(28, (viewport.clientHeight - currentLayout.height * boundedScale) / 2),
     });
-  }, [layout.height, layout.width]);
+  }, [conceptMap.id, progressive, showDetailSpace]);
 
   useEffect(() => {
     if (!open) return;
@@ -238,12 +279,24 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
   const requestFit = () => setFitRequest((value) => value + 1);
 
   const toggleNode = (nodeId: string) => {
+    const descendants = progressive && expandedIds.has(nodeId)
+      ? flattenConceptNodes(nodeById.get(nodeId)!).map(node => node.id)
+      : [];
     setExpandedIds((current) => {
       const next = new Set(current);
-      if (next.has(nodeId)) next.delete(nodeId);
+      if (next.has(nodeId)) {
+        next.delete(nodeId);
+        descendants.forEach(id => next.delete(id));
+      }
       else next.add(nodeId);
       return next;
     });
+    if (progressive) {
+      branchFocusRef.current = expandedIds.has(nodeId) ? parentById.get(nodeId) ?? conceptMap.id : nodeId;
+      setSelectedId(null);
+      setActiveId(nodeId);
+      requestFit();
+    }
   };
 
   const focusNode = (nodeId: string) => {
@@ -285,7 +338,8 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
   };
 
   const changeScale = (amount: number) => {
-    setScale((current) => Math.min(MAX_SCALE, Math.max(MIN_SCALE, current + amount)));
+    const minimum = conceptMap.id === 'pressure' ? 0.16 : MIN_SCALE;
+    setScale((current) => Math.min(MAX_SCALE, Math.max(minimum, current + amount)));
   };
 
   const handleWheel = (event: WheelEvent<HTMLDivElement>) => {
@@ -325,17 +379,25 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
   };
 
   const openExplorer = () => {
+    if (progressive) {
+      branchFocusRef.current = conceptMap.id;
+      setExpandedIds(new Set());
+      setSelectedId(null);
+      setActiveId(conceptMap.id);
+    }
     setOpen(true);
     requestFit();
   };
 
   const expandAll = () => {
     setExpandedIds(new Set(allNodes.filter((item) => item.children.length).map((item) => item.id)));
-    requestFit();
+    if (progressive || conceptMap.id !== 'pressure') requestFit();
   };
 
   const showMainBranches = () => {
+    branchFocusRef.current = conceptMap.id;
     setExpandedIds(new Set([conceptMap.id]));
+    setSelectedId(null);
     setActiveId(conceptMap.id);
     requestFit();
   };
@@ -345,6 +407,7 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
       <section
         ref={dialogRef}
         className="concept-shell"
+        data-topic={conceptMap.id}
         role="dialog"
         aria-modal="true"
         aria-labelledby="concept-map-title"
@@ -352,9 +415,11 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
         <header className="concept-header">
           <div className="concept-heading-mark" aria-hidden="true"><Network size={22} /></div>
           <div>
-            <span>INTERACTIVE CONCEPT EXPLORER</span>
+            <span>ETKİLEŞİMLİ KAVRAM HARİTASI</span>
             <h2 id="concept-map-title">{conceptMap.title} Kavram Haritası</h2>
-            <p>Bir düğüm seçerek açıklamasını incele; dalları açarak ilişkileri keşfet.</p>
+            <p>{progressive
+              ? `${conceptMap.title} düğümüne basarak ${conceptMap.children.length} ana dalı aç. Dallara basarak ilerle; alt kavramlardan açıklamalarını öğren.`
+              : 'Bir düğüm seçerek açıklamasını incele; dalları açarak ilişkileri keşfet.'}</p>
           </div>
           <button ref={closeRef} className="concept-close" onClick={closeExplorer} aria-label="Kavram haritasını kapat">
             <X size={22} />
@@ -363,6 +428,13 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
 
         <div className="concept-toolbar" aria-label="Kavram haritası araçları">
           <div className="concept-toolbar-group">
+            {progressive && <button onClick={() => {
+              branchFocusRef.current = conceptMap.id;
+              setExpandedIds(new Set());
+              setSelectedId(null);
+              setActiveId(conceptMap.id);
+              requestFit();
+            }}><Network size={16} /> Başa dön</button>}
             <button onClick={expandAll}><Expand size={16} /> Tümünü aç</button>
             <button onClick={showMainBranches}><Network size={16} /> Ana dallar</button>
           </div>
@@ -395,15 +467,16 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
             >
               <svg className="concept-edges" width={layout.width} height={layout.height} aria-hidden="true">
                 {layout.edges.map(({ from, to }) => {
-                  const startX = from.x + NODE_WIDTH;
-                  const startY = from.y + NODE_HEIGHT / 2;
+                  const startX = from.x + layout.nodeWidth;
+                  const startY = from.y + layout.nodeHeight / 2;
                   const endX = to.x;
-                  const endY = to.y + NODE_HEIGHT / 2;
+                  const endY = to.y + layout.nodeHeight / 2;
                   const control = (endX - startX) * 0.48;
                   return (
                     <path
                       key={`${from.node.id}-${to.node.id}`}
                       data-branch={to.branch}
+                      data-depth={to.depth}
                       d={`M ${startX} ${startY} C ${startX + control} ${startY}, ${endX - control} ${endY}, ${endX} ${endY}`}
                     />
                   );
@@ -420,7 +493,8 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
                       key={item.node.id}
                       className="concept-node-wrap"
                       data-branch={item.branch}
-                      style={{ left: item.x, top: item.y, width: NODE_WIDTH, height: NODE_HEIGHT }}
+                      data-depth={item.depth}
+                      style={{ left: item.x, top: item.y, width: layout.nodeWidth, height: layout.nodeHeight }}
                     >
                       <button
                         ref={(element) => {
@@ -434,7 +508,13 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
                         aria-selected={isSelected}
                         tabIndex={activeId === item.node.id ? 0 : -1}
                         onFocus={() => setActiveId(item.node.id)}
-                        onClick={() => setSelectedId(item.node.id)}
+                        onClick={() => {
+                          if (progressive && hasChildren) {
+                            toggleNode(item.node.id);
+                          } else {
+                            setSelectedId(item.node.id);
+                          }
+                        }}
                         onKeyDown={(event) => handleNodeKeyDown(event, item)}
                       >
                         <span>{item.node.title}</span>
@@ -523,7 +603,7 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
     <>
       <button ref={launcherRef} className="concept-launcher" onClick={openExplorer}>
         <span className="concept-launcher-icon"><Network size={20} /></span>
-        <span><strong>Tam kavram haritası</strong><small>{conceptMap.children.length} ana dalda bağlantıları keşfet</small></span>
+        <span><strong>{launcherTitle}</strong><small>{conceptMap.children.length} ana dalda bağlantıları keşfet</small></span>
         <ChevronRight size={18} />
       </button>
       {mounted && modal ? createPortal(modal, document.body) : null}
