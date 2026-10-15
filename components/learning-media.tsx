@@ -1,6 +1,7 @@
 'use client';
 
 import {
+  ChevronDown,
   CloudOff,
   ExternalLink,
   FileText,
@@ -188,26 +189,43 @@ export function LearningInfographicView({ item, state }: { item: LearningMedia; 
     </div>
   ) : null;
 
+  const preview = state.status === 'ready' ? (
+    <button
+      ref={triggerRef}
+      className="infographic-preview"
+      onClick={() => setOpen(true)}
+      aria-label={`${item.title} infografiğini büyüt`}
+    >
+      <img src={state.url} alt={item.title} loading="lazy" />
+      <span><Maximize2 size={16} />Büyüt</span>
+    </button>
+  ) : state.status === 'loading' ? (
+    <MediaLoading item={item} />
+  ) : (
+    <MediaUnavailable item={item} />
+  );
+  const heading = <MediaHeading item={item} icon={<ImageIcon size={21} />} />;
+
   return (
     <>
-      <article className="card learning-material-card infographic-card">
-        <MediaHeading item={item} icon={<ImageIcon size={21} />} />
-        {state.status === 'ready' ? (
-          <button
-            ref={triggerRef}
-            className="infographic-preview"
-            onClick={() => setOpen(true)}
-            aria-label={`${item.title} infografiğini büyüt`}
-          >
-            <img src={state.url} alt={item.title} loading="lazy" />
-            <span><Maximize2 size={16} />Büyüt</span>
-          </button>
-        ) : state.status === 'loading' ? (
-          <MediaLoading item={item} />
-        ) : (
-          <MediaUnavailable item={item} />
-        )}
-      </article>
+      {item.collapsible ? (
+        <details className="card learning-material-card infographic-card learning-material-collapsible">
+          <summary className="learning-material-disclosure">
+            {heading}
+            <span className="learning-material-disclosure-status" aria-hidden="true">
+              <span className="when-closed">Aç</span>
+              <span className="when-open">Kapat</span>
+              <ChevronDown size={18} />
+            </span>
+          </summary>
+          {preview}
+        </details>
+      ) : (
+        <article className="card learning-material-card infographic-card">
+          {heading}
+          {preview}
+        </article>
+      )}
       {mounted && dialog ? createPortal(dialog, document.body) : null}
     </>
   );

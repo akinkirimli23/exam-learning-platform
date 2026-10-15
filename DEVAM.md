@@ -324,3 +324,9 @@ Proje kökü: `D:\dido_ile_okul_projesi`
 - Son Preview kabulü tamamlandı: 2073474 / Vercel 28GeasiPDEgsBEC26Vdp6Pmczxz4 Ready. Sabit adres: https://exam-learning-platform-git-codex-pressure-lear-595554-akin-dido.vercel.app/konu/pressure/ogren. Salt okunur fingerprint staging'i ve Storage eşleşmesini doğruladı; production/main 3df8cba olarak kaldı.
 - Gerçek Preview oturumuyla iki görsel/PDF bağlantısı, üç videonun 6:33/9:53/7:10 süreleri ve ilk videonun oynatılması kontrol edildi; 46 kavramın tümü açılıyor, 390 px'de yatay taşma yok. Basınç bankası hazırlanıyor; mevcut 9/135 Kaldırma Kuvveti bankası görünür.
 - Geçici sentetik QA hesabı/oturumu hedefli temizlendi. Staging başlangıç/son kayıt sayıları aynı:4 kullanıcı,6 oturum,103 içerik,4 deneme; yanlış/ilerleme kayıtları korunur. Son metin notu değişikliklerinden sonra 19 odaklı test, typecheck ve build tekrar geçti. Env hashleri ve altı özgün dosya aynı; Git çalışma ağacı temiz.
+
+## 15 Ekim 2026 · Basınç kavram haritasını katlama
+
+- Öğren sayfasındaki görsel kavram haritası başlangıçta kapalıdır; başlığına tıklayınca veya klavyede Enter/Space ile açılıp kapanır. Aç/Kapat göstergesi ve ok durumu takip eder; görseli büyütme korunur. Etkileşimli kavram gezgini ve konu özeti mevcut davranışını korur.
+- Yeniden kullanılabilir `collapsible` medya seçeneği yalnız Basınç kavram haritasında açık. Veritabanı, migration, seed veya Storage dosya değişikliği gerekmez.
+- 19 ilgili test, typecheck ve build geçti. Yayın hedefi önceki talep uyarınca yalnız Preview; main ve Production değişmez.
