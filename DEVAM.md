@@ -1,6 +1,6 @@
 # İvme — devam kaydı
 
-Son doğrulama: 23 Eylül 2026. Kaldırma Kuvveti pilotu, ortak Generic Topic Engine üzerinde çalışır. Production kayıt ve PostgreSQL bağlantısı için yapılan düzeltmeler ile doğrulama durumu aşağıdaki güncel bölümde kayıtlıdır. Parola, oturum tokenı veya API anahtarı içermez.
+Son doğrulama: 15 Ekim 2026. Kaldırma Kuvveti pilotu, ortak Generic Topic Engine üzerinde çalışır. 135 soruluk yerel soru bankası entegrasyonu en sondaki bölümde kayıtlıdır. Parola, oturum tokenı veya API anahtarı içermez.
 
 ## Amaç ve kararlar
 
@@ -127,7 +127,7 @@ Android emülatörü API adresi `http://10.0.2.2:3000`; fiziksel cihazda aynı a
 
 İkinci konu için uzman onaylı içerik paketi hazırlandığında kavram haritası, kart, quiz ve medya metadata'sını kendi `shared/content/...` klasörüne koy; `defineTopic` ile bir `TopicDefinition` oluşturup `shared/topic-registry.ts` içine kaydet ve mevcut katalog/yayın akışında konu ile anlatımlarını yayımla. Sentetik test fixture'ını üretim içeriğine dönüştürme. Production'da gerçek öğrenci kabulünü ayrı yürüt; e-posta doğrulama ve şifre sıfırlama henüz yok.
 
-Proje kökü: `C:\Users\akink\OneDrive\Masaüstü\Ders_Uygulama_proje`
+Proje kökü: `D:\dido_ile_okul_projesi`
 
 
 ## 23 Eylül 2026 production kayıt çalışması
@@ -229,3 +229,15 @@ Proje kökü: `C:\Users\akink\OneDrive\Masaüstü\Ders_Uygulama_proje`
 - Son yerel kontroller: `npm test` 16 dosyada 120/120 geçti; `npm run typecheck`, `npm run build` ve `git diff --check` geçti. Secret dosyaları Git'e eklenmeyecek.
 - Production üzerinde hiçbir migration, seed veya veri yazımı yapılmadı. Production için 5432 `MIGRATION_DATABASE_URL` yerelde henüz hazır değil. Uygulamadan önce Production proje kimliği 6543 runtime bağlantısıyla eşleştirilmeli, TLS doğrulanmalı, güncel yedek alınmalı ve ayrı bir veritabanında geri yükleme denenmeli. Geri dönüşte önce uygulama v1 uyumlu sürüme döndürülür; yeni v2 tablosu veri kaybını önlemek için yerinde bırakılır. Tam veritabanı geri yüklemesi ancak etkilenecek yeni kullanıcı/ilerleme yazıları değerlendirildikten sonra uygulanır.
 - Sonraki aşama: yeni PR'ın kontrolleri ve Production yedeği doğrulandıktan, 5432 bağlantısı sağlandıktan ve ayrıca onay verildikten sonra Production v2 migration'ı; ancak ondan sonra `main` merge ve deployment. Bu turda Production geçişi yapılmaz.
+
+## 15 Ekim 2026 · 135 soruluk yerel soru bankası
+
+- Proje kökü `D:\dido_ile_okul_projesi`. Güncel `origin/main` (`968e821`) tabanından `feature/tyt-buoyancy-bank-135` açıldı. Eski Basınç dalı ve dosyaları korundu; yeni dalın main'e otomatik upstream bağlantısı kaldırıldı. Commit/push/PR, merge ve uzak deployment yapılmadı.
+- Downloads'taki `Ivme_TYT_Kaldirma_Kuvveti_9_Test_135_Soru.zip`, `imports/buoyancy-question-bank/` altına güvenli çıkarıldı. ZIP'teki 80 dosyanın bayt bütünlüğü doğrulandı. `imports/` Git dışında; `.env.local` ve `.env.staging.local` SHA-256 karşılaştırmasıyla değişmemiş durumda.
+- TYT → Fizik → Kaldırma Kuvveti → Soru Bankası: 3 Kolay, 3 Orta, 3 Zor; her test 15, toplam 135 beş seçenekli soru ve 64 SVG. Sabit soru sırası, önerilen süre, şema büyütme, sunucuda kayıtlı yanıttan devam ve test sonunda açıklamalı çözümler eklendi. Önceki 20 soruluk banka arşiv düğmesinden erişilir.
+- 135 soru/cevap/çözüm ve 64 çizim incelendi; 78 sayısal hesap bağımsız doğrulandı. 22 farklı kimlikte 7 metin ve 17 SVG düzeltmesi yerel taslağa uygulandı; kaynak paket ve cevap harfleri aynı kaldı. Kimlik bazlı bulgular `docs/BUOYANCY_BANK_AUDIT.md`; bütün soruların kaynak/taslak hash ve cevap denetimi `server/content/buoyancy-bank-audit.json` içinde.
+- Cevap anahtarı istemciye gönderilmez. Yeni girişimler mevcut `attempts` tablosunda ayrı mod ve soru snapshot'ıyla tutulur. Yanlış/boşlar mevcut Yanlış Defteri'ne şekil/çözümle kaydedilir. Eski ilerleme, notlar, etiketler, günlük seri/puan ve önceki test akışı korunur. Yeni migration veya bankaya özgü seed yoktur.
+- Son kapı: 18 dosyada 213/213 otomatik test; `npm run typecheck`, Next.js production build ve `git diff --check` geçti. 64 SVG geçerli XML; üretim istemci paketlerinde 49 özel çözüm için yapılan taramada eşleşme yok. Test runner'ın Windows sandbox TEMP sorununda yalnız geçici dizin workspace `.cache` altına alındı; test mantığı değiştirilmedi.
+- Ayrı yerel `.cache/buoyancy-question-bank/qa-data` PGlite alanında gerçek tarayıcıyla Kolay 1, Orta 1, Zor 1 tamamlandı: 45 soru/çözüm, 22 test şeması, yenilemede devam, sonuç kalıcılığı, yanlış/boş defteri ve mobil büyütme geçti. 64 SVG ayrıca görsel galeriyle incelendi. Yerel QA sunucuları testten sonra durduruldu; ekran kanıtları ve denetim çıktıları `.cache/buoyancy-question-bank/` altında. Bu gerçek telefon testi değildir.
+- Staging'e yalnız salt okunur, doğrulanan TLS bağlantısı: farklı proje kimliği, şema v1+v2, 14 tablo ve 103 içerik doğrulandı; veri yazılmadı. Production, main ve gerçek öğrenci kayıtları bu çalışma sırasında değiştirilmedi.
+- Kalan adımlar: düzeltmelerin öğretmen/editör incelemesi; feature branch commit/push ve Draft PR; yalnız o Preview dalının staging DB/Supabase/APP_ORIGIN eşleşmesini doğrulama; yalnız staging dalında `BUOYANCY_BANK_135_ENABLED=true` ile açıp kabul testi. Uzak ortamda varsayılan kapalıdır; yerel `next dev` incelemeye izin verir. Migration/seed çalıştırmayın.

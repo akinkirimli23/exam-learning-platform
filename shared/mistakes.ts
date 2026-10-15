@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import type { BankFigure } from './question-bank';
 
 export const mistakeReasonValues = [
   'concept-gap',
@@ -48,6 +49,9 @@ export type MistakeNotebookItem = {
     selectedAnswer: number | null;
     conceptId: string;
     difficulty: string;
+    testId?: string;
+    explanation?: string;
+    figure?: BankFigure;
   };
   suggestedReason: MistakeReason;
   reason: MistakeReason;

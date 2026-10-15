@@ -1,0 +1,5155 @@
+{
+  "schemaVersion": "ivme-tyt-questionpack-v1",
+  "exam": "YKS",
+  "session": "TYT",
+  "subject": "Fizik",
+  "topicId": "buoyancy",
+  "title": "Kaldırma Kuvveti · 9 Özgün TYT Testi",
+  "createdAt": "2026-10-15",
+  "author": "İvme için özgün soru paketi",
+  "licenseNote": "Metinler ve şemalar bu paket için özgün oluşturulmuştur; üçüncü taraf yayınevi soruları aktarılmamıştır.",
+  "assumptions": [
+    "Özel olarak aksi belirtilmedikçe g=10 N/kg alınız.",
+    "Sıvı sıkışmaz ve durgundur; havanın kaldırma kuvveti ihmal edilir.",
+    "Kullanılan cisimler, aksi belirtilmedikçe sert ve sıkışmazdır.",
+    "Kuvvet dengesi için ayrıca belirtilmediği sürece cisimler durağandır."
+  ],
+  "tests": [
+    {
+      "id": "buoyancy-easy-01",
+      "level": "easy",
+      "title": "Kolay 1 · Arşimet ve Yer Değiştirme",
+      "topicId": "buoyancy",
+      "questionCount": 15,
+      "description": "Kuvvet, hacim ve taşan sıvıyı doğru ilişkilendir.",
+      "questions": [
+        {
+          "id": "buoyancy-easy-01-q01",
+          "number": 1,
+          "stem": "Özkütlesi 1000 kg/m³ olan suda 0,002 m³ hacim kaplayan tamamen batmış küçük bir cisme etki eden kaldırma kuvveti kaç N’dur? (g = 10 N/kg)",
+          "options": [
+            {
+              "key": "A",
+              "text": "200 N"
+            },
+            {
+              "key": "B",
+              "text": "20 N"
+            },
+            {
+              "key": "C",
+              "text": "2 N"
+            },
+            {
+              "key": "D",
+              "text": "2000 N"
+            },
+            {
+              "key": "E",
+              "text": "10 N"
+            }
+          ],
+          "answer": "B",
+          "solution": "Fₖ = ρVg = 1000 · 0,002 · 10 = 20 N.",
+          "conceptIds": [
+            "archimedes"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-easy-01-q01.svg",
+            "alt": "Özgün şematik çizim: V = 0,002 m³, su: 1000 kg/m³. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-easy-01-q02",
+          "number": 2,
+          "stem": "Bir cismin sıvıda kalan hacmi iki katına çıkarılırken sıvının özkütlesi ve g değişmiyor. Kaldırma kuvveti nasıl değişir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Sıfır olur."
+            },
+            {
+              "key": "B",
+              "text": "Yarıya iner."
+            },
+            {
+              "key": "C",
+              "text": "Değişmez."
+            },
+            {
+              "key": "D",
+              "text": "İki katına çıkar."
+            },
+            {
+              "key": "E",
+              "text": "Dört katına çıkar."
+            }
+          ],
+          "answer": "D",
+          "solution": "Kaldırma kuvveti Fₖ = ρgV_batan olduğundan hacimle doğru orantılıdır.",
+          "conceptIds": [
+            "displaced-volume"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-01-q03",
+          "number": 3,
+          "stem": "Bir taş, su dolu bir kaba tamamen batırılıyor. Su tarafından uygulanan kaldırma kuvveti hangi niceliğin ağırlığına eşittir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Taşın kendi ağırlığının"
+            },
+            {
+              "key": "B",
+              "text": "Kabın ağırlığının"
+            },
+            {
+              "key": "C",
+              "text": "Taşın yer değiştirdiği suyun"
+            },
+            {
+              "key": "D",
+              "text": "Taşın kuru kütlesinin"
+            },
+            {
+              "key": "E",
+              "text": "Kapta kalan bütün suyun"
+            }
+          ],
+          "answer": "C",
+          "solution": "Arşimet ilkesi: kaldırma kuvveti, yer değiştiren sıvının ağırlığıdır.",
+          "conceptIds": [
+            "archimedes"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-01-q04",
+          "number": 4,
+          "stem": "Havada dinamometreyle 18 N ölçülen bir cisim su içinde asılı tutulduğunda dinamometre 12 N gösteriyor. Kaldırma kuvveti kaç N’dur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "18 N"
+            },
+            {
+              "key": "B",
+              "text": "3 N"
+            },
+            {
+              "key": "C",
+              "text": "6 N"
+            },
+            {
+              "key": "D",
+              "text": "30 N"
+            },
+            {
+              "key": "E",
+              "text": "12 N"
+            }
+          ],
+          "answer": "C",
+          "solution": "Fₖ = G − T = 18 − 12 = 6 N.",
+          "conceptIds": [
+            "apparent-weight"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-easy-01-q04.svg",
+            "alt": "Özgün şematik çizim: Hava: 18 N, Su: 12 N. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-easy-01-q05",
+          "number": 5,
+          "stem": "Aşağıdaki hangi durumda suya bırakılan katı bir cisim kendiliğinden yüzeyde dengede kalabilir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Ortalama özkütlesi suyun özkütlesinden küçükse"
+            },
+            {
+              "key": "B",
+              "text": "Sıcaklığı mutlaka sudan yüksekse"
+            },
+            {
+              "key": "C",
+              "text": "Hacmi mutlaka 1 L ise"
+            },
+            {
+              "key": "D",
+              "text": "Ortalama özkütlesi sudan büyükse"
+            },
+            {
+              "key": "E",
+              "text": "Kütlesi her zaman 1 kg ise"
+            }
+          ],
+          "answer": "A",
+          "solution": "Serbest bırakılan cismin ortalama özkütlesi sıvıdan küçükse yüzebilir.",
+          "conceptIds": [
+            "floating-equilibrium"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-01-q06",
+          "number": 6,
+          "stem": "Özkütlesi 0,8 g/cm³ olan homojen bir tahta parçası, özkütlesi 1,0 g/cm³ olan suda yüzüyor. Hacminin kaçta kaçı su içindedir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "1/5"
+            },
+            {
+              "key": "B",
+              "text": "5/4"
+            },
+            {
+              "key": "C",
+              "text": "3/5"
+            },
+            {
+              "key": "D",
+              "text": "1/2"
+            },
+            {
+              "key": "E",
+              "text": "4/5"
+            }
+          ],
+          "answer": "E",
+          "solution": "Yüzen cisimde V_batan/V = ρ_c/ρ_s = 0,8/1,0 = 4/5.",
+          "conceptIds": [
+            "floating-fraction"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-easy-01-q06.svg",
+            "alt": "Özgün şematik çizim: tahta: 0,8, su: 1,0. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-easy-01-q07",
+          "number": 7,
+          "stem": "Özkütlesi suya eşit olan, içinde hava boşluğu bulunmayan bir cisim suyun ortasında serbest bırakılıyor. İlk hız yoksa ne olur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Suya hiç kuvvet uygulamaz."
+            },
+            {
+              "key": "B",
+              "text": "Mutlaka hızlanarak batar."
+            },
+            {
+              "key": "C",
+              "text": "Kaldırma kuvveti sıfır olur."
+            },
+            {
+              "key": "D",
+              "text": "Mutlaka yüzer ve yarısı dışarı çıkar."
+            },
+            {
+              "key": "E",
+              "text": "Askıda dengede kalır."
+            }
+          ],
+          "answer": "E",
+          "solution": "ρ_c = ρ_s olduğunda tümü batıkken Fₖ = G; net kuvvet sıfırdır.",
+          "conceptIds": [
+            "neutral-buoyancy"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-01-q08",
+          "number": 8,
+          "stem": "Aynı hacimdeki demir ve plastik küreler suda tamamen batırılıp ayrı ayrı iplerle tutuluyor. Hangi büyüklükleri eşittir? (Sıvı aynı ve her ikisi de tamamen batık.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "Cisimlerin kütlesi"
+            },
+            {
+              "key": "B",
+              "text": "Cisimlerin ağırlığı"
+            },
+            {
+              "key": "C",
+              "text": "İplerdeki gerilme"
+            },
+            {
+              "key": "D",
+              "text": "Suyun uyguladığı kaldırma kuvveti"
+            },
+            {
+              "key": "E",
+              "text": "Cisimlerin özkütlesi"
+            }
+          ],
+          "answer": "D",
+          "solution": "Aynı sıvıda tamamen batan eşit hacimler eşit su hacmi yer değiştirir; kaldırma kuvveti eşittir.",
+          "conceptIds": [
+            "displaced-volume"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-easy-01-q08.svg",
+            "alt": "Özgün şematik çizim: eşit hacimli küreler, aynı sıvı. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-easy-01-q09",
+          "number": 9,
+          "stem": "Bir cisim suda yüzüyor ve yalnız ağırlık ile kaldırma kuvveti etkisinde. Kaldırma kuvveti için hangisi doğrudur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Cismin ağırlığından büyüktür."
+            },
+            {
+              "key": "B",
+              "text": "Cismin ağırlığına eşittir."
+            },
+            {
+              "key": "C",
+              "text": "Her zaman 10 N’dur."
+            },
+            {
+              "key": "D",
+              "text": "Cismin ağırlığından küçüktür."
+            },
+            {
+              "key": "E",
+              "text": "Cismin ağırlığının yarısıdır."
+            }
+          ],
+          "answer": "B",
+          "solution": "Dengedeki yüzen cisimde yukarı ve aşağı yönlü kuvvetler eşittir.",
+          "conceptIds": [
+            "floating-equilibrium"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-01-q10",
+          "number": 10,
+          "stem": "Özkütlesi 600 kg/m³ olan bir sıvıda, 0,005 m³ hacimli bir cisim tamamen batık tutuluyor. g = 10 N/kg olduğuna göre kaldırma kuvveti kaç N’dur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "300 N"
+            },
+            {
+              "key": "B",
+              "text": "3 N"
+            },
+            {
+              "key": "C",
+              "text": "6 N"
+            },
+            {
+              "key": "D",
+              "text": "30 N"
+            },
+            {
+              "key": "E",
+              "text": "50 N"
+            }
+          ],
+          "answer": "D",
+          "solution": "600 · 0,005 · 10 = 30 N.",
+          "conceptIds": [
+            "archimedes"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-01-q11",
+          "number": 11,
+          "stem": "Taşma seviyesine kadar dolu su kabına, bir cisim tamamı batacak şekilde yavaşça sokuluyor. Taşan suyun hacmi neye eşittir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Cismin batırılan hacmine"
+            },
+            {
+              "key": "B",
+              "text": "Taşan suyun kütlesinin iki katına"
+            },
+            {
+              "key": "C",
+              "text": "Cismin ağırlığına"
+            },
+            {
+              "key": "D",
+              "text": "Kabın toplam hacmine"
+            },
+            {
+              "key": "E",
+              "text": "Cismin özkütlesine"
+            }
+          ],
+          "answer": "A",
+          "solution": "Yeri değiştirilen sıvı hacmi, cismin sıvı içindeki hacmine eşittir.",
+          "conceptIds": [
+            "overflow"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-easy-01-q11.svg",
+            "alt": "Taşma seviyesindeki kapta tamamen batık cisim ve taşma çıkışı. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-easy-01-q12",
+          "number": 12,
+          "stem": "Aynı cisim ilkinde suya, ikincisinde daha yoğun tuzlu suya tamamen batırılıyor. Hangi ortamda kaldırma kuvveti daha büyüktür?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Cismin ağırlığı azaltıldığında saf suda"
+            },
+            {
+              "key": "B",
+              "text": "Tuzlu suda"
+            },
+            {
+              "key": "C",
+              "text": "İkisinde eşittir."
+            },
+            {
+              "key": "D",
+              "text": "Saf suda"
+            },
+            {
+              "key": "E",
+              "text": "Yoğunluk hiç etkili değildir."
+            }
+          ],
+          "answer": "B",
+          "solution": "Aynı V_batan ve g için Fₖ sıvı özkütlesi ile artar.",
+          "conceptIds": [
+            "fluid-density"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-easy-01-q12.svg",
+            "alt": "Özgün şematik çizim: aynı cisim, iki sıvı. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-easy-01-q13",
+          "number": 13,
+          "stem": "Kütlesi 2 kg olan bir cisim 15 N kaldırma kuvveti ile su içinde tutuluyor. g = 10 N/kg ise cismin ağırlığı kaç N’dur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "5 N"
+            },
+            {
+              "key": "B",
+              "text": "15 N"
+            },
+            {
+              "key": "C",
+              "text": "20 N"
+            },
+            {
+              "key": "D",
+              "text": "2 N"
+            },
+            {
+              "key": "E",
+              "text": "200 N"
+            }
+          ],
+          "answer": "C",
+          "solution": "Ağırlık G = mg = 2 · 10 = 20 N; kaldırma kuvveti ağırlığı değiştirmez.",
+          "conceptIds": [
+            "force-balance"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-01-q14",
+          "number": 14,
+          "stem": "Gözlem: Bir oyuncak gemi suda yüzeyde dengedeyken üzerine yük konulunca biraz daha batar. Bunun nedeni nedir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Geminin kaldırma kuvveti sıfıra yaklaşır."
+            },
+            {
+              "key": "B",
+              "text": "Geminin toplam hacmi mutlaka küçülür."
+            },
+            {
+              "key": "C",
+              "text": "Suyun özkütlesi kendiliğinden artar."
+            },
+            {
+              "key": "D",
+              "text": "Yerçekimi azalır."
+            },
+            {
+              "key": "E",
+              "text": "Artan ağırlığı dengelemek için daha fazla su yer değiştirir."
+            }
+          ],
+          "answer": "E",
+          "solution": "Yüzen sistem daha çok yük taşıdığında yer değiştirdiği su hacmi artar ve Fₖ yeni ağırlığa eşitlenir.",
+          "conceptIds": [
+            "floating-equilibrium"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-01-q15",
+          "number": 15,
+          "stem": "Havada ağırlığı 25 N olan bir cisim sıvıya tam batırılıp 9 N kaldırma kuvveti gördüğünde dinamometre kaç N gösterir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "16 N"
+            },
+            {
+              "key": "B",
+              "text": "25 N"
+            },
+            {
+              "key": "C",
+              "text": "34 N"
+            },
+            {
+              "key": "D",
+              "text": "9 N"
+            },
+            {
+              "key": "E",
+              "text": "225 N"
+            }
+          ],
+          "answer": "A",
+          "solution": "Görünür ağırlık T = 25 − 9 = 16 N.",
+          "conceptIds": [
+            "apparent-weight"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        }
+      ]
+    },
+    {
+      "id": "buoyancy-easy-02",
+      "level": "easy",
+      "title": "Kolay 2 · Yüzme, Askıda Kalma, Batma",
+      "topicId": "buoyancy",
+      "questionCount": 15,
+      "description": "Özkütle ve batma oranı üzerinden akıl yürüt.",
+      "questions": [
+        {
+          "id": "buoyancy-easy-02-q01",
+          "number": 1,
+          "stem": "Aynı sıvıda yüzen K cisminin hacminin 1/4’ü dışarıda. Cismin özkütlesinin sıvı özkütlesine oranı kaçtır?",
+          "options": [
+            {
+              "key": "A",
+              "text": "1/4"
+            },
+            {
+              "key": "B",
+              "text": "1/3"
+            },
+            {
+              "key": "C",
+              "text": "4/3"
+            },
+            {
+              "key": "D",
+              "text": "3/4"
+            },
+            {
+              "key": "E",
+              "text": "4"
+            }
+          ],
+          "answer": "D",
+          "solution": "Cismin 3/4’ü sıvıda olduğundan ρ_c/ρ_s=3/4.",
+          "conceptIds": [
+            "floating-fraction"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-02-q02",
+          "number": 2,
+          "stem": "Suda hacminin %40’ı batmış bir cisim, özkütlesi 1000 kg/m³ olan suda dengede. Cismin ortalama özkütlesi kaç kg/m³’tür?",
+          "options": [
+            {
+              "key": "A",
+              "text": "40"
+            },
+            {
+              "key": "B",
+              "text": "2500"
+            },
+            {
+              "key": "C",
+              "text": "600"
+            },
+            {
+              "key": "D",
+              "text": "1000"
+            },
+            {
+              "key": "E",
+              "text": "400"
+            }
+          ],
+          "answer": "E",
+          "solution": "ρ_c = 0,40 · 1000 = 400 kg/m³.",
+          "conceptIds": [
+            "floating-fraction"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-02-q03",
+          "number": 3,
+          "stem": "Bir cisim suyun dibine çöküyor. Cisim dibe değmeden önce ve tamamen su içinde iken hangi karşılaştırma doğrudur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Ağırlığı sıfır olur."
+            },
+            {
+              "key": "B",
+              "text": "Kaldırma kuvveti ağırlığından büyüktür."
+            },
+            {
+              "key": "C",
+              "text": "İki kuvvet mutlaka eşittir."
+            },
+            {
+              "key": "D",
+              "text": "Kaldırma kuvveti yoktur."
+            },
+            {
+              "key": "E",
+              "text": "Ağırlığı, kaldırma kuvvetinden büyüktür."
+            }
+          ],
+          "answer": "E",
+          "solution": "Serbest bırakılıp aşağı ivmelenen cisimde G>Fₖ; tabana oturduğunda normal kuvvet de oluşur.",
+          "conceptIds": [
+            "sinking-equilibrium"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-easy-02-q03.svg",
+            "alt": "Özgün şematik çizim: cisim serbest bırakılıyor. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-easy-02-q04",
+          "number": 4,
+          "stem": "Üç homojen küre aynı sıvıya bırakılıyor: K yüzüyor, L askıda, M batıyor. Hangisi doğrudur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "ρ_K = ρ_L = ρ_M"
+            },
+            {
+              "key": "B",
+              "text": "ρ_K < ρ_L < ρ_M"
+            },
+            {
+              "key": "C",
+              "text": "ρ_M = ρ_K < ρ_L"
+            },
+            {
+              "key": "D",
+              "text": "ρ_L < ρ_K < ρ_M"
+            },
+            {
+              "key": "E",
+              "text": "ρ_M < ρ_L < ρ_K"
+            }
+          ],
+          "answer": "B",
+          "solution": "K’nin özkütlesi sıvıdan küçük, L’ninki eşit, M’ninki büyüktür.",
+          "conceptIds": [
+            "density-order"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-easy-02-q04.svg",
+            "alt": "Özgün şematik çizim: K: yüzer, L: askıda, M: batar. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-easy-02-q05",
+          "number": 5,
+          "stem": "Ağırlığı 8 N olan bir tahta blok suda yüzüyor. Tahta için kaldırma kuvveti kaç N’dur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "16 N"
+            },
+            {
+              "key": "B",
+              "text": "80 N"
+            },
+            {
+              "key": "C",
+              "text": "8 N"
+            },
+            {
+              "key": "D",
+              "text": "4 N"
+            },
+            {
+              "key": "E",
+              "text": "0 N"
+            }
+          ],
+          "answer": "C",
+          "solution": "Yüzen blokta Fₖ = G = 8 N.",
+          "conceptIds": [
+            "floating-equilibrium"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-02-q06",
+          "number": 6,
+          "stem": "Aynı hacimli iki homojen cismin biri su yüzeyinde yüzüyor, diğeri su içinde askıda. Hangi cismin özkütlesi daha büyüktür?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Kütlelerini bilmeden karşılaştırılamaz"
+            },
+            {
+              "key": "B",
+              "text": "Askıda kalan cismin"
+            },
+            {
+              "key": "C",
+              "text": "Özkütleleri mutlaka eşit"
+            },
+            {
+              "key": "D",
+              "text": "Yüzen cismin"
+            },
+            {
+              "key": "E",
+              "text": "Suyun özkütlesi sıfır olduğundan ikisi de"
+            }
+          ],
+          "answer": "B",
+          "solution": "Askıda kalan cismin özkütlesi suyun özkütlesine eşit; yüzeninki daha küçüktür.",
+          "conceptIds": [
+            "density-order"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-02-q07",
+          "number": 7,
+          "stem": "Özkütlesi 0,75 g/cm³ olan bir cisim 1,5 g/cm³ özkütleli sıvıda yüzüyor. Batan hacmin toplam hacme oranı nedir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "1/2"
+            },
+            {
+              "key": "B",
+              "text": "2"
+            },
+            {
+              "key": "C",
+              "text": "3/4"
+            },
+            {
+              "key": "D",
+              "text": "1/4"
+            },
+            {
+              "key": "E",
+              "text": "2/3"
+            }
+          ],
+          "answer": "A",
+          "solution": "ρ_c/ρ_s = 0,75/1,5 = 1/2.",
+          "conceptIds": [
+            "floating-fraction"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-easy-02-q07.svg",
+            "alt": "Özgün şematik çizim: cisim iki yoğunluk karşılaştırılıyor. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-easy-02-q08",
+          "number": 8,
+          "stem": "Bir oyuncak tekne havuzda yüzüyor. Teknedeki yük kıyıya alınırsa teknenin batan hacmi ne olur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Sıfır olmak zorundadır."
+            },
+            {
+              "key": "B",
+              "text": "Değişmez."
+            },
+            {
+              "key": "C",
+              "text": "Azalır."
+            },
+            {
+              "key": "D",
+              "text": "Artar."
+            },
+            {
+              "key": "E",
+              "text": "Önce artar sonra kesin azalır."
+            }
+          ],
+          "answer": "C",
+          "solution": "Yük azalınca kaldırılması gereken toplam ağırlık azalır, daha az su yer değiştirir.",
+          "conceptIds": [
+            "floating-equilibrium"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-02-q09",
+          "number": 9,
+          "stem": "Bir cisim tamamen batıkken suyun uyguladığı kaldırma kuvveti 12 N’dur. Cisim aynı hacimle özkütlesi suyun yarısı olan sıvıya tamamen batırılırsa kuvvet kaç N olur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "12 N"
+            },
+            {
+              "key": "B",
+              "text": "3 N"
+            },
+            {
+              "key": "C",
+              "text": "24 N"
+            },
+            {
+              "key": "D",
+              "text": "6 N"
+            },
+            {
+              "key": "E",
+              "text": "18 N"
+            }
+          ],
+          "answer": "D",
+          "solution": "Fₖ sıvı özkütlesiyle doğru orantılı olduğundan yarıya iner.",
+          "conceptIds": [
+            "fluid-density"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-02-q10",
+          "number": 10,
+          "stem": "Yüzen bir cisim için sıvıya batan hacim oranı hangi iki özkütlenin oranına eşittir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Sıvı özkütlesi × cisim özkütlesi"
+            },
+            {
+              "key": "B",
+              "text": "Cismin ortalama özkütlesi / sıvı özkütlesi"
+            },
+            {
+              "key": "C",
+              "text": "Yalnız cisim hacmi / yerçekimi"
+            },
+            {
+              "key": "D",
+              "text": "Cismin kütlesi / yerçekimi"
+            },
+            {
+              "key": "E",
+              "text": "Sıvı özkütlesi / cisim özkütlesi"
+            }
+          ],
+          "answer": "B",
+          "solution": "Fₖ = G → ρ_sV_batan g = ρ_cV_toplam g.",
+          "conceptIds": [
+            "floating-fraction"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-02-q11",
+          "number": 11,
+          "stem": "Bir buz küpü tatlı suda yüzmektedir. Aynı sıcaklıktaki daha yoğun tuzlu suya aktarıldığında nasıl yüzer?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Kesin dibe çöker."
+            },
+            {
+              "key": "B",
+              "text": "Ağırlığı kendiliğinden artar."
+            },
+            {
+              "key": "C",
+              "text": "Tümüyle askıda kalır."
+            },
+            {
+              "key": "D",
+              "text": "Daha büyük kısmı batar."
+            },
+            {
+              "key": "E",
+              "text": "Daha küçük kısmı batmış durumda yüzer."
+            }
+          ],
+          "answer": "E",
+          "solution": "Daha yoğun sıvıda aynı G daha küçük V_batan ile dengelenir.",
+          "conceptIds": [
+            "floating-fraction"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-easy-02-q11.svg",
+            "alt": "Özgün şematik çizim: tuzlu su / tatlı su. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-easy-02-q12",
+          "number": 12,
+          "stem": "İçinde hiçbir hava boşluğu bulunmayan homojen katı bir topun özkütlesi sıvınınkinden büyüktür. Top serbest bırakıldığında ne olur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Yüzeyde kalıcı olarak yüzer."
+            },
+            {
+              "key": "B",
+              "text": "Kaldırma kuvveti sıfıra eşit olur."
+            },
+            {
+              "key": "C",
+              "text": "Ağırlığı kaldırma kuvvetine eşitlenir."
+            },
+            {
+              "key": "D",
+              "text": "Dibe doğru hareket eder."
+            },
+            {
+              "key": "E",
+              "text": "Suyun ortasında askıda kalır."
+            }
+          ],
+          "answer": "D",
+          "solution": "Tam batıkken Fₖ < G olduğundan net kuvvet aşağı yönlüdür.",
+          "conceptIds": [
+            "sinking-equilibrium"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-02-q13",
+          "number": 13,
+          "stem": "Aynı cisim, derinlik dışında tüm koşulları aynı olan su bölgelerinde tamamen batık tutuluyor. Suyun özkütlesi sabit ve cisim sıkışmazsa kaldırma kuvveti ne olur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Derinlikle ters orantılı azalır."
+            },
+            {
+              "key": "B",
+              "text": "Sıfır olur."
+            },
+            {
+              "key": "C",
+              "text": "Değişmez."
+            },
+            {
+              "key": "D",
+              "text": "Yalnız şekle bağlı olarak sonsuza çıkar."
+            },
+            {
+              "key": "E",
+              "text": "Derinlikle doğru orantılı artar."
+            }
+          ],
+          "answer": "C",
+          "solution": "Sabit ρ ve V_batan için Fₖ = ρgV sabittir; basınç artar ama net kaldırma değişmez.",
+          "conceptIds": [
+            "depth-independence"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-easy-02-q13.svg",
+            "alt": "Özgün şematik çizim: farklı derinlikler. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-easy-02-q14",
+          "number": 14,
+          "stem": "Tamamen batık bir cismin sıvıya göre hacmi 3 L ve sıvının özkütlesi 1 kg/L ise yer değiştiren sıvının kütlesi kaç kg’dır?",
+          "options": [
+            {
+              "key": "A",
+              "text": "3 kg"
+            },
+            {
+              "key": "B",
+              "text": "1 kg"
+            },
+            {
+              "key": "C",
+              "text": "30 kg"
+            },
+            {
+              "key": "D",
+              "text": "0,3 kg"
+            },
+            {
+              "key": "E",
+              "text": "9 kg"
+            }
+          ],
+          "answer": "A",
+          "solution": "m_sıvı=ρV=1 kg/L × 3 L=3 kg.",
+          "conceptIds": [
+            "archimedes"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-02-q15",
+          "number": 15,
+          "stem": "Kapta yüzmekte olan iki cisimden K’nin batan oranı %30, L’ninki %60’tır. Sıvı aynıysa hangi cismin ortalama özkütlesi büyüktür?",
+          "options": [
+            {
+              "key": "A",
+              "text": "L"
+            },
+            {
+              "key": "B",
+              "text": "İkisi eşit"
+            },
+            {
+              "key": "C",
+              "text": "Yalnız toplam hacim bilinirse"
+            },
+            {
+              "key": "D",
+              "text": "K"
+            },
+            {
+              "key": "E",
+              "text": "Batan oranları özkütleyi etkilemez"
+            }
+          ],
+          "answer": "A",
+          "solution": "Batan oranı ρ_c/ρ_s’ye eşittir; %60 > %30.",
+          "conceptIds": [
+            "density-order"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        }
+      ]
+    },
+    {
+      "id": "buoyancy-easy-03",
+      "level": "easy",
+      "title": "Kolay 3 · Deney, Dinamometre ve Günlük Yaşam",
+      "topicId": "buoyancy",
+      "questionCount": 15,
+      "description": "Ölçüm sonuçlarını ve sıvı içindeki kuvvetleri yorumla.",
+      "questions": [
+        {
+          "id": "buoyancy-easy-03-q01",
+          "number": 1,
+          "stem": "Havada 30 N, suda 24 N ölçülen bir cisim sıvının uyguladığı kaç N kaldırma kuvveti görür?",
+          "options": [
+            {
+              "key": "A",
+              "text": "24 N"
+            },
+            {
+              "key": "B",
+              "text": "54 N"
+            },
+            {
+              "key": "C",
+              "text": "6 N"
+            },
+            {
+              "key": "D",
+              "text": "30 N"
+            },
+            {
+              "key": "E",
+              "text": "4 N"
+            }
+          ],
+          "answer": "C",
+          "solution": "Ölçüm farkı Fₖ = 30 − 24 = 6 N.",
+          "conceptIds": [
+            "apparent-weight"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-03-q02",
+          "number": 2,
+          "stem": "Suda tamamen batırılan bir cismin hacmi 200 cm³. Suyun özkütlesi 1 g/cm³ ise yer değiştiren suyun kütlesi kaç gramdır?",
+          "options": [
+            {
+              "key": "A",
+              "text": "20 g"
+            },
+            {
+              "key": "B",
+              "text": "400 g"
+            },
+            {
+              "key": "C",
+              "text": "2000 g"
+            },
+            {
+              "key": "D",
+              "text": "200 g"
+            },
+            {
+              "key": "E",
+              "text": "100 g"
+            }
+          ],
+          "answer": "D",
+          "solution": "Yer değiştiren su kütlesi, sıvı özkütlesi ile batık hacmin çarpımıdır: m = 1 × 200 = 200 g.",
+          "conceptIds": [
+            "archimedes"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-03-q03",
+          "number": 3,
+          "stem": "Bir bardak suyun içine dibe kadar batan çakıl atıldığında suyun seviyesi yükselir. Bunun temel nedeni nedir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Suyun kütlesinin kendiliğinden artmasıdır."
+            },
+            {
+              "key": "B",
+              "text": "Çakılın sıvı içinde hacim kaplamasıdır."
+            },
+            {
+              "key": "C",
+              "text": "Suyun özkütlesinin kesin değişmesidir."
+            },
+            {
+              "key": "D",
+              "text": "Çakılın sudan ısı almasıdır."
+            },
+            {
+              "key": "E",
+              "text": "Yerçekiminin artmasıdır."
+            }
+          ],
+          "answer": "B",
+          "solution": "Cisim, suyun yerini alır ve sıvı düzeyi yükselir.",
+          "conceptIds": [
+            "displaced-volume"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-03-q04",
+          "number": 4,
+          "stem": "Sabit hacimli bir taş tamamen tatlı suya ve tuzlu suya batırılıyor. Taşın gerçek ağırlığı için hangisi doğrudur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Tatlı suda daha büyüktür."
+            },
+            {
+              "key": "B",
+              "text": "Tuzlu suda daha küçüktür."
+            },
+            {
+              "key": "C",
+              "text": "Hacmi kadar azalır."
+            },
+            {
+              "key": "D",
+              "text": "Yoğunluk kadar artar."
+            },
+            {
+              "key": "E",
+              "text": "İki ortamda da aynıdır."
+            }
+          ],
+          "answer": "E",
+          "solution": "G=mg, taşın kütlesi ve g değişmediği için gerçek ağırlık değişmez.",
+          "conceptIds": [
+            "apparent-weight"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-03-q05",
+          "number": 5,
+          "stem": "Dinamometreyle asılan bir taşın suya batık kısmı büyüdükçe (henüz tamamı batmamışken) dinamometre okumaları nasıl değişir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Artar."
+            },
+            {
+              "key": "B",
+              "text": "Her zaman sıfır olur."
+            },
+            {
+              "key": "C",
+              "text": "Azalır."
+            },
+            {
+              "key": "D",
+              "text": "Önce sıfır olur sonra artar."
+            },
+            {
+              "key": "E",
+              "text": "Değişmez."
+            }
+          ],
+          "answer": "C",
+          "solution": "Fₖ artar; asılı taşı taşıyan ip gerilmesi T=G−Fₖ azalır.",
+          "conceptIds": [
+            "apparent-weight"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-easy-03-q05.svg",
+            "alt": "Dinamometreye asılı, henüz kısmen batık taş. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-easy-03-q06",
+          "number": 6,
+          "stem": "Yüzen aynı plastik topun üzerine küçük bir metal pul yapıştırılıyor ve top hâlâ yüzüyor. Hangi nicelik artar?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Suyun özkütlesi"
+            },
+            {
+              "key": "B",
+              "text": "Yerçekimi ivmesi"
+            },
+            {
+              "key": "C",
+              "text": "Sıvıya batan hacim"
+            },
+            {
+              "key": "D",
+              "text": "Topun dışındaki sıvının kütlesi zorunlu olarak"
+            },
+            {
+              "key": "E",
+              "text": "Kaldırma kuvvetinin sıfıra yakınlığı"
+            }
+          ],
+          "answer": "C",
+          "solution": "Ek ağırlığı dengelemek için top daha çok sıvı yer değiştirir.",
+          "conceptIds": [
+            "floating-equilibrium"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-03-q07",
+          "number": 7,
+          "stem": "Hacmi 500 cm³ olan bir cisim suya tamamen batırılıyor. Taşma kabından kaç cm³ su çıkar? (Kap başlangıçta taşma seviyesinde.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "250 cm³"
+            },
+            {
+              "key": "B",
+              "text": "Cismin kütlesi kadar cm³"
+            },
+            {
+              "key": "C",
+              "text": "1000 cm³"
+            },
+            {
+              "key": "D",
+              "text": "50 cm³"
+            },
+            {
+              "key": "E",
+              "text": "500 cm³"
+            }
+          ],
+          "answer": "E",
+          "solution": "Cisim tamamen batınca 500 cm³ su yer değiştirir.",
+          "conceptIds": [
+            "overflow"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-easy-03-q07.svg",
+            "alt": "500 cm³ hacimli cisim taşma kabında tamamen batık. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-easy-03-q08",
+          "number": 8,
+          "stem": "Özkütlesi suyun iki katı olan bir homojen taş suya bırakıldığında hangi konumda dengelenir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Kabın tabanına oturur."
+            },
+            {
+              "key": "B",
+              "text": "Hiç su yer değiştirmez."
+            },
+            {
+              "key": "C",
+              "text": "Yarı hacmi batık yüzer."
+            },
+            {
+              "key": "D",
+              "text": "Sıvı yüzeyinde tamamen dışarıda durur."
+            },
+            {
+              "key": "E",
+              "text": "Tamamen sıvı içinde serbest askıda kalır."
+            }
+          ],
+          "answer": "A",
+          "solution": "ρ_taş > ρ_su → Fₖ < G; taş tabana iner.",
+          "conceptIds": [
+            "sinking-equilibrium"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-03-q09",
+          "number": 9,
+          "stem": "Sıvıda tamamen batık cismin üzerine etki eden kaldırma kuvveti hangi yöne doğrudur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Her zaman hareket yönüne"
+            },
+            {
+              "key": "B",
+              "text": "Aşağı"
+            },
+            {
+              "key": "C",
+              "text": "Yatay sağa"
+            },
+            {
+              "key": "D",
+              "text": "Yukarı"
+            },
+            {
+              "key": "E",
+              "text": "Yatay sola"
+            }
+          ],
+          "answer": "D",
+          "solution": "Durgun sıvıda basınç kuvvetlerinin bileşkesi yukarı yönlüdür.",
+          "conceptIds": [
+            "archimedes"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-03-q10",
+          "number": 10,
+          "stem": "Suya bırakılan bir tahta küpün kütlesi 300 g ve su içinde yüzüyor. Dengedeyken kaç gram su yer değiştirir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "1000 g"
+            },
+            {
+              "key": "B",
+              "text": "300 g"
+            },
+            {
+              "key": "C",
+              "text": "30 g"
+            },
+            {
+              "key": "D",
+              "text": "600 g"
+            },
+            {
+              "key": "E",
+              "text": "150 g"
+            }
+          ],
+          "answer": "B",
+          "solution": "Yüzen cisimde yer değiştiren suyun ağırlığı cismin ağırlığına eşittir; aynı g altında kütleler de eşit.",
+          "conceptIds": [
+            "floating-equilibrium"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-03-q11",
+          "number": 11,
+          "stem": "Bir araştırmacı aynı taşı farklı özkütleli iki sıvıda tamamen batık tutuyor. Kaldırma kuvvetinin hangi sıvıda büyük olacağını kestirmek için hangisini bilmesi yeterlidir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Sıvıların özkütlelerini"
+            },
+            {
+              "key": "B",
+              "text": "Sıvıların renklerini"
+            },
+            {
+              "key": "C",
+              "text": "Kapların biçimini"
+            },
+            {
+              "key": "D",
+              "text": "Taşın rengini"
+            },
+            {
+              "key": "E",
+              "text": "Deneylerin saatini"
+            }
+          ],
+          "answer": "A",
+          "solution": "Taşın batık hacmi ve g eşit; kaldırma Fₖ ∝ ρ_sıvı.",
+          "conceptIds": [
+            "fluid-density"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-03-q12",
+          "number": 12,
+          "stem": "Suda yüzen bir mantar parçasının batan hacmi 30 cm³. Suyun özkütlesi 1 g/cm³ ise mantarın kütlesi kaç gramdır?",
+          "options": [
+            {
+              "key": "A",
+              "text": "300 g"
+            },
+            {
+              "key": "B",
+              "text": "10 g"
+            },
+            {
+              "key": "C",
+              "text": "3 g"
+            },
+            {
+              "key": "D",
+              "text": "60 g"
+            },
+            {
+              "key": "E",
+              "text": "30 g"
+            }
+          ],
+          "answer": "E",
+          "solution": "Yüzerken m_cisim=m_yer değiştiren su=ρ_su V_batan=30 g.",
+          "conceptIds": [
+            "floating-equilibrium"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-easy-03-q12.svg",
+            "alt": "Özgün şematik çizim: V_batan = 30 cm³. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-easy-03-q13",
+          "number": 13,
+          "stem": "Bir cisim asılı olduğu dinamometre ile suya sokuluyor. Cismin dış yüzeyindeki sıvı basınçları farklı olsa da net kaldırma neden yukarı yönlüdür?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Üst yüzeydeki basınç daha büyük olduğu için"
+            },
+            {
+              "key": "B",
+              "text": "Alt yüzey üzerindeki sıvı basıncı üsttekinden daha büyük olduğu için"
+            },
+            {
+              "key": "C",
+              "text": "Sıvı basıncı her yönde sıfır olduğu için"
+            },
+            {
+              "key": "D",
+              "text": "Yerçekimi yukarı olduğu için"
+            },
+            {
+              "key": "E",
+              "text": "Sıvı her yönde aynı kuvveti zorunlu olarak uyguladığı için"
+            }
+          ],
+          "answer": "B",
+          "solution": "Alt yüzey daha derinde olduğundan basınç daha büyük olur; yan bileşenler simetrik örnekte dengelenir.",
+          "conceptIds": [
+            "pressure-origin"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-easy-03-q14",
+          "number": 14,
+          "stem": "Suda yüzen bir tahta parçasının suyun altındaki hacmi 2 L. Tahta dengedeyken kaldırma kuvveti kaç N’dur? (ρ_su=1 kg/L, g=10 N/kg)",
+          "options": [
+            {
+              "key": "A",
+              "text": "40 N"
+            },
+            {
+              "key": "B",
+              "text": "2 N"
+            },
+            {
+              "key": "C",
+              "text": "10 N"
+            },
+            {
+              "key": "D",
+              "text": "20 N"
+            },
+            {
+              "key": "E",
+              "text": "200 N"
+            }
+          ],
+          "answer": "D",
+          "solution": "2 L suyun kütlesi 2 kg; ağırlığı 20 N.",
+          "conceptIds": [
+            "archimedes"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-easy-03-q14.svg",
+            "alt": "Özgün şematik çizim: V_batan = 2 L. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-easy-03-q15",
+          "number": 15,
+          "stem": "İki özdeş yüzücü can yeleğiyle durgun suda bekliyor. Can yeleği kişiye hangi temel etkisiyle yardım eder?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Toplam yer değiştirebilen hacmi artırıp sistemin ortalama özkütlesini azaltır."
+            },
+            {
+              "key": "B",
+              "text": "Kişinin gerçek ağırlığını sıfırlar."
+            },
+            {
+              "key": "C",
+              "text": "Yerçekimi ivmesini azaltır."
+            },
+            {
+              "key": "D",
+              "text": "Suyun basıncını her yerde sıfır yapar."
+            },
+            {
+              "key": "E",
+              "text": "Suyun özkütlesini iki katına çıkarır."
+            }
+          ],
+          "answer": "A",
+          "solution": "Hava hacmi büyük, kütlesi küçük olduğundan ortalama özkütle düşer; yüzme kolaylaşır.",
+          "conceptIds": [
+            "daily-life"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        }
+      ]
+    },
+    {
+      "id": "buoyancy-medium-01",
+      "level": "medium",
+      "title": "Orta 1 · İpler, Tartılar ve Kuvvet Dengesi",
+      "topicId": "buoyancy",
+      "questionCount": 15,
+      "description": "Çok kuvvetli sistemlerin dengelerini kur.",
+      "questions": [
+        {
+          "id": "buoyancy-medium-01-q01",
+          "number": 1,
+          "stem": "Ağırlığı 30 N olan V=2 L hacimli cisim, özkütlesi 1 kg/L sıvıda tamamen batıkken tavana bağlı ipte dengededir. İpteki gerilme kaç N’dur? (g=10 N/kg)",
+          "options": [
+            {
+              "key": "A",
+              "text": "50 N"
+            },
+            {
+              "key": "B",
+              "text": "0 N"
+            },
+            {
+              "key": "C",
+              "text": "30 N"
+            },
+            {
+              "key": "D",
+              "text": "10 N"
+            },
+            {
+              "key": "E",
+              "text": "20 N"
+            }
+          ],
+          "answer": "D",
+          "solution": "Fₖ=1×2×10=20 N, T+Fₖ=G → T=10 N.",
+          "conceptIds": [
+            "tension-ceiling"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-01-q01.svg",
+            "alt": "Özgün şematik çizim: G = 30 N, V = 2 L. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-01-q02",
+          "number": 2,
+          "stem": "Ağırlığı 12 N olan içi boş plastik top, 2 L hacminin tamamı suda iken tabana bağlı iple dengede tutuluyor. İp gerilmesi kaç N’dur? (ρ=1 kg/L, g=10)",
+          "options": [
+            {
+              "key": "A",
+              "text": "8 N"
+            },
+            {
+              "key": "B",
+              "text": "12 N"
+            },
+            {
+              "key": "C",
+              "text": "20 N"
+            },
+            {
+              "key": "D",
+              "text": "4 N"
+            },
+            {
+              "key": "E",
+              "text": "32 N"
+            }
+          ],
+          "answer": "A",
+          "solution": "Fₖ=20 N yukarı, ağırlık 12 N aşağı: taban ipi T=20−12=8 N aşağı çeker.",
+          "conceptIds": [
+            "tension-bottom"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-01-q02.svg",
+            "alt": "Özgün şematik çizim: G = 12 N, V = 2 L. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-01-q03",
+          "number": 3,
+          "stem": "Bir taşın havadaki ağırlığı 50 N, suda tamamen batmışken dinamometre 30 N ölçüyor. Taşın hacmi kaç litredir? (ρ_su =1 kg/L, g=10)",
+          "options": [
+            {
+              "key": "A",
+              "text": "5 L"
+            },
+            {
+              "key": "B",
+              "text": "2 L"
+            },
+            {
+              "key": "C",
+              "text": "0,2 L"
+            },
+            {
+              "key": "D",
+              "text": "3 L"
+            },
+            {
+              "key": "E",
+              "text": "1 L"
+            }
+          ],
+          "answer": "B",
+          "solution": "Kaldırma 20 N; V=F/(ρg)=20/(1×10)=2 L.",
+          "conceptIds": [
+            "apparent-weight"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-01-q03.svg",
+            "alt": "Özgün şematik çizim: hava: 50 N, su: 30 N. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-01-q04",
+          "number": 4,
+          "stem": "Dış hacimleri eşit, ancak farklı maddelerden yapılmış iki katı küreden K tavandan, L kabın tabanından ip ile aynı sıvıda tamamen batık ve hareketsiz tutulmaktadır. K’nin yoğunluğu sıvıdan büyük, L’ninki küçüktür. İplerin uyguladığı kuvvet yönleri hangisidir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "K’ye yukarı, L’ye aşağı"
+            },
+            {
+              "key": "B",
+              "text": "İkisine de yukarı"
+            },
+            {
+              "key": "C",
+              "text": "K’ye aşağı, L’ye yukarı"
+            },
+            {
+              "key": "D",
+              "text": "Her iki ipte gerilme sıfır"
+            },
+            {
+              "key": "E",
+              "text": "İkisine de aşağı"
+            }
+          ],
+          "answer": "A",
+          "solution": "Yoğun K’de G>Fₖ, tavan ipi yukarı çekmeli. Hafif L’de Fₖ>G, taban ipi aşağı çekmeli.",
+          "conceptIds": [
+            "tension-direction"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-01-q04.svg",
+            "alt": "Özgün şematik çizim: K: tavana bağlı, L: tabana bağlı. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-01-q05",
+          "number": 5,
+          "stem": "Ağırlığı 18 N olan cisim bir ipte asılıyken sıvıya yarısına kadar batırılıyor ve ip gerilmesi 12 N oluyor. Tam batık halde kaldırma kuvveti kaç N olabilir? (Cisim sıkışmaz, sıvı aynı.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "3 N"
+            },
+            {
+              "key": "B",
+              "text": "24 N"
+            },
+            {
+              "key": "C",
+              "text": "12 N"
+            },
+            {
+              "key": "D",
+              "text": "6 N"
+            },
+            {
+              "key": "E",
+              "text": "18 N"
+            }
+          ],
+          "answer": "C",
+          "solution": "Yarım batık durumda kaldırma 6 N; V iki kat olursa Fₖ 12 N olur.",
+          "conceptIds": [
+            "partial-to-full"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-01-q05.svg",
+            "alt": "G=18 N, T=12 N olan cisim dinamometrede, hacminin yarısı sıvıda. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-01-q06",
+          "number": 6,
+          "stem": "Eşit hacimli K ve L cisimleri aynı sıvıda tam batık tutulurken ip gerilmeleri sırasıyla 8 N ve 14 N’dur. Hangisi kesinlikle doğrudur? (İkisi de tavandan asılı, G>Fₖ.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "K daha büyük hacimlidir."
+            },
+            {
+              "key": "B",
+              "text": "K ve L eşit ağırlıklıdır."
+            },
+            {
+              "key": "C",
+              "text": "L’nin hacmi 6 L fazladır."
+            },
+            {
+              "key": "D",
+              "text": "K’nin kaldırma kuvveti L’ninkinden 6 N fazladır."
+            },
+            {
+              "key": "E",
+              "text": "L’nin ağırlığı K’ninkinden 6 N fazladır."
+            }
+          ],
+          "answer": "E",
+          "solution": "Eşit batık hacimde Fₖ eşittir; T=G−Fₖ olduğundan ağırlık farkı 14−8=6 N.",
+          "conceptIds": [
+            "tension-ceiling"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-medium-01-q07",
+          "number": 7,
+          "stem": "Dinamometreyle yukarıdan tutulan bir cisim sıvıda tamamen batık ve dengede. Sıvının özkütlesi artırılır, cismin hacmi ve ağırlığı sabit tutulur. Dinamometrenin gösterdiği değer nasıl değişir? (İp gergin kalıyor.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "Önce artar sonra zorunlu olarak azalır."
+            },
+            {
+              "key": "B",
+              "text": "Azalır."
+            },
+            {
+              "key": "C",
+              "text": "Değişmez."
+            },
+            {
+              "key": "D",
+              "text": "Artar."
+            },
+            {
+              "key": "E",
+              "text": "Cisim sıvıya temas etmeyi bırakır."
+            }
+          ],
+          "answer": "B",
+          "solution": "Fₖ artar, T = G−Fₖ azalır.",
+          "conceptIds": [
+            "fluid-density"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-medium-01-q08",
+          "number": 8,
+          "stem": "Tamamen batık ve tabana bağlı bir topa etki eden kaldırma kuvveti 35 N, ağırlık 15 N ise ipteki gerilme kaç N’dur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "50 N"
+            },
+            {
+              "key": "B",
+              "text": "15 N"
+            },
+            {
+              "key": "C",
+              "text": "5 N"
+            },
+            {
+              "key": "D",
+              "text": "35 N"
+            },
+            {
+              "key": "E",
+              "text": "20 N"
+            }
+          ],
+          "answer": "E",
+          "solution": "Topu aşağı çeken ip T=Fₖ−G=35−15=20 N.",
+          "conceptIds": [
+            "tension-bottom"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-01-q08.svg",
+            "alt": "Özgün şematik çizim: Fₖ = 35 N, G=15 N. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-01-q09",
+          "number": 9,
+          "stem": "Suyun içinde ip ile asılı bir taş daha derine indirilirse ip gerilmesi nasıl değişir? (Taş tüm süreçte tamamen batık, su özkütlesi sabit.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "Sıfırlanır."
+            },
+            {
+              "key": "B",
+              "text": "İki katına çıkar."
+            },
+            {
+              "key": "C",
+              "text": "Artar."
+            },
+            {
+              "key": "D",
+              "text": "Değişmez."
+            },
+            {
+              "key": "E",
+              "text": "Azalır."
+            }
+          ],
+          "answer": "D",
+          "solution": "Derinlik değişse de batık hacim ve sıvı özkütlesi değişmez; Fₖ, dolayısıyla T sabittir.",
+          "conceptIds": [
+            "depth-independence"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-medium-01-q10",
+          "number": 10,
+          "stem": "Havada 45 N gelen bir cisim suya tam batırıldığında 30 N görünür ağırlık veriyor. Aynı cisim özkütlesi suyun 1,2 katı olan sıvıda tam batırılırsa dinamometre kaç N gösterir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "36 N"
+            },
+            {
+              "key": "B",
+              "text": "15 N"
+            },
+            {
+              "key": "C",
+              "text": "27 N"
+            },
+            {
+              "key": "D",
+              "text": "18 N"
+            },
+            {
+              "key": "E",
+              "text": "30 N"
+            }
+          ],
+          "answer": "C",
+          "solution": "Suda Fₖ=15 N; yoğun sıvıda 18 N → T=45−18=27 N.",
+          "conceptIds": [
+            "apparent-weight"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-01-q10.svg",
+            "alt": "Özgün şematik çizim: iki farklı sıvı. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-01-q11",
+          "number": 11,
+          "stem": "Ağırlığı 40 N olan katı bir cisim 3 L hacimlidir ve suyun içinde tamamen batık tutulur. ρ_su=1 kg/L, g=10 olduğuna göre serbest bırakıldığında ilk anda net kuvvetin yönü ve büyüklüğü nedir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Aşağı, 10 N"
+            },
+            {
+              "key": "B",
+              "text": "Aşağı, 40 N"
+            },
+            {
+              "key": "C",
+              "text": "Yukarı, 10 N"
+            },
+            {
+              "key": "D",
+              "text": "Yukarı, 30 N"
+            },
+            {
+              "key": "E",
+              "text": "Net kuvvet sıfır"
+            }
+          ],
+          "answer": "A",
+          "solution": "Fₖ=30 N, G=40 N, net=10 N aşağı.",
+          "conceptIds": [
+            "force-balance"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-medium-01-q12",
+          "number": 12,
+          "stem": "Bir sıvı içinde tam batık, 12 N ağırlıklı cisim tavana bağlı ipte dengedeyken ip gerilmesi 4 N’dur. Kaldırma kuvveti kaç N’dur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "12 N"
+            },
+            {
+              "key": "B",
+              "text": "4 N"
+            },
+            {
+              "key": "C",
+              "text": "16 N"
+            },
+            {
+              "key": "D",
+              "text": "48 N"
+            },
+            {
+              "key": "E",
+              "text": "8 N"
+            }
+          ],
+          "answer": "E",
+          "solution": "Denge: T+Fₖ=G → Fₖ=12−4=8 N.",
+          "conceptIds": [
+            "tension-ceiling"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-medium-01-q13",
+          "number": 13,
+          "stem": "Bir cisim aynı sıvıda önce hacminin 1/3’ü, sonra 2/3’ü batık olacak şekilde dinamometreyle asılı tutuluyor. Kaldırma kuvvetlerinin oranı F₂/F₁ kaçtır?",
+          "options": [
+            {
+              "key": "A",
+              "text": "1/2"
+            },
+            {
+              "key": "B",
+              "text": "4"
+            },
+            {
+              "key": "C",
+              "text": "1"
+            },
+            {
+              "key": "D",
+              "text": "2"
+            },
+            {
+              "key": "E",
+              "text": "3"
+            }
+          ],
+          "answer": "D",
+          "solution": "Batık hacim iki kat olduğundan F₂/F₁=(2/3)/(1/3)=2.",
+          "conceptIds": [
+            "partial-to-full"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-medium-01-q14",
+          "number": 14,
+          "stem": "Bir top suda kendiliğinden yüzebiliyor. Öğrenci topu tamamen su altına itip dengede tutuyor. Öğrencinin uyguladığı kuvvet hangi yöndedir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Yatay sola"
+            },
+            {
+              "key": "B",
+              "text": "Aşağı"
+            },
+            {
+              "key": "C",
+              "text": "Kuvvet gerekmez"
+            },
+            {
+              "key": "D",
+              "text": "Yatay sağa"
+            },
+            {
+              "key": "E",
+              "text": "Yukarı"
+            }
+          ],
+          "answer": "B",
+          "solution": "Topun ρ_c<ρ_s olduğu için tamamen batıkken Fₖ>G; denge için ek aşağı kuvvet gerekir.",
+          "conceptIds": [
+            "tension-bottom"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-01-q14.svg",
+            "alt": "Yüzen top elle aşağı bastırılarak tamamen su altında dengede tutuluyor. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-01-q15",
+          "number": 15,
+          "stem": "Havada 20 N, suda 15 N ve yağda 16 N ölçülen bir cisim üç ortamda da tamamen batık. Suyun yağın özkütlesine oranı kaçtır? (Havanın kaldırması ihmal.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "4/5"
+            },
+            {
+              "key": "B",
+              "text": "16/15"
+            },
+            {
+              "key": "C",
+              "text": "5/4"
+            },
+            {
+              "key": "D",
+              "text": "15/16"
+            },
+            {
+              "key": "E",
+              "text": "20/15"
+            }
+          ],
+          "answer": "C",
+          "solution": "Kaldırmalar suda 5 N, yağda 4 N; aynı V için ρ_s/ρ_y=5/4.",
+          "conceptIds": [
+            "fluid-density"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        }
+      ]
+    },
+    {
+      "id": "buoyancy-medium-02",
+      "level": "medium",
+      "title": "Orta 2 · Taşma Kabı, Tekne ve Seviye",
+      "topicId": "buoyancy",
+      "questionCount": 15,
+      "description": "Hacim korunumu ile ağırlık ilişkisini ayırt et.",
+      "questions": [
+        {
+          "id": "buoyancy-medium-02-q01",
+          "number": 1,
+          "stem": "Taşma seviyesindeki kapta yüzen 300 g bir oyuncak, kaç gram sıvı taşırır? (Başlangıçta taşma düzeyi ve sıvı homojen.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "150 g"
+            },
+            {
+              "key": "B",
+              "text": "100 g"
+            },
+            {
+              "key": "C",
+              "text": "Oyuncağın tüm hacmi kadar kütle zorunludur."
+            },
+            {
+              "key": "D",
+              "text": "600 g"
+            },
+            {
+              "key": "E",
+              "text": "300 g"
+            }
+          ],
+          "answer": "E",
+          "solution": "Yüzen cisimde yer değiştiren sıvının ağırlığı cismin ağırlığına eşittir; kütlesi de 300 g.",
+          "conceptIds": [
+            "overflow"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-02-q01.svg",
+            "alt": "Özgün şematik çizim: oyuncak: 300 g, taşma düzeyi. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-02-q02",
+          "number": 2,
+          "stem": "Taşma seviyesindeki su kabına hacmi 250 cm³ olan yoğun metal blok tümüyle batırılıyor. Kaç cm³ su taşar?",
+          "options": [
+            {
+              "key": "A",
+              "text": "100 cm³"
+            },
+            {
+              "key": "B",
+              "text": "250 cm³"
+            },
+            {
+              "key": "C",
+              "text": "500 cm³"
+            },
+            {
+              "key": "D",
+              "text": "Cismin kütlesi kadar cm³"
+            },
+            {
+              "key": "E",
+              "text": "125 cm³"
+            }
+          ],
+          "answer": "B",
+          "solution": "Batık hacim 250 cm³ olduğundan aynı hacimde su taşar.",
+          "conceptIds": [
+            "overflow"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-medium-02-q03",
+          "number": 3,
+          "stem": "Su dolu taşma kabına serbest bırakılan 200 g’lık bir cisim dibe batıyor ve hacmi 100 cm³. Kaç gram su taşar? (ρ_su=1 g/cm³)",
+          "options": [
+            {
+              "key": "A",
+              "text": "200 g"
+            },
+            {
+              "key": "B",
+              "text": "300 g"
+            },
+            {
+              "key": "C",
+              "text": "400 g"
+            },
+            {
+              "key": "D",
+              "text": "100 g"
+            },
+            {
+              "key": "E",
+              "text": "50 g"
+            }
+          ],
+          "answer": "D",
+          "solution": "Taşan sıvı kütlesi m=ρV=1×100=100 g; batan cismin ağırlığına eşit olmak zorunda değildir.",
+          "conceptIds": [
+            "overflow"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-02-q03.svg",
+            "alt": "200 g, 100 cm³ cisim taşma kabının tabanında; taşma çıkışı gösteriliyor. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-02-q04",
+          "number": 4,
+          "stem": "Bir teknenin içinde duran yoğun metal parça suya atılıp göl tabanına batıyor. Başlangıç ve son duruma göre göl su seviyesi nasıl değişir? (Metalin özkütlesi sudan büyük.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "Yalnız teknenin rengine bağlıdır."
+            },
+            {
+              "key": "B",
+              "text": "Değişmez."
+            },
+            {
+              "key": "C",
+              "text": "Azalır."
+            },
+            {
+              "key": "D",
+              "text": "Önce azalır sonra başlangıcın üstüne çıkar."
+            },
+            {
+              "key": "E",
+              "text": "Artar."
+            }
+          ],
+          "answer": "C",
+          "solution": "Teknede parça ağırlığı kadar su yer değiştirir; dibe düşünce kendi hacmi kadar. Metal yoğun olduğu için kendi hacmi daha azdır.",
+          "conceptIds": [
+            "boat-rock"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-02-q04.svg",
+            "alt": "Özgün şematik çizim: Önce: teknede, Sonra: dipte. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-02-q05",
+          "number": 5,
+          "stem": "Bir teknenin içinde duran tahta blok tekne dışındaki suya bırakılıyor ve tahta yüzüyor. Suyun toplam seviyesi nasıl değişir? (Tahta her iki durumda da aynı kütlede.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "Azalır."
+            },
+            {
+              "key": "B",
+              "text": "Değişmez."
+            },
+            {
+              "key": "C",
+              "text": "Artar."
+            },
+            {
+              "key": "D",
+              "text": "Teknenin hacmine eşit miktarda artar."
+            },
+            {
+              "key": "E",
+              "text": "Tahta yüzdüğü için iki katına çıkar."
+            }
+          ],
+          "answer": "B",
+          "solution": "Tahta teknedeyken ve ayrı yüzdüğünde aynı ağırlık kadar su yer değiştirir.",
+          "conceptIds": [
+            "boat-rock"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-02-q05.svg",
+            "alt": "Tahta önce teknenin içinde; bırakıldıktan sonra su yüzeyinde yüzüyor. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-02-q06",
+          "number": 6,
+          "stem": "Suda yüzen büyük bir buz parçası eriyip suya dönüşüyor. Saf suda, başlangıç ve son hâlde su seviyesi ne olur? (Hava boşlukları yok; sıcaklık kaynaklı genleşme ihmal.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "Kesin iki katına çıkar."
+            },
+            {
+              "key": "B",
+              "text": "Yükselir."
+            },
+            {
+              "key": "C",
+              "text": "Önce yükselir, sonra alçalır."
+            },
+            {
+              "key": "D",
+              "text": "Değişmez."
+            },
+            {
+              "key": "E",
+              "text": "Alçalır."
+            }
+          ],
+          "answer": "D",
+          "solution": "Yüzerken buz, ağırlığı kadar su yer değiştirir; eriyince oluşan su hacmi tam bu hacme eşittir.",
+          "conceptIds": [
+            "ice-melting"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-medium-02-q07",
+          "number": 7,
+          "stem": "Bir teknenin yükü 80 kg artırılıyor ve tekne yüzmeye devam ediyor. Göl suyunun özkütlesi 1000 kg/m³ ise teknenin batık hacmi kaç m³ artar? (g sabit)",
+          "options": [
+            {
+              "key": "A",
+              "text": "0,080 m³"
+            },
+            {
+              "key": "B",
+              "text": "0,80 m³"
+            },
+            {
+              "key": "C",
+              "text": "8,0 m³"
+            },
+            {
+              "key": "D",
+              "text": "80 m³"
+            },
+            {
+              "key": "E",
+              "text": "0,008 m³"
+            }
+          ],
+          "answer": "A",
+          "solution": "ΔV=Δm/ρ=80/1000=0,08 m³.",
+          "conceptIds": [
+            "floating-equilibrium"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-02-q07.svg",
+            "alt": "Özgün şematik çizim: yük artışı: 80 kg. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-02-q08",
+          "number": 8,
+          "stem": "Taşma kabında 1 L dış hacimli iki cisim ayrı ayrı suya bırakılıyor: K’nin kütlesi 0,7 kg, L’ninki 1,3 kg. K yüzüyor, L dibe batıyor. L’nin taşırdığı su hacmi K’ninkinden kaç litre fazladır? (ρ_su = 1 kg/L)",
+          "options": [
+            {
+              "key": "A",
+              "text": "1,3 L"
+            },
+            {
+              "key": "B",
+              "text": "0,3 L"
+            },
+            {
+              "key": "C",
+              "text": "0,7 L"
+            },
+            {
+              "key": "D",
+              "text": "0,1 L"
+            },
+            {
+              "key": "E",
+              "text": "1,0 L"
+            }
+          ],
+          "answer": "B",
+          "solution": "K yüzerken 0,7 L suyu yer değiştirir. L bütünüyle battığında 1,0 L yer değiştirir. Fark 0,3 L’dir.",
+          "conceptIds": [
+            "overflow"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-02-q08.svg",
+            "alt": "K ayrı deneyde yüzüyor, L ayrı deneyde tabanda; her ikisinin dış hacmi 1 L. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-02-q09",
+          "number": 9,
+          "stem": "Yüzen küpün hacminin 2/5’i su dışındadır. Küpün tamamı 1,5 L ise suya batan hacmi kaç litredir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "0,6 L"
+            },
+            {
+              "key": "B",
+              "text": "0,3 L"
+            },
+            {
+              "key": "C",
+              "text": "2,5 L"
+            },
+            {
+              "key": "D",
+              "text": "1,5 L"
+            },
+            {
+              "key": "E",
+              "text": "0,9 L"
+            }
+          ],
+          "answer": "E",
+          "solution": "Küpün hacminin 2/5’i dışarıda olduğundan 3/5’i içeridedir. Batan hacim (3/5)×1,5 = 0,9 L olur.",
+          "conceptIds": [
+            "floating-fraction"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-medium-02-q10",
+          "number": 10,
+          "stem": "Yoğunluğu 0,6 kg/L olan 2 L hacimli tahta blok su yüzeyinde serbestçe yüzüyor. Taşma kabında yüzdüğünde taşan su hacmi kaç L olur? (ρ_su =1 kg/L)",
+          "options": [
+            {
+              "key": "A",
+              "text": "2,0 L"
+            },
+            {
+              "key": "B",
+              "text": "0,6 L"
+            },
+            {
+              "key": "C",
+              "text": "1,2 L"
+            },
+            {
+              "key": "D",
+              "text": "3,2 L"
+            },
+            {
+              "key": "E",
+              "text": "0,8 L"
+            }
+          ],
+          "answer": "C",
+          "solution": "Tahta kütlesi 0,6×2=1,2 kg; 1,2 L su taşır.",
+          "conceptIds": [
+            "overflow"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-medium-02-q11",
+          "number": 11,
+          "stem": "Kabın içinde yüzmekte olan 100 g bir plastik oyuncak tamamen suya elle bastırılıyor. Elin uyguladığı ek kuvvet yüzünden yer değiştiren su hacmi nasıl değişir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Artar."
+            },
+            {
+              "key": "B",
+              "text": "Değişmez."
+            },
+            {
+              "key": "C",
+              "text": "Azalır."
+            },
+            {
+              "key": "D",
+              "text": "Oyuncağın gerçek ağırlığı değişir."
+            },
+            {
+              "key": "E",
+              "text": "Suyun özkütlesi artar."
+            }
+          ],
+          "answer": "A",
+          "solution": "Batık hacim artınca Fₖ artar; fazlalık elin aşağı kuvvetiyle dengelenir.",
+          "conceptIds": [
+            "partial-to-full"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-02-q11.svg",
+            "alt": "Elle tamamen suya batırılan 100 g oyuncak; el kuvveti aşağı yönlüdür. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-02-q12",
+          "number": 12,
+          "stem": "Taşma seviyesindeki bir kapta özkütlesi 1 kg/L olan sıvı bulunuyor. 0,5 L’lik küp tamamen batırıldığında taşan sıvı kaç N ağırlığındadır? (g=10)",
+          "options": [
+            {
+              "key": "A",
+              "text": "50 N"
+            },
+            {
+              "key": "B",
+              "text": "0,5 N"
+            },
+            {
+              "key": "C",
+              "text": "10 N"
+            },
+            {
+              "key": "D",
+              "text": "5 N"
+            },
+            {
+              "key": "E",
+              "text": "1 N"
+            }
+          ],
+          "answer": "D",
+          "solution": "Taşan sıvının kütlesi 0,5 kg, ağırlığı 5 N.",
+          "conceptIds": [
+            "overflow"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-medium-02-q13",
+          "number": 13,
+          "stem": "Bir gemi tuzlu sudan tatlı suya geçtiğinde kütlesi ve şekli değişmiyor. Gemi için hangi ifade doğrudur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Yerçekimi ivmesi geçişte değişir."
+            },
+            {
+              "key": "B",
+              "text": "Gemi her iki suda da bütünüyle batar."
+            },
+            {
+              "key": "C",
+              "text": "Tatlı suda daha fazla hacmi batar."
+            },
+            {
+              "key": "D",
+              "text": "Tuzlu suda kaldırma kuvveti kesin küçüktür."
+            },
+            {
+              "key": "E",
+              "text": "Tatlı suda kaldırma kuvveti daha büyük olur."
+            }
+          ],
+          "answer": "C",
+          "solution": "İki ortamda da Fₖ=G; tatlı suyun ρ’si küçük olduğu için V_batan büyüktür.",
+          "conceptIds": [
+            "floating-fraction"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-02-q13.svg",
+            "alt": "Özgün şematik çizim: tatlı su / tuzlu su. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-02-q14",
+          "number": 14,
+          "stem": "Bir tas su üstünde yüzerken içine bir miktar su dolduruluyor ama batmıyor. Tasın suya batık hacmi neden büyür?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Sistemin ağırlığı arttığı için"
+            },
+            {
+              "key": "B",
+              "text": "Kaldırma kuvveti zorunlu olarak azalacağı için"
+            },
+            {
+              "key": "C",
+              "text": "Dışarıdaki suyun kütlesi sıfırlandığı için"
+            },
+            {
+              "key": "D",
+              "text": "Suyun özkütlesi azaldığı için"
+            },
+            {
+              "key": "E",
+              "text": "Tasın metalinin özkütlesi değiştiği için"
+            }
+          ],
+          "answer": "A",
+          "solution": "Tas + içindeki suyun ağırlığı artar; dengede daha çok su yer değiştirir.",
+          "conceptIds": [
+            "floating-equilibrium"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-medium-02-q15",
+          "number": 15,
+          "stem": "Bir gölde yüzen tahta parçasının üzerinde küçük, yoğun bir metal anahtar bulunmaktadır. Anahtarın tahta ile bütün bağları kesilip anahtar gölün dibine bırakılıyor; anahtar tabanda duruyor. Başlangıçtaki tahta + anahtar durumuna göre su seviyesi nasıl değişir? (Su kaybı yok; metalin özkütlesi sudan büyük.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "Anahtarın kütlesi kadar metre yükselir."
+            },
+            {
+              "key": "B",
+              "text": "Artar."
+            },
+            {
+              "key": "C",
+              "text": "Yalnız göl sıcaklığına bağlıdır."
+            },
+            {
+              "key": "D",
+              "text": "Değişmez."
+            },
+            {
+              "key": "E",
+              "text": "Azalır."
+            }
+          ],
+          "answer": "E",
+          "solution": "Anahtar tahta üstündeyken kendi ağırlığı kadar su yer değiştirir; dibe düşünce kendi hacmi kadar, yani daha az.",
+          "conceptIds": [
+            "boat-rock"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        }
+      ]
+    },
+    {
+      "id": "buoyancy-medium-03",
+      "level": "medium",
+      "title": "Orta 3 · Grafikler ve Çoklu Özkütle",
+      "topicId": "buoyancy",
+      "questionCount": 15,
+      "description": "Verilen tablolar ve iki farklı ortamı karşılaştır.",
+      "questions": [
+        {
+          "id": "buoyancy-medium-03-q01",
+          "number": 1,
+          "stem": "Eşit hacimli K, L, M bloklarının kütleleri sırasıyla 100 g, 150 g, 200 g. Özkütlesi 1,5 g/cm³ sıvıya bırakıldıklarında hacimleri 100 cm³ olduğuna göre hangileri serbestçe yüzer?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Yalnız M"
+            },
+            {
+              "key": "B",
+              "text": "Yalnız L"
+            },
+            {
+              "key": "C",
+              "text": "K, L ve M"
+            },
+            {
+              "key": "D",
+              "text": "K ve L"
+            },
+            {
+              "key": "E",
+              "text": "Yalnız K"
+            }
+          ],
+          "answer": "E",
+          "solution": "Özkütleler 1,0; 1,5; 2,0 g/cm³. K yüzer, L askıda, M batar.",
+          "conceptIds": [
+            "density-order"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-03-q01.svg",
+            "alt": "Serbest bırakılmadan önce eşit hacimli K, L, M blokları sıvının üzerinde; kütleleri 100, 150, 200 g. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-03-q02",
+          "number": 2,
+          "stem": "Özkütlesi 1 g/cm³ sıvıda, hacminin 2/3’ü batık yüzen bir cisim 0,8 g/cm³ yoğunluklu sıvıya alınırsa batan oran yaklaşık kaç olur? (İki sıvı karışmıyor ve cisim sıvının içinde yüzebiliyor.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "6/5"
+            },
+            {
+              "key": "B",
+              "text": "1/2"
+            },
+            {
+              "key": "C",
+              "text": "5/6"
+            },
+            {
+              "key": "D",
+              "text": "3/4"
+            },
+            {
+              "key": "E",
+              "text": "2/3"
+            }
+          ],
+          "answer": "C",
+          "solution": "ρ_c=(2/3)×1=2/3. Yeni oran (2/3)/0,8=(2/3)×(5/4)=5/6.",
+          "conceptIds": [
+            "floating-fraction"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-03-q02.svg",
+            "alt": "Özgün şematik çizim: iki sıvıda aynı cisim. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-03-q03",
+          "number": 3,
+          "stem": "Suda tam batık halde dengede olmayan 1,5 L’lik taşın kaldırma kuvveti 15 N. Suyun özkütlesi değiştirilmeden taşın derinliği artırılırsa hangi grafik elde edilir? (Taş sıkışmıyor.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "Sıfıra doğrusal yaklaşır."
+            },
+            {
+              "key": "B",
+              "text": "Kesikli olarak iki katına sıçrar."
+            },
+            {
+              "key": "C",
+              "text": "Kaldırma kuvveti–derinlik grafiği yatay bir doğru olur."
+            },
+            {
+              "key": "D",
+              "text": "Parabolik artan olur."
+            },
+            {
+              "key": "E",
+              "text": "Doğrusal artan olur."
+            }
+          ],
+          "answer": "C",
+          "solution": "Tam batık hacim ve ρ sabit: Fₖ derinlikten bağımsız.",
+          "conceptIds": [
+            "graphs"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-medium-03-q04",
+          "number": 4,
+          "stem": "Bir cisim suya yavaşça batırılıyor. İlk önce batık hacim artıyor, sonra cisim tamamen batıyor. Kaldırma kuvvetinin batırılan derinliğe karşı grafiği nasıl olur? (Düzgün kesitli dik prizma, ρ sabit.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "Önce sabit kalır sonra artar."
+            },
+            {
+              "key": "B",
+              "text": "Bütün süreçte doğrusal azalır."
+            },
+            {
+              "key": "C",
+              "text": "Önce doğrusal artar, sonra sabit kalır."
+            },
+            {
+              "key": "D",
+              "text": "Bütün süreçte sabit kalır."
+            },
+            {
+              "key": "E",
+              "text": "Tam batınca sıfıra iner."
+            }
+          ],
+          "answer": "C",
+          "solution": "Dik prizmanın batık hacmi kısmi batırmada h ile doğru orantılıdır; tam batınca V sabit.",
+          "conceptIds": [
+            "graphs"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-03-q04.svg",
+            "alt": "Kaldırma kuvveti, dik prizmanın batırma derinliğiyle önce doğrusal artar, tam batınca sabit kalır. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-03-q05",
+          "number": 5,
+          "stem": "Bir cismin sıvı içinde toplam hacminin %50’si batıkken yüzdüğü biliniyor. Sıvının özkütlesi 1,2 g/cm³ ise cismin özkütlesi kaç g/cm³’tür?",
+          "options": [
+            {
+              "key": "A",
+              "text": "0,5"
+            },
+            {
+              "key": "B",
+              "text": "2,4"
+            },
+            {
+              "key": "C",
+              "text": "1,7"
+            },
+            {
+              "key": "D",
+              "text": "1,2"
+            },
+            {
+              "key": "E",
+              "text": "0,6"
+            }
+          ],
+          "answer": "E",
+          "solution": "Yüzen cisimde ρ_c/ρ_s = V_batan/V_toplam = 0,5 olduğundan ρ_c = 0,5 × 1,2 = 0,6 g/cm³.",
+          "conceptIds": [
+            "floating-fraction"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-03-q05.svg",
+            "alt": "Özgün şematik çizim: ρ_s=1,2 g/cm³. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-03-q06",
+          "number": 6,
+          "stem": "K ve L sıvılarında aynı katı cisim tamamen batık halde tutuluyor. K’da kaldırma 24 N, L’de 18 N ölçülüyor. Sıvı özkütlelerinin oranı ρ_K/ρ_L kaçtır?",
+          "options": [
+            {
+              "key": "A",
+              "text": "6/5"
+            },
+            {
+              "key": "B",
+              "text": "2"
+            },
+            {
+              "key": "C",
+              "text": "3/4"
+            },
+            {
+              "key": "D",
+              "text": "4/3"
+            },
+            {
+              "key": "E",
+              "text": "1"
+            }
+          ],
+          "answer": "D",
+          "solution": "Aynı batık hacimde kaldırmalar özkütlelerle orantılı: 24/18=4/3.",
+          "conceptIds": [
+            "fluid-density"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-medium-03-q07",
+          "number": 7,
+          "stem": "İki farklı sıvıdaki aynı yüzen cismin batan hacimleri sırasıyla 3 L ve 2 L. Sıvı özkütlelerinin oranı ρ_1/ρ_2 nedir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "5/2"
+            },
+            {
+              "key": "B",
+              "text": "3/2"
+            },
+            {
+              "key": "C",
+              "text": "1/2"
+            },
+            {
+              "key": "D",
+              "text": "2/3"
+            },
+            {
+              "key": "E",
+              "text": "1"
+            }
+          ],
+          "answer": "D",
+          "solution": "Fₖ=G sabit; ρ₁·3=ρ₂·2 → ρ₁/ρ₂=2/3.",
+          "conceptIds": [
+            "floating-fraction"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-03-q07.svg",
+            "alt": "Özgün şematik çizim: 3 L ve 2 L batık. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-03-q08",
+          "number": 8,
+          "stem": "Daha önce suda yüzen bir cismin içindeki hava boşluğu açılıyor, hava çıkarılarak boşluğa su dolduruluyor ve cisim yeniden kapatılıyor. Dış hacim değişmiyor; havanın kütlesi ihmal ediliyor. Bu işlem sonucunda hangi büyüklük değişir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Sistemin ortalama özkütlesi artar."
+            },
+            {
+              "key": "B",
+              "text": "Dış hacim zorunlu olarak artar."
+            },
+            {
+              "key": "C",
+              "text": "Yerçekimi yönü değişir."
+            },
+            {
+              "key": "D",
+              "text": "Sıvının özkütlesi kendiliğinden sıfır olur."
+            },
+            {
+              "key": "E",
+              "text": "Suyun kaldırma kuvveti her konumda sıfır olur."
+            }
+          ],
+          "answer": "A",
+          "solution": "Dış hacim sabit, kütle artar; ortalama özkütle büyür.",
+          "conceptIds": [
+            "average-density"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-medium-03-q09",
+          "number": 9,
+          "stem": "Aynı sıvıda yüzen iki bloktan A’nın batan oranı %20, B’ninki %60. Özkütle oranı ρ_A/ρ_B kaçtır?",
+          "options": [
+            {
+              "key": "A",
+              "text": "1/3"
+            },
+            {
+              "key": "B",
+              "text": "4"
+            },
+            {
+              "key": "C",
+              "text": "2/3"
+            },
+            {
+              "key": "D",
+              "text": "3"
+            },
+            {
+              "key": "E",
+              "text": "1/2"
+            }
+          ],
+          "answer": "A",
+          "solution": "ρ_A/ρ_B=0,20/0,60=1/3.",
+          "conceptIds": [
+            "floating-fraction"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-03-q09.svg",
+            "alt": "Özgün şematik çizim: A ve B: yüzdeler. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-03-q10",
+          "number": 10,
+          "stem": "Deney çizelgesi: Batık hacim 1, 2 ve 3 L iken sırasıyla 8, 16 ve 24 N kaldırma kuvveti ölçülüyor. Aynı sıvıda 2,5 L için hangi sonuç beklenir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "24 N"
+            },
+            {
+              "key": "B",
+              "text": "20 N"
+            },
+            {
+              "key": "C",
+              "text": "16 N"
+            },
+            {
+              "key": "D",
+              "text": "30 N"
+            },
+            {
+              "key": "E",
+              "text": "10 N"
+            }
+          ],
+          "answer": "B",
+          "solution": "Fₖ/V=8 N/L; 2,5 L için 20 N.",
+          "conceptIds": [
+            "graphs"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-03-q10.svg",
+            "alt": "Batık hacim ile kaldırma kuvveti doğrusal ilişkilidir: 1 L için 8 N, 3 L için 24 N. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-03-q11",
+          "number": 11,
+          "stem": "Aynı ağırlıktaki K ve L gemileri farklı yoğunluktaki sıvılarda yüzüyor. K’nin batan hacmi L’ninkinden büyükse hangi çıkarım kesinlikle doğrudur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "K’nin kaldırma kuvveti daha büyüktür."
+            },
+            {
+              "key": "B",
+              "text": "K’nin bulunduğu sıvının özkütlesi daha küçüktür."
+            },
+            {
+              "key": "C",
+              "text": "K’nin ağırlığı daha büyüktür."
+            },
+            {
+              "key": "D",
+              "text": "L mutlaka batmak üzeredir."
+            },
+            {
+              "key": "E",
+              "text": "K’nin su altındaki basıncı sıfırdır."
+            }
+          ],
+          "answer": "B",
+          "solution": "Fₖ=G iki gemide eşit; V daha büyükse ρ daha küçüktür.",
+          "conceptIds": [
+            "fluid-density"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-medium-03-q12",
+          "number": 12,
+          "stem": "Bir blok, özkütlesi 1,0 g/cm³ sıvıda batık oranı 0,7 iken özkütlesi 1,4 g/cm³ sıvıda yüzdürülüyor. Yeni oran nedir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "1,0"
+            },
+            {
+              "key": "B",
+              "text": "1,4"
+            },
+            {
+              "key": "C",
+              "text": "0,3"
+            },
+            {
+              "key": "D",
+              "text": "0,7"
+            },
+            {
+              "key": "E",
+              "text": "0,5"
+            }
+          ],
+          "answer": "E",
+          "solution": "ρ_c=0,7. Yeni oran=0,7/1,4=0,5.",
+          "conceptIds": [
+            "floating-fraction"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-medium-03-q12.svg",
+            "alt": "Özgün şematik çizim: batan hacim oranı. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-medium-03-q13",
+          "number": 13,
+          "stem": "Sıvı içindeki bir cismin batık hacmi iki kat, sıvı özkütlesi yarı kat yapılıyor; g sabit. Kaldırma kuvveti hangi oranda değişir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Değişmez."
+            },
+            {
+              "key": "B",
+              "text": "Yarıya iner."
+            },
+            {
+              "key": "C",
+              "text": "Dörtte bire iner."
+            },
+            {
+              "key": "D",
+              "text": "Dört katına çıkar."
+            },
+            {
+              "key": "E",
+              "text": "İki katına çıkar."
+            }
+          ],
+          "answer": "A",
+          "solution": "Kaldırma kuvveti Fₖ = ρgV_batan ile bulunur. Yeni çarpan (1/2) × 2 = 1 olduğundan kuvvet değişmez.",
+          "conceptIds": [
+            "archimedes"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-medium-03-q14",
+          "number": 14,
+          "stem": "Bir deneyde yerçekimi ivmesi iki katına çıkarılıyor. Aynı sıvıda ve aynı batık hacimdeki cisme uygulanan kaldırma kuvveti kaç kat olur? (Yoğunluk sabit.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "1 kat"
+            },
+            {
+              "key": "B",
+              "text": "2 kat"
+            },
+            {
+              "key": "C",
+              "text": "8 kat"
+            },
+            {
+              "key": "D",
+              "text": "4 kat"
+            },
+            {
+              "key": "E",
+              "text": "1/2 kat"
+            }
+          ],
+          "answer": "B",
+          "solution": "Fₖ=ρgV, g iki katına çıkarsa Fₖ iki kat olur.",
+          "conceptIds": [
+            "gravity"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-medium-03-q15",
+          "number": 15,
+          "stem": "Bir cismin yüzdüğü sıvıya karışabilen, daha yoğun bir sıvı eklenip homojen karışım elde ediliyor. Cisim yüzmeye devam ediyorsa, denge durumunda ne değişir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Batan hacmi azalır; kaldırma sıfırlanır."
+            },
+            {
+              "key": "B",
+              "text": "Cisim her durumda batar."
+            },
+            {
+              "key": "C",
+              "text": "Batan hacmi artar; kaldırma azalır."
+            },
+            {
+              "key": "D",
+              "text": "Cismin batan hacmi azalır; kaldırma kuvveti ağırlığına eşit kalır."
+            },
+            {
+              "key": "E",
+              "text": "Batan hacmi değişmez; kaldırma artar."
+            }
+          ],
+          "answer": "D",
+          "solution": "ρ_sıvı artar, aynı G daha az V_batan ile dengelenir.",
+          "conceptIds": [
+            "fluid-density"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        }
+      ]
+    },
+    {
+      "id": "buoyancy-hard-01",
+      "level": "hard",
+      "title": "Zor 1 · Birleşik Düzenekler",
+      "topicId": "buoyancy",
+      "questionCount": 15,
+      "description": "Birden çok denge koşulunu ve iki sıvıyı birlikte yorumla.",
+      "questions": [
+        {
+          "id": "buoyancy-hard-01-q01",
+          "number": 1,
+          "stem": "Özkütleleri sırasıyla 0,8 ve 1,2 kg/L olan, birbirine karışmayan üst ve alt sıvı katmanlarının ara yüzünde 2 L hacimli, 1,0 kg/L özkütleli homojen cisim yüzmektedir. Cisim tabana değmiyor ve iki sıvıda da kısmen bulunuyor. Alt sıvıda kaç litre hacmi kalır?",
+          "options": [
+            {
+              "key": "A",
+              "text": "2,0 L"
+            },
+            {
+              "key": "B",
+              "text": "1,5 L"
+            },
+            {
+              "key": "C",
+              "text": "0,25 L"
+            },
+            {
+              "key": "D",
+              "text": "1,0 L"
+            },
+            {
+              "key": "E",
+              "text": "0,5 L"
+            }
+          ],
+          "answer": "D",
+          "solution": "V_alt=x: 1,2x + 0,8(2−x)=2,0 → 0,4x=0,4, x=1 L. (g ortak çarpan.)",
+          "conceptIds": [
+            "layered-floats"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-01-q01.svg",
+            "alt": "Özgün şematik çizim: üst: 0,8, cisim: 1,0, alt: 1,2. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-01-q02",
+          "number": 2,
+          "stem": "30 N ağırlıklı, 2 L hacimli katı cisim, K sıvısında tamamen batıkken tavana bağlı ipte 10 N gerilme ölçülüyor. Cisim L sıvısında aynı şekilde batıkken 6 N gerilme ölçülüyor. ρ_L/ρ_K kaçtır?",
+          "options": [
+            {
+              "key": "A",
+              "text": "6/5"
+            },
+            {
+              "key": "B",
+              "text": "3/5"
+            },
+            {
+              "key": "C",
+              "text": "3/2"
+            },
+            {
+              "key": "D",
+              "text": "5/6"
+            },
+            {
+              "key": "E",
+              "text": "4/3"
+            }
+          ],
+          "answer": "A",
+          "solution": "K’da Fₖ=30−10=20 N, L’de Fₖ=30−6=24 N. Oran 24/20=6/5.",
+          "conceptIds": [
+            "tension-ceiling"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-hard-01-q03",
+          "number": 3,
+          "stem": "Dik kesit alanı 200 cm² olan bir blok, suda yüzüyor. Bloğun üzerine 400 g ek ağırlık konuluyor ve blok batmadan yüzmeye devam ediyor. Suyun içinde kalan blok yüksekliği kaç cm artar? (ρ_su=1 g/cm³)",
+          "options": [
+            {
+              "key": "A",
+              "text": "20 cm"
+            },
+            {
+              "key": "B",
+              "text": "2 cm"
+            },
+            {
+              "key": "C",
+              "text": "1 cm"
+            },
+            {
+              "key": "D",
+              "text": "8 cm"
+            },
+            {
+              "key": "E",
+              "text": "4 cm"
+            }
+          ],
+          "answer": "B",
+          "solution": "ΔV=400 cm³, Δh=ΔV/A=400/200=2 cm.",
+          "conceptIds": [
+            "floating-equilibrium"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-01-q03.svg",
+            "alt": "Özgün şematik çizim: A=200 cm², ek yük: 400 g. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-01-q04",
+          "number": 4,
+          "stem": "Bir teknede duran 6 kg kütleli ve 2 L hacimli metal cisim, suya atılıp dibe batıyor. Tekne + metal birlikte yüzerken ve metal dipteyken yer değiştiren su hacimleri arasındaki fark kaç L’dir? (ρ_su=1 kg/L)",
+          "options": [
+            {
+              "key": "A",
+              "text": "6 L"
+            },
+            {
+              "key": "B",
+              "text": "3 L"
+            },
+            {
+              "key": "C",
+              "text": "8 L"
+            },
+            {
+              "key": "D",
+              "text": "4 L"
+            },
+            {
+              "key": "E",
+              "text": "2 L"
+            }
+          ],
+          "answer": "D",
+          "solution": "Metal teknedeyken ek 6 L su taşırır; dibe inince 2 L yer değiştirir. Fark 4 L.",
+          "conceptIds": [
+            "boat-rock"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-01-q04.svg",
+            "alt": "6 kg, 2 L metal önce teknede, sonra suyun tabanında; tekne her iki durumda yüzüyor. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-01-q05",
+          "number": 5,
+          "stem": "Ağırlığı 16 N, hacmi 3 L olan küre, ρ=1 kg/L sıvıda tamamen batıkken tabana bağlı iple tutuluyor. Sıvı özkütlesi 0,8 kg/L olursa yeni gerilme kaç N olur? (g=10; küre sabit hacimlidir.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "14 N"
+            },
+            {
+              "key": "B",
+              "text": "24 N"
+            },
+            {
+              "key": "C",
+              "text": "16 N"
+            },
+            {
+              "key": "D",
+              "text": "6 N"
+            },
+            {
+              "key": "E",
+              "text": "8 N"
+            }
+          ],
+          "answer": "E",
+          "solution": "Başlangıç Fₖ=30 N, T=14 N. Son Fₖ=0,8×3×10=24 N; T=24−16=8 N.",
+          "conceptIds": [
+            "tension-bottom"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-01-q05.svg",
+            "alt": "Özgün şematik çizim: G = 16 N, V = 3 L. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-01-q06",
+          "number": 6,
+          "stem": "Taşma kabındaki 400 g kütleli ve 500 cm³ hacimli cisim suya bırakıldığında yüzüyor. Kap başlangıçta taşma düzeyinde. Taşan su hacmi ve cismin batık hacmi sırasıyla nedir? (ρ_su=1 g/cm³)",
+          "options": [
+            {
+              "key": "A",
+              "text": "400 cm³ ve 400 cm³"
+            },
+            {
+              "key": "B",
+              "text": "500 cm³ ve 500 cm³"
+            },
+            {
+              "key": "C",
+              "text": "500 cm³ ve 400 cm³"
+            },
+            {
+              "key": "D",
+              "text": "400 cm³ ve 500 cm³"
+            },
+            {
+              "key": "E",
+              "text": "100 cm³ ve 100 cm³"
+            }
+          ],
+          "answer": "A",
+          "solution": "ρ_c=0,8<1. Denge için 400 g su yer değiştirir; batık hacim 400 cm³, taşan da 400 cm³.",
+          "conceptIds": [
+            "overflow"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-01-q06.svg",
+            "alt": "Özgün şematik çizim: 400 g, 500 cm³. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-01-q07",
+          "number": 7,
+          "stem": "İki sıvıda yüzebilen aynı cismin K sıvısında batan oranı 3/5, L sıvısında 1/2. K sıvısının özkütlesi 1,0 g/cm³ ise L sıvısının özkütlesi kaç g/cm³’tür?",
+          "options": [
+            {
+              "key": "A",
+              "text": "1,5"
+            },
+            {
+              "key": "B",
+              "text": "1,2"
+            },
+            {
+              "key": "C",
+              "text": "1,0"
+            },
+            {
+              "key": "D",
+              "text": "0,8"
+            },
+            {
+              "key": "E",
+              "text": "0,6"
+            }
+          ],
+          "answer": "B",
+          "solution": "ρ_c=1,0×3/5=0,6; L’de 0,6/(1/2)=1,2.",
+          "conceptIds": [
+            "floating-fraction"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-hard-01-q08",
+          "number": 8,
+          "stem": "Bir cisim su içindeki dinamometrede 15 N gösteriyor. Sıvıda tamamen batıkken gerçek ağırlığı 25 N’dur. Aynı cismin tamamen batık olduğu diğer sıvının özkütlesi suyun %80’i ise dinamometre kaç N gösterir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "20 N"
+            },
+            {
+              "key": "B",
+              "text": "17 N"
+            },
+            {
+              "key": "C",
+              "text": "8 N"
+            },
+            {
+              "key": "D",
+              "text": "13 N"
+            },
+            {
+              "key": "E",
+              "text": "10 N"
+            }
+          ],
+          "answer": "B",
+          "solution": "Su kaldırması 10 N; diğerinde 8 N; T=25−8=17 N.",
+          "conceptIds": [
+            "apparent-weight"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-hard-01-q09",
+          "number": 9,
+          "stem": "g=10 N/kg iken ağırlığı 6 N olan, 0,5 L hacimli cisim, özkütlesi 1 kg/L olan sıvıda tamamen batıktır. Birinci deneyde g=10 N/kg, ikinci deneyde g=20 N/kg alınır. Her deneyde dış destek kaldırılıp cisim ilk hızsız serbest bırakıldığı anda net aşağı kuvvetin büyüklüğü sırasıyla kaç N olur? (Kütle ve hacim sabit; sıvı direnci ihmal.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "6 N ve 12 N"
+            },
+            {
+              "key": "B",
+              "text": "5 N ve 10 N"
+            },
+            {
+              "key": "C",
+              "text": "1 N ve 1 N"
+            },
+            {
+              "key": "D",
+              "text": "11 N ve 22 N"
+            },
+            {
+              "key": "E",
+              "text": "1 N ve 2 N"
+            }
+          ],
+          "answer": "E",
+          "solution": "İlk Fₖ=5 N, G=6 N, net=1 N aşağı. g iki kat olunca G=12, Fₖ=10, net=2 N aşağı.",
+          "conceptIds": [
+            "gravity"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-hard-01-q10",
+          "number": 10,
+          "stem": "Bir akvaryumun dışında bulunan dinamometre 2 L hacimli taşa bağlıdır. Taş tamamen su içinde, tabana değmeden tutuluyor. Taş batırıldığında akvaryumun altındaki tartının okuması nasıl değişir? (Taşın ağırlığı dinamometrece taşınıyor, su dökülmüyor.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "20 N azalır."
+            },
+            {
+              "key": "B",
+              "text": "Değişmez."
+            },
+            {
+              "key": "C",
+              "text": "20 N artar."
+            },
+            {
+              "key": "D",
+              "text": "Taşın tüm ağırlığı kadar artar."
+            },
+            {
+              "key": "E",
+              "text": "Taşın ağırlığının iki katı kadar artar."
+            }
+          ],
+          "answer": "C",
+          "solution": "Taş sudan 20 N kaldırma gördüğünde suyu 20 N aşağı iter; tartı bu ek kuvveti ölçer.",
+          "conceptIds": [
+            "scale-reaction"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-01-q10.svg",
+            "alt": "Özgün şematik çizim: taş: 2 L, ρ_su=1 kg/L. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-01-q11",
+          "number": 11,
+          "stem": "Aynı deneyde taş akvaryumun içine bağlanmış sabit bir destekten iple tutulsa ve hiçbir su taşmasa, taş suya tamamen daldığında dış tartının ölçtüğü toplam ağırlık için hangisi doğrudur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Başlangıçta taş da sisteme dahilse toplam ağırlık değişmez."
+            },
+            {
+              "key": "B",
+              "text": "Mutlaka kaldırma kuvveti kadar artar."
+            },
+            {
+              "key": "C",
+              "text": "Taşın ağırlığı sıfır olur."
+            },
+            {
+              "key": "D",
+              "text": "Mutlaka kaldırma kuvveti kadar azalır."
+            },
+            {
+              "key": "E",
+              "text": "Kaptaki suyun özkütlesi sıfırlanır."
+            }
+          ],
+          "answer": "A",
+          "solution": "Kap+su+taş+destek tek sistemdir; iç kuvvetler toplam dış ağırlığı değiştirmez.",
+          "conceptIds": [
+            "system-boundary"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-hard-01-q12",
+          "number": 12,
+          "stem": "Bir blok, toplam 5 L hacminin 2 L’si su dışında olacak biçimde yüzüyor. Bloğun üzerine hacmi ihmal edilebilir 1 kg ek yük konulursa hâlâ yüzüyor. Yeni batık hacmi kaç litredir? (ρ_su=1 kg/L)",
+          "options": [
+            {
+              "key": "A",
+              "text": "6 L"
+            },
+            {
+              "key": "B",
+              "text": "3 L"
+            },
+            {
+              "key": "C",
+              "text": "4 L"
+            },
+            {
+              "key": "D",
+              "text": "2 L"
+            },
+            {
+              "key": "E",
+              "text": "5 L"
+            }
+          ],
+          "answer": "C",
+          "solution": "İlk batık 3 L; ek 1 kg yük 1 L ek su yer değiştirir; toplam 4 L.",
+          "conceptIds": [
+            "floating-equilibrium"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-01-q12.svg",
+            "alt": "Özgün şematik çizim: 5 L, ilk batık 3 L. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-01-q13",
+          "number": 13,
+          "stem": "Bir cisim suda yüzerken tamamının 2/5’i batıyor. Cisim, kütlesi ve hacmi değişmeden özkütlesi suyun 4/5’i olan başka sıvıya alınırsa nasıl dengelenir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Hacminin 2/5’i batar."
+            },
+            {
+              "key": "B",
+              "text": "Sıvı içinde serbest askıda kalır."
+            },
+            {
+              "key": "C",
+              "text": "Tamamen batar ve dibe çöker."
+            },
+            {
+              "key": "D",
+              "text": "Hacminin yarısı batar."
+            },
+            {
+              "key": "E",
+              "text": "Hacminin 1/5’i batar."
+            }
+          ],
+          "answer": "D",
+          "solution": "ρ_c=0,4ρ_su; yeni ρ=0,8ρ_su → batan oran 0,4/0,8=1/2.",
+          "conceptIds": [
+            "floating-fraction"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-hard-01-q14",
+          "number": 14,
+          "stem": "Sıvıdaki dik prizma yerçekimine karşı yukarı çekilirken tamamen batık konumdan kısmen batık konuma geçiyor. Sıvı yüzeyi değişmiyor, kesit alanı A, özkütle ρ. Prizmanın batan yüksekliği Δh kadar azaltılırsa kaldırma kuvvetindeki değişimin büyüklüğü nedir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "ρA/(gΔh)"
+            },
+            {
+              "key": "B",
+              "text": "ρgA/Δh"
+            },
+            {
+              "key": "C",
+              "text": "ρgAΔh"
+            },
+            {
+              "key": "D",
+              "text": "gΔh/(ρA)"
+            },
+            {
+              "key": "E",
+              "text": "ρgΔh/A"
+            }
+          ],
+          "answer": "C",
+          "solution": "ΔV=AΔh, dolayısıyla ΔFₖ=ρgΔV=ρgAΔh.",
+          "conceptIds": [
+            "graphs"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-01-q14.svg",
+            "alt": "Kaldırma kuvveti ile batık yükseklik h doğrusal ilişkilidir; yükseklik azalınca kuvvet de azalır. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-01-q15",
+          "number": 15,
+          "stem": "Bir araştırmacı çok az kütleli, esnek bir balonu suyun derinine indiriyor. Balonun içindeki gaz miktarı sabit, dış basınç artıyor ve hacim küçülüyor. Kaldırma kuvveti için hangi sonuç beklenir? (Su özkütlesi sabit.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "Artar."
+            },
+            {
+              "key": "B",
+              "text": "Değişmez."
+            },
+            {
+              "key": "C",
+              "text": "Suyun özkütlesiyle ilgisizdir."
+            },
+            {
+              "key": "D",
+              "text": "Derinlikle kesin doğrusal artar."
+            },
+            {
+              "key": "E",
+              "text": "Azalır."
+            }
+          ],
+          "answer": "E",
+          "solution": "Esnek balon küçülünce batık hacim azalır; Fₖ=ρgV düşer.",
+          "conceptIds": [
+            "compressible-body"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        }
+      ]
+    },
+    {
+      "id": "buoyancy-hard-02",
+      "level": "hard",
+      "title": "Zor 2 · Kesin Yargı ve Deney Tasarımı",
+      "topicId": "buoyancy",
+      "questionCount": 15,
+      "description": "Kesinlik, değişken kontrolü ve karşı örnekleri analiz et.",
+      "questions": [
+        {
+          "id": "buoyancy-hard-02-q01",
+          "number": 1,
+          "stem": "Aynı büyüklükte ve tamamen batık K ile L cisimleri eşit yoğunluklu sıvıda tavandan asılıdır. K’nin ip gerilmesi L’ninkinden büyüktür. I. K daha ağırdır. II. K’ye etki eden kaldırma daha büyüktür. III. L’nin özkütlesi daha küçüktür. Hangileri kesinlikle doğrudur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "I ve II"
+            },
+            {
+              "key": "B",
+              "text": "I, II ve III"
+            },
+            {
+              "key": "C",
+              "text": "I ve III"
+            },
+            {
+              "key": "D",
+              "text": "Yalnız I"
+            },
+            {
+              "key": "E",
+              "text": "Yalnız II"
+            }
+          ],
+          "answer": "C",
+          "solution": "Eşit V ve aynı ρ_sıvıda Fₖ eşit. T_K>T_L olduğundan G_K>G_L. Eşit V nedeniyle K’nin özkütlesi daha büyüktür, dolayısıyla L’ninki küçüktür; I ve III doğrudur.",
+          "conceptIds": [
+            "multiple-statements"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-hard-02-q02",
+          "number": 2,
+          "stem": "Bir gemi denizden daha az yoğun nehir suyuna geçiyor. I. Daha çok hacim suya batar. II. Dengedeki kaldırma kuvveti azalır. III. Yer değiştiren suyun ağırlığı değişmez. Hangileri doğrudur? (Yük sabit.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "Yalnız I"
+            },
+            {
+              "key": "B",
+              "text": "I, II ve III"
+            },
+            {
+              "key": "C",
+              "text": "Yalnız II"
+            },
+            {
+              "key": "D",
+              "text": "II ve III"
+            },
+            {
+              "key": "E",
+              "text": "I ve III"
+            }
+          ],
+          "answer": "E",
+          "solution": "Yüzerken Fₖ=G sabittir; daha düşük yoğunlukta daha fazla V gerekir.",
+          "conceptIds": [
+            "multiple-statements"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-hard-02-q03",
+          "number": 3,
+          "stem": "Bir deneyde öğrenci, askıda duran özkütlesi suya eşit homojen küreye etki eden kuvvetleri inceliyor. I. Kürenin toplam ağırlığı Fₖ’ye eşittir. II. Küreye uygulanan hidrostatik basınç derinlikle artar. III. Aynı hacim korunursa Fₖ derinlikle artar. Hangileri doğru?",
+          "options": [
+            {
+              "key": "A",
+              "text": "II ve III"
+            },
+            {
+              "key": "B",
+              "text": "Yalnız I"
+            },
+            {
+              "key": "C",
+              "text": "I ve II"
+            },
+            {
+              "key": "D",
+              "text": "Yalnız III"
+            },
+            {
+              "key": "E",
+              "text": "I, II ve III"
+            }
+          ],
+          "answer": "C",
+          "solution": "ρ,V sabitken Fₖ sabittir; mutlak basınç artar fakat üst-alt farkın bileşkesi değişmez.",
+          "conceptIds": [
+            "multiple-statements"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-hard-02-q04",
+          "number": 4,
+          "stem": "Bir araştırmacı aynı balonu farklı derinliklere indirip Fₖ’nin değiştiğini ölçüyor. Balon esnek ve hacmi basınca bağlı. Buna dayanarak “Kaldırma kuvveti yalnız derinliğe bağlıdır” sonucuna neden varılamaz?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Kaldırma kuvveti diye bir kuvvet olmadığı için"
+            },
+            {
+              "key": "B",
+              "text": "Sıvının yerçekimi anında tersine döndüğü için"
+            },
+            {
+              "key": "C",
+              "text": "Balonun yer değiştirdiği su hacmi de değiştiği için"
+            },
+            {
+              "key": "D",
+              "text": "Suyun özkütlesi zorunlu olarak sıfırlandığı için"
+            },
+            {
+              "key": "E",
+              "text": "Havanın kütlesi her an sıfırlandığı için"
+            }
+          ],
+          "answer": "C",
+          "solution": "Derinliğin etkisi hacim değişimi üzerinden ortaya çıkmış olabilir; kontrol edilen değişken sabit değil.",
+          "conceptIds": [
+            "experimental-design"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-hard-02-q05",
+          "number": 5,
+          "stem": "Yüzen iki özdeş kapalı kutudan K’nin içinde 400 g, L’nin içinde 600 g ek yük var. Her ikisi aynı sıvıda ve kutular boş hâlde özdeşse batan hacimler farkı kaç cm³’tür? (ρ_sıvı=1 g/cm³)",
+          "options": [
+            {
+              "key": "A",
+              "text": "100 cm³"
+            },
+            {
+              "key": "B",
+              "text": "600 cm³"
+            },
+            {
+              "key": "C",
+              "text": "400 cm³"
+            },
+            {
+              "key": "D",
+              "text": "1000 cm³"
+            },
+            {
+              "key": "E",
+              "text": "200 cm³"
+            }
+          ],
+          "answer": "E",
+          "solution": "Yük farkı 200 g; aynı yoğunluklu sıvıda ek batan hacim 200 cm³.",
+          "conceptIds": [
+            "floating-equilibrium"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-02-q05.svg",
+            "alt": "Özgün şematik çizim: 400 g / 600 g yük. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-02-q06",
+          "number": 6,
+          "stem": "Hacmi 2 L, kütlesi 1,5 kg olan kapalı bir kutu 1 kg/L yoğunluklu sıvıda yüzer. Üzerine 300 g yük konuyor. Son durumda ne olur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Yüzer; hacminin %90’ı batıktır."
+            },
+            {
+              "key": "B",
+              "text": "Yüzer; %30’u batıktır."
+            },
+            {
+              "key": "C",
+              "text": "Yüzer; %60’ı batıktır."
+            },
+            {
+              "key": "D",
+              "text": "Tamamı batık ve askıda kalır."
+            },
+            {
+              "key": "E",
+              "text": "Mutlaka dibe çöker."
+            }
+          ],
+          "answer": "A",
+          "solution": "Yeni kütle=1,8 kg, aynı dış hacim=2 L → batan 1,8 L=%90.",
+          "conceptIds": [
+            "floating-fraction"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-02-q06.svg",
+            "alt": "Özgün şematik çizim: kap: 2 L, 1,5 kg + 0,3 kg. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-02-q07",
+          "number": 7,
+          "stem": "Suda yüzen plastik kürenin başlangıçtaki toplam kütlesi 600 g, dış hacmi 1 L’dir. İçindeki hava boşluğu açılıp hava çıkarılır, küreye 500 g su eklenir ve küre yeniden kapatılır. Dış hacim değişmiyor; havanın kütlesi ihmal ediliyor. Küre serbest bırakıldığında son durumda ne olur? (Suyun özkütlesi 1 kg/L.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "Yüzer; %90’ı batar."
+            },
+            {
+              "key": "B",
+              "text": "Batar; ortalama özkütlesi 1,1 kg/L olur."
+            },
+            {
+              "key": "C",
+              "text": "Yüzer; %50’si batar."
+            },
+            {
+              "key": "D",
+              "text": "Askıda kalır; ortalama özkütlesi 1 kg/L olur."
+            },
+            {
+              "key": "E",
+              "text": "Yüzer; %60’ı batar."
+            }
+          ],
+          "answer": "B",
+          "solution": "Toplam kütle 1,1 kg, hacim 1 L → ρ=1,1>1 kg/L, serbestken batar.",
+          "conceptIds": [
+            "average-density"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-02-q07.svg",
+            "alt": "Su eklenmeden önce başlangıçta yüzen 600 g, 1 L plastik küre. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-02-q08",
+          "number": 8,
+          "stem": "İki katmanlı sıvının üstünün özkütlesi 0,7, altınınki 1,3 g/cm³. 1,0 g/cm³ özkütleli cisim tabana değmeden ara yüzeyde dengede. Cismin üst katmandaki batık hacmi ile alt katmandaki batık hacmi arasındaki ilişki hangisi?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Eşittir."
+            },
+            {
+              "key": "B",
+              "text": "Üst hacim sıfırdır."
+            },
+            {
+              "key": "C",
+              "text": "Üst hacim altın iki katıdır."
+            },
+            {
+              "key": "D",
+              "text": "Alt hacim üst hacmin üç katıdır."
+            },
+            {
+              "key": "E",
+              "text": "Alt hacim sıfırdır."
+            }
+          ],
+          "answer": "A",
+          "solution": "0,7V_üst + 1,3V_alt = 1,0(V_üst+V_alt), → 0,3V_alt=0,3V_üst.",
+          "conceptIds": [
+            "layered-floats"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-02-q08.svg",
+            "alt": "Özgün şematik çizim: üst 0,7, cisim 1,0, alt 1,3. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-02-q09",
+          "number": 9,
+          "stem": "Bir yüzücü su yüzeyinde yüzen tahta parçasını tamamen su altında tutmak için aşağı bastırıyor. Tahtanın hacmi 5 L ve kütlesi 3 kg. En az kaç N aşağı kuvvet gerekir? (ρ_su=1 kg/L, g=10, sürtünme ihmal.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "30 N"
+            },
+            {
+              "key": "B",
+              "text": "20 N"
+            },
+            {
+              "key": "C",
+              "text": "10 N"
+            },
+            {
+              "key": "D",
+              "text": "50 N"
+            },
+            {
+              "key": "E",
+              "text": "80 N"
+            }
+          ],
+          "answer": "B",
+          "solution": "Tam batık kaldırma 50 N, G=30 N; denge için aşağı F=20 N.",
+          "conceptIds": [
+            "tension-bottom"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-02-q09.svg",
+            "alt": "5 L, 3 kg tahta elle tamamen su altında tutuluyor; el kuvveti aşağı yönlü. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-02-q10",
+          "number": 10,
+          "stem": "Taşma düzeyindeki kaptaki sıvının yoğunluğu 1,2 kg/L. 3 L hacimli bir cisim 2,4 kg kütleyle yüzüyor. Taşan sıvının hacmi kaç L olur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "3,0 L"
+            },
+            {
+              "key": "B",
+              "text": "2,0 L"
+            },
+            {
+              "key": "C",
+              "text": "2,4 L"
+            },
+            {
+              "key": "D",
+              "text": "3,6 L"
+            },
+            {
+              "key": "E",
+              "text": "1,2 L"
+            }
+          ],
+          "answer": "B",
+          "solution": "Yüzme: ρV=2,4 → V=2,4/1,2=2 L.",
+          "conceptIds": [
+            "overflow"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-02-q10.svg",
+            "alt": "Özgün şematik çizim: ρ=1,2 kg/L, kütle=2,4 kg. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-02-q11",
+          "number": 11,
+          "stem": "Aynı metal cisim dinamometreye asıldığında havada 60 N gösteriyor. Cisim önce suya, sonra bilinmeyen sıvıya tamamen batırılıp tabana değmeden dengede tutulduğunda dinamometre sırasıyla 42 N ve 36 N gösteriyor. Suyun özkütlesi 1 g/cm³ ise bilinmeyen sıvının özkütlesi kaç g/cm³’tür? (Havanın kaldırması ihmal.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "4/3"
+            },
+            {
+              "key": "B",
+              "text": "1"
+            },
+            {
+              "key": "C",
+              "text": "3/2"
+            },
+            {
+              "key": "D",
+              "text": "3/4"
+            },
+            {
+              "key": "E",
+              "text": "2/3"
+            }
+          ],
+          "answer": "A",
+          "solution": "F_su=18 N, F_bilinmeyen=24 N; oran=24/18=4/3.",
+          "conceptIds": [
+            "apparent-weight"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-02-q11.svg",
+            "alt": "Özgün şematik çizim: hava 60 N, su 42 N. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-02-q12",
+          "number": 12,
+          "stem": "Aşağıdakilerden hangisi yalnız “cisim suyun dibine oturdu” bilgisiyle kesin söylenemez?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Kaptaki cismin su içinde hacim kapladığı"
+            },
+            {
+              "key": "B",
+              "text": "Tabandan bir temas kuvveti oluşabileceği"
+            },
+            {
+              "key": "C",
+              "text": "Cisimle taban arasında temas olduğu"
+            },
+            {
+              "key": "D",
+              "text": "Kaldırma kuvvetinin büyüklüğü"
+            },
+            {
+              "key": "E",
+              "text": "Cisme yerçekiminin aşağı yönlü etki ettiği"
+            }
+          ],
+          "answer": "D",
+          "solution": "Hacim, su yoğunluğu ve taban temas geometrisi verilmeden Fₖ’nin değeri hesaplanamaz; taban teması sıvının alt yüze ulaşıp ulaşmamasını da etkileyebilir.",
+          "conceptIds": [
+            "certainty"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-hard-02-q13",
+          "number": 13,
+          "stem": "Deniz suyunda yüzen özdeş iki şişeden K kapalı, L’nin içindeki hava boşluğu açılarak suyla doluyor. Şişelerin dış hacmi sabit. Hangi ifade kesinlikle doğrudur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "L’nin dış hacmi büyür."
+            },
+            {
+              "key": "B",
+              "text": "L mutlaka dibe batar."
+            },
+            {
+              "key": "C",
+              "text": "K’nin kaldırma kuvveti azalır."
+            },
+            {
+              "key": "D",
+              "text": "Deniz suyunun yoğunluğu azalır."
+            },
+            {
+              "key": "E",
+              "text": "L’nin ortalama özkütlesi artar."
+            }
+          ],
+          "answer": "E",
+          "solution": "İçeri giren su kütleyi artırır. Batıp batmama miktara bağlıdır, kesin söylenemez.",
+          "conceptIds": [
+            "average-density"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-hard-02-q14",
+          "number": 14,
+          "stem": "Aynı cisim K sıvısında 1 L, yağda 2 L batık hacimle her iki durumda da serbestçe yüzüyor. Yağın özkütlesi 0,8 kg/L ise K sıvısının özkütlesi kaç kg/L’dir? (Cismin kütlesi ve dış hacmi değişmiyor.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "0,8 kg/L"
+            },
+            {
+              "key": "B",
+              "text": "1,0 kg/L"
+            },
+            {
+              "key": "C",
+              "text": "0,4 kg/L"
+            },
+            {
+              "key": "D",
+              "text": "1,6 kg/L"
+            },
+            {
+              "key": "E",
+              "text": "2,0 kg/L"
+            }
+          ],
+          "answer": "D",
+          "solution": "İki sıvıda da kaldırma kuvveti aynı ağırlığa eşittir: ρ_K × 1 L = 0,8 kg/L × 2 L. Buradan ρ_K = 1,6 kg/L bulunur. K, özkütlesi bilinmeyen bir sıvıdır; saf su olduğu varsayılmaz.",
+          "conceptIds": [
+            "floating-fraction"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-hard-02-q15",
+          "number": 15,
+          "stem": "Dış destekle sıvı içinde tutulan sıkışmaz bir cisim üzerinde dört ayrı deney yapılır: (1) cisim tamamen batıkken yalnız derinlik artırılır; (2) cisim aynı batık hacimle daha yoğun sıvıda tutulur; (3) aynı sıvıda batırılan hacim artırılır; (4) diğer koşullar sabitken g artırılır. Hangi işlemler tek başına Fₖ’yi kesin artırır?",
+          "options": [
+            {
+              "key": "A",
+              "text": "1, 2 ve 3"
+            },
+            {
+              "key": "B",
+              "text": "Yalnız 1"
+            },
+            {
+              "key": "C",
+              "text": "1, 2, 3 ve 4"
+            },
+            {
+              "key": "D",
+              "text": "2, 3 ve 4"
+            },
+            {
+              "key": "E",
+              "text": "1 ve 2"
+            }
+          ],
+          "answer": "D",
+          "solution": "Fₖ=ρgV_batan. Sabit hacim ve yoğunlukla derinlik tek başına artırmaz; 2 yoğunluğu, 3 batık hacmi, 4 g’yi artırır.",
+          "conceptIds": [
+            "experimental-design"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        }
+      ]
+    },
+    {
+      "id": "buoyancy-hard-03",
+      "level": "hard",
+      "title": "Zor 3 · TYT Tarzı Karma Deneme",
+      "topicId": "buoyancy",
+      "questionCount": 15,
+      "description": "Deney, akıl yürütme ve matematiksel modeli birleştir.",
+      "questions": [
+        {
+          "id": "buoyancy-hard-03-q01",
+          "number": 1,
+          "stem": "Aynı sıvıda yüzen iki farklı kütleli K ve L gemilerinin yer değiştirdiği sıvının ağırlıkları 4000 N ve 6000 N’dur. Gemilerin dengedeki kaldırma kuvvetleri ve ağırlıkları arasındaki ilişki nedir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "F_K/F_L = G_K/G_L = 2/3"
+            },
+            {
+              "key": "B",
+              "text": "F_K/F_L=1, G_K/G_L=1"
+            },
+            {
+              "key": "C",
+              "text": "F_K/F_L=1/2, G_K/G_L=1/2"
+            },
+            {
+              "key": "D",
+              "text": "F_K/F_L=3/2, G_K/G_L=2/3"
+            },
+            {
+              "key": "E",
+              "text": "F_K=F_L, G_K≠G_L"
+            }
+          ],
+          "answer": "A",
+          "solution": "İki gemi de yüzdüğü için Fₖ=G; verilen yer değiştiren sıvı ağırlıkları 4000 ve 6000 N.",
+          "conceptIds": [
+            "floating-equilibrium"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-hard-03-q02",
+          "number": 2,
+          "stem": "Bir cisim K sıvısında 1/4’ü dışarıda, L sıvısında 2/5’i dışarıda kalacak şekilde yüzüyor. Sıvı özkütlelerinin oranı ρ_L/ρ_K kaçtır?",
+          "options": [
+            {
+              "key": "A",
+              "text": "3/5"
+            },
+            {
+              "key": "B",
+              "text": "5/4"
+            },
+            {
+              "key": "C",
+              "text": "4/5"
+            },
+            {
+              "key": "D",
+              "text": "5/3"
+            },
+            {
+              "key": "E",
+              "text": "3/4"
+            }
+          ],
+          "answer": "B",
+          "solution": "K batan=3/4, L batan=3/5. Sabit ρ_c: ρ_K×3/4=ρ_L×3/5 → ρ_L/ρ_K=(3/4)/(3/5)=5/4.",
+          "conceptIds": [
+            "floating-fraction"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-03-q02.svg",
+            "alt": "Özgün şematik çizim: K: 3/4 batık, L: 3/5 batık. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-03-q03",
+          "number": 3,
+          "stem": "Bir cismin havada ağırlığı 32 N, K sıvısında 20 N, L sıvısında 14 N ölçülüyor. Her iki sıvıda da tamamen batık. L sıvısının özkütlesi K’nın kaç katıdır?",
+          "options": [
+            {
+              "key": "A",
+              "text": "4/3"
+            },
+            {
+              "key": "B",
+              "text": "2/3"
+            },
+            {
+              "key": "C",
+              "text": "3/2"
+            },
+            {
+              "key": "D",
+              "text": "9/8"
+            },
+            {
+              "key": "E",
+              "text": "5/4"
+            }
+          ],
+          "answer": "C",
+          "solution": "K kaldırması=12, L kaldırması=18 → 18/12=3/2.",
+          "conceptIds": [
+            "apparent-weight"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-hard-03-q04",
+          "number": 4,
+          "stem": "Deney tüpü suda yüzerken içindeki küçük metal bilye tüpün tabanına sabitlenmiştir. Bilye tüpten çıkarılıp suya atıldığında batar. Kap taşmaya kapalıysa ve su kaybı yoksa su seviyesi nasıl değişir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Artar."
+            },
+            {
+              "key": "B",
+              "text": "Azalır."
+            },
+            {
+              "key": "C",
+              "text": "Değişmez."
+            },
+            {
+              "key": "D",
+              "text": "Metal bilyenin dış hacmine eşit ek hacim yer değiştirdiği için yükselir."
+            },
+            {
+              "key": "E",
+              "text": "Önce azalır sonra başlangıç seviyesine çıkar."
+            }
+          ],
+          "answer": "B",
+          "solution": "Metal tüpteyken ağırlığına karşılık suyu taşırır; dipte kendi hacmiyle yer değiştirir; yoğun metalde hacim küçüktür.",
+          "conceptIds": [
+            "boat-rock"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-03-q04.svg",
+            "alt": "Yüzen deney tüpünün içindeki metal bilye, sonraki durumda çıkarılıp su tabanına bırakılıyor. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-03-q05",
+          "number": 5,
+          "stem": "Bir öğrenci aynı cismin kaldırma kuvvetini ölçmek için (I) dinamometrede hava–su ağırlık farkını ölçüyor, (II) taşan suyun ağırlığını ölçüyor, (III) yalnızca suyun derinliğini ölçüyor. Hangi yöntemler cisim tamamen batıkken tek başına yeterli olabilir? (Hava etkisi ihmal.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "I, II ve III"
+            },
+            {
+              "key": "B",
+              "text": "Yalnız III"
+            },
+            {
+              "key": "C",
+              "text": "II ve III"
+            },
+            {
+              "key": "D",
+              "text": "Yalnız I"
+            },
+            {
+              "key": "E",
+              "text": "I ve II"
+            }
+          ],
+          "answer": "E",
+          "solution": "I ve II kaldırmayı doğrudan verir; yalnız derinlikten ρ ve batık hacim olmadan belirlenemez.",
+          "conceptIds": [
+            "experimental-design"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-hard-03-q06",
+          "number": 6,
+          "stem": "Özkütlesi 0,9 g/cm³ ve hacmi 400 cm³ olan kapalı cisim, 1,2 g/cm³ sıvıda yüzüyor. Batan hacim kaç cm³’tür?",
+          "options": [
+            {
+              "key": "A",
+              "text": "240 cm³"
+            },
+            {
+              "key": "B",
+              "text": "400 cm³"
+            },
+            {
+              "key": "C",
+              "text": "300 cm³"
+            },
+            {
+              "key": "D",
+              "text": "100 cm³"
+            },
+            {
+              "key": "E",
+              "text": "360 cm³"
+            }
+          ],
+          "answer": "C",
+          "solution": "V_batan/V=0,9/1,2=3/4 → 300 cm³.",
+          "conceptIds": [
+            "floating-fraction"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-03-q06.svg",
+            "alt": "Özgün şematik çizim: V=400 cm³, ρ_c=0,9. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-03-q07",
+          "number": 7,
+          "stem": "Ağırlığı 24 N olan bir cisim hacmi 1,5 L iken 1 kg/L yoğunluklu suya tümüyle daldırılıyor. İp ile yukarıdan dengede tutuluyorsa ip gerilmesi kaç N’dur? (g=10 N/kg)",
+          "options": [
+            {
+              "key": "A",
+              "text": "9 N"
+            },
+            {
+              "key": "B",
+              "text": "6 N"
+            },
+            {
+              "key": "C",
+              "text": "24 N"
+            },
+            {
+              "key": "D",
+              "text": "39 N"
+            },
+            {
+              "key": "E",
+              "text": "15 N"
+            }
+          ],
+          "answer": "A",
+          "solution": "Fₖ=1,5×10=15 N; T=24−15=9 N.",
+          "conceptIds": [
+            "tension-ceiling"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-03-q07.svg",
+            "alt": "Özgün şematik çizim: G=24 N, V=1,5 L. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-03-q08",
+          "number": 8,
+          "stem": "Yüzen büyük bir buz parçasının içinde hava boşluğu yoktur. Buz erirken su yüzeyinin değişmediğini söylemek için hangi koşul önemlidir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Yerçekiminin zamanla artması"
+            },
+            {
+              "key": "B",
+              "text": "Kabın mutlaka taşma kabı olması"
+            },
+            {
+              "key": "C",
+              "text": "Buzun şeklinin küp olması"
+            },
+            {
+              "key": "D",
+              "text": "Buzun özkütlesinin her sıvıdan büyük olması"
+            },
+            {
+              "key": "E",
+              "text": "Buzun eridiği sıvının saf su olması ve sıcaklık/genleşme etkilerinin ihmal edilmesi"
+            }
+          ],
+          "answer": "E",
+          "solution": "Saf suda yüzen buzun yer değiştirdiği su hacmi erimiş hâlin hacmiyle eşleşir; başka sıvıda farklı olabilir.",
+          "conceptIds": [
+            "ice-melting"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-03-q08.svg",
+            "alt": "Özgün şematik çizim: eriyen buz. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-03-q09",
+          "number": 9,
+          "stem": "Bir homojen cisim iki farklı sıvının ara yüzeyinde, toplam hacminin yarısı 0,8 g/cm³ üst sıvıda ve yarısı 1,4 g/cm³ alt sıvıda bulunarak dengeleniyor. Cismin ortalama özkütlesi kaç g/cm³’tür?",
+          "options": [
+            {
+              "key": "A",
+              "text": "1,4"
+            },
+            {
+              "key": "B",
+              "text": "0,8"
+            },
+            {
+              "key": "C",
+              "text": "2,2"
+            },
+            {
+              "key": "D",
+              "text": "1,1"
+            },
+            {
+              "key": "E",
+              "text": "0,6"
+            }
+          ],
+          "answer": "D",
+          "solution": "ρ_c=(0,8×0,5+1,4×0,5)=1,1 g/cm³.",
+          "conceptIds": [
+            "layered-floats"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-03-q09.svg",
+            "alt": "Özgün şematik çizim: 0,8 g/cm³, 0,5V / 0,5V, 1,4 g/cm³. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-03-q10",
+          "number": 10,
+          "stem": "Bir dalgıç suyun içinde iki eşit hacimli sıkışmaz cismi aynı derinlikte tutuyor. Biri ağır metal, biri düşük yoğunluklu plastik. Her ikisine de etki eden kaldırma kuvvetlerinin büyüklüğü için hangisi doğrudur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Cisimlerin ağırlığı kadar farklıdır."
+            },
+            {
+              "key": "B",
+              "text": "Plastikte daha büyüktür."
+            },
+            {
+              "key": "C",
+              "text": "Ağır metalde daha büyüktür."
+            },
+            {
+              "key": "D",
+              "text": "Eşittir."
+            },
+            {
+              "key": "E",
+              "text": "Yalnız malzemenin rengine bağlıdır."
+            }
+          ],
+          "answer": "D",
+          "solution": "Aynı ρ_s, g ve V_batan için Fₖ eşittir.",
+          "conceptIds": [
+            "archimedes"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-hard-03-q11",
+          "number": 11,
+          "stem": "Dış hacmi 2 L olan kapalı bir kutu 1 kg/L suda yüzüyor. Kutunun kütlesi 1 kg iken içine en fazla kaç gram ek kütle konulursa kutunun en azından tamamen batık sınırda yüzme/askıda dengede kalması mümkündür?",
+          "options": [
+            {
+              "key": "A",
+              "text": "2000 g"
+            },
+            {
+              "key": "B",
+              "text": "750 g"
+            },
+            {
+              "key": "C",
+              "text": "1000 g"
+            },
+            {
+              "key": "D",
+              "text": "500 g"
+            },
+            {
+              "key": "E",
+              "text": "1500 g"
+            }
+          ],
+          "answer": "C",
+          "solution": "En fazla yer değiştirdiği su kütlesi 2 kg; kutu 1 kg olduğundan ek kapasite 1 kg.",
+          "conceptIds": [
+            "floating-limit"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-03-q11.svg",
+            "alt": "Özgün şematik çizim: kutunun dış hacmi: 2 L. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-03-q12",
+          "number": 12,
+          "stem": "Bir cismin üzerine uygulanan kaldırma kuvveti 30 N ve cisim tabana temas etmeden serbestçe askıda kalıyor. Cisme aşağı yönde ayrıca 10 N kuvvet uygulanırsa dengede kalması için yukarı yönde 10 N daha kuvvet gerekir mi? (Sıvı ve cisim değişmiyor.)",
+          "options": [
+            {
+              "key": "A",
+              "text": "Evet; ek aşağı kuvveti dengeleyen ek 10 N yukarı kuvvet gerekir."
+            },
+            {
+              "key": "B",
+              "text": "Hayır; sıvı yoğunluğu kendiliğinden artar."
+            },
+            {
+              "key": "C",
+              "text": "Evet; ama 30 N daha gerekir."
+            },
+            {
+              "key": "D",
+              "text": "Hayır; cismin ağırlığı 10 N azalır."
+            },
+            {
+              "key": "E",
+              "text": "Hayır; kaldırma kuvveti kendiliğinden 40 N olur."
+            }
+          ],
+          "answer": "A",
+          "solution": "İlk durumda Fₖ=G. Ek 10 N aşağıya karşı denge için 10 N ek yukarı gerekir; yoksa aşağı ivmelenir.",
+          "conceptIds": [
+            "force-balance"
+          ],
+          "cognitiveType": "yorum",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır."
+        },
+        {
+          "id": "buoyancy-hard-03-q13",
+          "number": 13,
+          "stem": "Terazi üzerindeki kapta özkütlesi 1,2 kg/L olan sıvı vardır. Dışarıdaki dinamometreye asılı 35 N ağırlıklı, 2 L hacimli bir katı cisim, sıvıya tamamen daldırılıp tabana değmeden dengede tutuluyor. Sıvı taşmıyorsa dinamometrenin göstergesi ve terazideki artış sırasıyla kaç N’dur? (g=10)",
+          "options": [
+            {
+              "key": "A",
+              "text": "11 N ve 11 N"
+            },
+            {
+              "key": "B",
+              "text": "35 N ve 24 N"
+            },
+            {
+              "key": "C",
+              "text": "24 N ve 11 N"
+            },
+            {
+              "key": "D",
+              "text": "24 N ve 24 N"
+            },
+            {
+              "key": "E",
+              "text": "11 N ve 24 N"
+            }
+          ],
+          "answer": "E",
+          "solution": "Kaldırma Fₖ=1,2×2×10=24 N. Dış dinamometre T=35−24=11 N gösterir, etki-tepkiyle terazi okuması 24 N artar.",
+          "conceptIds": [
+            "scale-reaction"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-03-q13.svg",
+            "alt": "Özgün şematik çizim: G=35 N, V=2 L, ρ=1,2 kg/L. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-03-q14",
+          "number": 14,
+          "stem": "Bir ağırlık suda yüzen tekneye konulunca tekne 4 L daha su yer değiştiriyor. Aynı ağırlık teknenin üzerinden alınıp 1 L dış hacimli, suda batan bir cisim olarak suya bırakılırse su seviyesi önceki tekne+yük durumuna göre nasıl değişir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "4 L daha artar."
+            },
+            {
+              "key": "B",
+              "text": "Azalır; eşdeğer yer değiştirme hacmi 3 L daha az olur."
+            },
+            {
+              "key": "C",
+              "text": "1 L daha artar."
+            },
+            {
+              "key": "D",
+              "text": "3 L daha artar."
+            },
+            {
+              "key": "E",
+              "text": "Değişmez."
+            }
+          ],
+          "answer": "B",
+          "solution": "Yük teknedeyken 4 L daha su yer değiştiriyordu; dibe batınca 1 L yer değiştirir, fark 3 L azalır.",
+          "conceptIds": [
+            "boat-rock"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-03-q14.svg",
+            "alt": "Özgün şematik çizim: 4 L → 1 L. Şema ölçekli değildir."
+          }
+        },
+        {
+          "id": "buoyancy-hard-03-q15",
+          "number": 15,
+          "stem": "Yatay kesit alanı 100 cm² olan dik prizma şeklindeki blok, 1 g/cm³ suda yüzerken batan yüksekliği 6 cm’dir. Bu bloğun ağırlığı kaç N’dur? (g=10 N/kg)",
+          "options": [
+            {
+              "key": "A",
+              "text": "0,6 N"
+            },
+            {
+              "key": "B",
+              "text": "60 N"
+            },
+            {
+              "key": "C",
+              "text": "3 N"
+            },
+            {
+              "key": "D",
+              "text": "6 N"
+            },
+            {
+              "key": "E",
+              "text": "10 N"
+            }
+          ],
+          "answer": "D",
+          "solution": "Batık hacim 100×6=600 cm³=0,6 L → su kütlesi 0,6 kg; Fₖ=G=6 N.",
+          "conceptIds": [
+            "floating-equilibrium"
+          ],
+          "cognitiveType": "hesap",
+          "sourceType": "original",
+          "rights": "İvme için özgün; hiçbir yayınevinden aktarılmamıştır.",
+          "figure": {
+            "kind": "svg",
+            "path": "assets/buoyancy-hard-03-q15.svg",
+            "alt": "Özgün şematik çizim: kesit: 100 cm², batık boy: 6 cm. Şema ölçekli değildir."
+          }
+        }
+      ]
+    }
+  ],
+  "revision": "ivme-buoyancy-135-audit-v1"
+}

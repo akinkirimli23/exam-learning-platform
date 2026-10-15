@@ -11,6 +11,7 @@ import {
   type TopicDefinition,
 } from '@/shared/topic-engine';
 import { QuestionVisual } from './question-visual';
+import { BankedQuestionBank } from './banked-question-bank';
 
 const labels: Record<LearningQuizDifficulty, { title: string; text: string }> = {
   kolay: { title: 'Kolay Test', text: 'Temel kavramları ve doğrudan ilişkileri kontrol et.' },
@@ -19,6 +20,15 @@ const labels: Record<LearningQuizDifficulty, { title: string; text: string }> = 
 };
 
 export function QuestionBank({ definition }: { definition: TopicDefinition }) {
+  const [archive, setArchive] = useState(false);
+  if (definition.questionBank?.length && !archive) return <BankedQuestionBank definition={definition} onArchive={() => setArchive(true)} />;
+  return <>
+    {definition.questionBank?.length && <button className="back-link" onClick={() => setArchive(false)}><ArrowLeft size={16} />Yeni 9 testlik bankaya dön</button>}
+    <LegacyQuestionBank definition={definition} />
+  </>;
+}
+
+function LegacyQuestionBank({ definition }: { definition: TopicDefinition }) {
   const [level, setLevel] = useState<LearningQuizDifficulty | null>(null);
 
   if (!level) {

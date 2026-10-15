@@ -10,6 +10,8 @@ import {
 } from '@/shared/mistakes';
 import type { DB } from './db';
 import { fail } from './core';
+import type { BankFigure } from '@/shared/question-bank';
+import type { PrivateBankQuestion, PrivateBankTest } from './buoyancy-bank-adapter';
 
 type Snapshot = {
   text: string;
@@ -18,6 +20,9 @@ type Snapshot = {
   selectedAnswer: number | null;
   conceptId: string;
   difficulty: string;
+  testId?: string;
+  explanation?: string;
+  figure?: BankFigure;
 };
 
 function suggestedReason(input: {
@@ -149,6 +154,17 @@ export async function captureStaticMistake(db:DB,user:any,input:unknown,now=new 
     },
     conceptId:question.conceptId,
   },now);
+}
+
+export async function captureBankMistake(db: DB, userId: string, attempt: any, question: PrivateBankQuestion, selectedAnswer: number | null, now = new Date()) {
+  return upsertMistake(db, userId, {
+    topicId: attempt.topic_id, questionId: question.id, attemptId: attempt.id, source: 'question-bank',
+    snapshot: { text: question.text, options: [...question.options], correctAnswer: question.correctAnswer,
+      selectedAnswer, conceptId: question.conceptId, difficulty: question.difficulty,
+      testId: (attempt.snapshot as PrivateBankTest).id, explanation: question.explanation,
+      ...(question.figure && { figure: question.figure }) },
+    conceptId: question.conceptId, explicitReason: question.mistakeReason,
+  }, now);
 }
 
 export async function listMistakes(db:DB,userId:string):Promise<MistakeNotebookResponse>{

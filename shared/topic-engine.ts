@@ -5,6 +5,7 @@ import type {
   QuizAnswerRecord,
 } from '@/shared/contracts';
 import type { PastExamSet } from '@/shared/past-exam';
+import type { BankTestDefinition } from '@/shared/question-bank';
 
 export type ConceptNode = {
   id: string;
@@ -30,6 +31,7 @@ export type TopicDefinition = {
   quiz: readonly LearningQuizQuestion[];
   media: readonly LearningMedia[];
   pastExam?: PastExamSet;
+  questionBank?: readonly BankTestDefinition[];
 };
 
 export function flattenConceptNodes(root: ConceptNode): ConceptNode[] {
@@ -58,6 +60,15 @@ export function defineTopic(definition: TopicDefinition): TopicDefinition {
   const conceptIds = conceptNodes.map((concept) => concept.id);
   assertUnique(conceptIds, 'concept id', definition.id);
   const canonicalConceptIds = new Set(conceptIds);
+
+  if (definition.questionBank) {
+    assertUnique(definition.questionBank.map(test => test.id), 'bank test id', definition.id);
+    for (const test of definition.questionBank) {
+      if (!test.id.startsWith(`${definition.id}-`) || !Number.isInteger(test.questionCount) || test.questionCount < 1) {
+        throw new Error(`${definition.id}: invalid bank test '${test.id}'`);
+      }
+    }
+  }
 
   for (const concept of conceptNodes) {
     for (const relatedId of concept.relatedConceptIds) {
@@ -140,6 +151,7 @@ export function defineTopic(definition: TopicDefinition): TopicDefinition {
     quiz: Object.freeze([...definition.quiz]),
     media: Object.freeze([...definition.media]),
     pastExam: definition.pastExam,
+    questionBank: definition.questionBank && Object.freeze([...definition.questionBank]),
   });
 }
 

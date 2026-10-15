@@ -11,6 +11,7 @@ import {aiAvailable,help} from './ai';
 import {assertTrustedRequest,secureSessionCookie} from './request-security';
 import {safeErrorCode} from './safe-error';
 import {captureStaticMistake,listMistakes,updateMistake} from './mistakes';
+import { bankCatalog,startBank,readBank,answerBank,finishBank } from './question-bank';
 const json=(data:unknown,status=200,headers:Record<string,string>={})=>Response.json(data,{status,headers:{'Cache-Control':'no-store',...headers}});
 const cookie=(token:string,request:Request,clear=false)=>`ivme_session=${token}; HttpOnly; SameSite=Lax; Path=/; Max-Age=${clear?0:14*86400}${secureSessionCookie(request)?'; Secure':''}`;
 async function body(request:Request){try{return JSON.parse(new TextDecoder().decode(await limitedBody(request)));}catch(e){if(e instanceof AppError)throw e;fail(400,'İstek verisi okunamadı.');}}
@@ -35,6 +36,13 @@ export async function handle(request:Request){try{
   if(route[0]==='mistakes'&&route[1]==='capture'&&method==='POST')return json(await captureStaticMistake(db,u,await body(request)),201);
   if(route[0]==='mistakes'&&route.length===2&&method==='PUT')return json(await updateMistake(db,u.id,route[1],await body(request)));
   if(route[0]==='catalog'&&method==='GET'){const all=await published(db);return json({content:all.filter(c=>c.kind!=='question'),config:await config(db)});}
+  if(route[0]==='question-bank'){
+    if(route.length===2&&method==='GET')return json(await bankCatalog(db,u.id,route[1]));
+    if(route.length===4&&route[3]==='start'&&method==='POST'){const input=await body(request);return json(await transaction(tx=>startBank(tx,u,route[1],route[2],input)));}
+    if(route[1]==='attempts'&&route.length===3&&method==='GET')return json(await readBank(db,u.id,route[2]));
+    if(route[1]==='attempts'&&route.length===4&&route[3]==='answer'&&method==='PUT'){const input=await body(request);return json(await transaction(tx=>answerBank(tx,u.id,route[2],input)));}
+    if(route[1]==='attempts'&&route.length===4&&route[3]==='complete'&&method==='POST')return json(await transaction(tx=>finishBank(tx,u.id,route[2])));
+  }
   if(route[0]==='overview'&&method==='GET')return json(await overview(db,u));
   if(route[0]==='learning-media'&&route.length===2&&method==='GET'){
     // Add topic entitlement checks here when per-student authorization is introduced.
