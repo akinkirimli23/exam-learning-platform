@@ -140,3 +140,11 @@ Her üç dosya tam çözümlemeden geçti. 29 kartın orta karesi yeni kartla ka
 - Basınç soru bankası hazırlanıyor ekranında; 12 arşiv sorusu kayıtlı öğrenci bankasına bağlanmadı. Mevcut 20 kısa konu kontrolü ve 25 kart korunur.
 - Staging’de yalnız Pascal dersi, kart016 ve q014 metinleri aynı kayıt kimlikleriyle düzeltildi. Seçenekler/doğru cevap, kullanıcı, oturum, deneme, yanlış defteri ve ders ilerleme kayıtları değiştirilmedi. Migration/seed uygulanmadı.
 - `scripts/upload-pressure-media.ts` staging-ref/TLS/private bucket denetimi yapar; `--apply` olmadan yüklemez, mevcut nesneyi üzerine yazmadan hash ile denetler. `scripts/review-pressure-staging.ts` önce salt okunur SHA bildirir; uygulama aynı SHA gerektirir, içerik kimliklerini korur.
+
+## Tamamlanan Preview kabulü
+
+15 Ekim 2026 tarihinde Vercel Preview 2073474/28GeasiPDEgsBEC26Vdp6Pmczxz4 Ready olarak doğrulandı. Sabit dal adresi: https://exam-learning-platform-git-codex-pressure-lear-595554-akin-dido.vercel.app/konu/pressure/ogren . Staging veritabanı fingerprint'i ve Storage proje eşleşmesi doğrulandı.
+
+244 otomatik test geçti; son metin düzenlemesinden sonra 19 ilgili test yeniden geçti. Typecheck ve build başarılı. 1280px masaüstü ve390px mobil kontrolde taşma yok; iki görsel yükleniyor ve büyütülüyor, PDF bağlantısı imzalanıyor, üç video metadata'sı yükleniyor. Üçü yerelde oynatıldı; son Preview'da ilk video da süre ilerleterek oynadı. 46 kavram açılıyor. Kaldırma Kuvveti 9/135 banka görünümü korundu; Basınç bankası hazır değil ekranında.
+
+Sentetik QA hesabı ve ona bağlı oturum temizlendi; mevcut kayıt sayıları başlangıçla eşleşti. Ortam dosyalarının ve altı kaynak dosyanın SHA-256 değerleri aynı. Ana dal3df8cba ve Production değişmedi. PR7 taslak durumda; production yayını yetkilendirilmedi. Kesintisiz sesli ders deneyimi için yoğun okuma kartlarının Türkçe seslendirmesi ayrıca hazırlanmalı.
