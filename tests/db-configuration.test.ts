@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it } from 'vitest';
-import { databaseMatchesSupabaseProject, postgresConnectionConfig, state } from '../server/db';
+import { databaseMatchesSupabaseProject, databaseProjectFingerprint, postgresConnectionConfig, state } from '../server/db';
 
 const originalUrl = process.env.DATABASE_URL;
 
@@ -13,6 +13,16 @@ describe('uzak PostgreSQL bağlantısı', () => {
     expect(databaseMatchesSupabaseProject('postgresql://postgres.stage-ref:secret@pooler.supabase.com:6543/postgres','https://stage-ref.supabase.co')).toBe(true);
     expect(databaseMatchesSupabaseProject('postgresql://postgres.production-ref:secret@pooler.supabase.com:6543/postgres','https://stage-ref.supabase.co')).toBe(false);
     expect(databaseMatchesSupabaseProject(undefined,'https://stage-ref.supabase.co')).toBeNull();
+  });
+
+  it('Supabase proje kimliğinin hashini bağlantı parolasını açmadan üretir', () => {
+    const first = databaseProjectFingerprint('postgresql://postgres.stageref:first@pooler.supabase.com:6543/postgres');
+    const same = databaseProjectFingerprint('postgresql://postgres.stageref:second@pooler.supabase.com:5432/postgres');
+    const other = databaseProjectFingerprint('postgresql://postgres.productionref:first@pooler.supabase.com:6543/postgres');
+    expect(first).toMatch(/^[a-f0-9]{64}$/);
+    expect(first).toBe(same);
+    expect(first).not.toBe(other);
+    expect(databaseProjectFingerprint('postgresql://user:secret@unknown.example:6543/postgres')).toBeNull();
   });
 
   it('TLS modu olmayan uzak veritabanına bağlanmayı reddeder', async () => {

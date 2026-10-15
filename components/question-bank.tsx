@@ -21,6 +21,13 @@ const labels: Record<LearningQuizDifficulty, { title: string; text: string }> = 
 
 export function QuestionBank({ definition }: { definition: TopicDefinition }) {
   const [archive, setArchive] = useState(false);
+  if (definition.id === 'pressure') return (
+    <section className="card">
+      <span className="eyebrow">SORU BANKASI</span>
+      <h2>Basınç soru bankası hazırlanıyor</h2>
+      <p className="muted">Konu anlatımları, videolar ve görsel materyallerle çalışabilirsin. Yeni soru bankası ayrıca eklenecek.</p>
+    </section>
+  );
   if (definition.questionBank?.length && !archive) return <BankedQuestionBank definition={definition} onArchive={() => setArchive(true)} />;
   return <>
     {definition.questionBank?.length && <button className="back-link" onClick={() => setArchive(false)}><ArrowLeft size={16} />Yeni 9 testlik bankaya dön</button>}

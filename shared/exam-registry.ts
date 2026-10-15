@@ -82,7 +82,7 @@ export const examRegistry = createExamRegistry([
           { id: 'cografya', title: 'Coğrafya', description: 'Sosyal bilimler', topicIds: [] },
           { id: 'felsefe', title: 'Felsefe', description: 'Sosyal bilimler', topicIds: [] },
           { id: 'din-kulturu', title: 'Din Kültürü', description: 'Sosyal bilimler', topicIds: [] },
-          { id: 'fizik', title: 'Fizik', description: 'Fen bilimleri', topicIds: ['buoyancy'] },
+          { id: 'fizik', title: 'Fizik', description: 'Fen bilimleri', topicIds: ['buoyancy', 'pressure'] },
           { id: 'kimya', title: 'Kimya', description: 'Fen bilimleri', topicIds: [] },
           { id: 'biyoloji', title: 'Biyoloji', description: 'Fen bilimleri', topicIds: [] },
         ],

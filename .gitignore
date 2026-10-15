@@ -8,6 +8,7 @@ node_modules/
 
 # Private application data
 data/
+imports/
 
 # Framework and build output
 .next/

@@ -99,7 +99,7 @@ describe('Generic Topic Engine', () => {
   });
 
   it('test fixture konusunu üretim registry’sine eklemez', () => {
-    expect([...topicRegistry.keys()]).toEqual(['buoyancy']);
+    expect([...topicRegistry.keys()]).toEqual(['buoyancy', 'pressure']);
     expect(topicRegistry.has('fixture-topic')).toBe(false);
   });
 

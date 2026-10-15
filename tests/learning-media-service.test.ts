@@ -49,6 +49,27 @@ describe('private learning media signed URL service', () => {
     expect(fetchImplementation).not.toHaveBeenCalled();
   });
 
+  it('Basınç materyallerinin altısını yalnız incelenmiş private yollarla imzalar', async () => {
+    const fetchImplementation = vi.fn<typeof fetch>(async () => Response.json({
+      signedURL: '/object/sign/learning-media/video?token=signed-test-token',
+    }));
+    const cases = [
+      ['pressure-video-solid', 'video/Kati_Basincini_Hesaplamak_Incelenmis.mp4'],
+      ['pressure-video-liquid', 'video/Sivi_Basincinda_Ustalasmak_Incelenmis.mp4'],
+      ['pressure-video-gas', 'video/Gaz_Basincini_Anlamak_Incelenmis.mp4'],
+      ['pressure-slides-guide', 'slides/Basinc_ve_Kuvvet_Ders_Rehberi.pdf'],
+      ['pressure-infographic-summary', 'infographic/Basinc_Konu_Ozeti.png'],
+      ['pressure-infographic-map', 'infographic/Basinc_Kavram_Haritasi.png'],
+    ] as const;
+    for (const [id, name] of cases) {
+      const signed = await getSignedLearningMediaUrl(id, { environment, fetchImplementation });
+      expect(fetchImplementation.mock.lastCall?.[0]).toBe(
+        `https://project.supabase.co/storage/v1/object/sign/learning-media/physics/pressure/reviewed-2026-10-15/${name}`,
+      );
+      expect(JSON.stringify(signed)).not.toContain(environment.SUPABASE_SERVICE_ROLE_KEY);
+    }
+  });
+
   it('eksik yapılandırma ve Storage hatasını secret içermeyen kontrollü hataya çevirir', async () => {
     await expect(getSignedLearningMediaUrl('buoyancy-video-physics', { environment: {} }))
       .rejects.toMatchObject({ status: 503, message: 'İçerik bağlantısı şu anda kullanılamıyor.' });
@@ -70,6 +91,7 @@ describe('private learning media signed URL service', () => {
       'components/buoyancy-learning-content.tsx',
       'components/learning-app.tsx',
       'shared/content/physics/buoyancy/media.ts',
+      'shared/content/physics/pressure/media.ts',
     ].map((file) => readFileSync(path.join(process.cwd(), file), 'utf8')).join('\n');
 
     expect(clientSources).not.toContain('SUPABASE_SERVICE_ROLE_KEY');
