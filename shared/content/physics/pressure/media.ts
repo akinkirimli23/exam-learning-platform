@@ -46,7 +46,7 @@ export const pressureMedia = learningMediaSchema.array().parse([
   {
     id: 'pressure-infographic-map', topicId: 'pressure', type: 'infographic',
     title: 'Basınç Kavram Haritası',
-    collapsible: true,
+    presentation: 'concept-map',
     description: 'Sekiz ana dal arasındaki bağlantıları keşfet; formülleri koşullarıyla hatırla.',
     bucket: 'learning-media', objectPath: `${prefix}/infographic/Basinc_Kavram_Haritasi.png`,
     mimeType: 'image/png', conceptIds: ['pressure'], order: 6,

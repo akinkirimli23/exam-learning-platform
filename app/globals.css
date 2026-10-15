@@ -209,15 +209,6 @@
 .infographic-preview{position:relative;display:block;width:100%;margin-top:16px;padding:0;overflow:hidden;border:1px solid #dce4ef;border-radius:11px;background:#f3f6fa}
 .infographic-preview img{display:block;width:100%;height:auto;max-height:300px;object-fit:contain}
 .infographic-preview>span{position:absolute;right:8px;bottom:8px;display:inline-flex;align-items:center;gap:5px;padding:6px 8px;border-radius:7px;background:#152746dd;color:#fff;font-size:9px;font-weight:650}
-.learning-material-disclosure{display:flex;align-items:center;gap:12px;min-height:44px;list-style:none;cursor:pointer;border-radius:8px}
-.learning-material-disclosure::-webkit-details-marker{display:none}
-.learning-material-disclosure:focus-visible{outline:2px solid var(--blue);outline-offset:6px}
-.learning-material-disclosure>.learning-media-heading{flex:1;min-width:0}
-.learning-material-disclosure-status{display:flex;align-items:center;gap:5px;flex-shrink:0;color:#3267cb;font-size:11px;font-weight:650}
-.learning-material-disclosure .when-open{display:none}
-.learning-material-collapsible[open]>.learning-material-disclosure .when-closed{display:none}
-.learning-material-collapsible[open]>.learning-material-disclosure .when-open{display:inline}
-.learning-material-collapsible[open]>.learning-material-disclosure .learning-material-disclosure-status>svg{transform:rotate(180deg)}
 .infographic-modal{position:fixed;inset:0;z-index:110;display:grid;place-items:center;padding:24px;background:#0b1738cc;backdrop-filter:blur(5px)}
 .infographic-modal>section{display:grid;grid-template-rows:auto minmax(0,1fr);width:min(1100px,100%);height:min(90dvh,900px);overflow:hidden;border-radius:17px;background:#fff;box-shadow:0 24px 70px #0005}
 .infographic-modal header{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:17px 20px;border-bottom:1px solid var(--line)}

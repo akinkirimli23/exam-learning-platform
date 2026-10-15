@@ -330,3 +330,9 @@ Proje kökü: `D:\dido_ile_okul_projesi`
 - Öğren sayfasındaki görsel kavram haritası başlangıçta kapalıdır; başlığına tıklayınca veya klavyede Enter/Space ile açılıp kapanır. Aç/Kapat göstergesi ve ok durumu takip eder; görseli büyütme korunur. Etkileşimli kavram gezgini ve konu özeti mevcut davranışını korur.
 - Yeniden kullanılabilir `collapsible` medya seçeneği yalnız Basınç kavram haritasında açık. Veritabanı, migration, seed veya Storage dosya değişikliği gerekmez.
 - 19 ilgili test, typecheck ve build geçti. Yayın hedefi önceki talep uyarınca yalnız Preview; main ve Production değişmez.
+
+## 16 Ekim 2026 · Kavrama basarak dallanan harita
+
+- Kullanıcı görsel kutusunu katlamayı değil, kavram düğümlerinden adım adım ilerlemeyi istediğini netleştirdi. Önceki görsel accordion kaldırıldı; aynı Basınç Kavram Haritası düğmesi artık Kaldırma Kuvveti'ndeki ortak ConceptExplorer'ı açar.
+- İlk açılışta yalnız Basınç düğümü var; tıklama 8 ana dalı, her dal kendi çocuklarını açar/kapatır. Dal kapanırken alt dal durumları temizlenir; yaprak kavram açıklama/formül panelini açar. Başa dön, Ana dallar ve Tümünü aç desteklenir. Tek harita girişi vardır; kaynak PNG özel Storage'da korunur.
+- Yeniden kullanılabilir progressive gezgin ve concept-map sunumu eklendi. Kaldırma Kuvveti'nin normal seçerek açıklama açma davranışı korunur. 25 ilgili test, typecheck ve build geçti; yalnız Preview güncelleniyor.

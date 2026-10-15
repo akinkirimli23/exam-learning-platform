@@ -99,13 +99,14 @@ export function TopicLearnResources({
   definition: TopicDefinition;
   interactiveContent?: ReactNode;
 }) {
+  const hasMapMaterial = definition.media.some(item => item.presentation === 'concept-map');
   return (
     <>
-      <section className="card explorer">
+      {(interactiveContent || !hasMapMaterial) && <section className="card explorer">
         {interactiveContent}
-        <ConceptExplorer conceptMap={definition.conceptMap} />
-      </section>
-      <LearningMaterials items={definition.media} />
+        {!hasMapMaterial && <ConceptExplorer conceptMap={definition.conceptMap} />}
+      </section>}
+      <LearningMaterials items={definition.media} conceptMap={definition.conceptMap} />
     </>
   );
 }

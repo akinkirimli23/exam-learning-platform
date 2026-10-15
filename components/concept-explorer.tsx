@@ -140,11 +140,15 @@ function getNodePath(nodeId: string, nodeById: Map<string, ConceptNode>, parentB
   return path;
 }
 
-export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
+export function ConceptExplorer({
+  conceptMap,
+  progressive = false,
+  launcherTitle = 'Tam kavram haritası',
+}: { conceptMap: ConceptNode; progressive?: boolean; launcherTitle?: string }) {
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
   const [expandedIds, setExpandedIds] = useState<Set<string>>(
-    () => new Set([conceptMap.id]),
+    () => new Set(progressive ? [] : [conceptMap.id]),
   );
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [activeId, setActiveId] = useState(conceptMap.id);
@@ -176,10 +180,10 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
   }, [layout]);
 
   useEffect(() => {
-    setExpandedIds(new Set([conceptMap.id]));
+    setExpandedIds(new Set(progressive ? [] : [conceptMap.id]));
     setSelectedId(null);
     setActiveId(conceptMap.id);
-  }, [conceptMap]);
+  }, [conceptMap, progressive]);
 
   const closeExplorer = useCallback(() => {
     setOpen(false);
@@ -259,12 +263,23 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
   const requestFit = () => setFitRequest((value) => value + 1);
 
   const toggleNode = (nodeId: string) => {
+    const descendants = progressive && expandedIds.has(nodeId)
+      ? flattenConceptNodes(nodeById.get(nodeId)!).map(node => node.id)
+      : [];
     setExpandedIds((current) => {
       const next = new Set(current);
-      if (next.has(nodeId)) next.delete(nodeId);
+      if (next.has(nodeId)) {
+        next.delete(nodeId);
+        descendants.forEach(id => next.delete(id));
+      }
       else next.add(nodeId);
       return next;
     });
+    if (progressive) {
+      setSelectedId(null);
+      setActiveId(nodeId);
+      requestFit();
+    }
   };
 
   const focusNode = (nodeId: string) => {
@@ -347,17 +362,23 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
   };
 
   const openExplorer = () => {
+    if (progressive) {
+      setExpandedIds(new Set());
+      setSelectedId(null);
+      setActiveId(conceptMap.id);
+    }
     setOpen(true);
     requestFit();
   };
 
   const expandAll = () => {
     setExpandedIds(new Set(allNodes.filter((item) => item.children.length).map((item) => item.id)));
-    if (conceptMap.id !== 'pressure') requestFit();
+    if (progressive || conceptMap.id !== 'pressure') requestFit();
   };
 
   const showMainBranches = () => {
     setExpandedIds(new Set([conceptMap.id]));
+    setSelectedId(null);
     setActiveId(conceptMap.id);
     requestFit();
   };
@@ -375,9 +396,11 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
         <header className="concept-header">
           <div className="concept-heading-mark" aria-hidden="true"><Network size={22} /></div>
           <div>
-            <span>INTERACTIVE CONCEPT EXPLORER</span>
+            <span>ETKİLEŞİMLİ KAVRAM HARİTASI</span>
             <h2 id="concept-map-title">{conceptMap.title} Kavram Haritası</h2>
-            <p>Bir düğüm seçerek açıklamasını incele; dalları açarak ilişkileri keşfet.</p>
+            <p>{progressive
+              ? `${conceptMap.title} düğümüne basarak ${conceptMap.children.length} ana dalı aç. Dallara basarak ilerle; alt kavramlardan açıklamalarını öğren.`
+              : 'Bir düğüm seçerek açıklamasını incele; dalları açarak ilişkileri keşfet.'}</p>
           </div>
           <button ref={closeRef} className="concept-close" onClick={closeExplorer} aria-label="Kavram haritasını kapat">
             <X size={22} />
@@ -386,6 +409,12 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
 
         <div className="concept-toolbar" aria-label="Kavram haritası araçları">
           <div className="concept-toolbar-group">
+            {progressive && <button onClick={() => {
+              setExpandedIds(new Set());
+              setSelectedId(null);
+              setActiveId(conceptMap.id);
+              requestFit();
+            }}><Network size={16} /> Başa dön</button>}
             <button onClick={expandAll}><Expand size={16} /> Tümünü aç</button>
             <button onClick={showMainBranches}><Network size={16} /> Ana dallar</button>
           </div>
@@ -460,8 +489,7 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
                         tabIndex={activeId === item.node.id ? 0 : -1}
                         onFocus={() => setActiveId(item.node.id)}
                         onClick={() => {
-                          if (conceptMap.id === 'pressure' && hasChildren) {
-                            setSelectedId(null);
+                          if (progressive && hasChildren) {
                             toggleNode(item.node.id);
                           } else {
                             setSelectedId(item.node.id);
@@ -555,7 +583,7 @@ export function ConceptExplorer({ conceptMap }: { conceptMap: ConceptNode }) {
     <>
       <button ref={launcherRef} className="concept-launcher" onClick={openExplorer}>
         <span className="concept-launcher-icon"><Network size={20} /></span>
-        <span><strong>Tam kavram haritası</strong><small>{conceptMap.children.length} ana dalda bağlantıları keşfet</small></span>
+        <span><strong>{launcherTitle}</strong><small>{conceptMap.children.length} ana dalda bağlantıları keşfet</small></span>
         <ChevronRight size={18} />
       </button>
       {mounted && modal ? createPortal(modal, document.body) : null}

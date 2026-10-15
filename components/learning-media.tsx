@@ -1,7 +1,6 @@
 'use client';
 
 import {
-  ChevronDown,
   CloudOff,
   ExternalLink,
   FileText,
@@ -15,6 +14,8 @@ import { createPortal } from 'react-dom';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { LearningMedia, SignedLearningMedia } from '@/shared/contracts';
 import { api } from './client';
+import { ConceptExplorer } from './concept-explorer';
+import type { ConceptNode } from '@/shared/topic-engine';
 
 export type LearningMediaLoadState =
   | { status: 'loading'; url?: undefined }
@@ -208,24 +209,10 @@ export function LearningInfographicView({ item, state }: { item: LearningMedia; 
 
   return (
     <>
-      {item.collapsible ? (
-        <details className="card learning-material-card infographic-card learning-material-collapsible">
-          <summary className="learning-material-disclosure">
-            {heading}
-            <span className="learning-material-disclosure-status" aria-hidden="true">
-              <span className="when-closed">Aç</span>
-              <span className="when-open">Kapat</span>
-              <ChevronDown size={18} />
-            </span>
-          </summary>
-          {preview}
-        </details>
-      ) : (
-        <article className="card learning-material-card infographic-card">
-          {heading}
-          {preview}
-        </article>
-      )}
+      <article className="card learning-material-card infographic-card">
+        {heading}
+        {preview}
+      </article>
       {mounted && dialog ? createPortal(dialog, document.body) : null}
     </>
   );
@@ -236,7 +223,7 @@ export function LearningInfographic({ item }: { item: LearningMedia }) {
   return <LearningInfographicView item={item} state={state} />;
 }
 
-export function LearningMaterials({ items }: { items: readonly LearningMedia[] }) {
+export function LearningMaterials({ items, conceptMap }: { items: readonly LearningMedia[]; conceptMap?: ConceptNode }) {
   const materials = items.filter((item) => item.type === 'slides' || item.type === 'infographic');
   if (!materials.length) return null;
   return (
@@ -245,7 +232,11 @@ export function LearningMaterials({ items }: { items: readonly LearningMedia[] }
         <span className="eyebrow">GÖRSEL MATERYALLER</span>
         <h2 id="learning-materials-title">Konuyu farklı biçimlerde incele</h2>
       </div>
-      {materials.map((item) => item.type === 'slides'
+      {materials.map((item) => item.presentation === 'concept-map' && conceptMap
+        ? <section key={item.id} className="card learning-material-card explorer">
+          <ConceptExplorer conceptMap={conceptMap} progressive launcherTitle={item.title} />
+        </section>
+        : item.type === 'slides'
         ? <LearningSlides key={item.id} item={item} />
         : <LearningInfographic key={item.id} item={item} />)}
     </section>
