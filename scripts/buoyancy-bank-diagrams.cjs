@@ -1,0 +1,26 @@
+// Editorial replacements for diagrams whose geometry contradicted the stem.
+const wrap = (title, body) => `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="410" viewBox="0 0 800 410"><rect width="800" height="410" rx="20" fill="#f7fbff"/><style>text{font-family:Arial,sans-serif;fill:#153852;font-size:20px}.label{font-size:17px}.water{fill:#9edfed;stroke:#168da4;stroke-width:2}.wall{fill:none;stroke:#285670;stroke-width:6}.body{fill:#e9a24c;stroke:#ac722c;stroke-width:3}.rope{stroke:#53667b;stroke-width:3}.force{fill:none;stroke:#168da4;stroke-width:5}</style><text x="24" y="34">${title}</text>${body}<text class="label" x="24" y="392">Şema ölçekli değildir; metindeki veriler esastır.</text></svg>`;
+const tank = (x = 250, water = 155, width = 330) => `<rect class="water" x="${x + 3}" y="${water}" width="${width - 6}" height="${340 - water}"/><path class="wall" d="M${x} 78V340H${x + width}V78"/>`;
+const body = (x, y, width = 90, height = 90) => `<rect class="body" x="${x}" y="${y}" width="${width}" height="${height}" rx="8"/>`;
+const down = (x, end, label = 'El kuvveti') => `<path class="force" d="M${x} 82V${end}m-12 -17L${x} ${end}l12 -17"/><text class="label" x="${x + 20}" y="104">${label}</text>`;
+const dynamometer = (x, bottom) => `<rect x="${x - 34}" y="50" width="68" height="55" rx="8" fill="white" stroke="#285670" stroke-width="4"/><text x="${x - 7}" y="85">N</text><line class="rope" x1="${x}" y1="105" x2="${x}" y2="${bottom}"/>`;
+const overflow = bottom => `<path class="force" d="M580 155H650V285m-12 -17L650 285l12 -17"/>${body(365, bottom ? 260 : 195, 90, bottom ? 80 : 90)}`;
+const tube = (x, y, ball) => `<path d="M${x} ${y}V${y + 79}a31 31 0 0 0 62 0V${y}" fill="#fff" fill-opacity="0.7" stroke="#285670" stroke-width="4"/>${ball ? `<circle cx="${x + 31}" cy="${y + 82}" r="13" fill="#6a778b"/>` : ''}`;
+const boat = (x, top, load) => `<path d="M${x} ${top}H${x + 200}L${x + 165} ${top + 70}H${x + 35}Z" fill="#aa8054" stroke="#715137" stroke-width="4"/>${load ? body(x + 70, top - 40, 60, 45) : ''}`;
+
+const replacementDiagrams = {
+  'buoyancy-easy-01-q11': wrap('Taşma kabı · cisim tamamen batırılıyor', `${tank()}${overflow(false)}<text class="label" x="24" y="110">Taşma seviyesi</text>`),
+  'buoyancy-easy-03-q05': wrap('Taş henüz kısmen batık', `${tank()}${body(365, 130)}${dynamometer(410, 130)}<text class="label" x="24" y="250">Batık kısım artırılıyor</text>`),
+  'buoyancy-easy-03-q07': wrap('Taşma kabı · cisim tamamen batık', `${tank()}${overflow(false)}<text class="label" x="24" y="110">V = 500 cm³</text>`),
+  'buoyancy-medium-01-q05': wrap('İlk durum · hacmin yarısı batık', `${tank(250, 175)}${body(365, 130)}${dynamometer(410, 130)}<text class="label" x="24" y="240">G = 18 N</text><text class="label" x="24" y="270">T = 12 N</text>`),
+  'buoyancy-medium-01-q14': wrap('Yüzen top elle tamamen batırılıyor', `${tank()}${body(365, 200)}${down(410, 192)}`),
+  'buoyancy-medium-02-q03': wrap('Taşma kabı · cisim tabana batıyor', `${tank()}${overflow(true)}<text class="label" x="24" y="110">m = 200 g</text><text class="label" x="24" y="140">V = 100 cm³</text>`),
+  'buoyancy-medium-02-q05': wrap('Tahta tekne dışına bırakılıyor ve yüzüyor', `${tank(70, 200, 290)}${boat(115, 160, true)}<text class="label" x="100" y="365">Önce: teknenin içinde</text>${tank(440, 200, 290)}${boat(455, 160, false)}${body(665, 182, 45, 45)}<text class="label" x="475" y="365">Sonra: tahta su yüzeyinde</text>`),
+  'buoyancy-medium-02-q08': wrap('Cisimler ayrı deneylerde bırakılıyor', `${tank(70, 185, 290)}${body(165, 158, 90, 90)}<text class="label" x="90" y="365">K: 0,7 kg; 1 L; yüzüyor</text>${tank(440, 185, 290)}${body(540, 250, 90, 90)}<text class="label" x="460" y="365">L: 1,3 kg; 1 L; tabanda</text>`),
+  'buoyancy-medium-03-q01': wrap('Serbest bırakılmadan önce · her blok 100 cm³', `${tank(90, 245, 620)}${body(180, 95, 75, 75)}${body(365, 95, 75, 75)}${body(550, 95, 75, 75)}<text class="label" x="180" y="195">K: 100 g</text><text class="label" x="365" y="195">L: 150 g</text><text class="label" x="550" y="195">M: 200 g</text><text class="label" x="300" y="300">Sıvı: 1,5 g/cm³</text>`),
+  'buoyancy-hard-01-q04': wrap('Metal tekneden suya bırakılıyor', `${tank(70, 200, 290)}${boat(115, 160, true)}<text class="label" x="90" y="365">Önce: metal teknede</text>${tank(440, 200, 290)}${boat(470, 160, false)}${body(655, 265, 55, 75)}<text class="label" x="450" y="365">Sonra: metal tabanda · 6 kg; 2 L</text>`),
+  'buoyancy-hard-02-q07': wrap('Su eklenmeden önceki başlangıç durumu', `${tank()}${body(365, 119, 90, 90)}<text class="label" x="24" y="240">Toplam kütle: 600 g</text><text class="label" x="24" y="270">Dış hacim: 1 L</text>`),
+  'buoyancy-hard-02-q09': wrap('Tahta elle tamamen su altında tutuluyor', `${tank()}${body(365, 200)}${down(410, 192)}<text class="label" x="24" y="240">V = 5 L</text><text class="label" x="24" y="270">m = 3 kg</text>`),
+  'buoyancy-hard-03-q04': wrap('Yüzen tüp ve metal bilye', `${tank(70, 185, 290)}${tube(180, 130, true)}<text class="label" x="90" y="365">Önce: bilye tüp içinde</text>${tank(440, 185, 290)}${tube(500, 95, false)}<circle cx="660" cy="325" r="14" fill="#6a778b"/><text class="label" x="450" y="365">Sonra: bilye tabanda; seviye?</text>`),
+};
+module.exports = { replacementDiagrams };

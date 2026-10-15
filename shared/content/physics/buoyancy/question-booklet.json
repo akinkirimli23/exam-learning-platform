@@ -1,0 +1,331 @@
+{
+  "testId": "buoyancy-easy-01",
+  "examLabel": "TYT FİZİK",
+  "topicLabel": "KALDIRMA KUVVETİ",
+  "testLabel": "KOLAY TEST 1",
+  "unitLabel": "AKIŞKANLAR",
+  "badgeLabel": "Sıvılarda kaldırma kuvveti",
+  "questionsPerPage": 4,
+  "illustrations": {
+    "buoyancy-easy-01-q01": {
+      "source": "/question-bank/buoyancy/buoyancy-easy-01-q01.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-easy-01-q01.svg",
+      "stemSignature": "d8b58a5e"
+    },
+    "buoyancy-easy-01-q04": {
+      "source": "/question-bank/buoyancy/buoyancy-easy-01-q04.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-easy-01-q04.svg",
+      "stemSignature": "202e315f"
+    },
+    "buoyancy-easy-01-q06": {
+      "source": "/question-bank/buoyancy/buoyancy-easy-01-q06.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-easy-01-q06.svg",
+      "stemSignature": "4ebfd673"
+    },
+    "buoyancy-easy-01-q08": {
+      "source": "/question-bank/buoyancy/buoyancy-easy-01-q08.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-easy-01-q08.svg",
+      "stemSignature": "38fb54a"
+    },
+    "buoyancy-easy-01-q11": {
+      "source": "/question-bank/buoyancy/buoyancy-easy-01-q11.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-easy-01-q11.svg",
+      "stemSignature": "2851548f"
+    },
+    "buoyancy-easy-01-q12": {
+      "source": "/question-bank/buoyancy/buoyancy-easy-01-q12.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-easy-01-q12.svg",
+      "stemSignature": "b56ef72b"
+    },
+    "buoyancy-easy-02-q03": {
+      "source": "/question-bank/buoyancy/buoyancy-easy-02-q03.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-easy-02-q03.svg",
+      "stemSignature": "b19e5e18"
+    },
+    "buoyancy-easy-02-q04": {
+      "source": "/question-bank/buoyancy/buoyancy-easy-02-q04.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-easy-02-q04.svg",
+      "stemSignature": "2c9d6f7"
+    },
+    "buoyancy-easy-02-q07": {
+      "source": "/question-bank/buoyancy/buoyancy-easy-02-q07.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-easy-02-q07.svg",
+      "stemSignature": "bb176012"
+    },
+    "buoyancy-easy-02-q11": {
+      "source": "/question-bank/buoyancy/buoyancy-easy-02-q11.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-easy-02-q11.svg",
+      "stemSignature": "4a875a94"
+    },
+    "buoyancy-easy-02-q13": {
+      "source": "/question-bank/buoyancy/buoyancy-easy-02-q13.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-easy-02-q13.svg",
+      "stemSignature": "53269ea0"
+    },
+    "buoyancy-easy-03-q05": {
+      "source": "/question-bank/buoyancy/buoyancy-easy-03-q05.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-easy-03-q05.svg",
+      "stemSignature": "472b199e"
+    },
+    "buoyancy-easy-03-q07": {
+      "source": "/question-bank/buoyancy/buoyancy-easy-03-q07.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-easy-03-q07.svg",
+      "stemSignature": "17ab4431"
+    },
+    "buoyancy-easy-03-q12": {
+      "source": "/question-bank/buoyancy/buoyancy-easy-03-q12.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-easy-03-q12.svg",
+      "stemSignature": "d510962d"
+    },
+    "buoyancy-easy-03-q14": {
+      "source": "/question-bank/buoyancy/buoyancy-easy-03-q14.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-easy-03-q14.svg",
+      "stemSignature": "d71bea8e"
+    },
+    "buoyancy-medium-01-q01": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-01-q01.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-01-q01.svg",
+      "stemSignature": "49a53e5d"
+    },
+    "buoyancy-medium-01-q02": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-01-q02.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-01-q02.svg",
+      "stemSignature": "ef38d084"
+    },
+    "buoyancy-medium-01-q03": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-01-q03.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-01-q03.svg",
+      "stemSignature": "96d6a2b3"
+    },
+    "buoyancy-medium-01-q04": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-01-q04.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-01-q04.svg",
+      "stemSignature": "635bd054"
+    },
+    "buoyancy-medium-01-q05": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-01-q05.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-01-q05.svg",
+      "stemSignature": "7b82cdee"
+    },
+    "buoyancy-medium-01-q08": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-01-q08.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-01-q08.svg",
+      "stemSignature": "7576799c"
+    },
+    "buoyancy-medium-01-q10": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-01-q10.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-01-q10.svg",
+      "stemSignature": "d99a40a9"
+    },
+    "buoyancy-medium-01-q14": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-01-q14.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-01-q14.svg",
+      "stemSignature": "79a3da00"
+    },
+    "buoyancy-medium-02-q01": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-02-q01.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-02-q01.svg",
+      "stemSignature": "2ae13124"
+    },
+    "buoyancy-medium-02-q03": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-02-q03.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-02-q03.svg",
+      "stemSignature": "370389b5"
+    },
+    "buoyancy-medium-02-q04": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-02-q04.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-02-q04.svg",
+      "stemSignature": "582dfb16"
+    },
+    "buoyancy-medium-02-q05": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-02-q05.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-02-q05.svg",
+      "stemSignature": "7a9719d9"
+    },
+    "buoyancy-medium-02-q07": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-02-q07.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-02-q07.svg",
+      "stemSignature": "d34492f5"
+    },
+    "buoyancy-medium-02-q08": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-02-q08.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-02-q08.svg",
+      "stemSignature": "bc3ee95b"
+    },
+    "buoyancy-medium-02-q11": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-02-q11.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-02-q11.svg",
+      "stemSignature": "330aedc0"
+    },
+    "buoyancy-medium-02-q13": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-02-q13.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-02-q13.svg",
+      "stemSignature": "c81fe4f3"
+    },
+    "buoyancy-medium-03-q01": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-03-q01.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-03-q01.svg",
+      "stemSignature": "fc010e11"
+    },
+    "buoyancy-medium-03-q02": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-03-q02.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-03-q02.svg",
+      "stemSignature": "c8a310b1"
+    },
+    "buoyancy-medium-03-q04": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-03-q04.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-03-q04.svg",
+      "stemSignature": "be9eb838"
+    },
+    "buoyancy-medium-03-q05": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-03-q05.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-03-q05.svg",
+      "stemSignature": "66343e45"
+    },
+    "buoyancy-medium-03-q07": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-03-q07.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-03-q07.svg",
+      "stemSignature": "8b44b743"
+    },
+    "buoyancy-medium-03-q09": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-03-q09.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-03-q09.svg",
+      "stemSignature": "36696792"
+    },
+    "buoyancy-medium-03-q10": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-03-q10.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-03-q10.svg",
+      "stemSignature": "160a39ca"
+    },
+    "buoyancy-medium-03-q12": {
+      "source": "/question-bank/buoyancy/buoyancy-medium-03-q12.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-medium-03-q12.svg",
+      "stemSignature": "647f41cd"
+    },
+    "buoyancy-hard-01-q01": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-01-q01.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-01-q01.svg",
+      "stemSignature": "6a17f4aa"
+    },
+    "buoyancy-hard-01-q03": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-01-q03.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-01-q03.svg",
+      "stemSignature": "573d9983"
+    },
+    "buoyancy-hard-01-q04": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-01-q04.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-01-q04.svg",
+      "stemSignature": "93388505"
+    },
+    "buoyancy-hard-01-q05": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-01-q05.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-01-q05.svg",
+      "stemSignature": "59368930"
+    },
+    "buoyancy-hard-01-q06": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-01-q06.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-01-q06.svg",
+      "stemSignature": "cf5c660a"
+    },
+    "buoyancy-hard-01-q10": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-01-q10.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-01-q10.svg",
+      "stemSignature": "1cfc3768"
+    },
+    "buoyancy-hard-01-q12": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-01-q12.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-01-q12.svg",
+      "stemSignature": "18b7262"
+    },
+    "buoyancy-hard-01-q14": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-01-q14.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-01-q14.svg",
+      "stemSignature": "318e0665"
+    },
+    "buoyancy-hard-02-q05": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-02-q05.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-02-q05.svg",
+      "stemSignature": "5c973cb0"
+    },
+    "buoyancy-hard-02-q06": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-02-q06.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-02-q06.svg",
+      "stemSignature": "531cfc56"
+    },
+    "buoyancy-hard-02-q07": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-02-q07.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-02-q07.svg",
+      "stemSignature": "5455a54e"
+    },
+    "buoyancy-hard-02-q08": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-02-q08.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-02-q08.svg",
+      "stemSignature": "3f0a4f65"
+    },
+    "buoyancy-hard-02-q09": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-02-q09.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-02-q09.svg",
+      "stemSignature": "8626641f"
+    },
+    "buoyancy-hard-02-q10": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-02-q10.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-02-q10.svg",
+      "stemSignature": "98dcbe4b"
+    },
+    "buoyancy-hard-02-q11": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-02-q11.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-02-q11.svg",
+      "stemSignature": "a2fadccc"
+    },
+    "buoyancy-hard-03-q02": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-03-q02.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-03-q02.svg",
+      "stemSignature": "a943fce3"
+    },
+    "buoyancy-hard-03-q04": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-03-q04.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-03-q04.svg",
+      "stemSignature": "4379713f"
+    },
+    "buoyancy-hard-03-q06": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-03-q06.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-03-q06.svg",
+      "stemSignature": "296ed1d"
+    },
+    "buoyancy-hard-03-q07": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-03-q07.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-03-q07.svg",
+      "stemSignature": "27ecb17c"
+    },
+    "buoyancy-hard-03-q08": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-03-q08.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-03-q08.svg",
+      "stemSignature": "e79a97c7"
+    },
+    "buoyancy-hard-03-q09": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-03-q09.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-03-q09.svg",
+      "stemSignature": "3d11a392"
+    },
+    "buoyancy-hard-03-q11": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-03-q11.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-03-q11.svg",
+      "stemSignature": "c00a26d9"
+    },
+    "buoyancy-hard-03-q13": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-03-q13.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-03-q13.svg",
+      "stemSignature": "eba7d07"
+    },
+    "buoyancy-hard-03-q14": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-03-q14.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-03-q14.svg",
+      "stemSignature": "cd21f057"
+    },
+    "buoyancy-hard-03-q15": {
+      "source": "/question-bank/buoyancy/buoyancy-hard-03-q15.svg",
+      "src": "/question-bank/buoyancy/booklet/buoyancy-hard-03-q15.svg",
+      "stemSignature": "5ef8ccaf"
+    }
+  }
+}

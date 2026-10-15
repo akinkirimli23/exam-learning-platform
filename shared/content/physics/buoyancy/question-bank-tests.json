@@ -1,0 +1,83 @@
+[
+  {
+    "id": "buoyancy-easy-01",
+    "title": "Kolay 1 · Arşimet ve Yer Değiştirme",
+    "difficulty": "kolay",
+    "description": "Kuvvet, hacim ve taşan sıvıyı doğru ilişkilendir.",
+    "questionCount": 15,
+    "durationMinutes": 20,
+    "visualCount": 6
+  },
+  {
+    "id": "buoyancy-easy-02",
+    "title": "Kolay 2 · Yüzme, Askıda Kalma, Batma",
+    "difficulty": "kolay",
+    "description": "Özkütle ve batma oranı üzerinden akıl yürüt.",
+    "questionCount": 15,
+    "durationMinutes": 20,
+    "visualCount": 5
+  },
+  {
+    "id": "buoyancy-easy-03",
+    "title": "Kolay 3 · Deney, Dinamometre ve Günlük Yaşam",
+    "difficulty": "kolay",
+    "description": "Ölçüm sonuçlarını ve sıvı içindeki kuvvetleri yorumla.",
+    "questionCount": 15,
+    "durationMinutes": 20,
+    "visualCount": 4
+  },
+  {
+    "id": "buoyancy-medium-01",
+    "title": "Orta 1 · İpler, Tartılar ve Kuvvet Dengesi",
+    "difficulty": "orta",
+    "description": "Çok kuvvetli sistemlerin dengelerini kur.",
+    "questionCount": 15,
+    "durationMinutes": 25,
+    "visualCount": 8
+  },
+  {
+    "id": "buoyancy-medium-02",
+    "title": "Orta 2 · Taşma Kabı, Tekne ve Seviye",
+    "difficulty": "orta",
+    "description": "Hacim korunumu ile ağırlık ilişkisini ayırt et.",
+    "questionCount": 15,
+    "durationMinutes": 25,
+    "visualCount": 8
+  },
+  {
+    "id": "buoyancy-medium-03",
+    "title": "Orta 3 · Grafikler ve Çoklu Özkütle",
+    "difficulty": "orta",
+    "description": "Verilen tablolar ve iki farklı ortamı karşılaştır.",
+    "questionCount": 15,
+    "durationMinutes": 25,
+    "visualCount": 8
+  },
+  {
+    "id": "buoyancy-hard-01",
+    "title": "Zor 1 · Birleşik Düzenekler",
+    "difficulty": "zor",
+    "description": "Birden çok denge koşulunu ve iki sıvıyı birlikte yorumla.",
+    "questionCount": 15,
+    "durationMinutes": 30,
+    "visualCount": 8
+  },
+  {
+    "id": "buoyancy-hard-02",
+    "title": "Zor 2 · Kesin Yargı ve Deney Tasarımı",
+    "difficulty": "zor",
+    "description": "Kesinlik, değişken kontrolü ve karşı örnekleri analiz et.",
+    "questionCount": 15,
+    "durationMinutes": 30,
+    "visualCount": 7
+  },
+  {
+    "id": "buoyancy-hard-03",
+    "title": "Zor 3 · TYT Tarzı Karma Deneme",
+    "difficulty": "zor",
+    "description": "Deney, akıl yürütme ve matematiksel modeli birleştir.",
+    "questionCount": 15,
+    "durationMinutes": 30,
+    "visualCount": 10
+  }
+]

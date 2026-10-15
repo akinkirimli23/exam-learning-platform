@@ -5,6 +5,7 @@ import { CheckCircle2, NotebookPen, RotateCcw, Tag, TriangleAlert } from 'lucide
 import { api } from './client';
 import { mistakeReasonLabels, type MistakeNotebookItem, type MistakeNotebookResponse, type MistakeReason } from '@/shared/mistakes';
 import { getTopicDefinition } from '@/shared/topic-registry';
+import { BankQuestionFigure } from './bank-question-figure';
 
 const reasons=Object.entries(mistakeReasonLabels) as [MistakeReason,string][];
 
@@ -43,6 +44,8 @@ function MistakeCard({item,onSaved}:{item:MistakeNotebookItem;onSaved:()=>void})
   return <article className="card mistake-card">
     <div className="row-between"><div><span className="eyebrow">{topic?.title??item.topicId}</span><h3>{item.question.text}</h3></div><span className="pill gray">{item.wrongCount} kez yanlış/boş</span></div>
     <div className="answer-comparison"><span>Son yanıtın: <strong>{item.question.selectedAnswer==null?'Boş':item.question.options[item.question.selectedAnswer]}</strong></span><span>Doğru: <strong>{item.question.options[item.question.correctAnswer]}</strong></span></div>
+    <BankQuestionFigure figure={item.question.figure} />
+    {item.question.explanation && <details><summary>Açıklamalı çözüm</summary><p>{item.question.explanation}</p></details>}
     <div className="mistake-fields">
       <label>Neden?<select value={reason} onChange={e=>setReason(e.target.value as MistakeReason)}>{reasons.map(([value,label])=><option key={value} value={value}>{label}{value===item.suggestedReason?' · önerilen':''}</option>)}</select></label>
       <label>Notun<textarea rows={3} maxLength={1000} value={note} onChange={e=>setNote(e.target.value)} placeholder="Bu soruda neyi kaçırdım?"/></label>

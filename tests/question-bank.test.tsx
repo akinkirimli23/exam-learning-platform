@@ -53,6 +53,7 @@ describe('Konu soru bankası', () => {
   it('sorusu olmayan generic konu seviyesini başlatmaz', () => {
     const definition = {
       ...buoyancyTopicDefinition,
+      questionBank: undefined,
       quiz: buoyancyTopicDefinition.quiz.filter((question) => question.difficulty !== 'zor'),
     };
     const html = renderToStaticMarkup(<QuestionBank definition={definition} />);

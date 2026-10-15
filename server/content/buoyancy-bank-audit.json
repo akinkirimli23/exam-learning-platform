@@ -1,0 +1,1617 @@
+{
+  "revision": "ivme-buoyancy-135-audit-v1",
+  "reviewedAt": "2026-10-15",
+  "questions": [
+    {
+      "id": "buoyancy-easy-01-q01",
+      "expectedAnswer": "B",
+      "contentSha256": "e2b10d7c96116b062b9579667257bf55b5652d327ba24bb0978a62e9e69fc727",
+      "sourceSha256": "e2b10d7c96116b062b9579667257bf55b5652d327ba24bb0978a62e9e69fc727",
+      "concepts": [
+        "archimedes"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-01-q02",
+      "expectedAnswer": "D",
+      "contentSha256": "666baf5cdb48df53524270d5b8912ac269928f9b3ff50d1cf437194c81af7a64",
+      "sourceSha256": "666baf5cdb48df53524270d5b8912ac269928f9b3ff50d1cf437194c81af7a64",
+      "concepts": [
+        "displaced-volume"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-01-q03",
+      "expectedAnswer": "C",
+      "contentSha256": "e331dd07840ba8600aa84787ca934250f0ab8b04e321e862da339136d4d4d004",
+      "sourceSha256": "e331dd07840ba8600aa84787ca934250f0ab8b04e321e862da339136d4d4d004",
+      "concepts": [
+        "archimedes"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-01-q04",
+      "expectedAnswer": "C",
+      "contentSha256": "4a1f8fbe0683ac0ea2fce2717fb0a229650cfb0ce719301864b5ff3a70d4cc71",
+      "sourceSha256": "4a1f8fbe0683ac0ea2fce2717fb0a229650cfb0ce719301864b5ff3a70d4cc71",
+      "concepts": [
+        "apparent-weight"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-01-q05",
+      "expectedAnswer": "A",
+      "contentSha256": "c6200f13deb1db934d24f629fbda3bd499ef59553b1e3525da899a7c9eb764cc",
+      "sourceSha256": "c6200f13deb1db934d24f629fbda3bd499ef59553b1e3525da899a7c9eb764cc",
+      "concepts": [
+        "floating-equilibrium"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-01-q06",
+      "expectedAnswer": "E",
+      "contentSha256": "c6ec8ea79f672d5fde37bf6c274ae9a442ca6f4db190528497ec9f8115844fb9",
+      "sourceSha256": "c6ec8ea79f672d5fde37bf6c274ae9a442ca6f4db190528497ec9f8115844fb9",
+      "concepts": [
+        "floating-fraction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-01-q07",
+      "expectedAnswer": "E",
+      "contentSha256": "694e6cca3410843adc56c010a59c6c0df01ca04368bf7812f39df6ea10eb76c2",
+      "sourceSha256": "694e6cca3410843adc56c010a59c6c0df01ca04368bf7812f39df6ea10eb76c2",
+      "concepts": [
+        "neutral-buoyancy"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-01-q08",
+      "expectedAnswer": "D",
+      "contentSha256": "b506fab7b8015505e49a4016bf3ef72c55d56b6eddc107b5658ab38a9ed905d8",
+      "sourceSha256": "b506fab7b8015505e49a4016bf3ef72c55d56b6eddc107b5658ab38a9ed905d8",
+      "concepts": [
+        "displaced-volume"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-01-q09",
+      "expectedAnswer": "B",
+      "contentSha256": "53c541261729859420bd876b8c5bb47cffd82ea8a482fdcb16e69b69714c555b",
+      "sourceSha256": "53c541261729859420bd876b8c5bb47cffd82ea8a482fdcb16e69b69714c555b",
+      "concepts": [
+        "floating-equilibrium"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-01-q10",
+      "expectedAnswer": "D",
+      "contentSha256": "eebd77a6085a0c362ae97d542ba0fa17a6aacd21920a588298643f5fe7878d03",
+      "sourceSha256": "eebd77a6085a0c362ae97d542ba0fa17a6aacd21920a588298643f5fe7878d03",
+      "concepts": [
+        "archimedes"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-01-q11",
+      "expectedAnswer": "A",
+      "contentSha256": "cc5c9725bc2574671c995c9b13f4b0a56850344756e5211c147c29349d478b8a",
+      "sourceSha256": "8608ced1713d7b117d84f4e7fcd8ca5f4b306dbce9a2fffadc7ffb80417f1d7c",
+      "concepts": [
+        "overflow"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-easy-01-q12",
+      "expectedAnswer": "B",
+      "contentSha256": "60c979a0236557051176bad6373437936ec85e1af4510f1dbe4b1cea7027e308",
+      "sourceSha256": "60c979a0236557051176bad6373437936ec85e1af4510f1dbe4b1cea7027e308",
+      "concepts": [
+        "fluid-density"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-01-q13",
+      "expectedAnswer": "C",
+      "contentSha256": "7625330681b852115f8386c3445a0b6e797dbbb121de798c181f7ca0b226e9b9",
+      "sourceSha256": "7625330681b852115f8386c3445a0b6e797dbbb121de798c181f7ca0b226e9b9",
+      "concepts": [
+        "force-balance"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-01-q14",
+      "expectedAnswer": "E",
+      "contentSha256": "a99296ceeaa1410e64886e457dc7060421fc4f41ea76a000938b60cb97e363e9",
+      "sourceSha256": "a99296ceeaa1410e64886e457dc7060421fc4f41ea76a000938b60cb97e363e9",
+      "concepts": [
+        "floating-equilibrium"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-01-q15",
+      "expectedAnswer": "A",
+      "contentSha256": "41f2305a500b89d35babf611ca293ff6bf71b3f89fa5c5b3ed7ecb0e8a028d7e",
+      "sourceSha256": "41f2305a500b89d35babf611ca293ff6bf71b3f89fa5c5b3ed7ecb0e8a028d7e",
+      "concepts": [
+        "apparent-weight"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-02-q01",
+      "expectedAnswer": "D",
+      "contentSha256": "cb100baac777affc45393865a1af03e3091a277d504d1c095eb3fe75b80aa752",
+      "sourceSha256": "cb100baac777affc45393865a1af03e3091a277d504d1c095eb3fe75b80aa752",
+      "concepts": [
+        "floating-fraction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-02-q02",
+      "expectedAnswer": "E",
+      "contentSha256": "9bb97433f6c522ab9212660b7d5586e6c1371c0adb65549bf8f76e60ff1de6de",
+      "sourceSha256": "9bb97433f6c522ab9212660b7d5586e6c1371c0adb65549bf8f76e60ff1de6de",
+      "concepts": [
+        "floating-fraction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-02-q03",
+      "expectedAnswer": "E",
+      "contentSha256": "d8ef8777bd226cc0ddc4753f87dd314571c53e77974c52f030a346869310588c",
+      "sourceSha256": "d8ef8777bd226cc0ddc4753f87dd314571c53e77974c52f030a346869310588c",
+      "concepts": [
+        "sinking-equilibrium"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-02-q04",
+      "expectedAnswer": "B",
+      "contentSha256": "f17cfd9e8d7a7e47ebca8d36d78204883c6e691973e324196479098cbaad954d",
+      "sourceSha256": "f17cfd9e8d7a7e47ebca8d36d78204883c6e691973e324196479098cbaad954d",
+      "concepts": [
+        "density-order"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-02-q05",
+      "expectedAnswer": "C",
+      "contentSha256": "a1958df0cdca62b2a7222db3fb2806bee1132b602fdb232c937ad230ede3705e",
+      "sourceSha256": "a1958df0cdca62b2a7222db3fb2806bee1132b602fdb232c937ad230ede3705e",
+      "concepts": [
+        "floating-equilibrium"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-02-q06",
+      "expectedAnswer": "B",
+      "contentSha256": "fb1aeee7a10125849e711b17bf6fa7fe6dec38205ab644a2274f0444102afb0a",
+      "sourceSha256": "fb1aeee7a10125849e711b17bf6fa7fe6dec38205ab644a2274f0444102afb0a",
+      "concepts": [
+        "density-order"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-02-q07",
+      "expectedAnswer": "A",
+      "contentSha256": "6fbe7fd26843b0552e657882cb931a1860f168de13f45eabd6f0ba2f180a068a",
+      "sourceSha256": "6fbe7fd26843b0552e657882cb931a1860f168de13f45eabd6f0ba2f180a068a",
+      "concepts": [
+        "floating-fraction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-02-q08",
+      "expectedAnswer": "C",
+      "contentSha256": "d008b4d3ff16ee0f9502b9d63b53c2f4d38b96cf3f49310e90c319fd356ec054",
+      "sourceSha256": "d008b4d3ff16ee0f9502b9d63b53c2f4d38b96cf3f49310e90c319fd356ec054",
+      "concepts": [
+        "floating-equilibrium"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-02-q09",
+      "expectedAnswer": "D",
+      "contentSha256": "b427b542506cadb35bf5f860f3db9b75e94141dbbec2a35df43e5fdf102916b0",
+      "sourceSha256": "b427b542506cadb35bf5f860f3db9b75e94141dbbec2a35df43e5fdf102916b0",
+      "concepts": [
+        "fluid-density"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-02-q10",
+      "expectedAnswer": "B",
+      "contentSha256": "bc10abc341cf3fa9b73c1fa568d05f6b7ba41b92b033d1110ea2502c68ab0815",
+      "sourceSha256": "bc10abc341cf3fa9b73c1fa568d05f6b7ba41b92b033d1110ea2502c68ab0815",
+      "concepts": [
+        "floating-fraction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-02-q11",
+      "expectedAnswer": "E",
+      "contentSha256": "0c27e61aac0ca84e6e9ca10b91baec1fb7c69e3723576d553d1d6e86828bf3c1",
+      "sourceSha256": "0c27e61aac0ca84e6e9ca10b91baec1fb7c69e3723576d553d1d6e86828bf3c1",
+      "concepts": [
+        "floating-fraction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-02-q12",
+      "expectedAnswer": "D",
+      "contentSha256": "4e06093a83b50d99d1daeac72fd1845087405bd7aa338bb6602637b6ab257eb7",
+      "sourceSha256": "4e06093a83b50d99d1daeac72fd1845087405bd7aa338bb6602637b6ab257eb7",
+      "concepts": [
+        "sinking-equilibrium"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-02-q13",
+      "expectedAnswer": "C",
+      "contentSha256": "51cf525f8c36c25b175586b778f9673ff400716436f2d6176e71012cef509d2f",
+      "sourceSha256": "51cf525f8c36c25b175586b778f9673ff400716436f2d6176e71012cef509d2f",
+      "concepts": [
+        "depth-independence"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-02-q14",
+      "expectedAnswer": "A",
+      "contentSha256": "5cd8725aa32b1ff0bb03e406dd1b45df6bce53a08102b722a0c0df7b1f89b2b7",
+      "sourceSha256": "5cd8725aa32b1ff0bb03e406dd1b45df6bce53a08102b722a0c0df7b1f89b2b7",
+      "concepts": [
+        "archimedes"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-02-q15",
+      "expectedAnswer": "A",
+      "contentSha256": "cb8fa8fedb20382ebe65dee8425f423ccc55109b351ae6028525a1fe383b0e62",
+      "sourceSha256": "cb8fa8fedb20382ebe65dee8425f423ccc55109b351ae6028525a1fe383b0e62",
+      "concepts": [
+        "density-order"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-03-q01",
+      "expectedAnswer": "C",
+      "contentSha256": "beebac2f8c3060b7ee028f97fd3f93301004fe142d007d44ae0ed371454eaa83",
+      "sourceSha256": "beebac2f8c3060b7ee028f97fd3f93301004fe142d007d44ae0ed371454eaa83",
+      "concepts": [
+        "apparent-weight"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-03-q02",
+      "expectedAnswer": "D",
+      "contentSha256": "b149e31b7a1098304f4da85811fcb935705006afe52fbce01e479314db0acbe1",
+      "sourceSha256": "b149e31b7a1098304f4da85811fcb935705006afe52fbce01e479314db0acbe1",
+      "concepts": [
+        "archimedes"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-03-q03",
+      "expectedAnswer": "B",
+      "contentSha256": "74f538dce1868368b7ef693b4207d8bd52ab39a9ac681d7c6e8d636bf560294f",
+      "sourceSha256": "74f538dce1868368b7ef693b4207d8bd52ab39a9ac681d7c6e8d636bf560294f",
+      "concepts": [
+        "displaced-volume"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-03-q04",
+      "expectedAnswer": "E",
+      "contentSha256": "d2a9dd33db86a2c1af012abeec75b97fe20357f7a2db6b4338d593d17345cea7",
+      "sourceSha256": "d2a9dd33db86a2c1af012abeec75b97fe20357f7a2db6b4338d593d17345cea7",
+      "concepts": [
+        "apparent-weight"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-03-q05",
+      "expectedAnswer": "C",
+      "contentSha256": "0fa76a448dac423b31425685a3a73bfb5652028fc1690c34ee06a22f5b9168cc",
+      "sourceSha256": "401eff652d5633e78271fffd8b381161f67247d9adce458fe5d295ce462fbc25",
+      "concepts": [
+        "apparent-weight"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-easy-03-q06",
+      "expectedAnswer": "C",
+      "contentSha256": "bbea0c0162cc16e737fda271db4439fe073c3edf7ab36c5c1449c6d41c5da5f3",
+      "sourceSha256": "bbea0c0162cc16e737fda271db4439fe073c3edf7ab36c5c1449c6d41c5da5f3",
+      "concepts": [
+        "floating-equilibrium"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-03-q07",
+      "expectedAnswer": "E",
+      "contentSha256": "1647725dfffc011c300b68cf2cca82ec2f1047fb87e7767ae5778097dae027e2",
+      "sourceSha256": "179f057d671e094684534385a7f37eb508657552a85493c11bdc20ec34b1267d",
+      "concepts": [
+        "overflow"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-easy-03-q08",
+      "expectedAnswer": "A",
+      "contentSha256": "18e5b932d257c04db24c9ea515ea2c04f4d0fbc7f99ff2a23be46202bbd94c35",
+      "sourceSha256": "18e5b932d257c04db24c9ea515ea2c04f4d0fbc7f99ff2a23be46202bbd94c35",
+      "concepts": [
+        "sinking-equilibrium"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-03-q09",
+      "expectedAnswer": "D",
+      "contentSha256": "9097e1ab1c5f4bf8f47f6577dbbe82dec309099ce153343e6577844902530fbd",
+      "sourceSha256": "9097e1ab1c5f4bf8f47f6577dbbe82dec309099ce153343e6577844902530fbd",
+      "concepts": [
+        "archimedes"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-03-q10",
+      "expectedAnswer": "B",
+      "contentSha256": "df2ec4702a8aaf09ab31e778da6aa5988e508d041b814dd8bdf2cc34f603dad4",
+      "sourceSha256": "df2ec4702a8aaf09ab31e778da6aa5988e508d041b814dd8bdf2cc34f603dad4",
+      "concepts": [
+        "floating-equilibrium"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-03-q11",
+      "expectedAnswer": "A",
+      "contentSha256": "b710f03bdceb7fc620892e89ef838c213d480395ba270ed291da49ac1bb93d53",
+      "sourceSha256": "b710f03bdceb7fc620892e89ef838c213d480395ba270ed291da49ac1bb93d53",
+      "concepts": [
+        "fluid-density"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-03-q12",
+      "expectedAnswer": "E",
+      "contentSha256": "ce336c24fdbc8e909ec65ea213e6d7a43c2b814e17939f7069a9c30ce38f90bf",
+      "sourceSha256": "ce336c24fdbc8e909ec65ea213e6d7a43c2b814e17939f7069a9c30ce38f90bf",
+      "concepts": [
+        "floating-equilibrium"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-03-q13",
+      "expectedAnswer": "B",
+      "contentSha256": "c2b232486f458a70c94c350203c2062f359f0287a6937d4f02a8c630142c7954",
+      "sourceSha256": "c2b232486f458a70c94c350203c2062f359f0287a6937d4f02a8c630142c7954",
+      "concepts": [
+        "pressure-origin"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-03-q14",
+      "expectedAnswer": "D",
+      "contentSha256": "0a20af50d339a6a36def5b62d1d542e78e0534766b3ab60ddcdb7ca44d8c1358",
+      "sourceSha256": "0a20af50d339a6a36def5b62d1d542e78e0534766b3ab60ddcdb7ca44d8c1358",
+      "concepts": [
+        "archimedes"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-easy-03-q15",
+      "expectedAnswer": "A",
+      "contentSha256": "d83cb5b6ba92574a902e4e7458154bc51af144f46aa5e192010f8f2dc48b0844",
+      "sourceSha256": "d83cb5b6ba92574a902e4e7458154bc51af144f46aa5e192010f8f2dc48b0844",
+      "concepts": [
+        "daily-life"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-01-q01",
+      "expectedAnswer": "D",
+      "contentSha256": "848fe1d4a5d63c44870d83fdaec14b7252fb115f9f6c17f2e4fb1d12f24d67a9",
+      "sourceSha256": "848fe1d4a5d63c44870d83fdaec14b7252fb115f9f6c17f2e4fb1d12f24d67a9",
+      "concepts": [
+        "tension-ceiling"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-01-q02",
+      "expectedAnswer": "A",
+      "contentSha256": "36f92b90ae60c004543fc517fce545daf05f52726c3ae00d6d69ad37db330ce8",
+      "sourceSha256": "36f92b90ae60c004543fc517fce545daf05f52726c3ae00d6d69ad37db330ce8",
+      "concepts": [
+        "tension-bottom"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-01-q03",
+      "expectedAnswer": "B",
+      "contentSha256": "56e7a63af4377e85b0e5539b801e6003e030f67ba5d919ccb53bda0778ad5a2e",
+      "sourceSha256": "56e7a63af4377e85b0e5539b801e6003e030f67ba5d919ccb53bda0778ad5a2e",
+      "concepts": [
+        "apparent-weight"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-01-q04",
+      "expectedAnswer": "A",
+      "contentSha256": "2ad6f8f6a2ab92bfcfa109a9d64e2bf659774475e420de36b2283ed7a543658b",
+      "sourceSha256": "2ad6f8f6a2ab92bfcfa109a9d64e2bf659774475e420de36b2283ed7a543658b",
+      "concepts": [
+        "tension-direction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-01-q05",
+      "expectedAnswer": "C",
+      "contentSha256": "cb2c3eaf6d5a848d614ec53259ae80f5f8c5ac79517215b273e4f72e7ec4fa02",
+      "sourceSha256": "559284086e10bd98a0c3e6e6b1401f57b01281841e76af199d7060c0b1b15860",
+      "concepts": [
+        "partial-to-full"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-medium-01-q06",
+      "expectedAnswer": "E",
+      "contentSha256": "cf6075fba1705c901ec136a2ba834d452ebc66f89dde5cb281ab436ac63e3b14",
+      "sourceSha256": "cf6075fba1705c901ec136a2ba834d452ebc66f89dde5cb281ab436ac63e3b14",
+      "concepts": [
+        "tension-ceiling"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-01-q07",
+      "expectedAnswer": "B",
+      "contentSha256": "3d72d83514e7c7b11de26be4d4ff2cd124cbaaab6415c80fbe7dc4735def35e3",
+      "sourceSha256": "3d72d83514e7c7b11de26be4d4ff2cd124cbaaab6415c80fbe7dc4735def35e3",
+      "concepts": [
+        "fluid-density"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-01-q08",
+      "expectedAnswer": "E",
+      "contentSha256": "dae8f0b336b12651a9afb6377f3910998413263822a2c69055dac60263367f2f",
+      "sourceSha256": "dae8f0b336b12651a9afb6377f3910998413263822a2c69055dac60263367f2f",
+      "concepts": [
+        "tension-bottom"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-01-q09",
+      "expectedAnswer": "D",
+      "contentSha256": "eaea3bd235ebd96f5e94e437ec72a34c4cad4a5f8756e7a77633a027b9f00a27",
+      "sourceSha256": "eaea3bd235ebd96f5e94e437ec72a34c4cad4a5f8756e7a77633a027b9f00a27",
+      "concepts": [
+        "depth-independence"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-01-q10",
+      "expectedAnswer": "C",
+      "contentSha256": "6003cdaa0eae7e9f2b3b506b84a9305d768b3d6087e8b2165bf5544fbcec7bdc",
+      "sourceSha256": "6003cdaa0eae7e9f2b3b506b84a9305d768b3d6087e8b2165bf5544fbcec7bdc",
+      "concepts": [
+        "apparent-weight"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-01-q11",
+      "expectedAnswer": "A",
+      "contentSha256": "dc8ba13ed31f7bdca4ce1b09e77d2e8b9a4db8c93b82ecdb72745822abc36755",
+      "sourceSha256": "dc8ba13ed31f7bdca4ce1b09e77d2e8b9a4db8c93b82ecdb72745822abc36755",
+      "concepts": [
+        "force-balance"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-01-q12",
+      "expectedAnswer": "E",
+      "contentSha256": "6479655e7f1ceef72cc8375db4647645a989e34895ab9c1b1655119f52b709fd",
+      "sourceSha256": "6479655e7f1ceef72cc8375db4647645a989e34895ab9c1b1655119f52b709fd",
+      "concepts": [
+        "tension-ceiling"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-01-q13",
+      "expectedAnswer": "D",
+      "contentSha256": "03ed5e4dc71e704ed11d1eef6e5587b2d1e218dda0e81866194cbfb97778bf38",
+      "sourceSha256": "03ed5e4dc71e704ed11d1eef6e5587b2d1e218dda0e81866194cbfb97778bf38",
+      "concepts": [
+        "partial-to-full"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-01-q14",
+      "expectedAnswer": "B",
+      "contentSha256": "a5a6325b2e88a4efab3846d3592dfd15005e39cc182fa90b66e57f3c37ff92a8",
+      "sourceSha256": "27fec8fc2fe6fd95904c3894d1f1dd520536823a85f19aa9c9ce9713798c4100",
+      "concepts": [
+        "tension-bottom"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-medium-01-q15",
+      "expectedAnswer": "C",
+      "contentSha256": "c4d3279540be82d9e99a3d845d39ab95fbe476a2b7163aa2e3f36da54984bfb8",
+      "sourceSha256": "c4d3279540be82d9e99a3d845d39ab95fbe476a2b7163aa2e3f36da54984bfb8",
+      "concepts": [
+        "fluid-density"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-02-q01",
+      "expectedAnswer": "E",
+      "contentSha256": "1183007f6c673d84d9976dd4f55e86dc62733c226c326720168fa3f75259ad69",
+      "sourceSha256": "1183007f6c673d84d9976dd4f55e86dc62733c226c326720168fa3f75259ad69",
+      "concepts": [
+        "overflow"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-02-q02",
+      "expectedAnswer": "B",
+      "contentSha256": "6a49eb7f36033b66a873acb1608c8fd9ce5a1e8147cab861356cf92b1fca1c74",
+      "sourceSha256": "6a49eb7f36033b66a873acb1608c8fd9ce5a1e8147cab861356cf92b1fca1c74",
+      "concepts": [
+        "overflow"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-02-q03",
+      "expectedAnswer": "D",
+      "contentSha256": "5f719e9e5b55875a571b91c3a17c23e25211285671418b2f2831e58384575fb1",
+      "sourceSha256": "0e8dc1c8391f3b1cde5f9bd26f47765d5b2a36ea053abf366f09ac8f856d76a5",
+      "concepts": [
+        "overflow"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-medium-02-q04",
+      "expectedAnswer": "C",
+      "contentSha256": "da6855c76200640e0f3539a95663729ea5f11e12e6b70f58c3aaba301c24e302",
+      "sourceSha256": "da6855c76200640e0f3539a95663729ea5f11e12e6b70f58c3aaba301c24e302",
+      "concepts": [
+        "boat-rock"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-02-q05",
+      "expectedAnswer": "B",
+      "contentSha256": "e0b5160d8d1de3a3c1e283329e1b90c7a15648770f24bb70b5542dd09c69b46a",
+      "sourceSha256": "28deca105e549b4d8a7869c1a0919398648954990316f5749bfa1a81fc5ad3e7",
+      "concepts": [
+        "boat-rock"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-medium-02-q06",
+      "expectedAnswer": "D",
+      "contentSha256": "3111cbb8ed93bf50629912d0317478abea8efadf363eb2dec9ffe50daf8c8818",
+      "sourceSha256": "3111cbb8ed93bf50629912d0317478abea8efadf363eb2dec9ffe50daf8c8818",
+      "concepts": [
+        "ice-melting"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-02-q07",
+      "expectedAnswer": "A",
+      "contentSha256": "e7072b0518a44c51ec33e3519c2d2e9505d8edce27447ec57476e4fb064fcf23",
+      "sourceSha256": "e7072b0518a44c51ec33e3519c2d2e9505d8edce27447ec57476e4fb064fcf23",
+      "concepts": [
+        "floating-equilibrium"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-02-q08",
+      "expectedAnswer": "B",
+      "contentSha256": "8b9c208536b2204ada88fcfb97ea3b3684c58f805243159d2b9bc3cd27db3202",
+      "sourceSha256": "1d70604305aba1bb3ecda1b1b566dee845271d8b3e8dfb8ddd998aca4612469e",
+      "concepts": [
+        "overflow"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-medium-02-q09",
+      "expectedAnswer": "E",
+      "contentSha256": "e05b73f93794e9d86a41a36fd807d9e212c245c13c0219db6d173886bee40bf0",
+      "sourceSha256": "e05b73f93794e9d86a41a36fd807d9e212c245c13c0219db6d173886bee40bf0",
+      "concepts": [
+        "floating-fraction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-02-q10",
+      "expectedAnswer": "C",
+      "contentSha256": "b221534653dfdabc33caf2c7fc47dda342a89699096de860f7303022040f2b28",
+      "sourceSha256": "b221534653dfdabc33caf2c7fc47dda342a89699096de860f7303022040f2b28",
+      "concepts": [
+        "overflow"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-02-q11",
+      "expectedAnswer": "A",
+      "contentSha256": "0a0e5c234122672ca6bbd5b0123d82c4e43e3dc79f36f5485954cc1f633903fb",
+      "sourceSha256": "4789dbaa5835564abf1ac978ccb1a1abe30448da19d263a7e16c4b477010e4a1",
+      "concepts": [
+        "partial-to-full"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-medium-02-q12",
+      "expectedAnswer": "D",
+      "contentSha256": "9e626bf70c4d37c4ee9acc5b2bfbc31bf96604fb7c6c26987760b4ca15595b3c",
+      "sourceSha256": "9e626bf70c4d37c4ee9acc5b2bfbc31bf96604fb7c6c26987760b4ca15595b3c",
+      "concepts": [
+        "overflow"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-02-q13",
+      "expectedAnswer": "C",
+      "contentSha256": "56c3cd076dc658b2c6f7afa6c2c0703e3f35b900da0a2a119d4a51ba2213df63",
+      "sourceSha256": "56c3cd076dc658b2c6f7afa6c2c0703e3f35b900da0a2a119d4a51ba2213df63",
+      "concepts": [
+        "floating-fraction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-02-q14",
+      "expectedAnswer": "A",
+      "contentSha256": "f3768f8c4d7a59d98b7d9e6de5159b5329b18b8b330fd46a8d1032826b3d51f2",
+      "sourceSha256": "f3768f8c4d7a59d98b7d9e6de5159b5329b18b8b330fd46a8d1032826b3d51f2",
+      "concepts": [
+        "floating-equilibrium"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-02-q15",
+      "expectedAnswer": "E",
+      "contentSha256": "364b319c46e0870a4da837b4f65e5e19849ba08b27c707c2b9ff7fc5f7339e3e",
+      "sourceSha256": "77ae1af2e8383f0228db8f7bc034d00e7358a22225d4a81ca6e24197a4c41025",
+      "concepts": [
+        "boat-rock"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-medium-03-q01",
+      "expectedAnswer": "E",
+      "contentSha256": "c401abb464460756e5d6db314ac5254b2d2c0d33fcb926f2b50034946bee655f",
+      "sourceSha256": "51ef9de4dc151420ff93aa782905a8cee81732edec99de0265627021dd975060",
+      "concepts": [
+        "density-order"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-medium-03-q02",
+      "expectedAnswer": "C",
+      "contentSha256": "8bc3e1c22eb9a7ad97eca63cbe1d9d6d698003da65717769df7c79ec994e9ba3",
+      "sourceSha256": "8bc3e1c22eb9a7ad97eca63cbe1d9d6d698003da65717769df7c79ec994e9ba3",
+      "concepts": [
+        "floating-fraction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-03-q03",
+      "expectedAnswer": "C",
+      "contentSha256": "fcb10c8d9c5b14aa40911d7aa18269502d753124912f6703a24ec5949216747a",
+      "sourceSha256": "fcb10c8d9c5b14aa40911d7aa18269502d753124912f6703a24ec5949216747a",
+      "concepts": [
+        "graphs"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-03-q04",
+      "expectedAnswer": "C",
+      "contentSha256": "25bc1d667fcf2d8aa7a3727594fae814a836f39013419560b89808cd5127d4b4",
+      "sourceSha256": "4a9111851ada6dfa2a3bff368626e627ffb7b77c98fa0f0ff1eaf8d80aef80f2",
+      "concepts": [
+        "graphs"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-medium-03-q05",
+      "expectedAnswer": "E",
+      "contentSha256": "f7f26254f981308433dd4f40e3774ce3492606d1417c872167be59de14ce9915",
+      "sourceSha256": "f7f26254f981308433dd4f40e3774ce3492606d1417c872167be59de14ce9915",
+      "concepts": [
+        "floating-fraction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-03-q06",
+      "expectedAnswer": "D",
+      "contentSha256": "6ccf356d2d38d71abec0a5612ce1c8d75819cc0fd7299b05f0f8bcc6ee459ef6",
+      "sourceSha256": "6ccf356d2d38d71abec0a5612ce1c8d75819cc0fd7299b05f0f8bcc6ee459ef6",
+      "concepts": [
+        "fluid-density"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-03-q07",
+      "expectedAnswer": "D",
+      "contentSha256": "7d63b319bb42ae6d4000438f7a9c6b21bb69308662c5b02d6e3bbde5ad20d9c9",
+      "sourceSha256": "7d63b319bb42ae6d4000438f7a9c6b21bb69308662c5b02d6e3bbde5ad20d9c9",
+      "concepts": [
+        "floating-fraction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-03-q08",
+      "expectedAnswer": "A",
+      "contentSha256": "4eb88f725f0e0ceb60ea2a27166bd91964b5a9517da19d846a000e99ce104b7f",
+      "sourceSha256": "8ae1e282b439e5c1b7c63ddf28b395bbb9ffa1f68fc00f215d750dbdaed309ee",
+      "concepts": [
+        "average-density"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-medium-03-q09",
+      "expectedAnswer": "A",
+      "contentSha256": "cff20d28aae7f67d8d0056d732cfbfd397c5933392fcfa7ca65cb1c7daf1d2ae",
+      "sourceSha256": "cff20d28aae7f67d8d0056d732cfbfd397c5933392fcfa7ca65cb1c7daf1d2ae",
+      "concepts": [
+        "floating-fraction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-03-q10",
+      "expectedAnswer": "B",
+      "contentSha256": "1996989e5c7d770a6249101280e3d5c686b798c91e017d0eb0ab7490faa7997e",
+      "sourceSha256": "43baca325027c0ec1f123ec23305b77b199fecfeb47bff5376d03e84ec83c7cc",
+      "concepts": [
+        "graphs"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-medium-03-q11",
+      "expectedAnswer": "B",
+      "contentSha256": "893b0d62e1eed7893c93e7eaa052b51d2d3c7e9c450ae79e0965ac30acf20983",
+      "sourceSha256": "893b0d62e1eed7893c93e7eaa052b51d2d3c7e9c450ae79e0965ac30acf20983",
+      "concepts": [
+        "fluid-density"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-03-q12",
+      "expectedAnswer": "E",
+      "contentSha256": "5af4ccf3a7e051535412e39b7261d6ef15ddda080e299c1609a231c2b5ec2495",
+      "sourceSha256": "5af4ccf3a7e051535412e39b7261d6ef15ddda080e299c1609a231c2b5ec2495",
+      "concepts": [
+        "floating-fraction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-03-q13",
+      "expectedAnswer": "A",
+      "contentSha256": "145a659e80f9f41a9308f8dc396d432ff39096df5d67e35a444054f4a8d355c2",
+      "sourceSha256": "145a659e80f9f41a9308f8dc396d432ff39096df5d67e35a444054f4a8d355c2",
+      "concepts": [
+        "archimedes"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-03-q14",
+      "expectedAnswer": "B",
+      "contentSha256": "da02ec0bc7d2697e7f463d38ed0b1231990f5039b7305dc4c84cc82a6df9fa4a",
+      "sourceSha256": "da02ec0bc7d2697e7f463d38ed0b1231990f5039b7305dc4c84cc82a6df9fa4a",
+      "concepts": [
+        "gravity"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-medium-03-q15",
+      "expectedAnswer": "D",
+      "contentSha256": "171b8d8c83de41f4cfb3fe9c9974878e9e95dad98b606456de0b7938a2a36dd7",
+      "sourceSha256": "171b8d8c83de41f4cfb3fe9c9974878e9e95dad98b606456de0b7938a2a36dd7",
+      "concepts": [
+        "fluid-density"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-01-q01",
+      "expectedAnswer": "D",
+      "contentSha256": "bb7a86baaac2f93a78cf94a58f0ebac4e5bee9daa1c4bac4bbf693839343d3fd",
+      "sourceSha256": "bb7a86baaac2f93a78cf94a58f0ebac4e5bee9daa1c4bac4bbf693839343d3fd",
+      "concepts": [
+        "layered-floats"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-01-q02",
+      "expectedAnswer": "A",
+      "contentSha256": "e61824deac505d9c16c462171b16a1aaffe9519df57bddf4c5dca361f3fc3eae",
+      "sourceSha256": "e61824deac505d9c16c462171b16a1aaffe9519df57bddf4c5dca361f3fc3eae",
+      "concepts": [
+        "tension-ceiling"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-01-q03",
+      "expectedAnswer": "B",
+      "contentSha256": "7014f466fba5190c5d013234bc6e4ebbcca715e999b2b79d79258842ea97dfb3",
+      "sourceSha256": "7014f466fba5190c5d013234bc6e4ebbcca715e999b2b79d79258842ea97dfb3",
+      "concepts": [
+        "floating-equilibrium"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-01-q04",
+      "expectedAnswer": "D",
+      "contentSha256": "3d7b873fccc861d6e8a823eb3045f1882969330b9717357e7bf6f7cf7efcbaf9",
+      "sourceSha256": "dbb4eb3cf01257777c8e4536f1128c101eee5492194bc988e77d527f63442ac1",
+      "concepts": [
+        "boat-rock"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-hard-01-q05",
+      "expectedAnswer": "E",
+      "contentSha256": "d2fcccf2ba21fb42c07a22f21034adbba856af5ef892689249bc9afaead67df8",
+      "sourceSha256": "d2fcccf2ba21fb42c07a22f21034adbba856af5ef892689249bc9afaead67df8",
+      "concepts": [
+        "tension-bottom"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-01-q06",
+      "expectedAnswer": "A",
+      "contentSha256": "abbe2d1a47b016ef68ca4dfebda323f7c746a2c6f2b3ddb91c175ae9c36102f5",
+      "sourceSha256": "abbe2d1a47b016ef68ca4dfebda323f7c746a2c6f2b3ddb91c175ae9c36102f5",
+      "concepts": [
+        "overflow"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-01-q07",
+      "expectedAnswer": "B",
+      "contentSha256": "f925b11cea9c4d74b719e672e1bc2a169f0c3cf6ea5098997c1cc8dfb6a8f3e8",
+      "sourceSha256": "f925b11cea9c4d74b719e672e1bc2a169f0c3cf6ea5098997c1cc8dfb6a8f3e8",
+      "concepts": [
+        "floating-fraction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-01-q08",
+      "expectedAnswer": "B",
+      "contentSha256": "3d2bd8f1cc79ebe593944bc1002978a10f36dc84ca23bda8a2953ba3068444bc",
+      "sourceSha256": "3d2bd8f1cc79ebe593944bc1002978a10f36dc84ca23bda8a2953ba3068444bc",
+      "concepts": [
+        "apparent-weight"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-01-q09",
+      "expectedAnswer": "E",
+      "contentSha256": "45ae7db85acfe4dd35032d6adbcf450a19f455a7bcda2c28741f44380aa9af72",
+      "sourceSha256": "a0bccc3cb74a0f34ae404cf8e5a143c6e8e71e61afee4c15436e3885167e1555",
+      "concepts": [
+        "gravity"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-hard-01-q10",
+      "expectedAnswer": "C",
+      "contentSha256": "447e27bc7ec65ef28c87295a7427a186038eca35f0c51f24b3e6fbcf2bd890b7",
+      "sourceSha256": "447e27bc7ec65ef28c87295a7427a186038eca35f0c51f24b3e6fbcf2bd890b7",
+      "concepts": [
+        "scale-reaction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-01-q11",
+      "expectedAnswer": "A",
+      "contentSha256": "36c2a75a6511f791fbb462bf72a0c3cee9daca6b6c1ecee02bacc7fbd4563c08",
+      "sourceSha256": "36c2a75a6511f791fbb462bf72a0c3cee9daca6b6c1ecee02bacc7fbd4563c08",
+      "concepts": [
+        "system-boundary"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-01-q12",
+      "expectedAnswer": "C",
+      "contentSha256": "5f50dd6585420fa1a8bb0083fc4763b942f523513c4a662a85d7590deba5dd8d",
+      "sourceSha256": "5f50dd6585420fa1a8bb0083fc4763b942f523513c4a662a85d7590deba5dd8d",
+      "concepts": [
+        "floating-equilibrium"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-01-q13",
+      "expectedAnswer": "D",
+      "contentSha256": "478af95691739953a18e1160b9704fe12fd039c1d5b5ea627a3fb0dc2a936843",
+      "sourceSha256": "478af95691739953a18e1160b9704fe12fd039c1d5b5ea627a3fb0dc2a936843",
+      "concepts": [
+        "floating-fraction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-01-q14",
+      "expectedAnswer": "C",
+      "contentSha256": "38d6afd2fe7b6b3dffa549cbb735d75c230ed5d161512b38316ad2b14e9dc3fe",
+      "sourceSha256": "7e8baaa1e81b63a2aa6b2f7294b331346f499acb39cdd41045641b66b5ece0c4",
+      "concepts": [
+        "graphs"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-hard-01-q15",
+      "expectedAnswer": "E",
+      "contentSha256": "a33edbf399560932068323e7eebf096e021cf252de0ac3fde8f96d4c2d216999",
+      "sourceSha256": "a33edbf399560932068323e7eebf096e021cf252de0ac3fde8f96d4c2d216999",
+      "concepts": [
+        "compressible-body"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-02-q01",
+      "expectedAnswer": "C",
+      "contentSha256": "8050cdc0a4fae0d15633d0585a5452a95e8641046d5782be51b226599b06f1bc",
+      "sourceSha256": "8050cdc0a4fae0d15633d0585a5452a95e8641046d5782be51b226599b06f1bc",
+      "concepts": [
+        "multiple-statements"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-02-q02",
+      "expectedAnswer": "E",
+      "contentSha256": "891ef03269b71d3d7ecc2b765d6deddd949206772c3f22665b6a2bfbb273635a",
+      "sourceSha256": "891ef03269b71d3d7ecc2b765d6deddd949206772c3f22665b6a2bfbb273635a",
+      "concepts": [
+        "multiple-statements"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-02-q03",
+      "expectedAnswer": "C",
+      "contentSha256": "183d2091ecfb15fe7285652c0f2b0f5182b2c48c51494b86252c7572ac022c5e",
+      "sourceSha256": "183d2091ecfb15fe7285652c0f2b0f5182b2c48c51494b86252c7572ac022c5e",
+      "concepts": [
+        "multiple-statements"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-02-q04",
+      "expectedAnswer": "C",
+      "contentSha256": "de3d883df3ad47d395f3a373e413dda3f063c4dac3fcf648f7af557de0faa868",
+      "sourceSha256": "de3d883df3ad47d395f3a373e413dda3f063c4dac3fcf648f7af557de0faa868",
+      "concepts": [
+        "experimental-design"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-02-q05",
+      "expectedAnswer": "E",
+      "contentSha256": "47546ee5af4e01d8f9c898472c1fe70f3ecd9453d2da29f5ab62bcb9332604cc",
+      "sourceSha256": "47546ee5af4e01d8f9c898472c1fe70f3ecd9453d2da29f5ab62bcb9332604cc",
+      "concepts": [
+        "floating-equilibrium"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-02-q06",
+      "expectedAnswer": "A",
+      "contentSha256": "901bbe04d53b71c3099ece83550f566b3c44a3f2c5f57200fabc79c17df4f742",
+      "sourceSha256": "901bbe04d53b71c3099ece83550f566b3c44a3f2c5f57200fabc79c17df4f742",
+      "concepts": [
+        "floating-fraction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-02-q07",
+      "expectedAnswer": "B",
+      "contentSha256": "9ef414f1bc7df7d75ca5329e59a9787883bd8f370d5ebad7073f0880c6848ecb",
+      "sourceSha256": "58ac1b82cddab3dc14fe092e039f841af278e2f815d7325192c877a20dfd8b31",
+      "concepts": [
+        "average-density"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-hard-02-q08",
+      "expectedAnswer": "A",
+      "contentSha256": "1884143e860b4c3b43533616ce57cf296911051e78c1b3b1640585490baadcba",
+      "sourceSha256": "1884143e860b4c3b43533616ce57cf296911051e78c1b3b1640585490baadcba",
+      "concepts": [
+        "layered-floats"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-02-q09",
+      "expectedAnswer": "B",
+      "contentSha256": "813c55be14996f87e42a78d2ecbff90b00066d601ac880efac59637846c8b1c2",
+      "sourceSha256": "1bba2df2207d5ffd212f95e9bd5dc2f34636cd514470b55477ceb5f901e5327f",
+      "concepts": [
+        "tension-bottom"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-hard-02-q10",
+      "expectedAnswer": "B",
+      "contentSha256": "bdb6ea7303edfb0d18779136a256504a9ed19d07508b37f6355560ca9f7a63f6",
+      "sourceSha256": "bdb6ea7303edfb0d18779136a256504a9ed19d07508b37f6355560ca9f7a63f6",
+      "concepts": [
+        "overflow"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-02-q11",
+      "expectedAnswer": "A",
+      "contentSha256": "6cfaef37181e245cb719eb17a3fcae80eee5b5ac092c8c016898d728c1afbcee",
+      "sourceSha256": "1bc8a23932c152e3cbd53f7c5f88c39136a3ab7c9fe94533cd176b02e8e447e9",
+      "concepts": [
+        "apparent-weight"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-hard-02-q12",
+      "expectedAnswer": "D",
+      "contentSha256": "0fee9664232501bfc94a1515b6e7b552694a861a9f0cc1203ec1b84f21993885",
+      "sourceSha256": "0fee9664232501bfc94a1515b6e7b552694a861a9f0cc1203ec1b84f21993885",
+      "concepts": [
+        "certainty"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-02-q13",
+      "expectedAnswer": "E",
+      "contentSha256": "35a9787038678ad61c1da44da3846ef5c5e2e95c664e04ee2ecbd4e16fd62b78",
+      "sourceSha256": "35a9787038678ad61c1da44da3846ef5c5e2e95c664e04ee2ecbd4e16fd62b78",
+      "concepts": [
+        "average-density"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-02-q14",
+      "expectedAnswer": "D",
+      "contentSha256": "485ba68aec64b37813b3bb8c652903390cb587122123ccac48e3b1b37f449441",
+      "sourceSha256": "2ff6aac38b94ed59f09ef29fe2e42fbfd9180feb123dd2eb259ad992f0427454",
+      "concepts": [
+        "floating-fraction"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-hard-02-q15",
+      "expectedAnswer": "D",
+      "contentSha256": "8925eee169d50485cc36c7cb0aae7e9a0a2112ce87dc065337fef46029b07ba1",
+      "sourceSha256": "8925eee169d50485cc36c7cb0aae7e9a0a2112ce87dc065337fef46029b07ba1",
+      "concepts": [
+        "experimental-design"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-03-q01",
+      "expectedAnswer": "A",
+      "contentSha256": "b79df61b375563b4b42138131715e7b63d4bed8f59e87b129781dccd474fa0a2",
+      "sourceSha256": "b79df61b375563b4b42138131715e7b63d4bed8f59e87b129781dccd474fa0a2",
+      "concepts": [
+        "floating-equilibrium"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-03-q02",
+      "expectedAnswer": "B",
+      "contentSha256": "cf82033e4dae7a82617dcea305c1ca02d9f4ea78199cd2e11163b41cde4ac774",
+      "sourceSha256": "cf82033e4dae7a82617dcea305c1ca02d9f4ea78199cd2e11163b41cde4ac774",
+      "concepts": [
+        "floating-fraction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-03-q03",
+      "expectedAnswer": "C",
+      "contentSha256": "6befa33b1a6962cf5563e68bd11a88e248d3fd9f2c6abb6530331a3869345081",
+      "sourceSha256": "6befa33b1a6962cf5563e68bd11a88e248d3fd9f2c6abb6530331a3869345081",
+      "concepts": [
+        "apparent-weight"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-03-q04",
+      "expectedAnswer": "B",
+      "contentSha256": "fa486bb736284751788ff66556f5d9237486bbb7b536c459a13684371734fe98",
+      "sourceSha256": "5817f5fad1420fcf88b6b6dd6f5ede310a59cbaebc6cc8d578724dfae98ebef8",
+      "concepts": [
+        "boat-rock"
+      ],
+      "correctionRequiredInSource": true
+    },
+    {
+      "id": "buoyancy-hard-03-q05",
+      "expectedAnswer": "E",
+      "contentSha256": "31e1066a20c4c3260ea917d51e8c915e424a74ddb10940340bf7846ae01e5899",
+      "sourceSha256": "31e1066a20c4c3260ea917d51e8c915e424a74ddb10940340bf7846ae01e5899",
+      "concepts": [
+        "experimental-design"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-03-q06",
+      "expectedAnswer": "C",
+      "contentSha256": "6377e02b27cc94c404152fde4a1a9854badbb4aff0f9b70e2a3a9379cc405c67",
+      "sourceSha256": "6377e02b27cc94c404152fde4a1a9854badbb4aff0f9b70e2a3a9379cc405c67",
+      "concepts": [
+        "floating-fraction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-03-q07",
+      "expectedAnswer": "A",
+      "contentSha256": "0e087af4bb4501574eec9d1f84195b7f5db4d536eaa4f53724292738525c7ba0",
+      "sourceSha256": "0e087af4bb4501574eec9d1f84195b7f5db4d536eaa4f53724292738525c7ba0",
+      "concepts": [
+        "tension-ceiling"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-03-q08",
+      "expectedAnswer": "E",
+      "contentSha256": "54bfecedc2794ef2b3521680e26c39c927093f7434dc7c5bf5f22fbf28588ab0",
+      "sourceSha256": "54bfecedc2794ef2b3521680e26c39c927093f7434dc7c5bf5f22fbf28588ab0",
+      "concepts": [
+        "ice-melting"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-03-q09",
+      "expectedAnswer": "D",
+      "contentSha256": "5769ab4496a62816e1ca952c83823cbeb425938bcd228020b101813d8b9a53ad",
+      "sourceSha256": "5769ab4496a62816e1ca952c83823cbeb425938bcd228020b101813d8b9a53ad",
+      "concepts": [
+        "layered-floats"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-03-q10",
+      "expectedAnswer": "D",
+      "contentSha256": "966da1c552d081fbcf86cb5ec1f6ba39c8611c30ce6bdf0d67ae7377cfaba740",
+      "sourceSha256": "966da1c552d081fbcf86cb5ec1f6ba39c8611c30ce6bdf0d67ae7377cfaba740",
+      "concepts": [
+        "archimedes"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-03-q11",
+      "expectedAnswer": "C",
+      "contentSha256": "57c1fda83c2f14a3fad97853e02b8af10948b625ba4904af7e7e9151fdf8f60a",
+      "sourceSha256": "57c1fda83c2f14a3fad97853e02b8af10948b625ba4904af7e7e9151fdf8f60a",
+      "concepts": [
+        "floating-limit"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-03-q12",
+      "expectedAnswer": "A",
+      "contentSha256": "e4686e92633407b61182f69dbfe9a1b61c43567ed8257d9abc6643ad6feb3dd4",
+      "sourceSha256": "e4686e92633407b61182f69dbfe9a1b61c43567ed8257d9abc6643ad6feb3dd4",
+      "concepts": [
+        "force-balance"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-03-q13",
+      "expectedAnswer": "E",
+      "contentSha256": "e44f6779a817ba7d60b240f497b207f7793ef22a0519a02d4a538a38e24f4a3b",
+      "sourceSha256": "e44f6779a817ba7d60b240f497b207f7793ef22a0519a02d4a538a38e24f4a3b",
+      "concepts": [
+        "scale-reaction"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-03-q14",
+      "expectedAnswer": "B",
+      "contentSha256": "0f811015c4412dc4a9ae2104d459efc0c2ed9a5444dc48eb8caa10880916f07a",
+      "sourceSha256": "0f811015c4412dc4a9ae2104d459efc0c2ed9a5444dc48eb8caa10880916f07a",
+      "concepts": [
+        "boat-rock"
+      ],
+      "correctionRequiredInSource": false
+    },
+    {
+      "id": "buoyancy-hard-03-q15",
+      "expectedAnswer": "D",
+      "contentSha256": "87a2cfc4a97a3f3c9d639ce4ac0d7ad7a0a1aa70bce8adc14a7cce62cd26ddf5",
+      "sourceSha256": "87a2cfc4a97a3f3c9d639ce4ac0d7ad7a0a1aa70bce8adc14a7cce62cd26ddf5",
+      "concepts": [
+        "floating-equilibrium"
+      ],
+      "correctionRequiredInSource": false
+    }
+  ],
+  "assets": {
+    "buoyancy-easy-01-q01.svg": "63fd0efc7cc6fa166513c555da4538d866685ea75e3480f906b60f4ab7eed818",
+    "buoyancy-easy-01-q04.svg": "0301a4c6048010515ef4f54980eddb3124e23b7affad5e4cf80f6be82a11e563",
+    "buoyancy-easy-01-q06.svg": "6e6651b983f5cbe93074589cb2333c85c6301c6a50694cc87a2b8d981567e63f",
+    "buoyancy-easy-01-q08.svg": "bfbf17126a3271afa326ce35329658f52de6f989c5442f4cef062ebcf50b7d63",
+    "buoyancy-easy-01-q11.svg": "ab128919e370188b64aba03151fcf0df4f220e6ad7dd928f798f99b167c2fca6",
+    "buoyancy-easy-01-q12.svg": "e80ae30a3065c1d6f08ff00b84171e191d76a191667717cb86ef81b25156dab1",
+    "buoyancy-easy-02-q03.svg": "a572b7c7c7f2d938b0ffe32bd56457492cebfaaadfa1fefa3bf955d39b993dd2",
+    "buoyancy-easy-02-q04.svg": "b669e5195ee588c8229b18977083bc0599b7d796783e9ac60058da96363ad901",
+    "buoyancy-easy-02-q07.svg": "eb9778f387d88f60124faf9dd62610790f3d2f6abff0b370dc5e2d33d14602d7",
+    "buoyancy-easy-02-q11.svg": "a96291ea120e3eeb89ad0f1de69da7f9a63fe22e233916d13815428131575058",
+    "buoyancy-easy-02-q13.svg": "2e088d42ef6fb4e5d9c7bb68a1bef007d04dd0bdc11cd7213715915431c9c006",
+    "buoyancy-easy-03-q05.svg": "c8e43ee77848a595ea779282cae74dff5f85958546582a12dc62810a53b695f9",
+    "buoyancy-easy-03-q07.svg": "6e4de4f090ffb5b39e90defdec192323b05494f3371eaf30839da244db8c23a6",
+    "buoyancy-easy-03-q12.svg": "76e0d3583af515ca7dd733760438673db253676b1240c021a910e81dd76126af",
+    "buoyancy-easy-03-q14.svg": "672139ad6399fe98a9fa57bb5fc8531209ba7fcc06e6dea46d5e70b99ddadb1f",
+    "buoyancy-medium-01-q01.svg": "9d8a17496596555abe306b192dbccbb2e95b7f11ddd8f410e00936da889d4040",
+    "buoyancy-medium-01-q02.svg": "c05de26daa5efbbbde756466d1b642ff68b6011f54148aaf3178eb95404e52f5",
+    "buoyancy-medium-01-q03.svg": "ab626456c1446a5c620ba424d5e007e4a85925d32e6b723b44839c7edac9cf76",
+    "buoyancy-medium-01-q04.svg": "05d26ebe060cad376bc9175511b0907950643668928e9e71692d6efaef356bd7",
+    "buoyancy-medium-01-q05.svg": "8c4286ed9d6a290f23ded5760b2c4cc615d14564df718ae19816c270efd65226",
+    "buoyancy-medium-01-q08.svg": "381c0abfbbc0d750bb0343935748f3b4befb107b9dac64375caa7201e5b6210e",
+    "buoyancy-medium-01-q10.svg": "32dc92778f8cd8a2f795e8ae228a6c3c2a2341f40795b38f1e68b602e021533e",
+    "buoyancy-medium-01-q14.svg": "1fbc54c274c444e15d8233e21f59efc76ec7cce176e2f9f6b30a3f7266ed129d",
+    "buoyancy-medium-02-q01.svg": "c738ef1ee1d389a0740264e5adac42d11ba766e6c8c54a570ef1bca5d75f90e5",
+    "buoyancy-medium-02-q03.svg": "5adc76ae9065ad6a54683f33bfcf1ab7bf9c56a989775e9f678d1057e152cc67",
+    "buoyancy-medium-02-q04.svg": "8c8346c962966f5a25023ef5c7478f0722fa524463718e13b3af71e94495424f",
+    "buoyancy-medium-02-q05.svg": "0cca098f4ca8315be7826f78850a32e54567311b5349c3666c4bd86205cbbc83",
+    "buoyancy-medium-02-q07.svg": "90e8986fafa432a643a3e0afbf3f91d79cc2c2c193b115a91b15334dd9a1a213",
+    "buoyancy-medium-02-q08.svg": "3059d48f7f06f509e3b8090a07d94dbb7533a0f46aeba96db46df9927686f1e7",
+    "buoyancy-medium-02-q11.svg": "93c5ae6119a987db31ad0121563f2c8e09e5f0b1a6293b5c8266bcf6cb6fd667",
+    "buoyancy-medium-02-q13.svg": "208f4357540b400853e1dd0d6f3317ba867ca85ce8bc193d8e002f373c924a82",
+    "buoyancy-medium-03-q01.svg": "2322be4e3da736a179b8cc357c2b02e59fedba91f886fd772f173dbe330ad515",
+    "buoyancy-medium-03-q02.svg": "6816c44ad32b29130298cea252ba7b2ac7211c30c51ef13ef9501059c0edde94",
+    "buoyancy-medium-03-q04.svg": "6c659d51f6f99d36275544489584dd37b4ee8cb96818e37cf7bac50bc7f5920f",
+    "buoyancy-medium-03-q05.svg": "f70a56fda2ee3f2e705133b3441672d2fc9dfdc63989af1f2f4ad77ae6c05b0f",
+    "buoyancy-medium-03-q07.svg": "783bbff84ebb17b8fb416607ecc43839b766834167b54bcab331cacfc180c58a",
+    "buoyancy-medium-03-q09.svg": "2691c08ed1d8e7506f16488ed8438cc5f48620626e005a333873380d7f0f1a90",
+    "buoyancy-medium-03-q10.svg": "0ba7ff37a1ee10658c5764b1d737a73efb549e1ecc272bc971050425cd2c1566",
+    "buoyancy-medium-03-q12.svg": "aeda59cf4f506f96a83e9b2cb0560b694f749b5daa5c52e24bad3d1674fc295f",
+    "buoyancy-hard-01-q01.svg": "51b9c3bd119947bb6e5762bd0ea709e8dde9a41df3ad4412b2399e42571f1930",
+    "buoyancy-hard-01-q03.svg": "95d15a7ffd6cac131bab572e47abcba163673143f293ccb43fb96231ad92ffd6",
+    "buoyancy-hard-01-q04.svg": "6a1b198994969ae80a2805ee77f517d72a73774884240fa203c0139e23b047d9",
+    "buoyancy-hard-01-q05.svg": "f394267c07d9c91705a8ae8b0b0a7d3feba5992c932a0c12ebd1b6d850499715",
+    "buoyancy-hard-01-q06.svg": "387312a87f904b80a1c80afd108100014be11892829029be384c33c54f7c72c0",
+    "buoyancy-hard-01-q10.svg": "20c47dee0ca7d2fd3466377ae83a377ea73d118addd9787043cfa81947821fa4",
+    "buoyancy-hard-01-q12.svg": "5c80168f4ef228ff9ed0bd7734b0f5f2c7ee149b4217bc1e090452c35f666113",
+    "buoyancy-hard-01-q14.svg": "a740b671fd1e0b41f0d8e88bf3872aab052b69624f873f54e813789146e03f08",
+    "buoyancy-hard-02-q05.svg": "99456c341388c6fd5247e989adfa80e8683b18f79bffbadd5f35a3fb75e09465",
+    "buoyancy-hard-02-q06.svg": "529cc6d6d9518b13ef44691c2dfa1793efb8d44ca1b0ce7bce651283b735af7e",
+    "buoyancy-hard-02-q07.svg": "9c6eef966ed3f2737cf0a15de3c93e7ac0cee470388c189c2b5baf97bfd0dd5a",
+    "buoyancy-hard-02-q08.svg": "40865eee9e29f79c10e590bb71e9846bf2bd620860f73bde09996e7532a03076",
+    "buoyancy-hard-02-q09.svg": "ac417b744a50ec1097999e009e4c802fd90393a938ee26ef4548d5541e96864d",
+    "buoyancy-hard-02-q10.svg": "f4d419220af9a99e0a3d4817204e0af68f2053f1bfe12348970caff5723e2cc6",
+    "buoyancy-hard-02-q11.svg": "2a65ddd9d8e39b8aa237b8b0478b9a27f811a68a4e6d716109da7815835dd9ab",
+    "buoyancy-hard-03-q02.svg": "63f0c13ece1a6627d0c25fe98d214cc19428f84a7527aa54ce899370bd5db0cc",
+    "buoyancy-hard-03-q04.svg": "d080c26b6497d9a1704e8503323862f1d2d630efacf8b7acd3941d69826661c0",
+    "buoyancy-hard-03-q06.svg": "2648bc9892df4fa4df7e03dc98d1993233b53da2a648e8b970795a0c96d12c79",
+    "buoyancy-hard-03-q07.svg": "94e56b725631ba4f375f65ba127c5e5318328a5e0eda75bb787a3144b4c45870",
+    "buoyancy-hard-03-q08.svg": "45be2b17b934d2c2fc431a23bc9e05bf5a1cba373de5b7023f76278036df3682",
+    "buoyancy-hard-03-q09.svg": "eea8ecdc5ab85bc704a09ef111121a628550e80b71589fd9ba05ef96226f7ec9",
+    "buoyancy-hard-03-q11.svg": "b9c0676e70787a4d027aec858a895e93849c7dad99061352303aeeb5668f790a",
+    "buoyancy-hard-03-q13.svg": "01fec515e4892c6e52d12412c215a9a983156cebc71f1f4a65ee91e690236e11",
+    "buoyancy-hard-03-q14.svg": "40c60611bd6a6bc3070df7474fc75b28e90e5e46dc934162c1a78cf5c6be26c3",
+    "buoyancy-hard-03-q15.svg": "adcc30d908aca9418a8a30cf88fab115298be627b74df055f83b2ba3515b08e7"
+  },
+  "sourceAssets": {
+    "buoyancy-easy-01-q01.svg": "63fd0efc7cc6fa166513c555da4538d866685ea75e3480f906b60f4ab7eed818",
+    "buoyancy-easy-01-q04.svg": "0301a4c6048010515ef4f54980eddb3124e23b7affad5e4cf80f6be82a11e563",
+    "buoyancy-easy-01-q06.svg": "6e6651b983f5cbe93074589cb2333c85c6301c6a50694cc87a2b8d981567e63f",
+    "buoyancy-easy-01-q08.svg": "bfbf17126a3271afa326ce35329658f52de6f989c5442f4cef062ebcf50b7d63",
+    "buoyancy-easy-01-q11.svg": "62d8087b01626e183e83a3dd12247193f59387cb07211c7c1411c08914818978",
+    "buoyancy-easy-01-q12.svg": "e80ae30a3065c1d6f08ff00b84171e191d76a191667717cb86ef81b25156dab1",
+    "buoyancy-easy-02-q03.svg": "a572b7c7c7f2d938b0ffe32bd56457492cebfaaadfa1fefa3bf955d39b993dd2",
+    "buoyancy-easy-02-q04.svg": "b669e5195ee588c8229b18977083bc0599b7d796783e9ac60058da96363ad901",
+    "buoyancy-easy-02-q07.svg": "eb9778f387d88f60124faf9dd62610790f3d2f6abff0b370dc5e2d33d14602d7",
+    "buoyancy-easy-02-q11.svg": "a96291ea120e3eeb89ad0f1de69da7f9a63fe22e233916d13815428131575058",
+    "buoyancy-easy-02-q13.svg": "2e088d42ef6fb4e5d9c7bb68a1bef007d04dd0bdc11cd7213715915431c9c006",
+    "buoyancy-easy-03-q05.svg": "815655c876548e0b1177d0b3920cb981447a1c96f4989f46ef797bdf8b2855f9",
+    "buoyancy-easy-03-q07.svg": "d4daa6038ea1f7579df09b35d77808d261ee17325942816eff2904218b28ba96",
+    "buoyancy-easy-03-q12.svg": "76e0d3583af515ca7dd733760438673db253676b1240c021a910e81dd76126af",
+    "buoyancy-easy-03-q14.svg": "672139ad6399fe98a9fa57bb5fc8531209ba7fcc06e6dea46d5e70b99ddadb1f",
+    "buoyancy-medium-01-q01.svg": "9d8a17496596555abe306b192dbccbb2e95b7f11ddd8f410e00936da889d4040",
+    "buoyancy-medium-01-q02.svg": "c05de26daa5efbbbde756466d1b642ff68b6011f54148aaf3178eb95404e52f5",
+    "buoyancy-medium-01-q03.svg": "ab626456c1446a5c620ba424d5e007e4a85925d32e6b723b44839c7edac9cf76",
+    "buoyancy-medium-01-q04.svg": "05d26ebe060cad376bc9175511b0907950643668928e9e71692d6efaef356bd7",
+    "buoyancy-medium-01-q05.svg": "5374c682b91432dea9da11c0001a34ceb7fea78d7258e7c87f6b545c003de27f",
+    "buoyancy-medium-01-q08.svg": "381c0abfbbc0d750bb0343935748f3b4befb107b9dac64375caa7201e5b6210e",
+    "buoyancy-medium-01-q10.svg": "32dc92778f8cd8a2f795e8ae228a6c3c2a2341f40795b38f1e68b602e021533e",
+    "buoyancy-medium-01-q14.svg": "85a47b35bc97cbbb3537fff483a00c24155ffb67f24b3738acbf8617a0341f19",
+    "buoyancy-medium-02-q01.svg": "c738ef1ee1d389a0740264e5adac42d11ba766e6c8c54a570ef1bca5d75f90e5",
+    "buoyancy-medium-02-q03.svg": "2afc9717e9779b07224a64457deaf8eb0f38d706e1248defe74ed7105c261fc4",
+    "buoyancy-medium-02-q04.svg": "8c8346c962966f5a25023ef5c7478f0722fa524463718e13b3af71e94495424f",
+    "buoyancy-medium-02-q05.svg": "4ec65b57cf224125528243974e17010f57ce5eb90b3097abdcfb8ee81b6e7c8b",
+    "buoyancy-medium-02-q07.svg": "90e8986fafa432a643a3e0afbf3f91d79cc2c2c193b115a91b15334dd9a1a213",
+    "buoyancy-medium-02-q08.svg": "0811bc7ee11b6c6762c96d8f9e227496f70652b5860a4f3cf41caf039d8c03e9",
+    "buoyancy-medium-02-q11.svg": "03703c50c2abd045676b9ca6c74d75ef5d33d3ae3a6b20384504617d71d7a72a",
+    "buoyancy-medium-02-q13.svg": "208f4357540b400853e1dd0d6f3317ba867ca85ce8bc193d8e002f373c924a82",
+    "buoyancy-medium-03-q01.svg": "799f2da608c10f6664a5e36723c2bc860884310055eb56fd39730fa9690533f3",
+    "buoyancy-medium-03-q02.svg": "6816c44ad32b29130298cea252ba7b2ac7211c30c51ef13ef9501059c0edde94",
+    "buoyancy-medium-03-q04.svg": "4739e7e0174d54cb0a6d4c39db7549f03c8a65edefef56ab1fd16cab370b3114",
+    "buoyancy-medium-03-q05.svg": "f70a56fda2ee3f2e705133b3441672d2fc9dfdc63989af1f2f4ad77ae6c05b0f",
+    "buoyancy-medium-03-q07.svg": "783bbff84ebb17b8fb416607ecc43839b766834167b54bcab331cacfc180c58a",
+    "buoyancy-medium-03-q09.svg": "2691c08ed1d8e7506f16488ed8438cc5f48620626e005a333873380d7f0f1a90",
+    "buoyancy-medium-03-q10.svg": "c0d69b5639c4d5571a97b036b02642816a307a5695d968a4cca61901325262c8",
+    "buoyancy-medium-03-q12.svg": "aeda59cf4f506f96a83e9b2cb0560b694f749b5daa5c52e24bad3d1674fc295f",
+    "buoyancy-hard-01-q01.svg": "51b9c3bd119947bb6e5762bd0ea709e8dde9a41df3ad4412b2399e42571f1930",
+    "buoyancy-hard-01-q03.svg": "95d15a7ffd6cac131bab572e47abcba163673143f293ccb43fb96231ad92ffd6",
+    "buoyancy-hard-01-q04.svg": "f73f995eea19378cb120172f4262781f40be2d870513b085fa5167ab2273ecbd",
+    "buoyancy-hard-01-q05.svg": "f394267c07d9c91705a8ae8b0b0a7d3feba5992c932a0c12ebd1b6d850499715",
+    "buoyancy-hard-01-q06.svg": "387312a87f904b80a1c80afd108100014be11892829029be384c33c54f7c72c0",
+    "buoyancy-hard-01-q10.svg": "20c47dee0ca7d2fd3466377ae83a377ea73d118addd9787043cfa81947821fa4",
+    "buoyancy-hard-01-q12.svg": "5c80168f4ef228ff9ed0bd7734b0f5f2c7ee149b4217bc1e090452c35f666113",
+    "buoyancy-hard-01-q14.svg": "d0327852986636d32846f2caceca365e296e8dbe8a33e648746adb7b8e101498",
+    "buoyancy-hard-02-q05.svg": "99456c341388c6fd5247e989adfa80e8683b18f79bffbadd5f35a3fb75e09465",
+    "buoyancy-hard-02-q06.svg": "529cc6d6d9518b13ef44691c2dfa1793efb8d44ca1b0ce7bce651283b735af7e",
+    "buoyancy-hard-02-q07.svg": "a4bbf4cc85f7527115ae34908adcf1baa3e5dace05d328e5528c53c3487bf91c",
+    "buoyancy-hard-02-q08.svg": "40865eee9e29f79c10e590bb71e9846bf2bd620860f73bde09996e7532a03076",
+    "buoyancy-hard-02-q09.svg": "f40c0bfd79e6557b23ce35e9ea523fa34852125fb76b9788097d39a659a5c6a1",
+    "buoyancy-hard-02-q10.svg": "f4d419220af9a99e0a3d4817204e0af68f2053f1bfe12348970caff5723e2cc6",
+    "buoyancy-hard-02-q11.svg": "2a65ddd9d8e39b8aa237b8b0478b9a27f811a68a4e6d716109da7815835dd9ab",
+    "buoyancy-hard-03-q02.svg": "63f0c13ece1a6627d0c25fe98d214cc19428f84a7527aa54ce899370bd5db0cc",
+    "buoyancy-hard-03-q04.svg": "f418c3aea99d8b3b22d50d8d389769c87dc4463c1b5f07dc3910a4cfed15791d",
+    "buoyancy-hard-03-q06.svg": "2648bc9892df4fa4df7e03dc98d1993233b53da2a648e8b970795a0c96d12c79",
+    "buoyancy-hard-03-q07.svg": "94e56b725631ba4f375f65ba127c5e5318328a5e0eda75bb787a3144b4c45870",
+    "buoyancy-hard-03-q08.svg": "45be2b17b934d2c2fc431a23bc9e05bf5a1cba373de5b7023f76278036df3682",
+    "buoyancy-hard-03-q09.svg": "eea8ecdc5ab85bc704a09ef111121a628550e80b71589fd9ba05ef96226f7ec9",
+    "buoyancy-hard-03-q11.svg": "b9c0676e70787a4d027aec858a895e93849c7dad99061352303aeeb5668f790a",
+    "buoyancy-hard-03-q13.svg": "01fec515e4892c6e52d12412c215a9a983156cebc71f1f4a65ee91e690236e11",
+    "buoyancy-hard-03-q14.svg": "40c60611bd6a6bc3070df7474fc75b28e90e5e46dc934162c1a78cf5c6be26c3",
+    "buoyancy-hard-03-q15.svg": "adcc30d908aca9418a8a30cf88fab115298be627b74df055f83b2ba3515b08e7"
+  },
+  "corrections": [
+    {
+      "id": "buoyancy-medium-02-q15",
+      "issue": "Anahtarın tahtaya bağlı kalıp kalmadığı belirsiz; gergin ip son dengeyi değiştirebilir.",
+      "stem": "Bir gölde yüzen tahta parçasının üzerinde küçük, yoğun bir metal anahtar bulunmaktadır. Anahtarın tahta ile bütün bağları kesilip anahtar gölün dibine bırakılıyor; anahtar tabanda duruyor. Başlangıçtaki tahta + anahtar durumuna göre su seviyesi nasıl değişir? (Su kaybı yok; metalin özkütlesi sudan büyük.)"
+    },
+    {
+      "id": "buoyancy-medium-03-q08",
+      "issue": "Kapatılmış hava boşluğuna su girişinin nasıl gerçekleştiği açıklanmamış.",
+      "stem": "Daha önce suda yüzen bir cismin içindeki hava boşluğu açılıyor, hava çıkarılarak boşluğa su dolduruluyor ve cisim yeniden kapatılıyor. Dış hacim değişmiyor; havanın kütlesi ihmal ediliyor. Bu işlem sonucunda hangi büyüklük değişir?"
+    },
+    {
+      "id": "buoyancy-hard-01-q09",
+      "issue": "Dış destekle tutulan cisimde toplam net kuvvet sıfır olabilir; destek kaldırılması belirtilmemiş.",
+      "stem": "g=10 N/kg iken ağırlığı 6 N olan, 0,5 L hacimli cisim, özkütlesi 1 kg/L olan sıvıda tamamen batıktır. Birinci deneyde g=10 N/kg, ikinci deneyde g=20 N/kg alınır. Her deneyde dış destek kaldırılıp cisim ilk hızsız serbest bırakıldığı anda net aşağı kuvvetin büyüklüğü sırasıyla kaç N olur? (Kütle ve hacim sabit; sıvı direnci ihmal.)"
+    },
+    {
+      "id": "buoyancy-hard-02-q07",
+      "issue": "Kapalı küreye su girişi ve yeniden kapatılması açık değil.",
+      "stem": "Suda yüzen plastik kürenin başlangıçtaki toplam kütlesi 600 g, dış hacmi 1 L’dir. İçindeki hava boşluğu açılıp hava çıkarılır, küreye 500 g su eklenir ve küre yeniden kapatılır. Dış hacim değişmiyor; havanın kütlesi ihmal ediliyor. Küre serbest bırakıldığında son durumda ne olur? (Suyun özkütlesi 1 kg/L.)"
+    },
+    {
+      "id": "buoyancy-hard-02-q11",
+      "issue": "Özkütle oranı için iki sıvıda da eşit batık hacim gerekli; tam batma koşulu eksik.",
+      "stem": "Aynı metal cisim dinamometreye asıldığında havada 60 N gösteriyor. Cisim önce suya, sonra bilinmeyen sıvıya tamamen batırılıp tabana değmeden dengede tutulduğunda dinamometre sırasıyla 42 N ve 36 N gösteriyor. Suyun özkütlesi 1 g/cm³ ise bilinmeyen sıvının özkütlesi kaç g/cm³’tür? (Havanın kaldırması ihmal.)"
+    },
+    {
+      "id": "buoyancy-hard-02-q14",
+      "issue": "Veriler standart TYT su modeli için 1,6 kg/L gerektiriyor; su adı fiziksel olarak uygun değil.",
+      "stem": "Aynı cisim K sıvısında 1 L, yağda 2 L batık hacimle her iki durumda da serbestçe yüzüyor. Yağın özkütlesi 0,8 kg/L ise K sıvısının özkütlesi kaç kg/L’dir? (Cismin kütlesi ve dış hacmi değişmiyor.)",
+      "solution": "İki sıvıda da kaldırma kuvveti aynı ağırlığa eşittir: ρ_K × 1 L = 0,8 kg/L × 2 L. Buradan ρ_K = 1,6 kg/L bulunur. K, özkütlesi bilinmeyen bir sıvıdır; saf su olduğu varsayılmaz."
+    },
+    {
+      "id": "buoyancy-hard-03-q04",
+      "issue": "A ve D seçenekleri aynı artış yargısını tekrarlıyor; çeldiriciler ayrıştırılmalı.",
+      "option": {
+        "key": "D",
+        "text": "Metal bilyenin dış hacmine eşit ek hacim yer değiştirdiği için yükselir."
+      }
+    }
+  ],
+  "diagramCorrections": [
+    {
+      "id": "buoyancy-medium-02-q11",
+      "issue": "Şemada metinde verilmeyen V=0,5 L ve taşma çıkışı var; tam batırılma gösterilmiyor.",
+      "alt": "Elle tamamen suya batırılan 100 g oyuncak; el kuvveti aşağı yönlüdür. Şema ölçekli değildir."
+    },
+    {
+      "id": "buoyancy-medium-03-q04",
+      "issue": "Yatay eksen V / derinlik olarak iki farklı nicelikle adlandırılmış.",
+      "alt": "Kaldırma kuvveti, dik prizmanın batırma derinliğiyle önce doğrusal artar, tam batınca sabit kalır. Şema ölçekli değildir."
+    },
+    {
+      "id": "buoyancy-medium-03-q10",
+      "issue": "Hacim-kuvvet deneyinin yatay ekseninde derinlik etiketi de var.",
+      "alt": "Batık hacim ile kaldırma kuvveti doğrusal ilişkilidir: 1 L için 8 N, 3 L için 24 N. Şema ölçekli değildir."
+    },
+    {
+      "id": "buoyancy-hard-01-q14",
+      "issue": "Batık yükseklik ve batırma derinliği karışmış; batık yüksekliğe karşı grafikte plato uygun değil.",
+      "alt": "Kaldırma kuvveti ile batık yükseklik h doğrusal ilişkilidir; yükseklik azalınca kuvvet de azalır. Şema ölçekli değildir."
+    },
+    {
+      "id": "buoyancy-easy-01-q11",
+      "issue": "Tam batırılan cisim taşma şemasında kısmen batık gösterilmiş.",
+      "alt": "Taşma seviyesindeki kapta tamamen batık cisim ve taşma çıkışı. Şema ölçekli değildir."
+    },
+    {
+      "id": "buoyancy-easy-03-q05",
+      "issue": "Kısmen batık taş tamamen batık çizilmiş.",
+      "alt": "Dinamometreye asılı, henüz kısmen batık taş. Şema ölçekli değildir."
+    },
+    {
+      "id": "buoyancy-easy-03-q07",
+      "issue": "Tam batık 500 cm³ cisim kısmen batık çizilmiş.",
+      "alt": "500 cm³ hacimli cisim taşma kabında tamamen batık. Şema ölçekli değildir."
+    },
+    {
+      "id": "buoyancy-medium-01-q05",
+      "issue": "Yarısı batık ve ipe asılı başlangıç durumu tamamen batık ve ipsiz gösterilmiş.",
+      "alt": "G=18 N, T=12 N olan cisim dinamometrede, hacminin yarısı sıvıda. Şema ölçekli değildir."
+    },
+    {
+      "id": "buoyancy-medium-01-q14",
+      "issue": "Öğrencinin el kuvveti yerine tabana bağlı ip çizilmiş.",
+      "alt": "Yüzen top elle aşağı bastırılarak tamamen su altında dengede tutuluyor. Şema ölçekli değildir."
+    },
+    {
+      "id": "buoyancy-medium-02-q03",
+      "issue": "Dibe batan yoğun cisim su yüzeyinde çizilmiş.",
+      "alt": "200 g, 100 cm³ cisim taşma kabının tabanında; taşma çıkışı gösteriliyor. Şema ölçekli değildir."
+    },
+    {
+      "id": "buoyancy-medium-02-q05",
+      "issue": "Tekneden bırakılan yüzen tahta son durumda tabanda çizilmiş.",
+      "alt": "Tahta önce teknenin içinde; bırakıldıktan sonra su yüzeyinde yüzüyor. Şema ölçekli değildir."
+    },
+    {
+      "id": "buoyancy-medium-02-q08",
+      "issue": "İki ayrı deneyin yüzme ve batma durumları tek yüzen cisimle gösterilmiş.",
+      "alt": "K ayrı deneyde yüzüyor, L ayrı deneyde tabanda; her ikisinin dış hacmi 1 L. Şema ölçekli değildir."
+    },
+    {
+      "id": "buoyancy-medium-03-q01",
+      "issue": "Soru hangi cismin yüzeceğini sorarken şema son dengeyi gösterip cevabı açıklıyor.",
+      "alt": "Serbest bırakılmadan önce eşit hacimli K, L, M blokları sıvının üzerinde; kütleleri 100, 150, 200 g. Şema ölçekli değildir."
+    },
+    {
+      "id": "buoyancy-hard-01-q04",
+      "issue": "Teknede başlayan ve tabana batan yoğun metal yüzeyde yüzen blok olarak çizilmiş.",
+      "alt": "6 kg, 2 L metal önce teknede, sonra suyun tabanında; tekne her iki durumda yüzüyor. Şema ölçekli değildir."
+    },
+    {
+      "id": "buoyancy-hard-02-q07",
+      "issue": "Su ekleme etiketiyle hâlâ yüzen şema son durumla karışıyor; başlangıç ayrı belirtilmeli.",
+      "alt": "Su eklenmeden önce başlangıçta yüzen 600 g, 1 L plastik küre. Şema ölçekli değildir."
+    },
+    {
+      "id": "buoyancy-hard-02-q09",
+      "issue": "Yüzücünün aşağı bastırma kuvveti yerine tabana bağlı ip gösterilmiş.",
+      "alt": "5 L, 3 kg tahta elle tamamen su altında tutuluyor; el kuvveti aşağı yönlü. Şema ölçekli değildir."
+    },
+    {
+      "id": "buoyancy-hard-03-q04",
+      "issue": "Deney tüpü yerine tekne ve içindeki bilye yerine dışarıdaki yük çizilmiş.",
+      "alt": "Yüzen deney tüpünün içindeki metal bilye, sonraki durumda çıkarılıp su tabanına bırakılıyor. Şema ölçekli değildir."
+    }
+  ],
+  "reviewScope": "All 135 stems, answer choices and solutions manually checked; quantitative examples independently recalculated. Original import is untouched. Local editorial draft, not a production publication."
+}
